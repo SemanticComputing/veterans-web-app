@@ -47,7 +47,7 @@ import {
   fetchKnowledgeGraphMetadata
 } from '../actions'
 import { filterResults } from '../selectors'
-import { perspectiveConfig } from '../configs/sampo/PerspectiveConfig'
+import { perspectiveConfig } from '../configs/veterans/PerspectiveConfig'
 import { perspectiveConfigOnlyInfoPages } from '../configs/sampo/PerspectiveConfigOnlyInfoPages'
 import { rootUrl, layoutConfig } from '../configs/sampo/GeneralConfig'
 
@@ -75,7 +75,8 @@ const FacetBar = lazy(() => import('../components/facet_bar/FacetBar'))
 const portalID = 'sampo'
 const TopBar = lazy(() => import('../components/perspectives/' + portalID + '/TopBar'))
 const Main = lazy(() => import('../components/perspectives/' + portalID + '/Main'))
-const FacetedSearchPerspective = lazy(() => import('../components/perspectives/' + portalID + '/FacetedSearchPerspective'))
+//const FacetedSearchPerspective = lazy(() => import('../components/perspectives/' + portalID + '/FacetedSearchPerspective'))
+const FacetedSearchPerspective = lazy(() => import('../components/perspectives/veterans/FacetedSearchPerspective'))
 const FullTextSearch = lazy(() => import('../components/perspectives/' + portalID + '/FullTextSearch'))
 const ClientFSPerspective = lazy(() => import('../components/perspectives/' + portalID + '/client_fs/ClientFSPerspective'))
 const ClientFSMain = lazy(() => import('../components/perspectives/' + portalID + '/client_fs/ClientFSMain'))
@@ -623,6 +624,9 @@ const SemanticPortal = props => {
 const mapStateToProps = state => {
   const { clientFSResults, clientFSFacetValues } = filterResults(state.clientSideFacetedSearch)
   return {
+    videos: state.videos,
+    videosFacets: state.videosFacets,
+    videosFacetsConstrainSelf: state.videosFacetsConstrainSelf,
     perspective1: state.perspective1,
     perspective1Facets: state.perspective1Facets,
     perspective1FacetsConstrainSelf: state.perspective1FacetsConstrainSelf,
@@ -699,6 +703,14 @@ SemanticPortal.propTypes = {
    * Errors shown with react-redux-toastr.
    */
   error: PropTypes.object.isRequired,
+  /**
+   * Faceted search configs and results of 'videos'.
+   */
+  videos: PropTypes.object.isRequired,
+  /**
+   * Facet configs and values of 'videos'.
+   */
+  videosFacets: PropTypes.object.isRequired,
   /**
    * Faceted search configs and results of 'Perspective 1'.
    */

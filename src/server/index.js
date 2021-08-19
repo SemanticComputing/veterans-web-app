@@ -1,4 +1,4 @@
-import { backendSearchConfig } from './sparql/sampo/BackendSearchConfig'
+import { backendSearchConfig } from './sparql/veterans/BackendSearchConfig'
 import fs from 'fs'
 import express from 'express'
 import path from 'path'
@@ -147,6 +147,7 @@ new OpenApiValidator({
 
     app.post(`${apiPath}/faceted-search/:resultClass/count`, async (req, res, next) => {
       const { params, body } = req
+      //console.log(params)
       try {
         const data = await getResultCount({
           backendSearchConfig,
