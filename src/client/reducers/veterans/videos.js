@@ -59,6 +59,15 @@ export const INITIAL_STATE = {
       minWidth: 200
     },
     {
+      id: 'length',
+      valueType: 'string',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 180
+    },
+    {
       id: 'placeOfInterview',
       valueType: 'string',
       makeLink: false,
@@ -71,6 +80,15 @@ export const INITIAL_STATE = {
       id: 'keyword',
       valueType: 'object',
       makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'content',
+      valueType: 'object',
+      makeLink: false,
       externalLink: true,
       sortValues: true,
       numberedList: false,

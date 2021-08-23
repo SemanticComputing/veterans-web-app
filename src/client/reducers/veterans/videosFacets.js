@@ -5,23 +5,23 @@ export const INITIAL_STATE = {
   facetUpdateID: 0,
   updatedFilter: null,
   facets: {
-    // prefLabel: {
-    //   id: 'prefLabel',
-    //   // predicate: defined in backend
-    //   distinctValueCount: 0,
-    //   values: [],
-    //   flatValues: [],
-    //   sortBy: null,
-    //   sortDirection: null,
-    //   sortButton: false,
-    //   spatialFilterButton: false,
-    //   isFetching: false,
-    //   searchField: false,
-    //   containerClass: 'one',
-    //   filterType: 'textFilter',
-    //   textFilter: null,
-    //   priority: 1
-    // },
+    freeText: {
+      id: 'freeText',
+      // predicate: defined in backend
+      distinctValueCount: 0,
+      values: [],
+      flatValues: [],
+      sortBy: null,
+      sortDirection: null,
+      sortButton: false,
+      spatialFilterButton: false,
+      isFetching: false,
+      searchField: false,
+      containerClass: 'one',
+      filterType: 'textFilter',
+      textFilter: null,
+      priority: 1
+    },
     familyName: {
       id: 'familyName',
       // predicate: defined in backend

@@ -30,6 +30,11 @@ export const manuscriptPropertiesFacetResults =
         ?keyword__id skos:prefLabel ?keyword__prefLabel .
         ?keyword__id :uri ?keyword__dataProviderUrl .
       }
+      UNION
+      {
+        ?id :structured_content/:text_slice/:text_content ?content__id .
+        BIND (?content__id AS ?content__prefLabel )
+      }
 `
 
 export const collectionProperties =

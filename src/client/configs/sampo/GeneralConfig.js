@@ -1,4 +1,4 @@
-import bannerImage from '../../img/main_page/mmm-banner.jpg'
+import bannerImage from '../../img/main_page/veterans-banner.jpg'
 
 export const rootUrl = ''
 

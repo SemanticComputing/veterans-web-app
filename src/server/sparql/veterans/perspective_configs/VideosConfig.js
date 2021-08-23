@@ -31,6 +31,13 @@ export const videosConfig = {
       textQueryProperty: 'skos:prefLabel', // limit only to prefLabels
       type: 'text'
     },
+    freeText: {
+      id: 'freeText',
+      labelPath: 'skos:prefLabel',
+      textQueryPredicate: '', // empty for querying the facetClass
+      textQueryProperty: 'skos:prefLabel', // limit only to prefLabels
+      type: 'text'
+    },
     keyword: {
       id: 'keyword',
       facetValueFilter: '',
@@ -52,6 +59,6 @@ export const videosConfig = {
       predicate: ':interviewed_person/foaf:familyName',
       type: 'list',
       literal: true
-    }
+    },
   }
 }
