@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import aaltoLogo from '../../../img/logos/Aalto_SCI_EN_13_BLACK_2_cropped.png'
 import hyLogo from '../../../img/logos/university-of-helsinki-logo-transparent-black.png'
 import heldigLogo from '../../../img/logos/heldig-logo-transparent-black.png'
+import kaLogo from '../../../img/logos/ka-tunnus-fi.png'
+import tammenlehvaLogo from '../../../img/logos/tammenlehva.jpg'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -101,6 +103,16 @@ const Footer = props => {
           <Grid item xs className={classes.gridItem}>
             <a className={classes.link} href='https://www.helsinki.fi/en/helsinki-centre-for-digital-humanities' target='_blank' rel='noopener noreferrer'>
               <img className={classes.heldigLogo} src={heldigLogo} alt='Helsinki Centre for Digital Humanities logo' />
+            </a>
+          </Grid>
+          <Grid item xs className={classes.gridItem}>
+            <a className={classes.link} href='https://arkisto.fi/' target='_blank' rel='noopener noreferrer'>
+              <img className={classes.heldigLogo} src={kaLogo} alt='National Archives of Finland logo' />
+            </a>
+          </Grid>
+          <Grid item xs className={classes.gridItem}>
+            <a className={classes.link} href='https://tammenlehva.fi/' target='_blank' rel='noopener noreferrer'>
+              <img className={classes.heldigLogo} src={tammenlehvaLogo} alt='Tammenlehvän Perinneliitto logo' />
             </a>
           </Grid>
         </Grid>
