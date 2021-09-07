@@ -627,6 +627,9 @@ const mapStateToProps = state => {
     videos: state.videos,
     videosFacets: state.videosFacets,
     videosFacetsConstrainSelf: state.videosFacetsConstrainSelf,
+    clips: state.clips,
+    clipsFacets: state.clipsFacets,
+    clipssFacetsConstrainSelf: state.clipsFacetsConstrainSelf,
     perspective1: state.perspective1,
     perspective1Facets: state.perspective1Facets,
     perspective1FacetsConstrainSelf: state.perspective1FacetsConstrainSelf,
@@ -711,6 +714,14 @@ SemanticPortal.propTypes = {
    * Facet configs and values of 'videos'.
    */
   videosFacets: PropTypes.object.isRequired,
+  /**
+   * Faceted search configs and results of 'clips'.
+   */
+  clips: PropTypes.object.isRequired,
+  /**
+   * Facet configs and values of 'clips'.
+   */
+  clipsFacets: PropTypes.object.isRequired,
   /**
    * Faceted search configs and results of 'Perspective 1'.
    */

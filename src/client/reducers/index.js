@@ -28,6 +28,12 @@ import perspective1Facets from './sampo/perspective1Facets'
 import videosFacets from './veterans/videosFacets'
 import videos from './veterans/videos'
 import videosFacetsConstrainSelf from './veterans/videosFacetsConstrainSelf'
+
+import clipsFacets from './veterans/clipsFacets'
+import clips from './veterans/clips'
+import clipsFacetsConstrainSelf from './veterans/clipsFacetsConstrainSelf'
+
+
 import perspective1FacetsConstrainSelf from './sampo/perspective1FacetsConstrainSelf'
 import perspective2Facets from './sampo/perspective2Facets'
 import perspective2FacetsConstrainSelf from './sampo/perspective2FacetsConstrainSelf'
@@ -38,6 +44,9 @@ const reducer = combineReducers({
   videos,
   videosFacets,
   videosFacetsConstrainSelf,
+  clips,
+  clipsFacets,
+  clipsFacetsConstrainSelf,
   perspective1,
   perspective2,
   perspective3,

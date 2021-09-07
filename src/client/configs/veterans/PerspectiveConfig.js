@@ -40,7 +40,7 @@ export const perspectiveConfig = [
     ]
   },
   {
-    id: 'excerpts',
+    id: 'clips',
     frontPageImage: excerptsImage,
     defaultActiveFacets: new Set([]),
     defaultTab: 'table',

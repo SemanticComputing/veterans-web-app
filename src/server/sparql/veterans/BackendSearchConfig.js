@@ -1,4 +1,5 @@
 import { videosConfig } from './perspective_configs/VideosConfig'
+import { clipsConfig } from './perspective_configs/ClipsConfig'
 import {
   productionPlacesQuery,
   lastKnownLocationsQuery,
@@ -26,6 +27,7 @@ import {
 
 export const backendSearchConfig = {
   videos: videosConfig,
+  clips: videosConfig,
   jenaText: {
     perspectiveID: 'perspective1',
     properties: fullTextSearchProperties
