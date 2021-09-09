@@ -1,16 +1,16 @@
-const perspectiveID = 'videos'
+const perspectiveID = 'clips'
 
-export const manuscriptPropertiesInstancePage =
-`
+export const clipPropertiesInstancePage =
+`   {
       ?id skos:prefLabel ?prefLabel__id .
       BIND (?prefLabel__id as ?prefLabel__prefLabel)
       BIND(?id as ?uri__id)
       BIND(?id as ?uri__dataProviderUrl)
       BIND(?id as ?uri__prefLabel)
-
+    }
 `
 
-export const manuscriptPropertiesFacetResults =
+export const clipPropertiesFacetResults =
   `#?id :interviewed_person/foaf:familyName ?familyName .
    #?id :interviewed_person/foaf:givenName ?givenName .
    #BIND (CONCAT(?familyName, ', ') AS ?labelBeginning)

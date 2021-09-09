@@ -8,7 +8,7 @@ export const INITIAL_STATE = {
   paginatedResultsSparqlQuery: null,
   resultCount: 0,
   page: -1,
-  pagesize: 10,
+  pagesize: 25,
   sortBy: null,
   sortDirection: null,
   fetching: false,
@@ -58,15 +58,15 @@ export const INITIAL_STATE = {
       numberedList: false,
       minWidth: 200
     },
-    // {
-    //   id: 'length',
-    //   valueType: 'string',
-    //   makeLink: false,
-    //   externalLink: false,
-    //   sortValues: true,
-    //   numberedList: false,
-    //   minWidth: 180
-    // },
+    {
+      id: 'length',
+      valueType: 'string',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 180
+    },
     {
       id: 'placeOfInterview',
       valueType: 'string',

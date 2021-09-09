@@ -80,7 +80,8 @@ const FacetedSearchPerspective = lazy(() => import('../components/perspectives/v
 const FullTextSearch = lazy(() => import('../components/perspectives/' + portalID + '/FullTextSearch'))
 const ClientFSPerspective = lazy(() => import('../components/perspectives/' + portalID + '/client_fs/ClientFSPerspective'))
 const ClientFSMain = lazy(() => import('../components/perspectives/' + portalID + '/client_fs/ClientFSMain'))
-const InstanceHomePage = lazy(() => import('../components/perspectives/' + portalID + '/InstanceHomePage'))
+//const InstanceHomePage = lazy(() => import('../components/perspectives/' + portalID + '/InstanceHomePage'))
+const InstanceHomePage = lazy(() => import('../components/perspectives/veterans/InstanceHomePage'))
 const Footer = lazy(() => import('../components/perspectives/' + portalID + '/Footer'))
 const KnowledgeGraphMetadataTable = lazy(() => import('../components/perspectives/' + portalID + '/KnowledgeGraphMetadataTable'))
 // ** Portal specific components and configs end **
