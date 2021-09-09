@@ -6,7 +6,8 @@ import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
 
 export const videosConfig = {
   endpoint: {
-    url: 'http://localhost:3047/ds/sparql',
+    //url: 'http://localhost:3047/ds/sparql',
+    url: 'https://ldf.fi/veterans/sparql',
     prefixes,
     useAuth: false
   },

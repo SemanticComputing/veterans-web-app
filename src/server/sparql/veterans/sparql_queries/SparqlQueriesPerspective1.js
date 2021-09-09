@@ -11,10 +11,11 @@ export const manuscriptPropertiesInstancePage =
 `
 
 export const manuscriptPropertiesFacetResults =
-  `?id :interviewed_person/foaf:familyName ?familyName .
-   ?id :interviewed_person/foaf:givenName ?givenName .
-   BIND (CONCAT(?familyName, ', ') AS ?labelBeginning)
-   BIND (CONCAT(?labelBeginning, ?givenName) AS ?prefLabel__id)
+  `#?id :interviewed_person/foaf:familyName ?familyName .
+   #?id :interviewed_person/foaf:givenName ?givenName .
+   #BIND (CONCAT(?familyName, ', ') AS ?labelBeginning)
+   #BIND (CONCAT(?labelBeginning, ?givenName) AS ?prefLabel__id)
+   ?id skos:prefLabel ?prefLabel__id .
    BIND (?prefLabel__id as ?prefLabel__prefLabel)
    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
       {
