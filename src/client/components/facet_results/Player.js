@@ -6,11 +6,11 @@ const Player = ( props ) => (
     <iframe
       width="853"
       height="480"
-      src={`https://www.youtube.com/embed/fF-QjbgoJ8k`}
+      src={`https://www.youtube.com/embed/g-f7-SWrDdY`}
       fr
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
-      title="INterview"
+      title="Interview"
     />
   </div>
 );
