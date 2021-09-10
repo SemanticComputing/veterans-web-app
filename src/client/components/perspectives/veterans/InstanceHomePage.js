@@ -7,6 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import purple from '@material-ui/core/colors/purple'
 import PerspectiveTabs from '../../main_layout/PerspectiveTabs'
 import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
+import Player from '../../facet_results/Player'
 // import Network from '../../facet_results/Network'
 // import ApexChart from '../../facet_results/ApexChart'
 // import Export from '../../facet_results/Export'
@@ -158,13 +159,19 @@ class InstanceHomePage extends React.Component {
               <Route
                 path={[`${rootUrl}/${resultClass}/page/${this.state.localID}/table`, '/iframe.html']} // support also rendering in Storybook
                 render={() =>
-                  <InstanceHomePageTable
-                    resultClass={resultClass}
-                    data={instanceTableData}
-                    properties={this.getVisibleRows(perspectiveState.properties)}
-                    screenSize={screenSize}
-                    layoutConfig={layoutConfig}
-                  />}
+                  <React.Fragment>
+                    <Player
+                      resultClass={resultClass}
+                      props={perspectiveState.properties}
+                      />
+                    <InstanceHomePageTable
+                      resultClass={resultClass}
+                      data={instanceTableData}
+                      properties={this.getVisibleRows(perspectiveState.properties)}
+                      screenSize={screenSize}
+                      layoutConfig={layoutConfig}
+                    />
+                  </React.Fragment>}
               />
               <Route
                 path={`${rootUrl}/${resultClass}/page/${this.state.localID}/network`}
