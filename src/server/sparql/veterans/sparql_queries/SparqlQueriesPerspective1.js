@@ -7,7 +7,24 @@ export const manuscriptPropertiesInstancePage =
       BIND(?id as ?uri__id)
       BIND(?id as ?uri__dataProviderUrl)
       BIND(?id as ?uri__prefLabel)
-
+      {
+        ?id :full_text ?content__id .
+        BIND (?content__id AS ?content__prefLabel )
+      }
+      UNION
+      {
+        ?id :place_of_interview ?placeOfInterview .
+      }
+      UNION
+      {
+        ?id :structured_content/:text_slice/:named_entity/:base_form ?namedEntity__id .
+        BIND (?namedEntity__id AS ?namedEntity__prefLabel )
+      }
+      UNION
+      {
+        ?id :structured_content/:text_slice/:named_entity/:base_form ?namedEntity__id .
+        BIND (?namedEntity__id AS ?namedEntity__prefLabel )
+      }
 `
 
 export const manuscriptPropertiesFacetResults =
@@ -36,6 +53,14 @@ export const manuscriptPropertiesFacetResults =
         ?id :structured_content/:text_slice/:text_content ?content__id .
         BIND (?content__id AS ?content__prefLabel )
       }
+      UNION
+      {
+        ?id :structured_content/:text_slice/:named_entity/:base_form ?namedEntity__id .
+        BIND (?namedEntity__id AS ?namedEntity__prefLabel )
+      }
+
+
+
 `
 
 export const collectionProperties =

@@ -47,6 +47,14 @@ export const videosConfig = {
       predicate: ':keywords',
       type: 'list'
     },
+    namedEntity: {
+      id: 'namedEntity',
+      facetValueFilter: '',
+      label: 'named entity',
+      labelPath: ':structured_content/:text_slice/:named_entity/:base_form',
+      predicate: ':structured_content/:text_slice/:named_entity',
+      type: 'list',
+    },
     length: {
       labelPath: ':length',
     },
