@@ -43,16 +43,16 @@ export const videosConfig = {
       id: 'keyword',
       facetValueFilter: '',
       label: 'keyword',
-      labelPath: ':keywords/skos:prefLabel',
-      predicate: ':keywords',
+      labelPath: ':keyword/skos:prefLabel',
+      predicate: ':keyword',
       type: 'list'
     },
     namedEntity: {
       id: 'namedEntity',
       facetValueFilter: '',
       label: 'named entity',
-      labelPath: ':structured_content/:text_slice/:named_entity/:base_form',
-      predicate: ':structured_content/:text_slice/:named_entity',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
       type: 'list',
     },
     length: {
