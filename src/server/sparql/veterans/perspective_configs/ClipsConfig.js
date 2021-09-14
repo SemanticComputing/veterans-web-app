@@ -64,8 +64,8 @@ export const clipsConfig = {
     name: {
       id: 'name',
       facetValueFilter: '',
-      labelPath: ':interviewed_person/skos:prefLabel',
-      predicate: ':interviewed_person/skos:prefLabel',
+      labelPath: '^:structured_content/:interviewed_person/skos:prefLabel',
+      predicate: '^:structured_content/:interviewed_person/skos:prefLabel',
       type: 'list',
       literal: true
     },
