@@ -22,8 +22,8 @@ export const INITIAL_STATE = {
       textFilter: null,
       priority: 1
     },
-    familyName: {
-      id: 'familyName',
+    name: {
+      id: 'name',
       // predicate: defined in backend
       distinctValueCount: 0,
       values: [],

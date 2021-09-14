@@ -27,7 +27,7 @@ import {
 
 export const backendSearchConfig = {
   videos: videosConfig,
-  clips: videosConfig,
+  clips: clipsConfig,
   jenaText: {
     perspectiveID: 'perspective1',
     properties: fullTextSearchProperties

@@ -61,11 +61,11 @@ export const videosConfig = {
     placeOfInterview: {
       labelPath: ':place_of_interview',
     },
-    familyName: {
-      id: 'familyName',
+    name: {
+      id: 'name',
       facetValueFilter: '',
-      labelPath: ':interviewed_person/foaf:familyName',
-      predicate: ':interviewed_person/foaf:familyName',
+      labelPath: ':interviewed_person/skos:prefLabel',
+      predicate: ':interviewed_person/skos:prefLabel',
       type: 'list',
       literal: true
     },

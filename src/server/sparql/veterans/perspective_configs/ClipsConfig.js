@@ -1,26 +1,26 @@
 import {
-  manuscriptPropertiesFacetResults,
-  manuscriptPropertiesInstancePage
-} from '../sparql_queries/SparqlQueriesPerspective1'
+  clipPropertiesInstancePage,
+  clipPropertiesFacetResults
+} from '../sparql_queries/SparqlQueriesClips'
 import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
 
-export const ClipsConfig = {
+export const clipsConfig = {
   endpoint: {
     //url: 'http://localhost:3047/ds/sparql',
     url: 'https://ldf.fi/veterans/sparql',
     prefixes,
     useAuth: false
   },
-  facetClass: ':Interview',
+  facetClass: ':TimeSlice',
   includeInSitemap: true,
   // defaultConstraint: `
   //   <SUBJECT> dct:source mmm-schema:Bibale .
   // `,
   paginatedResults: {
-    properties: manuscriptPropertiesFacetResults
+    properties: clipPropertiesFacetResults
   },
   instance: {
-    properties: manuscriptPropertiesInstancePage,
+    properties: clipPropertiesInstancePage,
     relatedInstances: '',
     defaultTab: 'table'
   },
@@ -47,17 +47,25 @@ export const ClipsConfig = {
       predicate: ':keywords',
       type: 'list'
     },
+    namedEntity: {
+      id: 'namedEntity',
+      facetValueFilter: '',
+      label: 'named entity',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list',
+    },
     length: {
       labelPath: ':length',
     },
     placeOfInterview: {
       labelPath: ':place_of_interview',
     },
-    familyName: {
-      id: 'familyName',
+    name: {
+      id: 'name',
       facetValueFilter: '',
-      labelPath: ':interviewed_person/foaf:familyName',
-      predicate: ':interviewed_person/foaf:familyName',
+      labelPath: ':interviewed_person/skos:prefLabel',
+      predicate: ':interviewed_person/skos:prefLabel',
       type: 'list',
       literal: true
     },
