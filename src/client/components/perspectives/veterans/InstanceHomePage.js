@@ -162,7 +162,7 @@ class InstanceHomePage extends React.Component {
                   <React.Fragment>
                     <Player
                       resultClass={resultClass}
-                      props={perspectiveState.properties}
+                      data={instanceTableData}
                       />
                     <InstanceHomePageTable
                       resultClass={resultClass}

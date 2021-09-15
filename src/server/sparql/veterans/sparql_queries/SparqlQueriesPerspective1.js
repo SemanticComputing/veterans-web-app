@@ -25,6 +25,10 @@ export const manuscriptPropertiesInstancePage =
         ?id :structured_content/:text_slice/:named_entity/:base_form ?namedEntity__id .
         BIND (?namedEntity__id AS ?namedEntity__prefLabel )
       }
+      UNION
+      {
+        ?id :video_link ?videoLink .
+      }
 `
 
 export const manuscriptPropertiesFacetResults =
@@ -58,8 +62,6 @@ export const manuscriptPropertiesFacetResults =
         ?id :structured_content/:text_slice/:named_entity/:base_form ?namedEntity__id .
         BIND (?namedEntity__id AS ?namedEntity__prefLabel )
       }
-
-
 
 `
 
