@@ -11,6 +11,18 @@ export const clipPropertiesInstancePage =
       BIND(?id as ?uri__dataProviderUrl)
       BIND(?id as ?uri__prefLabel)
     }
+    UNION
+    {
+      ?id :keyword ?keyword__id .
+      ?keyword__id skos:prefLabel ?keyword__prefLabel .
+      ?keyword__id :uri ?keyword__dataProviderUrl .
+    }
+    UNION
+    {
+      ?id :named_entity ?namedEntity__id .
+      ?namedEntity__id skos:prefLabel ?namedEntity__prefLabel .
+      ?namedEntity__id :uri ?namedEntity__dataProviderUrl .
+    }
 `
 
 export const clipPropertiesFacetResults =
@@ -26,9 +38,14 @@ export const clipPropertiesFacetResults =
       }
       UNION
       {
-        ?id :keywords ?keyword__id .
+        ?id :keyword ?keyword__id .
         ?keyword__id skos:prefLabel ?keyword__prefLabel .
         ?keyword__id :uri ?keyword__dataProviderUrl .
+      }
+      UNION
+      {
+        ?id :named_entity ?namedEntity__id .
+        ?namedEntity__id skos:prefLabel ?namedEntity__prefLabel .
       }
       UNION
       {
