@@ -1,1188 +1,256 @@
 {
   "languageLabel": "Suomi",
   "html": {
-    "title": "Sampo-UI – A framework for building user interfaces for semantic portals",
-    "description": ""
+    "title": "Veteraanihaastattelut",
+    "description": "Veteraanihaastattelut"
   },
   "appTitle": {
-    "short": "",
-    "long": "",
-    "subheading": ""
+    "short": "Veteraanihaastattelut",
+    "mobile": "Veteraanihaastattelut",
+    "long": "&nbsp; &nbsp; Veteraanihaastattelut &nbsp; &nbsp;",
+    "subheading": "Veteraanihaastattelut"
   },
-  "appDescription": "",
-  "appDescription1": "",
-  "appDescription2": "",
-  "appDescription3": "",
-  "appDescription4": "",
-  "selectPerspective": "",
-  "mainPageImageLicence": "",
-  "backendErrorText": "",
+  "appDescription1": "Veteraanihaastattelut",
+  "appDescription2": "Veteraanihaastattelut",
+  "selectPerspective": "Valitse hakukohde:",
+  "mainPageImageLicence": "Kuvien lähde: SA-kuva",
+  "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
   "topBar": {
-    "feedback": "",
+    "feedback": "Palaute",
     "info": {
-      "info": "",
-      "blog": "",
-      "blogUrl": "",
-      "aboutThePortal": ""
+      "info": "Info",
+      "blog": "Project blog",
+      "blogUrl": "https://seco.cs.aalto.fi",
+      "aboutThePortal": "Tietoa portaalista"
     },
-    "searchBarPlaceHolder": "",
-    "searchBarPlaceHolderShort": "",
-    "instructions": ""
+    "searchBarPlaceHolder": "Search all content",
+    "searchBarPlaceHolderShort": "Search",
+    "instructions": "ohjeet"
   },
   "facetBar": {
-    "results": "",
-    "activeFilters": "",
-    "removeAllFilters": "",
-    "narrowDownBy": "",
-    "filterOptions": "",
-    "filterByName": "",
-    "filterByBoundingBox": "",
-    "selectionOptions": "",
-    "selectAlsoSubconcepts": "",
-    "doNotSelectSubconcepts": "",
-    "sortingOptions": "",
-    "sortAlphabetically": "",
-    "sortByNumberOfSearchResults": "",
-    "useDisjunction": "",
-    "useConjuction": "",
-    "minYear": "",
-    "maxYear": "",
-    "min": "",
-    "max": "",
-    "facetSearchFieldPlaceholder": "",
-    "applyFacetSelection": "",
+    "results": "Tulokset",
+    "filters": "Suodattimet",
+    "activeFilters": "Aktiiviset suodattimet:",
+    "removeAllFilters": "Poista valinnat",
+    "narrowDownBy": "Rajaa",
+    "filterOptions": "Suodattimen valinnat",
+    "filterByName": "Filter by name",
+    "filterByBoundingBox": "Filter by bounding box",
+    "selectionOptions": "Selection options",
+    "selectAlsoSubconcepts": "Automatically select all subconcepts",
+    "doNotSelectSubconcepts": "Do not select subconcepts",
+    "sortingOptions": "Järjestämisen valinnat",
+    "sortAlphabetically": "Järjestä aakkosten mukaan",
+    "sortByNumberOfSearchResults": "Järjestä tuosten määrän mukaan",
+    "useDisjunction": "Use logical OR between selections",
+    "useConjuction": "Use logical AND between selections",
+    "minYear": "Min year",
+    "maxYear": "Max year",
+    "min": "Min",
+    "max": "Max",
+    "facetSearchFieldPlaceholder": "Hae...",
+    "applyFacetSelection": "käytä",
     "pieChart": {
-      "tooltip": ""
+      "tooltip": "Pie chart"
     },
     "barChart": {
-      "tooltip": "",
+      "tooltip": "Bar chart",
       "language": {
-        "title": "",
-        "xaxisTitle": "",
-        "yaxisTitle": "",
-        "seriesTitle": ""
+        "title": "Language",
+        "xaxisTitle": "Language",
+        "yaxisTitle": "Manuscript count",
+        "seriesTitle": "Manuscript count"
       }
     },
     "lineChart": {
-      "tooltip": "",
+      "tooltip": "Line chart",
       "productionTimespan": {
-        "title": "",
-        "xaxisTitle": "",
-        "yaxisTitle": "",
-        "seriesTitle": ""
+        "title": "Manuscript production by decade",
+        "xaxisTitle": "Decade",
+        "yaxisTitle": "Manuscript count",
+        "seriesTitle": "Manuscript count"
       }
     }
   },
   "tabs": {
-    "table": "",
-    "map": "",
-    "production_places": "",
-    "production_places_heatmap": "",
-    "last_known_locations": "",
-    "migrations": "",
-    "network": "",
-    "export": "",
-    "production_dates": "",
-    "event_dates": "",
-    "map_clusters": "",
-    "map_markers": "",
-    "heatmap": "",
-    "statistics": "",
-    "emloLetterNetwork": "",
-    "emloSentReceived": "",
-    "download": "",
-    "recommendations": ""
+    "table": "taulukko",
+    "map": "kartta"
   },
   "table": {
-    "rowsPerPage": "",
-    "of": ""
+    "rowsPerPage": "Riviä sivulla",
+    "of": "of"
   },
-  "lineChart": {
-    "productionCount": "",
-    "transferCount": "",
-    "observationCount": "",
-    "sentCount": "",
-    "receivedCount": "",
-    "allCount": ""
-  },
-  "exportToYasgui": "",
-  "openInLinkedDataBrowser": "",
-  "resultsAsCSV": "",
+  "exportToYasgui": "open the result table query in yasgui sparql editor",
+  "openInLinkedDataBrowser": "open in linked data browser",
+  "resultsAsCSV": "download the search results as a CSV table",
   "facets": {
     "dateFacet": {
-      "invalidDate": "",
-      "toBeforeFrom": "",
-      "minDate": "",
-      "maxDate": "",
-      "cancel": "",
-      "fromLabel": "",
-      "toLabel": ""
+      "invalidDate": "Epäkelpo päivämäärä.",
+      "toBeforeFrom": "Alkupäivämäärän täytyy olla ennen loppupäivämäärää.",
+      "minDate": "Aikaisin sallittu päivämäärä on {minDate}",
+      "maxDate": "Myöhäisin sallittu päivämäärä on {maxDate}",
+      "cancel": "Peruuta",
+      "fromLabel": "Alku",
+      "toLabel": "Loppu"
     },
     "textFacet": {
-      "inputLabel": ""
+      "inputLabel": "Etsi nimellä"
     },
     "sliderFacet": {
-      "invalidStartOrEnd": ""
+      "invalidStartOrEnd": "Min value must be smaller than max value. The smallest value can be {min} and the largest value can be {max}."
     }
   },
   "leafletMap": {
     "basemaps": {
       "mapbox": {
-        "light-v10": ""
+        "light-v10": "Mapbox Light (OpenStreetMap)"
       },
-      "googleRoadmap": "",
-      "topographicalMapNLS": "",
-      "backgroundMapNLS": ""
-    },
-    "externalLayers": {
-      "arkeologiset_kohteet_alue": "",
-      "arkeologiset_kohteet_piste": "",
-      "fhaLidar": "",
-      "karelianMaps": "",
-      "senateAtlas": "",
-      "kotus:pitajat": "",
-      "kotus:rajat-sms-alueet": "",
-      "kotus:rajat-sms-alueosat": "",
-      "kotus:rajat-lansi-ita": ""
+      "googleRoadmap": "Google Maps",
+      "topographicalMapNLS": "Topographical map (National Land Survey of Finland)",
+      "backgroundMapNLS": "Background map (National Land Survey of Finland)",
+      "airMapNLS": "Aerial map (National Land Survey of Finland)"
     },
     "mapModeButtons": {
-      "markers": "",
-      "heatmap": ""
+      "markers": "Markers",
+      "heatmap": "Heatmap"
     },
-    "wrongZoomLevel": "",
-    "wrongZoomLevelFHA": "",
-    "tooManyResults": ""
+    "wrongZoomLevel": "The map zoom level has to at least 11",
+    "wrongZoomLevelFHA": "The map zoom level has to be at least 13 in order to show this layer",
+    "tooManyResults": "More than 500 results, please use clustered map or heatmap"
   },
   "instancePageGeneral": {
-    "introduction": "",
-    "repetition": ""
+    "introduction": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This landing page provides a human-readable summary of the data points that link to this {entity}. The data included in this summary reflect only those data points used in the MMM Portal. Click the Open in Linked Data Browser on button on the Export tab to view the complete set of classes and properties linked to this record. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> To cite this record, use its url. You can use also use the url to return directly to the record at any time. </p>",
+    "repetition": "<h6 class=\"MuiTypography-root MuiTypography-h6\"> Repetition of data </h6> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The same or similar data may appear within a single data field multiple times. This repetition occurs due to the merging of multiple records from different datasets to create the MMM record. </p>"
   },
   "deckGlMap": {
-    "arcColouring": "",
-    "showMoreInformation": "",
+    "arcColouring": "Arc colouring:",
+    "showMoreInformation": "Click to show more information.",
     "manuscriptMigrations": {
-      "legendTitle": "",
-      "legendFrom": "",
-      "legendTo": "",
-      "from": "",
-      "to": "",
-      "count": "",
-      "listHeadingSingleInstance": "",
-      "listHeadingMultipleInstances": ""
+      "legendTitle": "Arc colouring",
+      "legendFrom": "Manuscript production place",
+      "legendTo": "Last known location",
+      "from": "Production place:",
+      "to": "Last known location:",
+      "count": "Manuscript count",
+      "listHeadingSingleInstance": "Manuscript:",
+      "listHeadingMultipleInstances": "Manuscripts:"
     }
   },
   "perspectives": {
-    "perspective1": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
+    "fullTextSearch": {
       "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
         "prefLabel": {
-          "label": "",
-          "description": "",
-          "textFacetInputPlaceholder": ""
+          "label": "Label"
         },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "work": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "productionPlace": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
+        "type": {
+          "label": "Type"
         },
         "note": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "event": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyPlace": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "lastKnownLocation": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "height": {
-          "label": "",
-          "description": ""
-        },
-        "width": {
-          "label": "",
-          "description": ""
-        },
-        "folios": {
-          "label": "",
-          "description": ""
-        },
-        "lines": {
-          "label": "",
-          "description": ""
-        },
-        "columns": {
-          "label": "",
-          "description": ""
-        },
-        "miniatures": {
-          "label": "",
-          "description": ""
-        },
-        "decoratedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "historiatedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
+          "label": "Note"
         }
       }
     },
-    "perspective2": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
+    "videos": {
+      "label": "Haastattelut",
+      "facetResultsType": "Haastattelua",
+      "shortDescription": "Koko haastattelut",
       "longDescription": "",
       "instancePage": {
-        "label": "",
-        "description": ""
+        "label": "Haastattelu",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"><p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"></p>"
       },
       "properties": {
+        "freeText": {
+          "label": "Tekstihaku",
+          "description": "Vapaa tekstihaku"
+        },
+        "name": {
+          "label": "Henkilön nimi",
+          "description": ""
+        },
+        "length": {
+          "label": "Haastattelun kesto",
+          "description": "Haastattelun kesto"
+        },
+        "content": {
+          "label": "Sisältö",
+          "description": ""
+        },
+        "keyword": {
+          "label": "Avainsana",
+          "description": ""
+        },
+        "placeOfInterview": {
+          "label": "Haastattelun paikka",
+          "description": ""
+        },
         "uri": {
-          "label": "",
+          "label": "URI",
+          "description": "Koneluettava tunniste"
+        },
+        "namedEntity": {
+          "label": "Nimetty entiteetti",
           "description": ""
         },
         "prefLabel": {
-          "label": "",
-          "description": "",
-          "textFacetInputPlaceholder": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
+          "label": "Nimi",
+          "description": "Nimi",
+          "textFacetInputPlaceholder": "Etsi..."
         }
       }
     },
-    "perspective3": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
+    "clips": {
+      "label": "Videon kohdat",
+      "facetResultsType": "videon aikaleimaa",
+      "shortDescription": "Videon kohdat",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to physical manuscript objects. If two or more source datasets include the same manuscript and this has been verified, the information from the source datasets has been merged into one manuscript. See <a href=\"/instructions\">instructions</a> for using the filters. The result view can be selected using the tabs: </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TABLE</STRONG> Haastatteu </li> </ul>",
       "instancePage": {
-        "label": "",
-        "description": ""
+        "label": "Aikaleima",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"><p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"></p>"
       },
       "properties": {
+        "freeText": {
+          "label": "Tekstihaku",
+          "description": "Vapaa tekstihaku"
+        },
+        "name": {
+          "label": "Henkilön nimi",
+          "description": ""
+        },
+        "length": {
+          "label": "Haastattelun kesto",
+          "description": "Haastattelun kesto"
+        },
+        "content": {
+          "label": "Sisältö",
+          "description": ""
+        },
+        "keyword": {
+          "label": "Avainsana",
+          "description": ""
+        },
+        "placeOfInterview": {
+          "label": "Haastattelun paikka",
+          "description": ""
+        },
         "uri": {
-          "label": "",
-          "description": ""
+          "label": "URI",
+          "description": "UKoneuettava tunniste"
         },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "eventTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "placeType": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "surrender": {
-          "label": "",
-          "description": ""
-        },
-        "receiver": {
-          "label": "",
-          "description": ""
-        },
-        "observedOwner": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "manuscripts": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
+        "namedEntity": {
+          "label": "Nimetty entiteetti",
           "description": ""
         },
         "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "work": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "productionPlace": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "event": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyPlace": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "lastKnownLocation": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "height": {
-          "label": "",
-          "description": ""
-        },
-        "width": {
-          "label": "",
-          "description": ""
-        },
-        "folios": {
-          "label": "",
-          "description": ""
-        },
-        "lines": {
-          "label": "",
-          "description": ""
-        },
-        "columns": {
-          "label": "",
-          "description": ""
-        },
-        "miniatures": {
-          "label": "",
-          "description": ""
-        },
-        "decoratedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "historiatedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "works": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "events": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "eventTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "surrender": {
-          "label": "",
-          "description": ""
-        },
-        "receiver": {
-          "label": "",
-          "description": ""
-        },
-        "observedOwner": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "actors": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "birthDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "deathDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "work": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "role": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "places": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "placeType": {
-          "label": "",
-          "description": ""
-        },
-        "area": {
-          "label": "",
-          "description": ""
-        },
-        "manuscriptProduced": {
-          "label": "",
-          "description": ""
-        },
-        "manuscriptTransferred": {
-          "label": "",
-          "description": ""
-        },
-        "manuscriptObserved": {
-          "label": "",
-          "description": ""
-        },
-        "actor": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "collections": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "expressions": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "finds": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "findName": {
-          "label": "",
-          "description": ""
-        },
-        "specification": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "subCategory": {
-          "label": "",
-          "description": ""
-        },
-        "objectSubCategory": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "materialLiteral": {
-          "label": "",
-          "description": ""
-        },
-        "period": {
-          "label": "",
-          "description": ""
-        },
-        "periodObject": {
-          "label": "",
-          "description": ""
-        },
-        "startYear": {
-          "label": "",
-          "description": ""
-        },
-        "endYear": {
-          "label": "",
-          "description": ""
-        },
-        "municipality": {
-          "label": "",
-          "description": ""
-        },
-        "image": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "emloActors": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "gender": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "birthDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "deathDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "altLabel": {
-          "label": "",
-          "description": ""
-        },
-        "related": {
-          "label": "",
-          "description": ""
-        },
-        "event": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "rel": {
-          "label": "",
-          "description": ""
-        },
-        "cor": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "knownLocation": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "height": {
-          "label": "",
-          "description": ""
-        },
-        "width": {
-          "label": "",
-          "description": ""
-        },
-        "folios": {
-          "label": "",
-          "description": ""
-        },
-        "lines": {
-          "label": "",
-          "description": ""
-        },
-        "columns": {
-          "label": "",
-          "description": ""
-        },
-        "miniatures": {
-          "label": "",
-          "description": ""
-        },
-        "decoratedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "historiatedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "emloLetters": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "subject": {
-          "label": "",
-          "description": ""
-        },
-        "datasource": {
-          "label": "",
-          "description": ""
-        },
-        "excipit": {
-          "label": "",
-          "description": ""
-        },
-        "description": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        },
-        "target": {
-          "label": "",
-          "description": ""
-        },
-        "from": {
-          "label": "",
-          "description": ""
-        },
-        "to": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "emloPlaces": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "country": {
-          "label": "",
-          "description": ""
-        },
-        "broader": {
-          "label": "",
-          "description": ""
-        },
-        "narrower": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "placeType": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "surrender": {
-          "label": "",
-          "description": ""
-        },
-        "receiver": {
-          "label": "",
-          "description": ""
-        },
-        "observedOwner": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "hellerau": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "home1930": {
-          "label": "",
-          "description": ""
-        },
-        "home1937": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "clientFSPlaces": {
-      "label": "",
-      "shortDescription": "",
-      "datasets": {
-        "kotus": {
-          "label": "",
-          "aboutLink": ""
-        },
-        "pnr": {
-          "label": "",
-          "aboutLink": ""
-        },
-        "warsa_karelian_places": {
-          "label": "",
-          "aboutLink": ""
-        },
-        "tgn": {
-          "label": "",
-          "aboutLink": ""
-        }
-      },
-      "facetResultsType": "",
-      "inputPlaceHolder": "",
-      "searchByArea": "",
-      "searchByAreaTitle": "",
-      "searchByAreaCancel": "",
-      "searchByAreaSearch": "",
-      "properties": {
-        "datasetSelector": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "broaderTypeLabel": {
-          "label": "",
-          "description": ""
-        },
-        "broaderAreaLabel": {
-          "label": "",
-          "description": ""
-        },
-        "modifier": {
-          "label": "",
-          "description": ""
-        },
-        "basicElement": {
-          "label": "",
-          "description": ""
-        },
-        "collectionYear": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
+          "label": "Nimi",
+          "description": "Nimi",
+          "textFacetInputPlaceholder": "Etsi..."
         }
       }
     }
   },
-  "aboutThePortalPartOne": "",
-  "aboutThePortalPartTwo": "",
-  "instructions": "",
-  "feedback": ""
+  "aboutThePortalPartOne": "<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\"> About the Portal </h1> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Morbi nunc ex, ultrices vitae molestie eu, fringilla quis dolor. Vivamus in enim nibh. Nunc rutrum molestie ex eget dictum. Mauris lectus leo, ultrices in sodales ac, fermentum ut massa. In porta, mauris sed facilisis lacinia, eros magna sollicitudin tortor, quis venenatis nisl ipsum lacinia justo. Duis pretium bibendum consequat. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In hac habitasse platea dictumst. Curabitur consectetur aliquet est, ac dapibus ante semper vitae. Sed consequat at est ac lobortis. In vitae metus in ligula pretium vehicula. Aliquam maximus ac massa euismod eleifend. Vestibulum vehicula mattis libero at tempus. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Data </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Nullam eu blandit ex, quis consectetur enim. Nulla aliquam, enim non euismod tincidunt, neque eros tincidunt urna, eget elementum diam metus vel elit. Donec dui augue, vehicula a cursus ut, efficitur eget velit. Aliquam pellentesque odio vel metus sodales tempor. Donec in lectus magna. Cras at odio a libero laoreet viverra nec sed lorem. In malesuada tempus dolor. Suspendisse et ligula quis nisi facilisis maximus. Sed dictum justo eu condimentum efficitur. Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p>",
+  "aboutThePortalPartTwo": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Data Reuse </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Nullam eu blandit ex, quis consectetur enim. Nulla aliquam, enim non euismod tincidunt, neque eros tincidunt urna, eget elementum diam metus vel elit. Donec dui augue, vehicula a cursus ut, efficitur eget velit. Aliquam pellentesque odio vel metus sodales tempor. Donec in lectus magna. Cras at odio a libero laoreet viverra nec sed lorem. In malesuada tempus dolor. Suspendisse et ligula quis nisi facilisis maximus. Sed dictum justo eu condimentum efficitur. Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> More Information </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Nullam eu blandit ex, quis consectetur enim. Nulla aliquam, enim non euismod tincidunt, neque eros tincidunt urna, eget elementum diam metus vel elit. Donec dui augue, vehicula a cursus ut, efficitur eget velit. Aliquam pellentesque odio vel metus sodales tempor. Donec in lectus magna. Cras at odio a libero laoreet viverra nec sed lorem. In malesuada tempus dolor. Suspendisse et ligula quis nisi facilisis maximus. Sed dictum justo eu condimentum efficitur. Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p>",
+  "instructions": "<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\"> Instructions </h1> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The search functionality of this semantic portal is based on the <a href=\"https://doi.org/10.2200/S00190ED1V01Y200904ICR005\" target='_blank' rel='noopener noreferrer'> faceted search</a> paradigm. By default each perspective displays all results from the corresponding class. This default result set can be narrowed down by using the filters on the left. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Using a single filter </h2> <h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\"> Selecting values within a filter </h3> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> All possible values for a filter are displayed either as a list or as a hierarchical tree structure (if available). The number of results is shown in brackets for each value. Once a value is selected, the results are automatically updated. To prevent further selections that do not return any results, also the possible values for all other filters are updated at the same time. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Multiple values can be selected within a single filter. Selecting multiple values generates results that contain any of the selected values. For example, selecting both <i>Saint Augustine</i> and <i>Saint Jerome</i> as an Author returns results that include either <i>Saint Augustine</i> <strong>OR</strong> <i>Saint Jerome</i> as an Author. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Selected values of a filter appear in the Active filters section at the top of the list of filters. To deselect a filter, click the X mark next to it within the Active filters section. You can also deselect a filter value by unchecking the checkmark in the filter’s value list. The Active filters section only appears if there are filter values currently selected. </p> <h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\"> Searching within a filter </h3> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Search within a filter by using the search field at the top of each filter. All possible values of a filter remain visible at all times. The values of the filter that match the search term are indicated by a purple underline. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Steps for searching within filters: </p> <ol class=\"MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom\"> <li> Type search term into search field. If there are matches, a number will appear to the right of the search field, indicating the number of filter values that match the search term. </li> <li> Click the arrows to the right of the search field to cycle through the results. As you click the arrow, a different filter value will appear at the top of the list. Matched filters are underlined in purple. </li> <li> Click the checkmark next to a filter value to activate it. The results (and also other filters) are automatically updated. </li> </ol> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Using multiple filters simultaneously </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The effectiveness of faceted search is realized when multiple filters are applied at the same time. As in many e-commerce sites, a logical AND is always used between the filters. For example selecting <i>Saint Augustine </i> and <i>Saint Jerome</i> as an Author and <i>Sir Thomas Phillipps</i> and <i> Thomas Thorpe</i> as an Owner, the results are narrowed down as follows: </p> <p class=\"MuiTypography-root MuiTypography-body1\"> (Author: <i>Saint Augustine</i> <strong>OR</strong> Author: <i>Saint Jerome</i>) </p> <p class=\"MuiTypography-root MuiTypography-body1\"> <strong>AND</strong> </p> <p class=\"MuiTypography-root MuiTypography-body1\"> (Owner: <i>Sir Thomas Phillipps</i> <strong>OR</strong> Owner: <i>Thomas Thorpe</i>) </p>",
+  "feedback": "<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\"> Feedback </h1> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This semantic portal has been developed by ... </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> We are interested in your feedback on the functionality, coverage, and usefulness of the portal and its data. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Please complete our <a href=\"\" target='_blank' rel='noopener noreferrer'>Feedback Survey Form (add link).</a> </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> You can also contact us via email: ... or DM us on Twitter: ... </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Please be aware that this portal’s response times may be affected by the size and complexity of the underlying knowledge graph. </p>"
 }

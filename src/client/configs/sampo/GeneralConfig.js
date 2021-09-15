@@ -2,7 +2,7 @@ import bannerImage from '../../img/main_page/veterans-banner.jpg'
 
 export const rootUrl = ''
 
-export const defaultLocale = 'en'
+export const defaultLocale = 'fi'
 
 export const readTranslationsFromGoogleSheets = false
 
