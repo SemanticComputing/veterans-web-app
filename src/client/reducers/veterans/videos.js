@@ -8,7 +8,7 @@ export const INITIAL_STATE = {
   paginatedResultsSparqlQuery: null,
   resultCount: 0,
   page: -1,
-  pagesize: 25,
+  pagesize: 200,
   sortBy: null,
   sortDirection: null,
   fetching: false,
