@@ -8,7 +8,7 @@ export const INITIAL_STATE = {
   paginatedResultsSparqlQuery: null,
   resultCount: 0,
   page: -1,
-  pagesize: 200,
+  pagesize: 10,
   sortBy: null,
   sortDirection: null,
   fetching: false,
@@ -86,9 +86,9 @@ export const INITIAL_STATE = {
     //   minWidth: 200
     // },
     {
-      id: 'content',
+      id: 'keyword',
       valueType: 'object',
-      makeLink: false,
+      makeLink: true,
       externalLink: true,
       sortValues: true,
       numberedList: false,
@@ -102,6 +102,15 @@ export const INITIAL_STATE = {
       sortValues: true,
       numberedList: false,
       minWidth: 200
+    },
+    {
+      id: 'content',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      onlyOnInstancePage: true
     },
   ]
 }
