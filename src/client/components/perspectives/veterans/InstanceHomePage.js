@@ -12,13 +12,13 @@ import Player from '../../facet_results/Player'
 // import ApexChart from '../../facet_results/ApexChart'
 // import Export from '../../facet_results/Export'
 // import Recommendations from './Recommendations'
-import { coseLayout, cytoscapeStyle, preprocess } from '../../../configs/sampo/Cytoscape.js/NetworkConfig'
-import { createMultipleLineChartData } from '../../../configs/sampo/ApexCharts/LineChartConfig'
+// import { coseLayout, cytoscapeStyle, preprocess } from '../../../configs/sampo/Cytoscape.js/NetworkConfig'
+// import { createMultipleLineChartData } from '../../../configs/sampo/ApexCharts/LineChartConfig'
 import { Route, Redirect } from 'react-router-dom'
 import { has } from 'lodash'
 // const InstanceHomePageTable = lazy(() => import('../../main_layout/InstanceHomePageTable'))
-const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
-const Network = lazy(() => import('../../facet_results/Network'))
+// const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
+// const Network = lazy(() => import('../../facet_results/Network'))
 const Export = lazy(() => import('../../facet_results/Export'))
 
 const styles = () => ({
@@ -117,6 +117,12 @@ class InstanceHomePage extends React.Component {
     return visibleRows
   }
 
+  readyToRenderVideoPlayer = () => {
+    const { instanceTableData } = this.props.perspectiveState
+    return `http://ldf.fi/veterans/${this.state.localID}` === instanceTableData.id &&
+    instanceTableData.videoLink
+  }
+
   render = () => {
     const { classes, perspectiveState, perspectiveConfig, rootUrl, screenSize, layoutConfig } = this.props
     const { instanceTableData, fetching } = perspectiveState
@@ -159,11 +165,12 @@ class InstanceHomePage extends React.Component {
               <Route
                 path={[`${rootUrl}/${resultClass}/page/${this.state.localID}/table`, '/iframe.html']} // support also rendering in Storybook
                 render={() =>
-                  <React.Fragment>
-                    <Player
-                      resultClass={resultClass}
-                      data={instanceTableData}
-                      />
+                  <>
+                    {this.readyToRenderVideoPlayer() &&
+                      <Player
+                        resultClass={resultClass}
+                        data={instanceTableData}
+                      />}
                     <InstanceHomePageTable
                       resultClass={resultClass}
                       data={instanceTableData}
@@ -171,26 +178,7 @@ class InstanceHomePage extends React.Component {
                       screenSize={screenSize}
                       layoutConfig={layoutConfig}
                     />
-                  </React.Fragment>}
-              />
-              <Route
-                path={`${rootUrl}/${resultClass}/page/${this.state.localID}/network`}
-                render={() =>
-                  <Network
-                    pageType='instancePage'
-                    results={perspectiveState.results}
-                    resultUpdateID={perspectiveState.resultUpdateID}
-                    fetchResults={this.props.fetchResults}
-                    fetching={fetching}
-                    // fetching
-                    resultClass='manuscriptInstancePageNetwork'
-                    uri={instanceTableData.id}
-                    limit={200}
-                    optimize={1.2}
-                    style={cytoscapeStyle}
-                    layout={coseLayout}
-                    layoutConfig={layoutConfig}
-                  />}
+                  </>}
               />
               <Route
                 path={`${rootUrl}/${resultClass}/page/${this.state.localID}/export`}
