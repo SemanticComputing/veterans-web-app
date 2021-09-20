@@ -111,12 +111,12 @@ export const INITIAL_STATE = {
       sortValues: true,
       numberedList: false,
       onlyOnInstancePage: true
-    },
+    }
   ]
 }
 
 const resultClasses = new Set([
-  'videos',
+  'videos'
 ])
 
 const videos = (state = INITIAL_STATE, action) => {

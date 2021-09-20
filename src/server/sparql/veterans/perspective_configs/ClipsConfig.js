@@ -6,7 +6,7 @@ import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
 
 export const clipsConfig = {
   endpoint: {
-    //url: 'http://localhost:3047/ds/sparql',
+    // url: 'http://localhost:3047/ds/sparql',
     url: 'https://ldf.fi/veterans/sparql',
     prefixes,
     useAuth: false
@@ -53,13 +53,13 @@ export const clipsConfig = {
       label: 'named entity',
       labelPath: ':named_entity/skos:prefLabel',
       predicate: ':named_entity',
-      type: 'list',
+      type: 'list'
     },
     length: {
-      labelPath: ':length',
+      labelPath: ':length'
     },
     placeOfInterview: {
-      labelPath: ':place_of_interview',
+      labelPath: ':place_of_interview'
     },
     name: {
       id: 'name',
@@ -68,6 +68,6 @@ export const clipsConfig = {
       predicate: '^:structured_content/:interviewed_person/skos:prefLabel',
       type: 'list',
       literal: true
-    },
+    }
   }
 }

@@ -84,12 +84,12 @@ export const INITIAL_STATE = {
       sortValues: true,
       numberedList: false,
       minWidth: 200
-    },
+    }
   ]
 }
 
 const resultClasses = new Set([
-  'clips',
+  'clips'
 ])
 
 const clips = (state = INITIAL_STATE, action) => {
