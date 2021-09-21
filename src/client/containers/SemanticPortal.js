@@ -72,18 +72,16 @@ const FacetBar = lazy(() => import('../components/facet_bar/FacetBar'))
 // import InstanceHomePage from '../components/perspectives/sampo/InstanceHomePage'
 // import Footer from '../components/perspectives/sampo/Footer'
 // import KnowledgeGraphMetadataTable from '../components/perspectives/sampo/KnowledgeGraphMetadataTable'
-const portalID = 'sampo'
+const portalID = 'veterans'
 const TopBar = lazy(() => import('../components/perspectives/' + portalID + '/TopBar'))
 const Main = lazy(() => import('../components/perspectives/' + portalID + '/Main'))
-//const FacetedSearchPerspective = lazy(() => import('../components/perspectives/' + portalID + '/FacetedSearchPerspective'))
 const FacetedSearchPerspective = lazy(() => import('../components/perspectives/veterans/FacetedSearchPerspective'))
 const FullTextSearch = lazy(() => import('../components/perspectives/' + portalID + '/FullTextSearch'))
-const ClientFSPerspective = lazy(() => import('../components/perspectives/' + portalID + '/client_fs/ClientFSPerspective'))
-const ClientFSMain = lazy(() => import('../components/perspectives/' + portalID + '/client_fs/ClientFSMain'))
-//const InstanceHomePage = lazy(() => import('../components/perspectives/' + portalID + '/InstanceHomePage'))
+// const ClientFSPerspective = lazy(() => import('../components/perspectives/' + portalID + '/client_fs/ClientFSPerspective'))
+// const ClientFSMain = lazy(() => import('../components/perspectives/' + portalID + '/client_fs/ClientFSMain'))
 const InstanceHomePage = lazy(() => import('../components/perspectives/veterans/InstanceHomePage'))
 const Footer = lazy(() => import('../components/perspectives/' + portalID + '/Footer'))
-const KnowledgeGraphMetadataTable = lazy(() => import('../components/perspectives/' + portalID + '/KnowledgeGraphMetadataTable'))
+// const KnowledgeGraphMetadataTable = lazy(() => import('../components/perspectives/' + portalID + '/KnowledgeGraphMetadataTable'))
 // ** Portal specific components and configs end **
 
 const useStyles = makeStyles(theme => ({
@@ -254,7 +252,7 @@ const SemanticPortal = props => {
   if (lgScreen) { screenSize = 'lg' }
   if (xlScreen) { screenSize = 'xl' }
   const rootUrlWithLang = `${rootUrl}/${props.options.currentLocale}`
-  const noClientFSResults = props.clientFSState.results == null
+  // const noClientFSResults = props.clientFSState.results == null
 
   useEffect(() => {
     document.title = intl.get('html.title')
@@ -532,7 +530,7 @@ const SemanticPortal = props => {
               />
             </Switch>
           )}
-          <Route
+          {/* <Route
             path={`${rootUrlWithLang}/clientFSPlaces/federated-search`}
             render={routeProps =>
               <>
@@ -585,7 +583,7 @@ const SemanticPortal = props => {
                 <Footer layoutConfig={layoutConfig} />
               </>}
 
-          />
+          /> */}
           {/* create routes for info buttons */}
           {/* <Route
               path={`${rootUrlWithLang}/feedback`}
@@ -600,11 +598,11 @@ const SemanticPortal = props => {
               <div className={classNames(classes.mainContainer, classes.textPageContainer)}>
                 <TextPage>
                   {intl.getHTML('aboutThePortalPartOne')}
-                  <KnowledgeGraphMetadataTable
+                  {/* <KnowledgeGraphMetadataTable
                     resultClass='perspective1KnowledgeGraphMetadata'
                     fetchKnowledgeGraphMetadata={props.fetchKnowledgeGraphMetadata}
                     knowledgeGraphMetadata={props.perspective1.knowledgeGraphMetadata}
-                  />
+                  /> */}
                   {intl.getHTML('aboutThePortalPartTwo')}
                 </TextPage>
               </div>}
