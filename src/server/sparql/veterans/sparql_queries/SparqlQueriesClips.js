@@ -39,6 +39,7 @@ export const clipPropertiesFacetResults =
       {
         ?id :keyword ?keyword__id .
         ?keyword__id skos:prefLabel ?keyword__prefLabel .
+        ?keyword__id :uri ?keyword__dataProviderUrl .
       }
       UNION
       {

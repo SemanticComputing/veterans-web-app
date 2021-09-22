@@ -165,7 +165,7 @@
           "description": "Vapaa tekstihaku"
         },
         "name": {
-          "label": "Henkilön nimi",
+          "label": "Muistelijan nimi",
           "description": ""
         },
         "length": {
@@ -189,7 +189,31 @@
           "description": "Koneluettava tunniste"
         },
         "namedEntity": {
-          "label": "Nimetty entiteetti",
+          "label": "Mainittu asia (kaikki tyypit)",
+          "description": ""
+        },
+        "mentionedPerson": {
+          "label": "Mainittu henkilö",
+          "description": ""
+        },
+        "mentionedPlace": {
+          "label": "Mainittu paikka",
+          "description": ""
+        },
+        "mentionedEvent": {
+          "label": "Mainittu tapahtuma",
+          "description": ""
+        },
+        "mentionedProduct": {
+          "label": "Mainittu tuote",
+          "description": ""
+        },
+        "mentionedLaw": {
+          "label": "Mainittu laki",
+          "description": ""
+        },
+        "mentionedOrganization": {
+          "label": "Mainittu organisaatio",
           "description": ""
         },
         "prefLabel": {

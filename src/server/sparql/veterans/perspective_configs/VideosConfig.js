@@ -55,6 +55,54 @@ export const videosConfig = {
       predicate: ':named_entity',
       type: 'list'
     },
+    mentionedPlace: {
+      id: 'mentionedPlace',
+      facetValueFilter: '?id :type "Location"',
+      label: 'mentioned place',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedOrganization: {
+      id: 'mentionedOrganization',
+      facetValueFilter: '?id :type "Organization"',
+      label: 'mentioned organization',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedPerson: {
+      id: 'mentionedPerson',
+      facetValueFilter: '?id :type "Person"',
+      label: 'mentioned organization',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedProduct: {
+      id: 'mentionedProduct',
+      facetValueFilter: '?id :type "Product"',
+      label: 'mentioned organization',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedEvent: {
+      id: 'mentionedEvent',
+      facetValueFilter: '?id :type "Event"',
+      label: 'mentioned organization',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedLaw: {
+      id: 'mentionedLaw',
+      facetValueFilter: '?id :type "Law"',
+      label: 'mentioned organization',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
     length: {
       labelPath: ':length'
     },

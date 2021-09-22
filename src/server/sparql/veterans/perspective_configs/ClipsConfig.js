@@ -43,8 +43,8 @@ export const clipsConfig = {
       id: 'keyword',
       facetValueFilter: '',
       label: 'keyword',
-      labelPath: ':keywords/skos:prefLabel',
-      predicate: ':keywords',
+      labelPath: ':keyword/skos:prefLabel',
+      predicate: ':keyword',
       type: 'list'
     },
     namedEntity: {

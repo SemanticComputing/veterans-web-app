@@ -21,4 +21,5 @@ export const prefixes = `
   PREFIX h-schema: <http://ldf.fi/schema/hellerau/>
   PREFIX gn: <http://www.geonames.org/ontology#>
   PREFIX : <http://ldf.fi/schema/veterans/>
+  
 `
