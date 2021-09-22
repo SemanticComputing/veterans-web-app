@@ -28,6 +28,7 @@
     "instructions": "ohjeet"
   },
   "facetBar": {
+    "defaultMissingValueLabel": "Ei merkintöjä",
     "results": "Tulokset",
     "filters": "Suodattimet",
     "activeFilters": "Aktiiviset suodattimet:",
