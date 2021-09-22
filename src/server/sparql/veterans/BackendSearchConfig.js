@@ -1,20 +1,8 @@
 import { videosConfig } from './perspective_configs/VideosConfig'
 import { clipsConfig } from './perspective_configs/ClipsConfig'
 import {
-  productionPlacesQuery,
-  lastKnownLocationsQuery,
-  migrationsQuery,
-  migrationsDialogQuery,
-  manuscriptPropertiesInstancePage,
-  expressionProperties,
-  collectionProperties,
-  productionsByDecadeQuery,
-  eventsByDecadeQuery,
-  manuscriptInstancePageNetworkLinksQuery,
-  manuscriptFacetResultsNetworkLinksQuery,
-  manuscriptNetworkNodesQuery,
-  knowledgeGraphMetadataQuery
-} from './sparql_queries/SparqlQueriesPerspective1'
+  videoPropertiesInstancePage,
+} from './sparql_queries/SparqlQueriesVideos'
 import { sitemapInstancePageQuery } from '../SparqlQueriesGeneral'
 import { fullTextSearchProperties } from './sparql_queries/SparqlQueriesFullText'
 import { makeObjectList } from '../SparqlObjectMapper'

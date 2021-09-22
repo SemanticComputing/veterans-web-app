@@ -1,7 +1,7 @@
 import {
-  manuscriptPropertiesFacetResults,
-  manuscriptPropertiesInstancePage
-} from '../sparql_queries/SparqlQueriesPerspective1'
+  videoPropertiesFacetResults,
+  videoPropertiesInstancePage
+} from '../sparql_queries/SparqlQueriesVideos'
 import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
 
 export const videosConfig = {
@@ -17,10 +17,10 @@ export const videosConfig = {
   //   <SUBJECT> dct:source mmm-schema:Bibale .
   // `,
   paginatedResults: {
-    properties: manuscriptPropertiesFacetResults
+    properties: videoPropertiesFacetResults
   },
   instance: {
-    properties: manuscriptPropertiesInstancePage,
+    properties: videoPropertiesInstancePage,
     relatedInstances: '',
     defaultTab: 'table'
   },
