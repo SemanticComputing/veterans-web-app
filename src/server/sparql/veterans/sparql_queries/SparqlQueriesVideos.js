@@ -49,7 +49,16 @@ export const videoPropertiesFacetResults =
       }
       UNION
       {
-        ?id :length ?length .
+        ?id :length ?raw_length .
+        BIND(HOURS(?raw_length) AS ?hours)
+        BIND(MINUTES(?raw_length) AS ?minutes)
+        BIND(SECONDS(?raw_length) AS ?seconds)
+        BIND(
+          CONCAT(
+              CONCAT(STR(?hours), 'h '), CONCAT(STR(?minutes), 'm')
+            ) AS ?length
+          )
+
       }
       UNION
       {
