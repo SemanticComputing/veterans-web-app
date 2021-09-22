@@ -1,16 +1,16 @@
-import bannerImage from '../../img/main_page/mmm-banner.jpg'
+import bannerImage from '../../img/main_page/veterans/compressed/veterans-banner-2385x500-px.jpg'
 
 export const rootUrl = ''
 
-export const defaultLocale = 'en'
+export const defaultLocale = 'fi'
 
 export const readTranslationsFromGoogleSheets = false
 
-export const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiZWtrb25lbiIsImEiOiJja2FkbGxiY2owMDZkMnFxcGVqNTZ0dmk2In0.6keLTN8VveJkM5y4_OFmUw' // https://docs.mapbox.com/accounts/overview/tokens/
+export const MAPBOX_ACCESS_TOKEN = '' // https://docs.mapbox.com/accounts/overview/tokens/
 
 export const MAPBOX_STYLE = 'light-v10' // https://docs.mapbox.com/api/maps/#styles
 
-export const documentFinderAPIUrl = 'https://data.finlex.fi/document-finder-backend'
+// export const documentFinderAPIUrl = 'https://data.finlex.fi/document-finder-backend'
 
 export const yasguiBaseUrl = 'https://yasgui.triply.cc'
 
