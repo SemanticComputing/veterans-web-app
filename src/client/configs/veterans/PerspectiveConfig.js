@@ -19,7 +19,7 @@ export const perspectiveConfig = [
     frontPageImage: videosImage,
     defaultActiveFacets: new Set(['freeText']),
     defaultTab: 'table',
-    defaultInstancePageTab: 'table',
+    defaultInstancePageTab: 'video',
     tabs: [
       {
         id: 'table',
@@ -29,7 +29,7 @@ export const perspectiveConfig = [
     ],
     instancePageTabs: [
       {
-        id: 'table',
+        id: 'video',
         value: 0,
         icon: <CalendarViewDayIcon />
       }

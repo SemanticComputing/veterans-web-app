@@ -6,8 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import purple from '@material-ui/core/colors/purple'
 import PerspectiveTabs from '../../main_layout/PerspectiveTabs'
-import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
-import Player from '../../facet_results/Player'
+// import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
 // import Network from '../../facet_results/Network'
 // import ApexChart from '../../facet_results/ApexChart'
 // import Export from '../../facet_results/Export'
@@ -16,6 +15,7 @@ import Player from '../../facet_results/Player'
 // import { createMultipleLineChartData } from '../../../configs/sampo/ApexCharts/LineChartConfig'
 import { Route, Redirect } from 'react-router-dom'
 import { has } from 'lodash'
+import VideoPage from './VideoPage'
 // const InstanceHomePageTable = lazy(() => import('../../main_layout/InstanceHomePageTable'))
 // const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
 // const Network = lazy(() => import('../../facet_results/Network'))
@@ -117,12 +117,6 @@ class InstanceHomePage extends React.Component {
     return visibleRows
   }
 
-  readyToRenderVideoPlayer = () => {
-    const { instanceTableData } = this.props.perspectiveState
-    return `http://ldf.fi/veterans/${this.state.localID}` === instanceTableData.id &&
-    instanceTableData.videoLink
-  }
-
   render = () => {
     const { classes, perspectiveState, perspectiveConfig, rootUrl, screenSize, layoutConfig } = this.props
     const { instanceTableData, fetching } = perspectiveState
@@ -164,22 +158,16 @@ class InstanceHomePage extends React.Component {
                   />}
               />
               <Route
-                path={[`${rootUrl}/${resultClass}/page/${this.state.localID}/table`, '/iframe.html']} // support also rendering in Storybook
+                path={[`${rootUrl}/${resultClass}/page/${this.state.localID}/video`, '/iframe.html']} // support also rendering in Storybook
                 render={() =>
-                  <>
-                    {this.readyToRenderVideoPlayer() &&
-                      <Player
-                        resultClass={resultClass}
-                        data={instanceTableData}
-                      />}
-                    <InstanceHomePageTable
-                      resultClass={resultClass}
-                      data={instanceTableData}
-                      properties={this.getVisibleRows(perspectiveState.properties)}
-                      screenSize={screenSize}
-                      layoutConfig={layoutConfig}
-                    />
-                  </>}
+                  <VideoPage
+                    resultClass={resultClass}
+                    perspectiveState={perspectiveState}
+                    properties={this.getVisibleRows(perspectiveState.properties)}
+                    localID={this.state.localID}
+                    screenSize={screenSize}
+                    layoutConfig={layoutConfig}
+                  />}
               />
               <Route
                 path={`${rootUrl}/${resultClass}/page/${this.state.localID}/export`}
