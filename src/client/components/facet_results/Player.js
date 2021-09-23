@@ -18,7 +18,8 @@ const Player = (props) => {
         allowFullScreen
         title='Interview'
       />
-    </div>)
+    </div>
+  )
 }
 Player.propTypes = {
   data: PropTypes.object.isRequired
