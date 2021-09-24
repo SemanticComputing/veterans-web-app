@@ -25,10 +25,10 @@ const useStyles = makeStyles(theme => ({
   },
   mainContainer: props => ({
     margin: 0,
-    maxWidth: 1600,
+    maxWidth: 1100,
     // minHeight: 1100,
     marginTop: theme.spacing(1),
-    flexWrap: 'wrap-reverse',
+    // flexWrap: 'wrap-reverse',
     [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
       height: `calc(100% - ${theme.spacing(0.5)}`
     }
