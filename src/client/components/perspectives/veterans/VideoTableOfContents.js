@@ -65,9 +65,11 @@ const VideoTableOfContents = props => {
               <Typography className={classes.secondaryHeading}>{row.prefLabel}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                {row.textContent}
-              </Typography>
+              <ul>
+                {Array.isArray(row.textSlice)
+                  ? row.textSlice.map(slice => <li key={slice.order}>{slice.textContent}</li>)
+                  : <li key={row.textSlice.order}>{row.textSlice.textContent}</li>}
+              </ul>
             </AccordionDetails>
           </Accordion>
         )
