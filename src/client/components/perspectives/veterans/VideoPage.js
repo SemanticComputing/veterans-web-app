@@ -58,8 +58,7 @@ const useStyles = makeStyles(theme => ({
     height: 180,
     top: theme.spacing(0.5),
     [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
-      // height: 'calc(60% - 72px)'
-      height: '100%'
+      height: 'calc(100% - 32px)'
     }
   }),
   videoPlayerContainer: {
