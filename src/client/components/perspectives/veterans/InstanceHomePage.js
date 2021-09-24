@@ -1,7 +1,7 @@
 import React, { lazy } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
+// import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import purple from '@material-ui/core/colors/purple'
@@ -29,7 +29,7 @@ const styles = () => ({
   content: props => ({
     padding: 0,
     width: '100%',
-    height: `calc(100% - ${props.layoutConfig.tabHeight}px)`,
+    height: `calc(100% - ${props.layoutConfig.tabHeight}px + 7px)`,
     overflow: 'auto'
   }),
   spinnerContainer: {
@@ -133,7 +133,7 @@ class InstanceHomePage extends React.Component {
           screenSize={screenSize}
           layoutConfig={layoutConfig}
         />
-        <Paper square className={classes.content}>
+        <div className={classes.content}>
           {fetching && !hasTableData &&
             <div className={classes.spinnerContainer}>
               <CircularProgress style={{ color: purple[500] }} thickness={5} />
@@ -180,7 +180,7 @@ class InstanceHomePage extends React.Component {
                   />}
               />
             </>}
-        </Paper>
+        </div>
       </div>
     )
   }

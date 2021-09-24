@@ -11,6 +11,7 @@ import { Typography } from '@material-ui/core'
 // import { has } from 'lodash'
 import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
 import Player from './Player'
+import VideoTableOfContents from './VideoTableOfContents'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +25,8 @@ const useStyles = makeStyles(theme => ({
   mainContainer: props => ({
     margin: 0,
     maxWidth: 1600,
-    marginTop: theme.spacing(0.5),
+    // minHeight: 1100,
+    marginTop: theme.spacing(1),
     flexWrap: 'wrap-reverse',
     [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
       height: `calc(100% - ${theme.spacing(0.5)}`
@@ -59,11 +61,15 @@ const useStyles = makeStyles(theme => ({
     }
   }),
   videoPlayerContainer: {
-    height: '60%'
+    height: '60%',
+    overflow: 'auto',
+    marginBottom: theme.spacing(1),
+    display: 'flex',
+    alignItems: 'center'
   },
   tableContainer: {
     // marginTop: theme.spacing(1),
-    height: '40%',
+    height: `calc(40% - ${theme.spacing(1)}px)`,
     overflow: 'auto'
   },
   wordCloud: props => ({
@@ -119,14 +125,14 @@ const ContextualContent = props => {
   return (
     <div className={classes.root}>
       <Grid className={classes.mainContainer} container spacing={1}>
-        <Grid className={classes.gridItem} item xs={12} sm={12} md={8}>
-          <div className={classes.videoPlayerContainer}>
+        <Grid className={classes.gridItem} item xs={12} sm={12} md={7}>
+          <Paper className={classes.videoPlayerContainer}>
             {readyToRenderVideoPlayer() &&
               <Player
                 resultClass={props.resultClass}
                 data={instanceTableData}
               />}
-          </div>
+          </Paper>
           <Paper className={classes.tableContainer}>
             <InstanceHomePageTable
               resultClass={resultClass}
@@ -137,8 +143,13 @@ const ContextualContent = props => {
             />
           </Paper>
         </Grid>
-        <Grid className={classes.gridItem} item xs={12} sm={12} md={4}>
-          <Paper className={classes.tableOfContents} />
+        <Grid className={classes.gridItem} item xs={12} sm={12} md={5}>
+          <Paper className={classes.tableOfContents}>
+            <Typography variant='h6' component='h2'>Sisällysluettelo</Typography>
+            <VideoTableOfContents
+              toc={instanceTableData.timeSlice}
+            />
+          </Paper>
           <Paper className={classes.wordCloud}>
             <Typography variant='h6' component='h2'>Käsitepilvi</Typography>
             <div className={classes.wordCloudContainer}>

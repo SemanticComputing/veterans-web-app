@@ -76,15 +76,6 @@ export const INITIAL_STATE = {
       numberedList: false,
       minWidth: 180
     },
-    // {
-    //   id: 'keyword',
-    //   valueType: 'object',
-    //   makeLink: true,
-    //   externalLink: true,
-    //   sortValues: true,
-    //   numberedList: false,
-    //   minWidth: 200
-    // },
     {
       id: 'keyword',
       valueType: 'object',
@@ -102,16 +93,16 @@ export const INITIAL_STATE = {
       sortValues: true,
       numberedList: false,
       minWidth: 200
-    },
-    {
-      id: 'content',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: true,
-      sortValues: true,
-      numberedList: false,
-      onlyOnInstancePage: true
     }
+    // {
+    //   id: 'content',
+    //   valueType: 'object',
+    //   makeLink: true,
+    //   externalLink: true,
+    //   sortValues: true,
+    //   numberedList: false,
+    //   onlyOnInstancePage: true
+    // }
   ]
 }
 
