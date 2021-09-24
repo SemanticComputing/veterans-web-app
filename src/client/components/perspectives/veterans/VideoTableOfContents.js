@@ -55,8 +55,12 @@ const VideoTableOfContents = props => {
               <Link
                 className={classes.timeLink}
                 to={{ hash: row.beginTimeInSeconds }}
-                onClick={(event) => event.stopPropagation()}
-                onFocus={(event) => event.stopPropagation()}
+                onClick={event => {
+                  if (expanded === rowID) {
+                    event.stopPropagation()
+                  }
+                }}
+                onFocus={event => event.stopPropagation()}
               >
                 <Typography className={classes.heading}>
                   {row.beginTimeLabel}

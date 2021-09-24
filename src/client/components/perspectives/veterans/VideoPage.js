@@ -12,6 +12,7 @@ import { Typography } from '@material-ui/core'
 import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
 import Player from './Player'
 import VideoTableOfContents from './VideoTableOfContents'
+import { has } from 'lodash'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -109,7 +110,7 @@ const ContextualContent = props => {
 
   const readyToRenderVideoPlayer = () => {
     return `http://ldf.fi/veterans/${localID}` === instanceTableData.id &&
-        instanceTableData.videoLink
+        has(instanceTableData, 'videoLink')
   }
 
   return (
@@ -137,9 +138,10 @@ const ContextualContent = props => {
         <Grid className={classes.gridItem} item xs={12} sm={12} md={5}>
           <Paper className={classes.tableOfContents}>
             <Typography variant='h6' component='h2'>Sisällysluettelo</Typography>
-            <VideoTableOfContents
-              toc={instanceTableData.timeSlice}
-            />
+            {has(instanceTableData, 'timeSlice') &&
+              <VideoTableOfContents
+                toc={instanceTableData.timeSlice}
+              />}
           </Paper>
           {/* <Paper className={classes.wordCloud}>
             <Typography variant='h6' component='h2'>Käsitepilvi</Typography>
