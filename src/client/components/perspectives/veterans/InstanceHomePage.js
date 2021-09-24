@@ -167,6 +167,7 @@ class InstanceHomePage extends React.Component {
                     localID={this.state.localID}
                     screenSize={screenSize}
                     layoutConfig={layoutConfig}
+                    routeProps={this.props.routeProps}
                   />}
               />
               <Route

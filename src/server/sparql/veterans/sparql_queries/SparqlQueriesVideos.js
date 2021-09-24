@@ -47,7 +47,7 @@ export const videoPropertiesInstancePage =
       ?timeSlice__id  :begin_timestamp ?beginTimestamp ;
                       :order ?timeSlice__order ;
                       :text_content ?timeSlice__textContent .
-      BIND(CONCAT(SUBSTR(?timeSlice__textContent, 1, 45), '...') as ?timeSlice__prefLabel)                
+      BIND(CONCAT(SUBSTR(?timeSlice__textContent, 1, 60), '...') as ?timeSlice__prefLabel)                
       BIND(HOURS(?beginTimestamp) as ?hours)
       BIND(MINUTES(?beginTimestamp) as ?minutes)
       BIND(SECONDS(?beginTimestamp) as ?seconds)

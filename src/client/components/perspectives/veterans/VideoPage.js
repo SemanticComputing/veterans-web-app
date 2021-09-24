@@ -57,7 +57,8 @@ const useStyles = makeStyles(theme => ({
     height: 180,
     top: theme.spacing(0.5),
     [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
-      height: 'calc(60% - 72px)'
+      // height: 'calc(60% - 72px)'
+      height: '100%'
     }
   }),
   videoPlayerContainer: {
@@ -106,17 +107,6 @@ const ContextualContent = props => {
   //   const location = useLocation()
   //   const sectionRefs = useRef({})
 
-  //   useEffect(() => {
-  //     if (tableOfContents && location.hash) {
-  //       setTimeout(() => {
-  //         const ref = sectionRefs.current
-  //         if (has(ref, location.hash)) {
-  //           ref[location.hash].scrollIntoView({ behavior: 'smooth' })
-  //         }
-  //       }, 500)
-  //     }
-  //   }, [location.hash])
-
   const readyToRenderVideoPlayer = () => {
     return `http://ldf.fi/veterans/${localID}` === instanceTableData.id &&
         instanceTableData.videoLink
@@ -131,6 +121,7 @@ const ContextualContent = props => {
               <Player
                 resultClass={props.resultClass}
                 data={instanceTableData}
+                routeProps={props.routeProps}
               />}
           </Paper>
           <Paper className={classes.tableContainer}>
@@ -150,12 +141,12 @@ const ContextualContent = props => {
               toc={instanceTableData.timeSlice}
             />
           </Paper>
-          <Paper className={classes.wordCloud}>
+          {/* <Paper className={classes.wordCloud}>
             <Typography variant='h6' component='h2'>Käsitepilvi</Typography>
             <div className={classes.wordCloudContainer}>
-              {/* <Wordcloud data={wordcloudData} maxWords={wordcloudMaxWords} /> */}
+              <Wordcloud data={wordcloudData} maxWords={wordcloudMaxWords} />
             </div>
-          </Paper>
+          </Paper> */}
         </Grid>
       </Grid>
     </div>
