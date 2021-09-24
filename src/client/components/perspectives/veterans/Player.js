@@ -45,6 +45,7 @@ class Player extends React.Component {
 
   seekToBasedOnHash = () => {
     const seconds = this.props.routeProps.location.hash.substring(1)
+    // https://developers.google.com/youtube/iframe_api_reference#seekTo
     this.player.seekTo(seconds)
   }
 
@@ -62,7 +63,7 @@ class Player extends React.Component {
         // onStateChange: this.onPlayerStateChange
       }
     })
-  };
+  }
 
   onPlayerReady = event => {
     if (this.props.routeProps.location.hash === '') {
