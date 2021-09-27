@@ -31,7 +31,24 @@ export const clipPropertiesFacetResults =
     ?id :begin_timestamp ?timeStamp .
     BIND (CONCAT(?namePlusSpace, STR(?timeStamp)) AS ?prefLabel__id)
     BIND (?prefLabel__id AS ?prefLabel__prefLabel)
-    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+    #BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+
+    ?id :begin_timestamp ?beginTimestamp .
+
+    #?id :text_slice ?textSlice__id .
+    #?textSlice__id :order ?textSlice__order ;
+    #                          :text_content ?textSlice__textContent .
+
+    BIND(HOURS(?beginTimestamp) as ?hours)
+    BIND(MINUTES(?beginTimestamp) as ?minutes)
+    BIND(SECONDS(?beginTimestamp) as ?seconds)
+    BIND(CONCAT(STR(?hours), ':', STR(?minutes), ':', STR(xsd:integer(?seconds))) as ?beginTimeLabel)
+    BIND(?hours * 60 * 60 + ?minutes * 60 + ?seconds as ?beginTimeInSeconds_)
+    BIND(xsd:integer(?beginTimeInSeconds_) as ?beginTimeInSeconds)
+    ?fullVideo :structured_content ?id .
+    BIND(CONCAT("/videos/page/", REPLACE(STR(?fullVideo), "^.*\\\\/(.+)", "$1")) AS ?fullVideo__dataProviderUrl)
+    BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?clipHash)
+    BIND(CONCAT(?fullVideo__dataProviderUrl, ?clipHash) AS ?prefLabel__dataProviderUrl)
       {
         ?id :length ?length .
       }
