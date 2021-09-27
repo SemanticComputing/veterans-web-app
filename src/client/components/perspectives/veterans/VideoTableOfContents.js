@@ -17,8 +17,12 @@ const useStyles = makeStyles((theme) => ({
     flexBasis: '33.33%',
     flexShrink: 0
   },
+  secondaryHeadingContainer: {
+    display: 'flex',
+    alignItems: 'center'
+  },
   secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
+    fontSize: theme.typography.pxToRem(12),
     color: theme.palette.text.secondary
   },
   timeLink: {
@@ -66,7 +70,9 @@ const VideoTableOfContents = props => {
                   {row.beginTimeLabel}
                 </Typography>
               </Link>
-              <Typography className={classes.secondaryHeading}>{row.prefLabel}</Typography>
+              <div className={classes.secondaryHeadingContainer}>
+                <Typography className={classes.secondaryHeading}>{row.prefLabel}</Typography>
+              </div>
             </AccordionSummary>
             <AccordionDetails>
               <ul>
