@@ -54,8 +54,7 @@ class Player extends React.Component {
     // the Player object is created uniquely based on the id in props
     this.player = new window.YT.Player(`youtube-player-${this.props.data.videoLink}`, {
       videoId,
-      playerVars: {
-        playsinline: 1,
+      playerVars: { // https://developers.google.com/youtube/player_parameters#Parameters
         origin: window.location // https://stackoverflow.com/a/50518247
       },
       events: {
@@ -67,7 +66,8 @@ class Player extends React.Component {
 
   onPlayerReady = event => {
     if (this.props.routeProps.location.hash === '') {
-      this.player.seekTo(1)
+      // this.player.seekTo(1)
+      // this.player.pauseVideo()
     } else {
       this.seekToBasedOnHash()
     }
