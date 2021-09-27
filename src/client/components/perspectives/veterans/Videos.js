@@ -1,6 +1,6 @@
 import React, { lazy } from 'react'
 import PropTypes from 'prop-types'
-import intl from 'react-intl-universal'
+// import intl from 'react-intl-universal'
 import { Route, Redirect } from 'react-router-dom'
 import PerspectiveTabs from '../../main_layout/PerspectiveTabs'
 // import ResultTable from '../../facet_results/ResultTable'
@@ -9,36 +9,36 @@ import PerspectiveTabs from '../../main_layout/PerspectiveTabs'
 // import ApexChart from '../../facet_results/ApexChart'
 // import Network from '../../facet_results/Network'
 // import Export from '../../facet_results/Export'
-import {
-  MAPBOX_ACCESS_TOKEN,
-  MAPBOX_STYLE
-} from '../../../configs/sampo/GeneralConfig'
-import {
-  createSingleLineChartData,
-  createMultipleLineChartData
-} from '../../../configs/sampo/ApexCharts/LineChartConfig'
-import { coseLayout, cytoscapeStyle, preprocess } from '../../../configs/sampo/Cytoscape.js/NetworkConfig'
-import { layerConfigs, createPopUpContentMMM } from '../../../configs/sampo/Leaflet/LeafletConfig'
+// import {
+//   MAPBOX_ACCESS_TOKEN,
+//   MAPBOX_STYLE
+// } from '../../../configs/sampo/GeneralConfig'
+// import {
+//   createSingleLineChartData,
+//   createMultipleLineChartData
+// } from '../../../configs/sampo/ApexCharts/LineChartConfig'
+// import { coseLayout, cytoscapeStyle, preprocess } from '../../../configs/sampo/Cytoscape.js/NetworkConfig'
+// import { layerConfigs, createPopUpContentMMM } from '../../../configs/sampo/Leaflet/LeafletConfig'
 const ResultTable = lazy(() => import('../../facet_results/ResultTable'))
-const LeafletMap = lazy(() => import('../../facet_results/LeafletMap'))
-const Deck = lazy(() => import('../../facet_results/Deck'))
-const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
-const Network = lazy(() => import('../../facet_results/Network'))
-const Export = lazy(() => import('../../facet_results/Export'))
+// const LeafletMap = lazy(() => import('../../facet_results/LeafletMap'))
+// const Deck = lazy(() => import('../../facet_results/Deck'))
+// const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
+// const Network = lazy(() => import('../../facet_results/Network'))
+// const Export = lazy(() => import('../../facet_results/Export'))
 
 const Videos = props => {
-  const { rootUrl, perspective, screenSize } = props
-  const layerControlExpanded = screenSize === 'md' ||
-    screenSize === 'lg' ||
-    screenSize === 'xl'
-  let popupMaxHeight = 320
-  let popupMinWidth = 280
-  let popupMaxWidth = 280
-  if (screenSize === 'xs' || screenSize === 'sm') {
-    popupMaxHeight = 200
-    popupMinWidth = 150
-    popupMaxWidth = 150
-  }
+  const { rootUrl, perspective /*, screenSize */ } = props
+  // const layerControlExpanded = screenSize === 'md' ||
+  //   screenSize === 'lg' ||
+  //   screenSize === 'xl'
+  // let popupMaxHeight = 320
+  // let popupMinWidth = 280
+  // let popupMaxWidth = 280
+  // if (screenSize === 'xs' || screenSize === 'sm') {
+  //   popupMaxHeight = 200
+  //   popupMinWidth = 150
+  //   popupMaxWidth = 150
+  // }
   return (
     <>
       <PerspectiveTabs
