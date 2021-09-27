@@ -54,9 +54,9 @@ class Player extends React.Component {
     // the Player object is created uniquely based on the id in props
     this.player = new window.YT.Player(`youtube-player-${this.props.data.videoLink}`, {
       videoId,
-      playerVars: { // https://developers.google.com/youtube/player_parameters#Parameters
-        origin: window.location // https://stackoverflow.com/a/50518247
-      },
+      // playerVars: { // https://developers.google.com/youtube/player_parameters#Parameters
+      //
+      // },
       events: {
         onReady: this.onPlayerReady
         // onStateChange: this.onPlayerStateChange
