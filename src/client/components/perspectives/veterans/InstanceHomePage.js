@@ -21,7 +21,7 @@ import VideoPage from './VideoPage'
 // const Network = lazy(() => import('../../facet_results/Network'))
 const Export = lazy(() => import('../../facet_results/Export'))
 
-const styles = () => ({
+const styles = theme => ({
   root: {
     width: '100%',
     height: '100%'
@@ -29,7 +29,9 @@ const styles = () => ({
   content: props => ({
     padding: 0,
     width: '100%',
-    height: `calc(100% - ${props.layoutConfig.tabHeight}px + 7px)`,
+    [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
+      height: `calc(100% - ${props.layoutConfig.tabHeight}px + 7px)`
+    },
     overflow: 'auto'
   }),
   spinnerContainer: {

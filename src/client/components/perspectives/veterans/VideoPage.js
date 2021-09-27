@@ -40,39 +40,33 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '0px !important',
     paddingBottom: '0px !important'
   }),
-  textOuterContainer: props => ({
-    height: 400,
-    overflow: 'auto',
-    marginTop: -8,
-    [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
-      height: '100%',
-      marginTop: 'initial'
-    }
-  }),
-  textInnerContainer: {
-    padding: theme.spacing(2)
-  },
   tableOfContents: props => ({
     padding: theme.spacing(2),
     overflow: 'auto',
-    height: 180,
     top: theme.spacing(0.5),
     [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
       height: 'calc(100% - 32px)'
     }
   }),
-  videoPlayerContainer: {
-    height: '60%',
+  videoPlayerContainer: props => ({
+    [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
+      height: '60%'
+    },
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: 500
+    },
     overflow: 'auto',
     marginBottom: theme.spacing(1),
     display: 'flex',
     alignItems: 'center'
-  },
-  tableContainer: {
-    // marginTop: theme.spacing(1),
-    height: `calc(40% - ${theme.spacing(1)}px)`,
-    overflow: 'auto'
-  },
+  }),
+  tableContainer: props => ({
+    marginBottom: theme.spacing(1),
+    [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
+      height: `calc(40% - ${theme.spacing(1)}px)`,
+      overflow: 'auto'
+    }
+  }),
   wordCloud: props => ({
     marginTop: theme.spacing(1),
     padding: theme.spacing(2),
