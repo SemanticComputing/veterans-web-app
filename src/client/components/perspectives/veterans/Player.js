@@ -46,6 +46,12 @@ class Player extends React.Component {
     }
   }
 
+  componentWillUnmount () {
+    if (this.videoTimer) {
+      clearInterval(this.videoTimer)
+    }
+  }
+
   seekToBasedOnHash = () => {
     const seconds = this.props.routeProps.location.hash.substring(1)
     // https://developers.google.com/youtube/iframe_api_reference#seekTo
@@ -74,7 +80,7 @@ class Player extends React.Component {
     } else {
       this.seekToBasedOnHash()
     }
-    setInterval(() => {
+    this.videoTimer = setInterval(() => {
       if (this.player.getPlayerState() === 1) {
         this.props.updateVideoPlayerTime(parseInt(this.player.getCurrentTime()))
       }
