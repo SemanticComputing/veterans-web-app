@@ -6,7 +6,7 @@
   },
   "appTitle": {
     "short": "Veteraanihaastattelut",
-    "mobile": "Veteraanihaastattelut",
+    "mobile": "Sotiemme 1939 – 1945 sankarit muistelevat",
     "long": "&nbsp; &nbsp; Veteraanihaastattelut &nbsp; &nbsp;",
     "subheading": "Veteraanihaastattelut"
   },
@@ -152,9 +152,9 @@
       }
     },
     "videos": {
-      "label": "Haastattelut",
+      "label": "Koko videot",
       "facetResultsType": "Haastattelua",
-      "shortDescription": "Koko haastattelut",
+      "shortDescription": "Hae kokonaisia haastatteluvideoita.",
       "longDescription": "[ Ohjeet ]",
       "instancePage": {
         "label": "Haastattelu",
@@ -227,7 +227,7 @@
     "clips": {
       "label": "Videon kohdat",
       "facetResultsType": "videon kohtaa",
-      "shortDescription": "Videon kohdat",
+      "shortDescription": "Hae tarkemmin yksittäisiä kohtia haastatteluviseoista.",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Ohjeet</p>",
       "instancePage": {
         "label": "Aikaleima",
