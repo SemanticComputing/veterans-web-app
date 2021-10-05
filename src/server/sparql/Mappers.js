@@ -85,7 +85,7 @@ export const mapLineChart = ({ sparqlBindings, config }) => {
   const seriesData = []
   const categoriesData = []
   const sparqlBindingsLength = sparqlBindings.length
-  sparqlBindings.map((b, index, bindings) => {
+  sparqlBindings.forEach((b, index, bindings) => {
     const currentCategory = parseInt(b.category.value)
     const currentValue = parseInt(b.count.value)
     seriesData.push(currentValue)
@@ -129,7 +129,7 @@ export const mapMultipleLineChart = ({ sparqlBindings, config }) => {
   if (config && config.fillEmptyValues) {
     //  fill the missing years with zeroes
     const valmax = Math.max(...category)
-    for (var i = Math.min(...category); i <= valmax; i++) {
+    for (let i = Math.min(...category); i <= valmax; i++) {
       for (const p in res) {
         if (p !== 'category') {
           res[p][i] = 0
@@ -149,7 +149,7 @@ export const mapMultipleLineChart = ({ sparqlBindings, config }) => {
 
   // sort by year and remove empty sequence at start and end
   for (const p in res) {
-    var arr = Object.entries(res[p])
+    const arr = Object.entries(res[p])
       .map(p => [parseFloat(p[0]), p[1]])
       .sort((a, b) => ((a[0] < b[0]) ? -1 : ((a[0] > b[0]) ? 1 : 0)))
     res[p] = trimResult(arr)
@@ -213,6 +213,7 @@ const mapFacetValues = sparqlBindings => {
     } catch (err) {
       console.log(err)
     }
+    return null
   })
   return results
 }
@@ -241,4 +242,29 @@ const recursiveSortAndSelectChildren = nodes => {
     }
   })
   return nodes
+}
+
+export const toBarChartRaceFormat = ({ data }) => {
+  const object = data.reduce((obj, item) => {
+    if (Array.isArray(item.productionPlaceCountry)) {
+      const countries = item.productionPlaceCountry.reduce((obj, item) => {
+        return {
+          ...obj,
+          [item.id]: parseInt(item.manuscriptCount)
+        }
+      }, {})
+      return {
+        ...obj,
+        [item.id]: countries
+      }
+    } else {
+      return {
+        ...obj,
+        [item.id]: {
+          [item.productionPlaceCountry.id]: parseInt(item.productionPlaceCountry.manuscriptCount)
+        }
+      }
+    }
+  }, {})
+  return object
 }

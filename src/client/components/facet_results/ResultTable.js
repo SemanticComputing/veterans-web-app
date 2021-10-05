@@ -97,7 +97,7 @@ class ResultTable extends React.Component {
 
     // then update app state and url accordingly
     this.props.updatePage(this.props.resultClass, page)
-    history.push({
+    history.replace({
       pathname: `${this.props.rootUrl}/${this.props.resultClass}/faceted-search/table`,
       search: `?page=${page}`
     })
@@ -112,7 +112,7 @@ class ResultTable extends React.Component {
     // always fetch new results when page has updated
     if (prevProps.data.page !== this.props.data.page) {
       this.fetchResults()
-      history.push({
+      history.replace({
         pathname: `${this.props.rootUrl}/${this.props.resultClass}/faceted-search/table`,
         search: `?page=${this.props.data.page}`
       })
@@ -203,13 +203,16 @@ class ResultTable extends React.Component {
       if (column.valueType === 'image' && Array.isArray(columnData)) {
         hasExpandableContent = false
       }
-      if (!isArray &&
-        columnData !== '-' &&
-        column.valueType === 'string' &&
-        column.collapsedMaxWords &&
-        columnData.split(' ').length > column.collapsedMaxWords
-      ) {
-        hasExpandableContent = true
+      // check if label should be shortened in ResultTableCell
+      if (!isArray && column.collapsedMaxWords && columnData !== '-') {
+        if (column.valueType === 'string' && columnData.split(' ').length > column.collapsedMaxWords) {
+          hasExpandableContent = true
+          columnData.shortenLabel = !expanded // shorten label only if the cell is not expanded
+        }
+        if (column.valueType === 'object' && columnData.prefLabel.split(' ').length > column.collapsedMaxWords) {
+          hasExpandableContent = true
+          columnData.shortenLabel = !expanded // shorten label only if the cell is not expanded
+        }
       }
       return (
         <ResultTableCell
@@ -290,7 +293,8 @@ class ResultTable extends React.Component {
               <div className={classes.progressContainer}>
                 <CircularProgress style={{ color: purple[500] }} thickness={5} />
               </div>
-            ) : (
+              )
+            : (
               <Table size='small'>
                 <ResultTableHead
                   resultClass={this.props.resultClass}
@@ -304,7 +308,7 @@ class ResultTable extends React.Component {
                   {paginatedResults.map(row => this.rowRenderer(row))}
                 </TableBody>
               </Table>
-            )}
+              )}
         </div>
       </>
     )
