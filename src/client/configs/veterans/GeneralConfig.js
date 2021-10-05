@@ -63,7 +63,7 @@ export const layoutConfig = {
     }
   },
   footer: {
-    reducedHeight: 44,
-    defaultHeight: 64
+    reducedHeight: 100,
+    defaultHeight: 200
   }
 }

@@ -78,7 +78,23 @@ const useStyles = makeStyles(theme => ({
       width: 130,
       height: 33
     }
-  })
+  }),
+  arkistoLogo: props => ({
+    width: 220,
+    height: 60,
+    [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+      width: 220,
+      height: 60
+    }
+  }),
+  tammenlehvaLogo: props => ({
+    width: 118,
+    height: 100,
+    [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+      width: 130,
+      height: 100
+    }
+  }),
 }))
 
 /**
@@ -90,6 +106,16 @@ const Footer = props => {
     <Paper className={classes.root}>
       <div className={classes.layout}>
         <Grid className={classes.gridContainer} container spacing={3}>
+          <Grid item xs className={classes.gridItem}>
+            <a className={classes.link} href='https://tammenlehva.fi/' target='_blank' rel='noopener noreferrer'>
+              <img className={classes.tammenlehvaLogo} src={tammenlehvaLogo} alt='Tammenlehvän Perinneliitto logo' />
+            </a>
+          </Grid>
+          <Grid item xs className={classes.gridItem}>
+            <a className={classes.link} href='https://arkisto.fi/' target='_blank' rel='noopener noreferrer'>
+              <img className={classes.arkistoLogo} src={kaLogo} alt='National Archives of Finland logo' />
+            </a>
+          </Grid>
           <Grid item xs className={classes.gridItem}>
             <a className={classes.link} href='https://www.aalto.fi/en/school-of-science' target='_blank' rel='noopener noreferrer'>
               <img className={classes.aaltoLogo} src={aaltoLogo} alt='Aalto University logo' />
@@ -103,16 +129,6 @@ const Footer = props => {
           <Grid item xs className={classes.gridItem}>
             <a className={classes.link} href='https://www.helsinki.fi/en/helsinki-centre-for-digital-humanities' target='_blank' rel='noopener noreferrer'>
               <img className={classes.heldigLogo} src={heldigLogo} alt='Helsinki Centre for Digital Humanities logo' />
-            </a>
-          </Grid>
-          <Grid item xs className={classes.gridItem}>
-            <a className={classes.link} href='https://arkisto.fi/' target='_blank' rel='noopener noreferrer'>
-              <img className={classes.heldigLogo} src={kaLogo} alt='National Archives of Finland logo' />
-            </a>
-          </Grid>
-          <Grid item xs className={classes.gridItem}>
-            <a className={classes.link} href='https://tammenlehva.fi/' target='_blank' rel='noopener noreferrer'>
-              <img className={classes.heldigLogo} src={tammenlehvaLogo} alt='Tammenlehvän Perinneliitto logo' />
             </a>
           </Grid>
         </Grid>
