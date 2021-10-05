@@ -170,6 +170,8 @@ class InstanceHomePage extends React.Component {
                     screenSize={screenSize}
                     layoutConfig={layoutConfig}
                     routeProps={this.props.routeProps}
+                    videoPlayerState={this.props.videoPlayerState}
+                    updateVideoPlayerTime={this.props.updateVideoPlayerTime}
                   />}
               />
               <Route

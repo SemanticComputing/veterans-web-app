@@ -41,6 +41,9 @@ class Player extends React.Component {
     if (this.props.routeProps.location.hash !== prevProps.routeProps.location.hash) {
       this.seekToBasedOnHash()
     }
+    if (this.props.videoPlayerState.videoPlayerTime !== prevProps.videoPlayerState.videoPlayerTime) {
+      console.log(this.props.videoPlayerState.videoPlayerTime)
+    }
   }
 
   seekToBasedOnHash = () => {
@@ -71,6 +74,11 @@ class Player extends React.Component {
     } else {
       this.seekToBasedOnHash()
     }
+    setInterval(() => {
+      if (this.player.getPlayerState() === 1) {
+        this.props.updateVideoPlayerTime(parseInt(this.player.getCurrentTime()))
+      }
+    }, 1000)
   }
 
   // onPlayerStateChange = event => {

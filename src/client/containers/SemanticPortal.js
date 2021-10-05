@@ -38,6 +38,7 @@ import {
   updatePerspectiveHeaderExpanded,
   loadLocales,
   animateMap,
+  updateVideoPlayerTime,
   clientFSToggleDataset,
   clientFSFetchResults,
   clientFSSortResults,
@@ -46,7 +47,7 @@ import {
   clientFSUpdateFacet,
   fetchKnowledgeGraphMetadata
 } from '../actions'
-import { filterResults } from '../selectors'
+// import { filterResults } from '../selectors'
 import { perspectiveConfig } from '../configs/veterans/PerspectiveConfig'
 import { perspectiveConfigOnlyInfoPages } from '../configs/sampo/PerspectiveConfigOnlyInfoPages'
 import { rootUrl, layoutConfig } from '../configs/veterans/GeneralConfig'
@@ -454,6 +455,8 @@ const SemanticPortal = props => {
                                   perspective={perspective}
                                   animationValue={props.animationValue}
                                   animateMap={props.animateMap}
+                                  videoPlayerState={props.videoPlayer}
+                                  updateVideoPlayerTime={props.updateVideoPlayerTime}
                                   screenSize={screenSize}
                                   rootUrl={rootUrlWithLang}
                                   layoutConfig={layoutConfig}
@@ -518,6 +521,8 @@ const SemanticPortal = props => {
                             perspective={perspective}
                             animationValue={props.animationValue}
                             animateMap={props.animateMap}
+                            videoPlayerState={props.videoPlayer}
+                            updateVideoPlayerTime={props.updateVideoPlayerTime}
                             screenSize={screenSize}
                             rootUrl={rootUrlWithLang}
                             layoutConfig={layoutConfig}
@@ -621,7 +626,7 @@ const SemanticPortal = props => {
 }
 
 const mapStateToProps = state => {
-  const { clientFSResults, clientFSFacetValues } = filterResults(state.clientSideFacetedSearch)
+  // const { clientFSResults, clientFSFacetValues } = filterResults(state.clientSideFacetedSearch)
   return {
     videos: state.videos,
     videosFacets: state.videosFacets,
@@ -629,33 +634,9 @@ const mapStateToProps = state => {
     clips: state.clips,
     clipsFacets: state.clipsFacets,
     clipssFacetsConstrainSelf: state.clipsFacetsConstrainSelf,
-    perspective1: state.perspective1,
-    perspective1Facets: state.perspective1Facets,
-    perspective1FacetsConstrainSelf: state.perspective1FacetsConstrainSelf,
-    perspective2: state.perspective2,
-    perspective2Facets: state.perspective2Facets,
-    perspective2FacetsConstrainSelf: state.perspective2FacetsConstrainSelf,
-    perspective3: state.perspective3,
-    perspective3Facets: state.perspective3Facets,
-    perspective3FacetsConstrainSelf: state.perspective3FacetsConstrainSelf,
-    manuscripts: state.manuscripts,
-    works: state.works,
-    events: state.events,
-    actors: state.actors,
-    expressions: state.expressions,
-    collections: state.collections,
-    places: state.places,
-    finds: state.finds,
-    findsFacets: state.findsFacets,
-    findsFacetsConstrainSelf: state.findsFacetsConstrainSelf,
-    emloActors: state.emloActors,
-    emloActorsFacets: state.emloActorsFacets,
-    emloActorsFacetsConstrainSelf: state.emloActorsFacetsConstrainSelf,
+    videoPlayer: state.videoPlayer,
     leafletMap: state.leafletMap,
     fullTextSearch: state.fullTextSearch,
-    clientFSState: state.clientSideFacetedSearch,
-    clientFSResults,
-    clientFSFacetValues,
     animationValue: state.animation.value,
     options: state.options,
     error: state.error
@@ -687,6 +668,7 @@ const mapDispatchToProps = ({
   updatePerspectiveHeaderExpanded,
   loadLocales,
   animateMap,
+  updateVideoPlayerTime,
   clientFSToggleDataset,
   clientFSFetchResults,
   clientFSClearResults,
@@ -721,38 +703,6 @@ SemanticPortal.propTypes = {
    * Facet configs and values of 'clips'.
    */
   clipsFacets: PropTypes.object.isRequired,
-  /**
-   * Faceted search configs and results of 'Perspective 1'.
-   */
-  perspective1: PropTypes.object.isRequired,
-  /**
-   * Facet configs and values of 'Perspective 1'.
-   */
-  perspective1Facets: PropTypes.object.isRequired,
-  /**
-   * Facet configs and values for facets that restrict themselves of 'Perspective 1'.
-   */
-  perspective1FacetsConstrainSelf: PropTypes.object.isRequired,
-  /**
-   * Faceted search configs and results of 'Perspective 2'.
-   */
-  perspective2: PropTypes.object.isRequired,
-  /**
-   * Facet configs and values of 'Perspective 2'.
-   */
-  perspective2Facets: PropTypes.object.isRequired,
-  /**
-   * Faceted search configs and results of 'Perspective 3'.
-   */
-  perspective3: PropTypes.object.isRequired,
-  /**
-   * Facet configs and values of 'Perspective 3'.
-   */
-  perspective3Facets: PropTypes.object.isRequired,
-  /**
-   * Faceted search configs and results of 'Places'.
-   */
-  places: PropTypes.object.isRequired,
   /**
    * Leaflet map config and external layers.
    */

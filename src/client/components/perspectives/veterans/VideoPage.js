@@ -116,6 +116,8 @@ const ContextualContent = props => {
                 resultClass={props.resultClass}
                 data={instanceTableData}
                 routeProps={props.routeProps}
+                videoPlayerState={props.videoPlayerState}
+                updateVideoPlayerTime={props.updateVideoPlayerTime}
               />}
           </Paper>
           <Paper className={classes.tableContainer}>
