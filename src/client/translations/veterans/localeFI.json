@@ -2,16 +2,16 @@
   "languageLabel": "Suomi",
   "html": {
     "title": "Veteraanihaastattelut",
-    "description": "Veteraanihaastattelut"
+    "description": ""
   },
   "appTitle": {
     "short": "Veteraanihaastattelut",
-    "mobile": "Sotiemme 1939 – 1945 sankarit muistelevat",
-    "long": "&nbsp; &nbsp; Veteraanihaastattelut &nbsp; &nbsp;",
-    "subheading": "Veteraanihaastattelut"
+    "mobile": "VH",
+    "long": "Veteraanihaastattelut",
+    "subheading": ""
   },
-  "appDescription1": "Veteraanihaastattelut",
-  "appDescription2": "Veteraanihaastattelut",
+  "appDescription1": "",
+  "appDescription2": "",
   "selectPerspective": "Valitse hakukohde:",
   "mainPageImageLicence": "Kuvien lähde: SA-kuva",
   "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
@@ -154,7 +154,7 @@
     "videos": {
       "label": "Koko videot",
       "facetResultsType": "Haastattelua",
-      "shortDescription": "Hae kokonaisia haastatteluvideoita.",
+      "shortDescription": "Hae kokonaisia haastatteluvideoita",
       "longDescription": "[ Ohjeet ]",
       "instancePage": {
         "label": "Haastattelu",
@@ -227,7 +227,7 @@
     "clips": {
       "label": "Videon kohdat",
       "facetResultsType": "videon kohtaa",
-      "shortDescription": "Hae tarkemmin yksittäisiä kohtia haastatteluviseoista.",
+      "shortDescription": "Hae tarkemmin yksittäisiä kohtia haastatteluvideoista",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Ohjeet</p>",
       "instancePage": {
         "label": "Aikaleima",
