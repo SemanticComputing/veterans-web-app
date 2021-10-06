@@ -136,6 +136,7 @@ const ContextualContent = props => {
             {has(instanceTableData, 'timeSlice') &&
               <VideoTableOfContents
                 toc={instanceTableData.timeSlice}
+                videoPlayerState={props.videoPlayerState}
               />}
           </Paper>
           {/* <Paper className={classes.wordCloud}>

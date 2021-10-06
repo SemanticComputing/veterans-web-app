@@ -41,9 +41,6 @@ class Player extends React.Component {
     if (this.props.routeProps.location.hash !== prevProps.routeProps.location.hash) {
       this.seekToBasedOnHash()
     }
-    if (this.props.videoPlayerState.videoPlayerTime !== prevProps.videoPlayerState.videoPlayerTime) {
-      console.log(this.props.videoPlayerState.videoPlayerTime)
-    }
   }
 
   componentWillUnmount () {
@@ -63,33 +60,32 @@ class Player extends React.Component {
     // the Player object is created uniquely based on the id in props
     this.player = new window.YT.Player(`youtube-player-${this.props.data.videoLink}`, {
       videoId,
-      // playerVars: { // https://developers.google.com/youtube/player_parameters#Parameters
-      //
-      // },
+      playerVars: { // https://developers.google.com/youtube/player_parameters#Parameters
+        start: 1 // the parameter value is a positive integer
+      },
       events: {
-        onReady: this.onPlayerReady
-        // onStateChange: this.onPlayerStateChange
+        onReady: this.onPlayerReady,
+        onStateChange: this.onPlayerStateChange
       }
     })
   }
 
   onPlayerReady = event => {
     if (this.props.routeProps.location.hash === '') {
-      // this.player.seekTo(1)
-      // this.player.pauseVideo()
+      this.props.updateVideoPlayerTime(parseInt(this.player.getCurrentTime()))
     } else {
       this.seekToBasedOnHash()
     }
     this.videoTimer = setInterval(() => {
-      if (this.player.getPlayerState() === 1) {
+      if (this.player.getPlayerState() === 1 || this.player.getPlayerState() === 2) {
         this.props.updateVideoPlayerTime(parseInt(this.player.getCurrentTime()))
       }
     }, 1000)
   }
 
-  // onPlayerStateChange = event => {
-  //    console.log(event)
-  // }
+  onPlayerStateChange = event => {
+    this.props.updateVideoPlayerTime(parseInt(this.player.getCurrentTime()))
+  }
 
   render () {
     const { classes } = this.props
