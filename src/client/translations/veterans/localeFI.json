@@ -1,13 +1,13 @@
 {
   "languageLabel": "Suomi",
   "html": {
-    "title": "Veteraanihaastattelut",
+    "title": "Veteraanit kertovat",
     "description": ""
   },
   "appTitle": {
-    "short": "Veteraanihaastattelut",
-    "mobile": "VH",
-    "long": "Veteraanihaastattelut",
+    "short": "Veteraanit kertovat",
+    "mobile": "Veteraanit kertovat",
+    "long": "Veteraanit kertovat",
     "subheading": ""
   },
   "appDescription1": "",

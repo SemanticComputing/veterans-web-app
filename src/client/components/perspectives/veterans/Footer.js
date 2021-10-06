@@ -88,10 +88,10 @@ const useStyles = makeStyles(theme => ({
     }
   }),
   tammenlehvaLogo: props => ({
-    width: 118,
+    width: 70,
     height: 100,
     [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
-      width: 130,
+      width: 100,
       height: 100
     }
   }),
