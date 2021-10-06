@@ -38,7 +38,7 @@ export const perspectiveConfig = [
   {
     id: 'clips',
     frontPageImage: excerptsImage,
-    defaultActiveFacets: new Set([]),
+    defaultActiveFacets: new Set(['freeText']),
     defaultTab: 'table',
     defaultInstancePageTab: 'table',
     tabs: [
