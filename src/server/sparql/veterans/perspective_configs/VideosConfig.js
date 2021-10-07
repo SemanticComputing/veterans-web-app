@@ -9,7 +9,7 @@ export const videosConfig = {
     // url: 'http://localhost:3047/ds/sparql',
     url: 'https://ldf.fi/veterans/sparql',
     prefixes,
-    useAuth: false
+    useAuth: true
   },
   facetClass: ':Interview',
   includeInSitemap: true,

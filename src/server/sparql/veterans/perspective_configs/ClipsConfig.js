@@ -9,7 +9,7 @@ export const clipsConfig = {
     // url: 'http://localhost:3047/ds/sparql',
     url: 'https://ldf.fi/veterans/sparql',
     prefixes,
-    useAuth: false
+    useAuth: true
   },
   facetClass: ':TimeSlice',
   includeInSitemap: true,
