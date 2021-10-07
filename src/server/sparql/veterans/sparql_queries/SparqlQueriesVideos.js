@@ -34,6 +34,17 @@ export const videoPropertiesInstancePage =
     }
     UNION
     {
+      ?id :weighted_keyword ?weightedKeyword__id .
+      ?weightedKeyword__id :weight ?weightedKeyword__weight .
+      ?weightedKeyword__id :keyword ?kw .
+      ?kw skos:prefLabel ?weightedKeyword__prefLabel .
+      FILTER NOT EXISTS {
+        ?kw ^:keyword/:weight ?weight2 .
+        FILTER(?weight2 < ?weightedKeyword__weight)
+      }
+    }
+    UNION
+    {
       ?id :video_link ?videoLink .
     }
     UNION

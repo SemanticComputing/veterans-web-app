@@ -7,7 +7,7 @@ import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay'
 // import StarIcon from '@material-ui/icons/Star'
 // import RedoIcon from '@material-ui/icons/Redo'
 // import PieChartIcon from '@material-ui/icons/PieChart'
-// import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
 // import BubbleChartIcon from '@material-ui/icons/BubbleChart'
 // import LineChartIcon from '@material-ui/icons/ShowChart'
 import videosImage from '../../img/main_page/veterans/compressed/tiedotus-400x265-px.jpg'
@@ -32,6 +32,11 @@ export const perspectiveConfig = [
         id: 'video',
         value: 0,
         icon: <CalendarViewDayIcon />
+      },
+      {
+        id: 'word_cloud',
+        value: 1,
+        icon: <CloudDownloadIcon />
       }
     ]
   },

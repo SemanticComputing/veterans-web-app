@@ -1,7 +1,7 @@
 import React, { lazy } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-// import Paper from '@material-ui/core/Paper'
+import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import purple from '@material-ui/core/colors/purple'
@@ -20,6 +20,7 @@ import VideoPage from './VideoPage'
 // const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
 // const Network = lazy(() => import('../../facet_results/Network'))
 const Export = lazy(() => import('../../facet_results/Export'))
+const WordCloud = lazy(() => import('./WordCloud'))
 
 const styles = theme => ({
   root: {
@@ -173,6 +174,13 @@ class InstanceHomePage extends React.Component {
                     videoPlayerState={this.props.videoPlayerState}
                     updateVideoPlayerTime={this.props.updateVideoPlayerTime}
                   />}
+              />
+              <Route
+                path={[`${rootUrl}/${resultClass}/page/${this.state.localID}/word_cloud`, '/iframe.html']} // support also rendering in Storybook
+                render={() =>
+                  <Paper square style={{ width: '100%', height: 'calc(100% - 10px)' }}>
+                    <WordCloud maxWords={100} data={instanceTableData.weightedKeyword} />
+                  </Paper>}
               />
               <Route
                 path={`${rootUrl}/${resultClass}/page/${this.state.localID}/export`}

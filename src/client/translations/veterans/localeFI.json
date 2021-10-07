@@ -75,7 +75,9 @@
   },
   "tabs": {
     "table": "taulukko",
-    "map": "kartta"
+    "map": "kartta",
+    "video": "video",
+    "word_cloud": "avainsanapilvi"
   },
   "table": {
     "rowsPerPage": "Riviä sivulla",
