@@ -24,7 +24,6 @@ const Wordcloud = props => {
     el.weight = +el.weight
   })
 
-  console.log(data)
   // sort without mutating the original array
   let words = [...data].sort((a, b) => b.weight - a.weight)
   if (words.length > maxWords) {

@@ -34,14 +34,13 @@ export const videoPropertiesInstancePage =
     }
     UNION
     {
-      ?id :weighted_keyword ?weightedKeyword__id .
-      ?weightedKeyword__id :weight ?weightedKeyword__weight .
-      ?weightedKeyword__id :keyword ?kw .
-      ?kw skos:prefLabel ?weightedKeyword__prefLabel .
-      FILTER NOT EXISTS {
-        ?kw ^:keyword/:weight ?weight2 .
-        FILTER(?weight2 < ?weightedKeyword__weight)
+      SELECT ?id ?weightedKeyword__id ?weightedKeyword__prefLabel (MAX(?weight) as ?weightedKeyword__weight) {
+        ?id :weighted_keyword ?wkw .
+        ?wkw :keyword ?weightedKeyword__id ;
+             :keyword/skos:prefLabel ?weightedKeyword__prefLabel ;
+              :weight ?weight .
       }
+      GROUP BY ?id ?weightedKeyword__id ?weightedKeyword__prefLabel
     }
     UNION
     {
