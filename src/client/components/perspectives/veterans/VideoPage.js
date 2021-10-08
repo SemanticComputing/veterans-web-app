@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(1),
     // flexWrap: 'wrap-reverse',
     [theme.breakpoints.up(props.layoutConfig.hundredPercentHeightBreakPoint)]: {
-      height: `calc(100% - ${theme.spacing(0.5)}`
+      height: `calc(100% - ${theme.spacing(2.5)}px)`
     }
   }),
   gridItem: props => ({

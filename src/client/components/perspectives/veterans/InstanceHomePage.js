@@ -35,6 +35,20 @@ const styles = theme => ({
     },
     overflow: 'auto'
   }),
+  wordCloudOuterContainer: props => ({
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }),
+  wordCloudInnerContainer: props => ({
+    width: '100%',
+    height: '100%',
+    [theme.breakpoints.up('lg')]: {
+      width: '50%',
+      height: '50%'
+    }
+  }),
   spinnerContainer: {
     display: 'flex',
     width: '100%',
@@ -178,9 +192,11 @@ class InstanceHomePage extends React.Component {
               <Route
                 path={[`${rootUrl}/${resultClass}/page/${this.state.localID}/word_cloud`, '/iframe.html']} // support also rendering in Storybook
                 render={() =>
-                  <Paper square style={{ width: '100%', height: 'calc(100% - 10px)' }}>
-                    <WordCloud maxWords={100} data={instanceTableData.weightedKeyword} />
-                  </Paper>}
+                  <div className={classes.wordCloudOuterContainer}>
+                    <Paper className={classes.wordCloudInnerContainer}>
+                      <WordCloud maxWords={100} data={instanceTableData.weightedKeyword} />
+                    </Paper>
+                  </div>}
               />
               <Route
                 path={`${rootUrl}/${resultClass}/page/${this.state.localID}/export`}
