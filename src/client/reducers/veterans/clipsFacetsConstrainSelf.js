@@ -58,7 +58,7 @@ export const INITIAL_STATE = {
       filterType: 'uriFilter',
       uriFilter: null,
       priority: 4
-    },
+    }
   }
 }
 

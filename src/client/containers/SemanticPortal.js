@@ -633,7 +633,7 @@ const mapStateToProps = state => {
     videosFacetsConstrainSelf: state.videosFacetsConstrainSelf,
     clips: state.clips,
     clipsFacets: state.clipsFacets,
-    clipssFacetsConstrainSelf: state.clipsFacetsConstrainSelf,
+    clipsFacetsConstrainSelf: state.clipsFacetsConstrainSelf,
     videoPlayer: state.videoPlayer,
     leafletMap: state.leafletMap,
     fullTextSearch: state.fullTextSearch,
