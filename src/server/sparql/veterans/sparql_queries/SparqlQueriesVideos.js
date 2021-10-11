@@ -34,14 +34,27 @@ export const videoPropertiesInstancePage =
     }
     UNION
     {
-      SELECT ?id ?weightedKeyword__id ?weightedKeyword__prefLabel (MAX(?weight) as ?weightedKeyword__weight) {
-        ?id :weighted_keyword ?wkw .
-        ?wkw :keyword ?weightedKeyword__id ;
-             :keyword/skos:prefLabel ?weightedKeyword__prefLabel ;
-              :weight ?weight .
-      }
-      GROUP BY ?id ?weightedKeyword__id ?weightedKeyword__prefLabel
+      ?id :keyword ?keyword__id .
+      ?keyword__id skos:prefLabel ?keyword__prefLabel .
+      ?keyword__id :uri ?keyword__dataProviderUrl .
     }
+    UNION 
+    {
+      ?id :weighted_keyword ?wkw .
+      ?wkw :keyword ?weightedKeyword__id ;
+           :keyword/skos:prefLabel ?weightedKeyword__prefLabel ;
+           :weight ?weightedKeyword__weight .
+    }
+    # UNION
+    # {
+    #   SELECT ?id ?weightedKeyword__id ?weightedKeyword__prefLabel (MAX(?weight) as ?weightedKeyword__weight) {
+    #     ?id :weighted_keyword ?wkw .
+    #     ?wkw :keyword ?weightedKeyword__id ;
+    #          :keyword/skos:prefLabel ?weightedKeyword__prefLabel ;
+    #           :weight ?weight .
+    #   }
+    #   GROUP BY ?id ?weightedKeyword__id ?weightedKeyword__prefLabel
+    # }
     UNION
     {
       ?id :video_link ?videoLink .
