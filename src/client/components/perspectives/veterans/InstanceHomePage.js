@@ -44,6 +44,10 @@ const styles = theme => ({
   wordCloudInnerContainer: props => ({
     width: '100%',
     height: '100%',
+    [theme.breakpoints.down('md')]: {
+      minHeight: 400,
+      overflow: 'auto'
+    },
     [theme.breakpoints.up('lg')]: {
       width: '50%',
       height: '50%'
