@@ -2,7 +2,7 @@ const perspectiveID = 'videos'
 
 export const videoPropertiesInstancePage =
 `
-    ?id skos:prefLabel ?prefLabel__id .
+    ?id :interviewed_person/skos:prefLabel ?prefLabel__id .
     BIND (?prefLabel__id as ?prefLabel__prefLabel)
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
@@ -10,10 +10,10 @@ export const videoPropertiesInstancePage =
     {
       ?id :place_of_interview ?placeOfInterview .
     }
-    # UNION
-    # {
-    #  ?id :full_text ?content .
-    # }
+    UNION
+    {
+      ?id :date_of_interview ?dateOfInterview .
+    }
     UNION 
     {
       ?id :length ?raw_length .

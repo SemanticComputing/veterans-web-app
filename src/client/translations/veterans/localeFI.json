@@ -1,13 +1,13 @@
 {
   "languageLabel": "Suomi",
   "html": {
-    "title": "Veteraanit kertovat",
+    "title": "Veteraanihaastattelut",
     "description": ""
   },
   "appTitle": {
-    "short": "Veteraanit kertovat",
-    "mobile": "Veteraanit kertovat",
-    "long": "Veteraanit kertovat",
+    "short": "Veteraanihaastattelut",
+    "mobile": "Veteraanihaastattelut",
+    "long": "Veteraanihaastattelut",
     "subheading": ""
   },
   "appDescription1": "",
@@ -220,9 +220,17 @@
           "description": ""
         },
         "prefLabel": {
-          "label": "Nimi",
-          "description": "Nimi",
+          "label": "Haastateltavan nimi",
+          "description": "Haastateltavan nimi",
           "textFacetInputPlaceholder": "Etsi..."
+        },
+        "intrerviewee": {
+          "label": "Henkilön nimi",
+          "description": "Haastatellun henkilön nimi ja syntymävuosi"
+        },
+        "dateOfInterview": {
+          "label": "Haastattelun ajankohta",
+          "description": "Haastatellun ajankohta"
         }
       }
     },

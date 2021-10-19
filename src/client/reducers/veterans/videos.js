@@ -77,6 +77,15 @@ export const INITIAL_STATE = {
       minWidth: 180
     },
     {
+      id: 'dateOfInterview',
+      valueType: 'string',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 180
+    },
+    {
       id: 'keyword',
       valueType: 'object',
       makeLink: true,
