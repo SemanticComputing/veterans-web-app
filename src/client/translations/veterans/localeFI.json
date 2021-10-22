@@ -1,14 +1,14 @@
 {
   "languageLabel": "Suomi",
   "html": {
-    "title": "Veteraanihaastattelut",
+    "title": "Sotamuistosampo",
     "description": ""
   },
   "appTitle": {
-    "short": "Veteraanihaastattelut",
-    "mobile": "Veteraanihaastattelut",
-    "long": "Veteraanihaastattelut",
-    "subheading": ""
+    "short": "Sotamuistosampo",
+    "mobile": "Sotamuistosampo",
+    "long": "Sotamuistosampo",
+    "subheading": "Veteraanien kertomuksia"
   },
   "appDescription1": "",
   "appDescription2": "",

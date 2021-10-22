@@ -43,15 +43,18 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center'
   },
+  linkHeading: {
+    marginTop: theme.spacing(2)
+  },
   bannerSubheading: {
-    marginTop: theme.spacing(1.5),
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-      '& div': {
-        flexGrow: 1,
-        width: 0
-      }
-    }
+    marginTop: theme.spacing(1.5)
+    // [theme.breakpoints.up('md')]: {
+    //   display: 'flex',
+    //   '& div': {
+    //     flexGrow: 1,
+    //     width: 0
+    //   }
+    // }
   },
   layout: {
     marginLeft: theme.spacing(1),
@@ -133,9 +136,7 @@ const Main = props => {
               </Typography>
             </div>
           </div>
-
         </div>
-
       </div>
       <div className={classes.layout}>
         <div className={classes.heroContent}>
@@ -163,6 +164,9 @@ const Main = props => {
             }
           })}
         </Grid>
+        <Typography className={classes.linkHeading} variant={descriptionVariant} align='center' color='textPrimary' paragraph>
+          Linkkejä esimerkkisivuille
+        </Typography>
         <div className={classes.licenceTextContainer}>
           <Typography className={classes.licenceText}>{intl.getHTML('mainPageImageLicence')}</Typography>
         </div>
