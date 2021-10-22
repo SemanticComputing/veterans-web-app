@@ -597,17 +597,17 @@ const SemanticPortal = props => {
                   <TextPage>{intl.getHTML('feedback')}</TextPage>
                 </div>}
             /> */}
-          <Route
+          {/* <Route
             path={`${rootUrlWithLang}/about`}
             render={() =>
               <div className={classNames(classes.mainContainer, classes.textPageContainer)}>
                 <TextPage>
                   {intl.getHTML('aboutThePortalPartOne')}
-                  {/* <KnowledgeGraphMetadataTable
+                  <KnowledgeGraphMetadataTable
                     resultClass='perspective1KnowledgeGraphMetadata'
                     fetchKnowledgeGraphMetadata={props.fetchKnowledgeGraphMetadata}
                     knowledgeGraphMetadata={props.perspective1.knowledgeGraphMetadata}
-                  /> */}
+                  />
                   {intl.getHTML('aboutThePortalPartTwo')}
                 </TextPage>
               </div>}
@@ -618,7 +618,7 @@ const SemanticPortal = props => {
               <div className={classNames(classes.mainContainer, classes.textPageContainer)}>
                 <TextPage>{intl.getHTML('instructions')}</TextPage>
               </div>}
-          />
+          /> */}
         </>
       </div>
     </MuiPickersUtilsProvider>

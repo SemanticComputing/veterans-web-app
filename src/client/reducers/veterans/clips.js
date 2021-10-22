@@ -77,11 +77,11 @@ export const INITIAL_STATE = {
       minWidth: 200
     },
     {
-      id: 'content',
+      id: 'textSlice',
       valueType: 'object',
       makeLink: false,
       externalLink: true,
-      sortValues: true,
+      sortValues: false,
       numberedList: false,
       minWidth: 200
     }

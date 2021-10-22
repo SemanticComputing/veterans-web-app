@@ -157,7 +157,7 @@
       "label": "Koko videot",
       "facetResultsType": "Haastattelua",
       "shortDescription": "Hae kokonaisia haastatteluvideoita",
-      "longDescription": "[ Ohjeet ]",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
       "instancePage": {
         "label": "Haastattelu",
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>"
@@ -238,10 +238,10 @@
       "label": "Videon kohdat",
       "facetResultsType": "videon kohtaa",
       "shortDescription": "Hae tarkemmin yksittäisiä kohtia haastatteluvideoista",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Ohjeet</p>",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
       "instancePage": {
-        "label": "Aikaleima",
-        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[Ohjeet]</p>"
+        "label": "",
+        "description": ""
       },
       "properties": {
         "freeText": {
@@ -256,7 +256,7 @@
           "label": "Haastattelun kesto",
           "description": "Haastattelun kesto"
         },
-        "content": {
+        "textSlice": {
           "label": "Sisältö",
           "description": ""
         },
@@ -270,7 +270,7 @@
         },
         "uri": {
           "label": "URI",
-          "description": "UKoneuettava tunniste"
+          "description": "Koneluettava tunniste"
         },
         "namedEntity": {
           "label": "Nimetty entiteetti",
