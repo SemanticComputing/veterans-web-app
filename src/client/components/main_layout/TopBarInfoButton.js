@@ -60,25 +60,17 @@ class TopBarInfoButton extends React.Component {
           open={Boolean(this.state.anchorEl)}
           onClose={this.handleInfoMenuClose}
         >
-          <MenuItem
-            key={0}
-            component={this.AdapterLink}
-            to={`${this.props.rootUrl}/about`}
-            onClick={this.handleInfoMenuClose}
-          >
-            {intl.get('topBar.info.aboutThePortal')}
-          </MenuItem>
-          {/* <a
+          <a
             className={classes.link}
             key={1}
-            href={intl.get('topBar.info.blogUrl')}
+            href={intl.get('topBar.info.aboutThePortalUrl')}
             target='_blank'
             rel='noopener noreferrer'
           >
             <MenuItem onClick={this.handleInfoMenuClose}>
-              {intl.get('topBar.info.blog')}
+              {intl.get('topBar.info.aboutThePortal')}
             </MenuItem>
-          </a> */}
+          </a>
         </Menu>
       </>
     )

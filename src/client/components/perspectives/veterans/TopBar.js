@@ -204,42 +204,16 @@ const TopBar = props => {
         externalUrl: props.layoutConfig.topBar.feedbackLink,
         label: intl.get('topBar.feedback')
       })}
-      {/* <MenuItem
-        key='feedback'
-        component={AdapterLink}
-        to={`${props.rootUrl}/feedback`}
-        onClick={handleMobileMenuClose}
-      >
-        {intl.get('topBar.feedback').toUpperCase()}
-      </MenuItem> */}
-      <MenuItem
-        key={0}
-        component={AdapterLink}
-        to={`${props.rootUrl}/about`}
-        onClick={handleMobileMenuClose}
-      >
-        {intl.get('topBar.info.aboutThePortal').toUpperCase()}
-      </MenuItem>
-      {/* <a
-        className={classes.link}
-        key={1}
-        href={intl.get('topBar.info.blogUrl')}
-        target='_blank'
-        rel='noopener noreferrer'
-        onClick={handleMobileMenuClose}
-      >
-        <MenuItem>
-          {intl.get('topBar.info.blog').toUpperCase()}
-        </MenuItem>
-      </a> */}
-      <MenuItem
-        key='info'
-        component={AdapterLink}
-        to={`${props.rootUrl}/instructions`}
-        onClick={handleMobileMenuClose}
-      >
-        {intl.get('topBar.instructions').toUpperCase()}
-      </MenuItem>
+      {renderMobileMenuItem({
+        id: 'aboutThePortal',
+        externalUrl: intl.get('topBar.info.aboutThePortalUrl'),
+        label: intl.get('topBar.info.aboutThePortal')
+      })}
+      {renderMobileMenuItem({
+        id: 'instructions',
+        externalUrl: intl.get('topBar.instructionsUrl'),
+        label: intl.get('topBar.instructions')
+      })}
     </Menu>
 
   return (
@@ -279,15 +253,11 @@ const TopBar = props => {
               label: intl.get('topBar.feedback')
             })}
             <TopBarInfoButton rootUrl={props.rootUrl} />
-            <Button
-              className={classes.appBarButton}
-              component={AdapterNavLink}
-              to={`${props.rootUrl}/instructions`}
-              isActive={(match, location) => location.pathname.startsWith(`${props.rootUrl}/instructions`)}
-              activeClassName={classes.appBarButtonActive}
-            >
-              {intl.get('topBar.instructions')}
-            </Button>
+            {renderDesktopTopMenuItem({
+              id: 'instructions',
+              externalUrl: intl.get('topBar.instructionsUrl'),
+              label: intl.get('topBar.instructions')
+            })}
             {props.layoutConfig.topBar.showLanguageButton &&
               <TopBarLanguageButton
                 currentLocale={currentLocale}
