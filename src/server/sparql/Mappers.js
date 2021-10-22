@@ -1,4 +1,4 @@
-import { has } from 'lodash'
+import { has, cloneDeep } from 'lodash'
 import { getTreeFromFlatData } from '@nosferatu500/react-sortable-tree'
 
 export const mapPlaces = sparqlBindings => {
@@ -244,27 +244,67 @@ const recursiveSortAndSelectChildren = nodes => {
   return nodes
 }
 
-export const toBarChartRaceFormat = ({ data }) => {
-  const object = data.reduce((obj, item) => {
-    if (Array.isArray(item.productionPlaceCountry)) {
-      const countries = item.productionPlaceCountry.reduce((obj, item) => {
-        return {
-          ...obj,
-          [item.id]: parseInt(item.manuscriptCount)
-        }
-      }, {})
-      return {
-        ...obj,
-        [item.id]: countries
+export const toBarChartRaceFormat = ({ data, config }) => {
+  const { step } = config
+  const firstKey = parseInt(data[0].id)
+  const lastKey = parseInt(data[data.length - 1].id)
+  const resultObj = {}
+  let rawDataIndex = 0
+  let lastNonNullIndex = null
+  for (let i = firstKey; i <= lastKey; i += step) {
+    const dataItemExists = parseInt(data[rawDataIndex].id) === i
+    if (dataItemExists) {
+      const currentDataItem = dataItemToObject(data[rawDataIndex].dataItem)
+      if (i === firstKey) {
+        resultObj[i] = currentDataItem
+      } else {
+        resultObj[i] = mergeDataItems(resultObj[lastNonNullIndex], currentDataItem)
       }
+      lastNonNullIndex = i
+      rawDataIndex++
     } else {
+      resultObj[i] = null
+    }
+  }
+  // const initialItem = cloneDeep(resultObj[lastKey])
+  // for (const key in initialItem) {
+  //   initialItem[key].value = 0
+  // }
+  // resultObj[firstKey - step] = initialItem
+  return resultObj
+}
+
+const dataItemToObject = dataItem => {
+  if (Array.isArray(dataItem)) {
+    return dataItem.reduce((obj, item) => {
       return {
         ...obj,
         [item.id]: {
-          [item.productionPlaceCountry.id]: parseInt(item.productionPlaceCountry.manuscriptCount)
+          prefLabel: item.prefLabel,
+          value: parseInt(item.value)
         }
       }
+    }, {})
+  } else {
+    return {
+      [dataItem.id]: {
+        prefLabel: dataItem.prefLabel,
+        value: parseInt(dataItem.value)
+      }
     }
-  }, {})
-  return object
+  }
+}
+
+const mergeDataItems = (itemA, itemB) => {
+  const merged = cloneDeep(itemA)
+  const keys = Object.keys(itemB)
+  for (let i = 0; i < keys.length; i++) {
+    const itemBkey = keys[i]
+    if (Object.prototype.hasOwnProperty.call(itemA, itemBkey)) {
+      merged[itemBkey].value += itemB[itemBkey].value
+    } else {
+      merged[itemBkey] = itemB[itemBkey]
+    }
+  }
+  return merged
 }

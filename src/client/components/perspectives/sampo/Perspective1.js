@@ -24,6 +24,7 @@ const LeafletMap = lazy(() => import('../../facet_results/LeafletMap'))
 const Deck = lazy(() => import('../../facet_results/Deck'))
 const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
 const BarChartRace = lazy(() => import('../../facet_results/BarChartRace'))
+const BarChartRaceTest = lazy(() => import('../../facet_results/BarChartRaceTest'))
 const Network = lazy(() => import('../../facet_results/Network'))
 const Export = lazy(() => import('../../facet_results/Export'))
 
@@ -263,9 +264,39 @@ const Perspective1 = props => {
           />}
       />
       <Route
-        path={`${rootUrl}/${perspective.id}/faceted-search/bar_chart_race`}
+        path={`${rootUrl}/${perspective.id}/faceted-search/bar_chart_race_ms_productions`}
         render={() =>
           <BarChartRace
+            fetchData={props.fetchResults}
+            resultClass='productionsByDecadeAndCountry'
+            facetClass='perspective1'
+            resultUpdateID={props.perspectiveState.resultUpdateID}
+            results={props.perspectiveState.results}
+            stepBegin={1000}
+            stepEnd={1900}
+            stepIncrement={10}
+            stepDuration={1000}
+          />}
+      />
+      <Route
+        path={`${rootUrl}/${perspective.id}/faceted-search/bar_chart_race_speeches`}
+        render={() =>
+          <BarChartRace
+            fetchData={props.fetchResults}
+            resultClass='speechesByYearAndParty'
+            facetClass='perspective1'
+            resultUpdateID={props.perspectiveState.resultUpdateID}
+            results={props.perspectiveState.results}
+            stepBegin={1907}
+            stepEnd={2021}
+            stepIncrement={1}
+            stepDuration={1000}
+          />}
+      />
+      <Route
+        path={`${rootUrl}/${perspective.id}/faceted-search/bar_chart_race2`}
+        render={() =>
+          <BarChartRaceTest
             fetchData={props.fetchResults}
             resultClass='productionsByDecadeAndCountry'
             facetClass='perspective1'

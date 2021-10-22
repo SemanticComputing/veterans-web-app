@@ -5,383 +5,7 @@ import * as am5xy from '@amcharts/amcharts5/xy'
 import am5themesAnimated from '@amcharts/amcharts5/themes/Animated'
 import Paper from '@material-ui/core/Paper'
 
-/**
- * ---------------------------------------
- * This demo was created using amCharts 5.
- *
- * For more information visit:
- * https://www.amcharts.com/
- *
- * Documentation is available at:
- * https://www.amcharts.com/docs/v5/
- * ---------------------------------------
- */
-
-// Data
-const allData = {
-  2002: {
-    Friendster: 0,
-    Facebook: 0,
-    Flickr: 0,
-    'Google Buzz': 0,
-    'Google+': 0,
-    Hi5: 0,
-    Instagram: 0,
-    MySpace: 0,
-    Orkut: 0,
-    Pinterest: 0,
-    Reddit: 0,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 0,
-    WeChat: 0,
-    Weibo: 0,
-    Whatsapp: 0,
-    YouTube: 0
-  },
-  2003: {
-    Friendster: 4470000,
-    Facebook: 0,
-    Flickr: 0,
-    'Google Buzz': 0,
-    'Google+': 0,
-    Hi5: 0,
-    Instagram: 0,
-    MySpace: 0,
-    Orkut: 0,
-    Pinterest: 0,
-    Reddit: 0,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 0,
-    WeChat: 0,
-    Weibo: 0,
-    Whatsapp: 0,
-    YouTube: 0
-  },
-  2004: {
-    Friendster: 5970054,
-    Facebook: 0,
-    Flickr: 3675135,
-    'Google Buzz': 0,
-    'Google+': 0,
-    Hi5: 0,
-    Instagram: 0,
-    MySpace: 980036,
-    Orkut: 4900180,
-    Pinterest: 0,
-    Reddit: 0,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 0,
-    WeChat: 0,
-    Weibo: 0,
-    Whatsapp: 0,
-    YouTube: 0
-  },
-  2005: {
-    Friendster: 7459742,
-    Facebook: 0,
-    Flickr: 7399354,
-    'Google Buzz': 0,
-    'Google+': 0,
-    Hi5: 9731610,
-    Instagram: 0,
-    MySpace: 19490059,
-    Orkut: 9865805,
-    Pinterest: 0,
-    Reddit: 0,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 0,
-    WeChat: 0,
-    Weibo: 0,
-    Whatsapp: 0,
-    YouTube: 1946322
-  },
-  2006: {
-    Friendster: 8989854,
-    Facebook: 0,
-    Flickr: 14949270,
-    'Google Buzz': 0,
-    'Google+': 0,
-    Hi5: 19932360,
-    Instagram: 0,
-    MySpace: 54763260,
-    Orkut: 14966180,
-    Pinterest: 0,
-    Reddit: 248309,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 0,
-    WeChat: 0,
-    Weibo: 0,
-    Whatsapp: 0,
-    YouTube: 19878248
-  },
-  2007: {
-    Friendster: 24253200,
-    Facebook: 0,
-    Flickr: 29299875,
-    'Google Buzz': 0,
-    'Google+': 0,
-    Hi5: 29533250,
-    Instagram: 0,
-    MySpace: 69299875,
-    Orkut: 26916562,
-    Pinterest: 0,
-    Reddit: 488331,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 0,
-    WeChat: 0,
-    Weibo: 0,
-    Whatsapp: 0,
-    YouTube: 143932250
-  },
-  2008: {
-    Friendster: 51008911,
-    Facebook: 100000000,
-    Flickr: 30000000,
-    'Google Buzz': 0,
-    'Google+': 0,
-    Hi5: 55045618,
-    Instagram: 0,
-    MySpace: 72408233,
-    Orkut: 44357628,
-    Pinterest: 0,
-    Reddit: 1944940,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 0,
-    WeChat: 0,
-    Weibo: 0,
-    Whatsapp: 0,
-    YouTube: 294493950
-  },
-  2009: {
-    Friendster: 28804331,
-    Facebook: 276000000,
-    Flickr: 41834525,
-    'Google Buzz': 0,
-    'Google+': 0,
-    Hi5: 57893524,
-    Instagram: 0,
-    MySpace: 70133095,
-    Orkut: 47366905,
-    Pinterest: 0,
-    Reddit: 3893524,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 0,
-    WeChat: 0,
-    Weibo: 0,
-    Whatsapp: 0,
-    YouTube: 413611440
-  },
-  2010: {
-    Friendster: 0,
-    Facebook: 517750000,
-    Flickr: 54708063,
-    'Google Buzz': 166029650,
-    'Google+': 0,
-    Hi5: 59953290,
-    Instagram: 0,
-    MySpace: 68046710,
-    Orkut: 49941613,
-    Pinterest: 0,
-    Reddit: 0,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 43250000,
-    WeChat: 0,
-    Weibo: 19532900,
-    Whatsapp: 0,
-    YouTube: 480551990
-  },
-  2011: {
-    Friendster: 0,
-    Facebook: 766000000,
-    Flickr: 66954600,
-    'Google Buzz': 170000000,
-    'Google+': 0,
-    Hi5: 46610848,
-    Instagram: 0,
-    MySpace: 46003536,
-    Orkut: 47609080,
-    Pinterest: 0,
-    Reddit: 0,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 0,
-    Twitter: 92750000,
-    WeChat: 47818400,
-    Weibo: 48691040,
-    Whatsapp: 0,
-    YouTube: 642669824
-  },
-  2012: {
-    Friendster: 0,
-    Facebook: 979750000,
-    Flickr: 79664888,
-    'Google Buzz': 170000000,
-    'Google+': 107319100,
-    Hi5: 0,
-    Instagram: 0,
-    MySpace: 0,
-    Orkut: 45067022,
-    Pinterest: 0,
-    Reddit: 0,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 146890156,
-    Twitter: 160250000,
-    WeChat: 118123370,
-    Weibo: 79195730,
-    Whatsapp: 0,
-    YouTube: 844638200
-  },
-  2013: {
-    Friendster: 0,
-    Facebook: 1170500000,
-    Flickr: 80000000,
-    'Google Buzz': 170000000,
-    'Google+': 205654700,
-    Hi5: 0,
-    Instagram: 117500000,
-    MySpace: 0,
-    Orkut: 0,
-    Pinterest: 0,
-    Reddit: 0,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 293482050,
-    Twitter: 223675000,
-    WeChat: 196523760,
-    Weibo: 118261880,
-    Whatsapp: 300000000,
-    YouTube: 1065223075
-  },
-  2014: {
-    Friendster: 0,
-    Facebook: 1334000000,
-    Flickr: 0,
-    'Google Buzz': 170000000,
-    'Google+': 254859015,
-    Hi5: 0,
-    Instagram: 250000000,
-    MySpace: 0,
-    Orkut: 0,
-    Pinterest: 0,
-    Reddit: 135786956,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 388721163,
-    Twitter: 223675000,
-    WeChat: 444232415,
-    Weibo: 154890345,
-    Whatsapp: 498750000,
-    YouTube: 1249451725
-  },
-  2015: {
-    Friendster: 0,
-    Facebook: 1516750000,
-    Flickr: 0,
-    'Google Buzz': 170000000,
-    'Google+': 298950015,
-    Hi5: 0,
-    Instagram: 400000000,
-    MySpace: 0,
-    Orkut: 0,
-    Pinterest: 0,
-    Reddit: 163346676,
-    Snapchat: 0,
-    TikTok: 0,
-    Tumblr: 475923363,
-    Twitter: 304500000,
-    WeChat: 660843407,
-    Weibo: 208716685,
-    Whatsapp: 800000000,
-    YouTube: 1328133360
-  },
-  2016: {
-    Friendster: 0,
-    Facebook: 1753500000,
-    Flickr: 0,
-    'Google Buzz': 0,
-    'Google+': 398648000,
-    Hi5: 0,
-    Instagram: 550000000,
-    MySpace: 0,
-    Orkut: 0,
-    Pinterest: 143250000,
-    Reddit: 238972480,
-    Snapchat: 238648000,
-    TikTok: 0,
-    Tumblr: 565796720,
-    Twitter: 314500000,
-    WeChat: 847512320,
-    Weibo: 281026560,
-    Whatsapp: 1000000000,
-    YouTube: 1399053600
-  },
-  2017: {
-    Friendster: 0,
-    Facebook: 2035750000,
-    Flickr: 0,
-    'Google Buzz': 0,
-    'Google+': 495657000,
-    Hi5: 0,
-    Instagram: 750000000,
-    MySpace: 0,
-    Orkut: 0,
-    Pinterest: 195000000,
-    Reddit: 297394200,
-    Snapchat: 0,
-    TikTok: 239142500,
-    Tumblr: 593783960,
-    Twitter: 328250000,
-    WeChat: 921742750,
-    Weibo: 357569030,
-    Whatsapp: 1333333333,
-    YouTube: 1495657000
-  },
-  2018: {
-    Friendster: 0,
-    Facebook: 2255250000,
-    Flickr: 0,
-    'Google Buzz': 0,
-    'Google+': 430000000,
-    Hi5: 0,
-    Instagram: 1000000000,
-    MySpace: 0,
-    Orkut: 0,
-    Pinterest: 246500000,
-    Reddit: 355000000,
-    Snapchat: 0,
-    TikTok: 500000000,
-    Tumblr: 624000000,
-    Twitter: 329500000,
-    WeChat: 1000000000,
-    Weibo: 431000000,
-    Whatsapp: 1433333333,
-    YouTube: 1900000000
-  }
-}
-
-const stepDuration = 2000
-
-// let year = 1100
-let year = 2002
+// https://www.amcharts.com/docs/v5/
 
 class BarChartRace extends React.Component {
     componentDidMount = () => {
@@ -394,7 +18,10 @@ class BarChartRace extends React.Component {
 
     componentDidUpdate = prevProps => {
       if (prevProps.resultUpdateID !== this.props.resultUpdateID) {
-        this.playAnimation()
+        if (this.props.results && Object.prototype.hasOwnProperty.call(this.props.results, this.props.stepBegin)) {
+          this.setInitialData()
+          this.playAnimation()
+        }
       }
     }
 
@@ -408,19 +35,6 @@ class BarChartRace extends React.Component {
       // Create root element
       // https://www.amcharts.com/docs/v5/getting-started/#Root_element
       const root = am5.Root.new('chartdiv')
-
-      root.numberFormatter.setAll({
-        numberFormat: '#a',
-
-        // Group only into M (millions), and B (billions)
-        bigNumberPrefixes: [
-          { number: 1e6, suffix: 'M' },
-          { number: 1e9, suffix: 'B' }
-        ],
-
-        // Do not use small number prefixes at all
-        smallNumberPrefixes: []
-      })
 
       // Set themes
       // https://www.amcharts.com/docs/v5/concepts/themes/
@@ -444,14 +58,20 @@ class BarChartRace extends React.Component {
         minGridDistance: 20,
         inversed: true
       })
+
       // hide grid
       yRenderer.grid.template.set('visible', false)
 
       this.yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
         maxDeviation: 0,
-        categoryField: 'network',
+        extraMax: 0.1,
+        categoryField: 'category',
         renderer: yRenderer
       }))
+
+      this.yAxis.get('renderer').labels.template.adapters.add('text', (label, target, key) => {
+        return target.dataItem.dataContext.prefLabel
+      })
 
       const xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
         maxDeviation: 0,
@@ -461,7 +81,7 @@ class BarChartRace extends React.Component {
         renderer: am5xy.AxisRendererX.new(root, {})
       }))
 
-      xAxis.set('interpolationDuration', stepDuration / 10)
+      xAxis.set('interpolationDuration', this.props.stepDuration / 10)
       xAxis.set('interpolationEasing', am5.ease.linear)
 
       // Add series
@@ -470,7 +90,7 @@ class BarChartRace extends React.Component {
         xAxis: xAxis,
         yAxis: this.yAxis,
         valueXField: 'value',
-        categoryYField: 'network'
+        categoryYField: 'category'
       }))
 
       // Rounded corners for columns
@@ -480,7 +100,6 @@ class BarChartRace extends React.Component {
       this.series.columns.template.adapters.add('fill', (fill, target) => {
         return chart.get('colors').getIndex(this.series.columns.indexOf(target))
       })
-
       this.series.columns.template.adapters.add('stroke', (stroke, target) => {
         return chart.get('colors').getIndex(this.series.columns.indexOf(target))
       })
@@ -490,7 +109,7 @@ class BarChartRace extends React.Component {
         return am5.Bullet.new(root, {
           locationX: 1,
           sprite: am5.Label.new(root, {
-            text: "{valueXWorking.formatNumber('#.# a')}",
+            text: "{valueXWorking.formatNumber('#.')}",
             fill: root.interfaceColors.get('alternativeText'),
             centerX: am5.p100,
             centerY: am5.p50,
@@ -499,8 +118,10 @@ class BarChartRace extends React.Component {
         })
       })
 
+      this.animationStep = this.props.stepBegin
+
       this.label = chart.plotContainer.children.push(am5.Label.new(root, {
-        text: '2002',
+        text: this.animationStep,
         fontSize: '8em',
         opacity: 0.2,
         x: am5.p100,
@@ -513,72 +134,71 @@ class BarChartRace extends React.Component {
     }
 
     setInitialData = () => {
-      const d = allData[year]
-      // const d = this.props.results[year]
-
-      for (const n in d) {
-        this.series.data.push({ network: n, value: d[n] })
-        this.yAxis.data.push({ network: n })
+      const step = this.props.results[this.animationStep]
+      for (const id in step) {
+        const { prefLabel, value } = step[id]
+        this.series.data.push({ category: id, value, prefLabel })
+        this.yAxis.data.push({ category: id, prefLabel })
       }
+      setTimeout(() => {
+        this.yAxis.zoomToIndexes(0, this.yAxis.dataItems.length - 1)
+      }, 100)
     }
 
     updateData = () => {
-      let itemsWithNonZero = 0
-      if (allData[year]) {
-      // if (this.props.results[year]) {
-        this.label.set('text', year.toString())
-
-        am5.array.each(this.series.dataItems, dataItem => {
-          const category = dataItem.get('categoryY')
-          const value = allData[year][category]
-
-          if (value > 0) {
-            itemsWithNonZero++
-          }
-
-          dataItem.animate({
-            key: 'valueX',
-            to: value,
-            duration: stepDuration,
-            easing: am5.ease.linear
-          })
-          dataItem.animate({
-            key: 'valueXWorking',
-            to: value,
-            duration: stepDuration,
-            easing: am5.ease.linear
-          })
-        })
-
-        this.yAxis.zoom(0, itemsWithNonZero / this.yAxis.dataItems.length)
+      if (this.props.results[this.animationStep] == null) { return }
+      for (const [key, value] of Object.entries(this.props.results[this.animationStep])) {
+        const dataItem = this.getSeriesItem(key)
+        if (dataItem == null) {
+          this.series.data.push({ category: key, value: value.value, prefLabel: value.prefLabel })
+          this.yAxis.data.push({ category: key, prefLabel: value.prefLabel })
+        }
       }
+      this.label.set('text', this.animationStep.toString())
+      am5.array.each(this.series.dataItems, dataItem => {
+        const category = dataItem.get('categoryY')
+        const value = this.props.results[this.animationStep][category].value
+        dataItem.animate({
+          key: 'valueX',
+          to: value,
+          duration: this.props.stepDuration,
+          easing: am5.ease.linear
+        })
+        dataItem.animate({
+          key: 'valueXWorking',
+          to: value,
+          duration: this.props.stepDuration,
+          easing: am5.ease.linear
+        })
+      })
+      const endIndex = this.yAxis.dataItems.length < 10
+        ? this.yAxis.dataItems.length - 1
+        : 10
+      this.yAxis.zoomToIndexes(0, endIndex)
     }
 
     playAnimation = () => {
-      // update data with values each 1.5 sec
+      const sortInterval = setInterval(() => {
+        this.sortCategoryAxis()
+      }, 100)
+
       const interval = setInterval(() => {
-        year++
-        // year += 10
-
-        if (year > 2018) {
+        this.animationStep += this.props.stepIncrement
+        if (this.animationStep > this.props.stepEnd) {
           clearInterval(interval)
-          clearInterval(this.sortInterval)
+          clearInterval(sortInterval)
+          // sort category axis one more time
+          setTimeout(() => {
+            this.sortCategoryAxis()
+          }, 2000)
         }
-
         this.updateData()
-      }, stepDuration)
-
-      this.setInitialData()
-      setTimeout(() => {
-        year++
-        // year += 10
-        this.updateData()
-      }, 50)
+      }, this.props.stepDuration)
 
       // Make stuff animate on load
       // https://www.amcharts.com/docs/v5/concepts/animations/
-      this.series.appear(1000)
-      this.chart.appear(1000, 100)
+      this.series.appear(2000)
+      this.chart.appear(2000, 100)
     }
 
     // Get series item by category
@@ -589,11 +209,8 @@ class BarChartRace extends React.Component {
           return dataItem
         }
       }
+      return null
     }
-
-    sortInterval = setInterval(() => {
-      this.sortCategoryAxis()
-    }, 100)
 
     // Axis sorting
     sortCategoryAxis = () => {
@@ -607,8 +224,7 @@ class BarChartRace extends React.Component {
       am5.array.each(this.yAxis.dataItems, dataItem => {
         // get corresponding series item
         const seriesDataItem = this.getSeriesItem(dataItem.get('category'))
-
-        if (seriesDataItem) {
+        if (seriesDataItem !== null) {
           // get index of series data item
           const index = this.series.dataItems.indexOf(seriesDataItem)
           // calculate delta position
@@ -623,7 +239,7 @@ class BarChartRace extends React.Component {
             dataItem.animate({
               key: 'deltaPosition',
               to: 0,
-              duration: stepDuration / 2,
+              duration: this.props.stepDuration / 2,
               easing: am5.ease.out(am5.ease.cubic)
             })
           }
@@ -638,8 +254,9 @@ class BarChartRace extends React.Component {
 
     render () {
       return (
-        <Paper square id='chartdiv' style={{ width: '100%', height: 'calc(100% - 72px)' }} />
-
+        <Paper square style={{ width: 'calc(100% - 64px)', height: 'calc(100% - 72px)', paddingLeft: 32, paddingRight: 32 }}>
+          <div style={{ width: '100%', height: '100%' }} id='chartdiv' />
+        </Paper>
       )
     }
 }
