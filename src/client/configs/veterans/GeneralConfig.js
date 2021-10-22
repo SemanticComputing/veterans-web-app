@@ -35,7 +35,7 @@ export const layoutConfig = {
   paginationToolbarHeight: 37,
   tableFontSize: '0.8rem',
   topBar: {
-    showLanguageButton: true,
+    showLanguageButton: false,
     feedbackLink: 'https://link.webropolsurveys.com/',
     // 48 px is minimun for tab targets: https://web.dev/tap-targets/?utm_source=lighthouse&utm_medium=devtools#how-to-fix-your-tap-targets
     reducedHeight: 48,

@@ -220,7 +220,7 @@ const TopBar = props => {
       >
         {intl.get('topBar.info.aboutThePortal').toUpperCase()}
       </MenuItem>
-      <a
+      {/* <a
         className={classes.link}
         key={1}
         href={intl.get('topBar.info.blogUrl')}
@@ -231,7 +231,7 @@ const TopBar = props => {
         <MenuItem>
           {intl.get('topBar.info.blog').toUpperCase()}
         </MenuItem>
-      </a>
+      </a> */}
       <MenuItem
         key='info'
         component={AdapterLink}

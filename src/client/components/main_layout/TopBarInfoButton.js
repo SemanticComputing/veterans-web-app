@@ -68,7 +68,7 @@ class TopBarInfoButton extends React.Component {
           >
             {intl.get('topBar.info.aboutThePortal')}
           </MenuItem>
-          <a
+          {/* <a
             className={classes.link}
             key={1}
             href={intl.get('topBar.info.blogUrl')}
@@ -78,7 +78,7 @@ class TopBarInfoButton extends React.Component {
             <MenuItem onClick={this.handleInfoMenuClose}>
               {intl.get('topBar.info.blog')}
             </MenuItem>
-          </a>
+          </a> */}
         </Menu>
       </>
     )
