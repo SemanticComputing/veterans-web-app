@@ -1,5 +1,6 @@
 import { videosConfig } from './perspective_configs/VideosConfig'
 import { clipsConfig } from './perspective_configs/ClipsConfig'
+import { entitiesConfig } from './perspective_configs/EntitiesConfig'
 import {
   videoPropertiesInstancePage,
 } from './sparql_queries/SparqlQueriesVideos'
@@ -16,6 +17,7 @@ import {
 export const backendSearchConfig = {
   videos: videosConfig,
   clips: clipsConfig,
+  entities: entitiesConfig,
   jenaText: {
     perspectiveID: 'perspective1',
     properties: fullTextSearchProperties
