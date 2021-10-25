@@ -10,8 +10,11 @@ import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay'
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
 // import BubbleChartIcon from '@material-ui/icons/BubbleChart'
 // import LineChartIcon from '@material-ui/icons/ShowChart'
-import videosImage from '../../img/main_page/veterans/compressed/tiedotus-400x265-px.jpg'
-import excerptsImage from '../../img/main_page/veterans/compressed/spotter-400x269-px.jpg'
+// import videosImage from '../../img/main_page/veterans/compressed/tiedotus-400x265-px.jpg'
+// import excerptsImage from '../../img/main_page/veterans/compressed/spotter-400x269-px.jpg'
+
+import videosImage from '../../img/main_page/veterans/haastattelu_1.jpg'
+import excerptsImage from '../../img/main_page/veterans/haastattelu_2.jpg'
 
 export const perspectiveConfig = [
   {
