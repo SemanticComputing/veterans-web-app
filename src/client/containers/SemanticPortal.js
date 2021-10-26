@@ -49,7 +49,7 @@ import {
 } from '../actions'
 // import { filterResults } from '../selectors'
 import { perspectiveConfig } from '../configs/veterans/PerspectiveConfig'
-import { perspectiveConfigOnlyInfoPages } from '../configs/sampo/PerspectiveConfigOnlyInfoPages'
+import { perspectiveConfigOnlyInfoPages } from '../configs/veterans/PerspectiveConfigOnlyInfoPages'
 import { rootUrl, layoutConfig } from '../configs/veterans/GeneralConfig'
 
 // ** General components **
@@ -628,6 +628,8 @@ const SemanticPortal = props => {
 const mapStateToProps = state => {
   // const { clientFSResults, clientFSFacetValues } = filterResults(state.clientSideFacetedSearch)
   return {
+    entities: state.entities,
+    entitiesFacets: state.entitiesFacets,
     videos: state.videos,
     videosFacets: state.videosFacets,
     videosFacetsConstrainSelf: state.videosFacetsConstrainSelf,
@@ -687,6 +689,8 @@ SemanticPortal.propTypes = {
    * Errors shown with react-redux-toastr.
    */
   error: PropTypes.object.isRequired,
+  entities: PropTypes.object.isRequired,
+  entitiesFacets: PropTypes.object.isRequired,
   /**
    * Faceted search configs and results of 'videos'.
    */

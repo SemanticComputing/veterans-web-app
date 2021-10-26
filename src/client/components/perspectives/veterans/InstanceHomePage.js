@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import purple from '@material-ui/core/colors/purple'
 import PerspectiveTabs from '../../main_layout/PerspectiveTabs'
-// import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
+import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
 // import Network from '../../facet_results/Network'
 // import ApexChart from '../../facet_results/ApexChart'
 // import Export from '../../facet_results/Export'
@@ -105,6 +105,9 @@ class InstanceHomePage extends React.Component {
       case 'videos':
         uri = `${base}/${localID}`
         break
+      case 'entities':
+        uri = `${base}/${localID}`
+        break
     }
     this.props.fetchByURI({
       resultClass,
@@ -177,6 +180,19 @@ class InstanceHomePage extends React.Component {
                       hash: routeProps.location.hash
                     }}
                   />}
+              />
+              <Route
+                path={[`${rootUrl}/${resultClass}/page/${this.state.localID}/table`, '/iframe.html']} // support also rendering in Storybook
+                render={() =>
+                  <Paper>
+                    <InstanceHomePageTable
+                      resultClass={resultClass}
+                      data={instanceTableData}
+                      properties={this.getVisibleRows(perspectiveState.properties)}
+                      screenSize={screenSize}
+                      layoutConfig={layoutConfig}
+                    />
+                  </Paper>}
               />
               <Route
                 path={[`${rootUrl}/${resultClass}/page/${this.state.localID}/video`, '/iframe.html']} // support also rendering in Storybook

@@ -14,8 +14,12 @@ import clipsFacets from './veterans/clipsFacets'
 import clips from './veterans/clips'
 import clipsFacetsConstrainSelf from './veterans/clipsFacetsConstrainSelf'
 import videoPlayer from './veterans/videoPlayer'
+import entities from './veterans/entities'
+import entitiesFacets from './veterans/entitiesFacets'
 
 const reducer = combineReducers({
+  entities,
+  entitiesFacets,
   videos,
   videosFacets,
   videosFacetsConstrainSelf,

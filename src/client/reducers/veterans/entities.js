@@ -57,72 +57,18 @@ export const INITIAL_STATE = {
       sortValues: true,
       numberedList: false,
       minWidth: 200
-    },
-    {
-      id: 'length',
-      valueType: 'string',
-      makeLink: false,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 180
-    },
-    {
-      id: 'placeOfInterview',
-      valueType: 'string',
-      makeLink: false,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 180
-    },
-    {
-      id: 'dateOfInterview',
-      valueType: 'string',
-      makeLink: false,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 180
-    },
-    {
-      id: 'keyword',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: true,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'namedEntity',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
     }
-    // {
-    //   id: 'content',
-    //   valueType: 'object',
-    //   makeLink: true,
-    //   externalLink: true,
-    //   sortValues: true,
-    //   numberedList: false,
-    //   onlyOnInstancePage: true
-    // }
   ]
 }
 
 const resultClasses = new Set([
-  'videos'
+  'entities'
 ])
 
-const videos = (state = INITIAL_STATE, action) => {
+const entities = (state = INITIAL_STATE, action) => {
   if (resultClasses.has(action.resultClass)) {
     return handleDataFetchingAction(state, action, INITIAL_STATE)
   } else return state
 }
 
-export default videos
+export default entities

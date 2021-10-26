@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 // import Hellerau from './Hellerau'
 const Videos = lazy(() => import('./Videos'))
 const Clips = lazy(() => import('./Clips'))
+const Entities = lazy(() => import('./Entities'))
 
 /**
  * A component for creating a faceted search perspective for a semantic portal.
@@ -23,6 +24,10 @@ const FacetedSearchPerspective = props => {
       case 'clips':
         perspectiveElement =
           <Clips {...props} />
+        break
+      case 'entities':
+        perspectiveElement =
+          <Entities {...props} />
         break
       default:
         perspectiveElement = <div />

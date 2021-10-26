@@ -63,6 +63,7 @@ export const videoPropertiesInstancePage =
     {
       ?id :named_entity ?namedEntity__id .
       ?namedEntity__id skos:prefLabel ?namedEntity__prefLabel .
+      BIND(CONCAT("/entities/page/", REPLACE(STR(?namedEntity__id ), "^.*\\\\/(.+)", "$1")) AS ?namedEntity__dataProviderUrl)
     }
     UNION 
     {
@@ -128,5 +129,7 @@ export const videoPropertiesFacetResults = `
   {
     ?id :named_entity ?namedEntity__id .
     ?namedEntity__id skos:prefLabel ?namedEntity__prefLabel .
+    #BIND(?namedEntity__id AS ?namedEntity__dataProviderUrl)
+    BIND(CONCAT("/entities/page/", REPLACE(STR(?namedEntity__id ), "^.*\\\\/(.+)", "$1")) AS ?namedEntity__dataProviderUrl)
   }
 `
