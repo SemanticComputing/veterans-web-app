@@ -109,6 +109,9 @@ export const videosConfig = {
     placeOfInterview: {
       labelPath: ':place_of_interview'
     },
+    dateOfInterview: {
+      labelPath: ':date_of_interview'
+    },
     name: {
       id: 'name',
       facetValueFilter: '',

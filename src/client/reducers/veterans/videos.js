@@ -69,7 +69,7 @@ export const INITIAL_STATE = {
     },
     {
       id: 'placeOfInterview',
-      valueType: 'string',
+      valueType: 'object',
       makeLink: false,
       externalLink: false,
       sortValues: true,
@@ -78,7 +78,7 @@ export const INITIAL_STATE = {
     },
     {
       id: 'dateOfInterview',
-      valueType: 'string',
+      valueType: 'object',
       makeLink: false,
       externalLink: false,
       sortValues: true,

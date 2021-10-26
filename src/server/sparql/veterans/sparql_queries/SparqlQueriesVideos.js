@@ -100,7 +100,13 @@ export const videoPropertiesFacetResults = `
   BIND (?prefLabel__id as ?prefLabel__prefLabel)
   BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   {
-    ?id :place_of_interview ?placeOfInterview .
+    ?id :place_of_interview ?placeOfInterview__id .
+    BIND (?placeOfInterview__id AS ?placeOfInterview__prefLabel)
+  }
+  UNION
+  {
+    ?id :date_of_interview ?dateOfInterview__id .
+    BIND (?dateOfInterview__id AS ?dateOfInterview__prefLabel)
   }
   UNION
   {
