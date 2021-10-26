@@ -282,6 +282,35 @@
           "textFacetInputPlaceholder": "Etsi..."
         }
       }
+    },
+    "entities": {
+      "label": "Haastatteluissa mainitut asiat",
+      "facetResultsType": "asiaa",
+      "shortDescription": "",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
+      "instancePage": {
+        "label": "Haastattelussa mainittu asia",
+        "description": ""
+      },
+      "properties": {
+        "uri": {
+          "label": "URI",
+          "description": "Koneluettava tunniste"
+        },
+        "timeSlice": {
+          "label": "Videon kohtia joissa mainittu",
+          "description": ""
+        },
+        "entityType": {
+          "label": "Asian tyyppi",
+          "description": ""
+        },
+        "prefLabel": {
+          "label": "Nimi",
+          "description": "Nimi",
+          "textFacetInputPlaceholder": "Etsi..."
+        }
+      }
     }
   }
 }

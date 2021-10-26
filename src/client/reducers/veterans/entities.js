@@ -57,6 +57,24 @@ export const INITIAL_STATE = {
       sortValues: true,
       numberedList: false,
       minWidth: 200
+    },
+    {
+      id: 'entityType',
+      valueType: 'object',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'timeSlice',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
     }
   ]
 }
