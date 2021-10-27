@@ -99,6 +99,11 @@ class VideoTableOfContents extends React.Component {
           const hasWarsaUnitLinks = has(row, 'warsaUnit')
           const hasWarsaLinks = hasWarsaPersonLinks || hasWarsaPlaceLinks || hasWarsaUnitLinks
           const hasNamedEntities = has(row, 'namedEntity')
+          if (hasWarsaPlaceLinks) {
+            if (Array.isArray(row.warsaPlace)) {
+              row.warsaPlace.sort((a, b) => a.prefLabel.localeCompare(b.prefLabel))
+            }
+          }
           return (
             <Accordion className={isCurrent ? classes.activeAccordion : null} key={rowID} expanded={expanded} onChange={this.handleAccordionOnChange(rowID)}>
               <AccordionSummary
