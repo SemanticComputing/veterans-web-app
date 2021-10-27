@@ -74,6 +74,7 @@ export const videoPropertiesInstancePage =
                       :end_timestamp ?endTimestamp ;
                       :order ?timeSlice__order ;
                       :text_content ?timeSlice__textContent .
+                     
 
       ?timeSlice__id :text_slice ?timeSlice__textSlice__id .
       ?timeSlice__textSlice__id :order ?timeSlice__textSlice__order ;
@@ -94,6 +95,30 @@ export const videoPropertiesInstancePage =
       BIND(CONCAT(STR(?endHours), ':', STR(?endMinutes), ':', STR(xsd:integer(?endSeconds) - 1)) as ?timeSlice__endTimeLabel)
       BIND(?endHours * 60 * 60 + ?endMinutes * 60 + ?endSeconds as ?endTimeInSeconds_)
       BIND(xsd:integer(?endTimeInSeconds_) - 1 as ?timeSlice__endTimeInSeconds) 
+
+      OPTIONAL {
+        ?timeSlice__id :named_entity ?timeSlice__namedEntity__id .
+        ?timeSlice__namedEntity__id skos:prefLabel ?timeSlice__namedEntity__prefLabel .
+        BIND(CONCAT("/entities/page/", REPLACE(STR(?timeSlice__namedEntity__id ), "^.*\\\\/(.+)", "$1")) AS ?timeSlice__namedEntity__dataProviderUrl)  
+      }  
+
+      OPTIONAL {
+        ?timeSlice__id :warsa_person ?timeSlice__warsaPerson__id .
+        BIND(REPLACE(STR(?timeSlice__warsaPerson__id), "^.*\\\\/(.+)", "$1") as ?timeSlice__warsaPerson__prefLabel)
+        BIND(CONCAT("https://www.sotasampo.fi/fi/page?uri=", STR(?timeSlice__warsaPerson__id)) AS  ?timeSlice__warsaPerson__dataProviderUrl)  
+      }   
+
+      OPTIONAL {
+        ?timeSlice__id :warsa_unit ?timeSlice__warsaUnit__id .
+        BIND(REPLACE(STR(?timeSlice__warsaUnit__id), "^.*\\\\/(.+)", "$1") as ?timeSlice__warsaUnit__prefLabel)
+        BIND(CONCAT("https://www.sotasampo.fi/fi/page?uri=", STR(?timeSlice__warsaUnit__id)) AS  ?timeSlice__warsaUnit__dataProviderUrl)  
+      }     
+      
+      OPTIONAL {
+        ?timeSlice__id :warsa_place ?timeSlice__warsaPlace__id .
+        BIND(REPLACE(STR(?timeSlice__warsaPlace__id), "^.*\\\\/(.+)", "$1") as ?timeSlice__warsaPlace__prefLabel)
+        BIND(CONCAT("https://www.sotasampo.fi/fi/places/page?uri=", STR(?timeSlice__warsaPlace__id)) AS  ?timeSlice__warsaPlace__dataProviderUrl)  
+      }      
     }
 `
 
