@@ -8,11 +8,13 @@ export const videoPropertiesInstancePage =
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
     {
-      ?id :place_of_interview ?placeOfInterview .
+      ?id :place_of_interview ?placeOfInterview__id .
+      BIND (?placeOfInterview__id AS ?placeOfInterview__prefLabel)
     }
     UNION
     {
-      ?id :date_of_interview ?dateOfInterview .
+      ?id :date_of_interview ?dateOfInterview__id .
+      BIND (?dateOfInterview__id AS ?dateOfInterview__prefLabel)
     }
     UNION 
     {
