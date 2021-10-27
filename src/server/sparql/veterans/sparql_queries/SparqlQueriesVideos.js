@@ -95,30 +95,52 @@ export const videoPropertiesInstancePage =
       BIND(CONCAT(STR(?endHours), ':', STR(?endMinutes), ':', STR(xsd:integer(?endSeconds) - 1)) as ?timeSlice__endTimeLabel)
       BIND(?endHours * 60 * 60 + ?endMinutes * 60 + ?endSeconds as ?endTimeInSeconds_)
       BIND(xsd:integer(?endTimeInSeconds_) - 1 as ?timeSlice__endTimeInSeconds) 
-
+    }
+    UNION 
+    {
+      ?id :structured_content ?timeSlice__id .
+      ?timeSlice__id :named_entity ?timeSlice__namedEntity__id .
+      ?timeSlice__namedEntity__id skos:prefLabel ?timeSlice__namedEntity__prefLabel .
+      BIND(CONCAT("/entities/page/", REPLACE(STR(?timeSlice__namedEntity__id ), "^.*\\\\/(.+)", "$1")) AS ?timeSlice__namedEntity__dataProviderUrl)  
+    }
+    UNION 
+    {
+      ?id :structured_content ?timeSlice__id .
+      ?timeSlice__id :warsa_person ?timeSlice__warsaPerson__id .
+      BIND(CONCAT("https://www.sotasampo.fi/fi/page?uri=", STR(?timeSlice__warsaPerson__id)) AS  ?timeSlice__warsaPerson__dataProviderUrl)  
       OPTIONAL {
-        ?timeSlice__id :named_entity ?timeSlice__namedEntity__id .
-        ?timeSlice__namedEntity__id skos:prefLabel ?timeSlice__namedEntity__prefLabel .
-        BIND(CONCAT("/entities/page/", REPLACE(STR(?timeSlice__namedEntity__id ), "^.*\\\\/(.+)", "$1")) AS ?timeSlice__namedEntity__dataProviderUrl)  
-      }  
-
+        SERVICE <https://ldf.fi/warsa/sparql> { 
+          ?timeSlice__warsaPerson__id skos:prefLabel ?warsaPersonLabel . 
+        }
+      }
+      BIND(REPLACE(STR(?timeSlice__warsaPerson__id), "^.*\\\\/(.+)", "$1") as ?warsaPersonLabelFromURI)
+      BIND(COALESCE(?warsaPersonLabel, ?warsaPersonLabelFromURI) as ?timeSlice__warsaPerson__prefLabel)
+    }
+    UNION 
+    {
+      ?id :structured_content ?timeSlice__id .
+      ?timeSlice__id :warsa_unit ?timeSlice__warsaUnit__id .
+      BIND(CONCAT("https://www.sotasampo.fi/fi/page?uri=", STR(?timeSlice__warsaUnit__id)) AS  ?timeSlice__warsaUnit__dataProviderUrl)  
       OPTIONAL {
-        ?timeSlice__id :warsa_person ?timeSlice__warsaPerson__id .
-        BIND(REPLACE(STR(?timeSlice__warsaPerson__id), "^.*\\\\/(.+)", "$1") as ?timeSlice__warsaPerson__prefLabel)
-        BIND(CONCAT("https://www.sotasampo.fi/fi/page?uri=", STR(?timeSlice__warsaPerson__id)) AS  ?timeSlice__warsaPerson__dataProviderUrl)  
-      }   
-
+        SERVICE <https://ldf.fi/warsa/sparql> { 
+          ?timeSlice__warsaUnit__id skos:prefLabel ?warsaUnitLabel . 
+        }
+      }
+      BIND(REPLACE(STR(?timeSlice__warsaUnit__id), "^.*\\\\/(.+)", "$1") as ?warsaUnitLabelFromURI)
+      BIND(COALESCE(?warsaUnitLabel, ?warsaPlaceLabelFromURI) as ?timeSlice__warsaUnit__prefLabel) 
+    }
+    UNION
+    {
+      ?id :structured_content ?timeSlice__id .
+      ?timeSlice__id :warsa_place ?timeSlice__warsaPlace__id .
+      BIND(CONCAT("https://www.sotasampo.fi/fi/places/page?uri=", STR(?timeSlice__warsaPlace__id)) AS  ?timeSlice__warsaPlace__dataProviderUrl)
       OPTIONAL {
-        ?timeSlice__id :warsa_unit ?timeSlice__warsaUnit__id .
-        BIND(REPLACE(STR(?timeSlice__warsaUnit__id), "^.*\\\\/(.+)", "$1") as ?timeSlice__warsaUnit__prefLabel)
-        BIND(CONCAT("https://www.sotasampo.fi/fi/page?uri=", STR(?timeSlice__warsaUnit__id)) AS  ?timeSlice__warsaUnit__dataProviderUrl)  
-      }     
-      
-      OPTIONAL {
-        ?timeSlice__id :warsa_place ?timeSlice__warsaPlace__id .
-        BIND(REPLACE(STR(?timeSlice__warsaPlace__id), "^.*\\\\/(.+)", "$1") as ?timeSlice__warsaPlace__prefLabel)
-        BIND(CONCAT("https://www.sotasampo.fi/fi/places/page?uri=", STR(?timeSlice__warsaPlace__id)) AS  ?timeSlice__warsaPlace__dataProviderUrl)  
-      }      
+        SERVICE <https://ldf.fi/warsa/sparql> { 
+          ?timeSlice__warsaPlace__id skos:prefLabel ?warsaPlaceLabel . 
+        }
+      }
+      BIND(REPLACE(STR(?timeSlice__warsaPlace__id), "^.*\\\\/(.+)", "$1") as ?warsaPlaceLabelFromURI)
+      BIND(COALESCE(?warsaPlaceLabel, ?warsaPlaceLabelFromURI) as ?timeSlice__warsaPlace__prefLabel)   
     }
 `
 
