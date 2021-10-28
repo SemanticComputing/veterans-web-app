@@ -99,6 +99,7 @@ class VideoTableOfContents extends React.Component {
           const hasWarsaUnitLinks = has(row, 'warsaUnit')
           const hasWarsaLinks = hasWarsaPersonLinks || hasWarsaPlaceLinks || hasWarsaUnitLinks
           const hasNamedEntities = has(row, 'namedEntity')
+          const hasTextSlices = has(row, 'textSlice')
           if (hasWarsaPlaceLinks) {
             if (Array.isArray(row.warsaPlace)) {
               row.warsaPlace.sort((a, b) => a.prefLabel.localeCompare(b.prefLabel))
@@ -149,11 +150,12 @@ class VideoTableOfContents extends React.Component {
                 }}
               >
                 <Typography>Haastattelijan muistiinpanot</Typography>
-                <ul>
-                  {Array.isArray(row.textSlice)
-                    ? row.textSlice.map(slice => <li key={slice.order}>{slice.textContent}</li>)
-                    : <li key={row.textSlice.order}>{row.textSlice.textContent}</li>}
-                </ul>
+                {hasTextSlices &&
+                  <ul>
+                    {Array.isArray(row.textSlice)
+                      ? row.textSlice.map(slice => <li key={slice.order}>{slice.textContent}</li>)
+                      : <li key={row.textSlice.order}>{row.textSlice.textContent}</li>}
+                  </ul>}
                 {hasNamedEntities &&
                   <>
                     <Divider />
