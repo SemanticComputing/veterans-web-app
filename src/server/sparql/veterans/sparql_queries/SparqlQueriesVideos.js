@@ -107,14 +107,14 @@ export const videoPropertiesInstancePage =
     {
       ?id :structured_content ?timeSlice__id .
       ?timeSlice__id :warsa_person ?timeSlice__warsaPerson__id .
-      BIND(CONCAT("https://www.sotasampo.fi/fi/page?uri=", STR(?timeSlice__warsaPerson__id)) AS  ?timeSlice__warsaPerson__dataProviderUrl)  
       OPTIONAL {
         SERVICE <https://ldf.fi/warsa/sparql> { 
           ?timeSlice__warsaPerson__id skos:prefLabel ?warsaPersonLabel . 
         }
       }
-      BIND(REPLACE(STR(?timeSlice__warsaPerson__id), "^.*\\\\/(.+)", "$1") as ?warsaPersonLabelFromURI)
-      BIND(COALESCE(?warsaPersonLabel, ?warsaPersonLabelFromURI) as ?timeSlice__warsaPerson__prefLabel)
+      BIND(REPLACE(STR(?timeSlice__warsaPerson__id), "^.*\\\\/(.+)", "$1") as ?warsaPersonLocalID)
+      BIND(CONCAT("https://www.sotasampo.fi/fi/persons/", STR(?warsaPersonLocalID)) AS  ?timeSlice__warsaPerson__dataProviderUrl)  
+      BIND(COALESCE(?warsaPersonLabel, ?warsaPersonLocalID) as ?timeSlice__warsaPerson__prefLabel)
     }
     UNION 
     {
