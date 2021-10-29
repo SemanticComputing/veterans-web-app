@@ -58,33 +58,33 @@ export const INITIAL_STATE = {
       numberedList: false,
       minWidth: 200
     },
-    {
-      id: 'length',
-      valueType: 'string',
-      makeLink: false,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 180
-    },
-    {
-      id: 'placeOfInterview',
-      valueType: 'object',
-      makeLink: false,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 180
-    },
-    {
-      id: 'dateOfInterview',
-      valueType: 'object',
-      makeLink: false,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 180
-    },
+    // {
+    //   id: 'length',
+    //   valueType: 'string',
+    //   makeLink: false,
+    //   externalLink: false,
+    //   sortValues: true,
+    //   numberedList: false,
+    //   minWidth: 180
+    // },
+    // {
+    //   id: 'placeOfInterview',
+    //   valueType: 'object',
+    //   makeLink: false,
+    //   externalLink: false,
+    //   sortValues: true,
+    //   numberedList: false,
+    //   minWidth: 180
+    // },
+    // {
+    //   id: 'dateOfInterview',
+    //   valueType: 'object',
+    //   makeLink: false,
+    //   externalLink: false,
+    //   sortValues: true,
+    //   numberedList: false,
+    //   minWidth: 180
+    // },
     {
       id: 'keyword',
       valueType: 'object',
@@ -94,8 +94,80 @@ export const INITIAL_STATE = {
       numberedList: false,
       minWidth: 200
     },
+    // {
+    //   id: 'namedEntity',
+    //   valueType: 'object',
+    //   makeLink: true,
+    //   externalLink: false,
+    //   sortValues: true,
+    //   numberedList: false,
+    //   minWidth: 200
+    // },
     {
-      id: 'namedEntity',
+      id: 'mentionedPlace',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedWarsaPlace',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedOrganization',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedWarsaUnit',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedPerson',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedWarsaPerson',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedEvent',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedProduct',
       valueType: 'object',
       makeLink: true,
       externalLink: false,
@@ -103,15 +175,6 @@ export const INITIAL_STATE = {
       numberedList: false,
       minWidth: 200
     }
-    // {
-    //   id: 'content',
-    //   valueType: 'object',
-    //   makeLink: true,
-    //   externalLink: true,
-    //   sortValues: true,
-    //   numberedList: false,
-    //   onlyOnInstancePage: true
-    // }
   ]
 }
 

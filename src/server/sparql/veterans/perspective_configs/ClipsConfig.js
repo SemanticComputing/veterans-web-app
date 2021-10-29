@@ -1,5 +1,5 @@
 import {
-  clipPropertiesInstancePage,
+  // clipPropertiesInstancePage,
   clipPropertiesFacetResults
 } from '../sparql_queries/SparqlQueriesClips'
 import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
@@ -19,11 +19,11 @@ export const clipsConfig = {
   paginatedResults: {
     properties: clipPropertiesFacetResults
   },
-  instance: {
-    properties: clipPropertiesInstancePage,
-    relatedInstances: '',
-    defaultTab: 'table'
-  },
+  // instance: {
+  //   properties: clipPropertiesInstancePage,
+  //   relatedInstances: '',
+  //   defaultTab: 'table'
+  // },
   facets: {
     keyword: {
       id: 'keyword',

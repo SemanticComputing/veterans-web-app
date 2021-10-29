@@ -8,7 +8,7 @@ export const INITIAL_STATE = {
   paginatedResultsSparqlQuery: null,
   resultCount: 0,
   page: -1,
-  pagesize: 10,
+  pagesize: 25,
   sortBy: null,
   sortDirection: null,
   fetching: false,
@@ -21,24 +21,8 @@ export const INITIAL_STATE = {
   instanceAnalysisData: null,
   instanceAnalysisDataUpdateID: 0,
   instanceSparqlQuery: null,
-  maps: {
-    placesMsProduced: {
-      center: [22.43, 10.37],
-      zoom: 2
-    },
-    placesMsProducedHeatmap: {
-      center: [22.43, 10.37],
-      zoom: 2
-    },
-    lastKnownLocations: {
-      center: [22.43, 10.37],
-      zoom: 2
-    },
-    placesMsMigrations: {
-      center: [22.43, 10.37],
-      zoom: 2
-    }
-  },
+  // maps: {
+  // },
   properties: [
     {
       id: 'uri',
@@ -59,6 +43,15 @@ export const INITIAL_STATE = {
       minWidth: 200
     },
     {
+      id: 'textSlice',
+      valueType: 'object',
+      makeLink: false,
+      externalLink: true,
+      sortValues: false,
+      numberedList: false,
+      minWidth: 300
+    },
+    {
       id: 'keyword',
       valueType: 'object',
       makeLink: true,
@@ -68,7 +61,16 @@ export const INITIAL_STATE = {
       minWidth: 200
     },
     {
-      id: 'namedEntity',
+      id: 'mentionedPlace',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedWarsaPlace',
       valueType: 'object',
       makeLink: true,
       externalLink: true,
@@ -77,11 +79,56 @@ export const INITIAL_STATE = {
       minWidth: 200
     },
     {
-      id: 'textSlice',
+      id: 'mentionedOrganization',
       valueType: 'object',
-      makeLink: false,
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedWarsaUnit',
+      valueType: 'object',
+      makeLink: true,
       externalLink: true,
-      sortValues: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedPerson',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedWarsaPerson',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedEvent',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedProduct',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
       numberedList: false,
       minWidth: 200
     }

@@ -234,15 +234,15 @@
           "description": "Haastatellun ajankohta"
         },
         "mentionedWarsaPerson": {
-          "label": "Mahdollisesti mainittu Sotasammon henkilö",
+          "label": "Sotasammon henkilö",
           "description": ""
         },
         "mentionedWarsaUnit": {
-          "label": "Mahdollisesti mainittu Sotasammon joukko-osasto",
+          "label": "Sotasammon joukko-osasto",
           "description": ""
         },
         "mentionedWarsaPlace": {
-          "label": "Mahdollisesti mainittu Sotasammon paikka",
+          "label": "Sotasammon paikka",
           "description": ""
         }
       }
@@ -316,7 +316,8 @@
         },
         "prefLabel": {
           "label": "Haastateltavan nimi",
-          "description": "Haastateltavan nimi"
+          "description": "Haastateltavan nimi",
+          "textFacetInputPlaceholder": "Etsi..."
         },
         "intrerviewee": {
           "label": "Henkilön nimi",
@@ -327,17 +328,22 @@
           "description": "Haastatellun ajankohta"
         },
         "mentionedWarsaPerson": {
-          "label": "Mahdollisesti mainittu Sotasammon henkilö",
+          "label": "Sotasammon henkilö",
           "description": ""
         },
         "mentionedWarsaUnit": {
-          "label": "Mahdollisesti mainittu Sotasammon joukko-osasto",
+          "label": "Sotasammon joukko-osasto",
           "description": ""
         },
         "mentionedWarsaPlace": {
-          "label": "Mahdollisesti mainittu Sotasammon paikka",
+          "label": "Sotasammon paikka",
+          "description": ""
+        },
+        "textSlice": {
+          "label": "Sisältö",
           "description": ""
         }
+        
       }
     },
     "entities": {

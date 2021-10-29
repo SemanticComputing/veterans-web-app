@@ -94,6 +94,24 @@ export const INITIAL_STATE = {
       uriFilter: null,
       priority: 4
     },
+    mentionedWarsaPlace: {
+      id: 'mentionedWarsaPlace',
+      // predicate: defined in backend
+      distinctValueCount: 0,
+      values: [],
+      flatValues: [],
+      sortBy: 'instanceCount',
+      sortDirection: 'desc',
+      sortButton: true,
+      spatialFilterButton: false,
+      pieChartButton: false,
+      isFetching: false,
+      searchField: true,
+      containerClass: 'ten',
+      filterType: 'uriFilter',
+      uriFilter: null,
+      priority: 4
+    },
     mentionedOrganization: {
       id: 'mentionedOrganization',
       // predicate: defined in backend
@@ -112,8 +130,44 @@ export const INITIAL_STATE = {
       uriFilter: null,
       priority: 4
     },
+    mentionedWarsaUnit: {
+      id: 'mentionedWarsaUnit',
+      // predicate: defined in backend
+      distinctValueCount: 0,
+      values: [],
+      flatValues: [],
+      sortBy: 'instanceCount',
+      sortDirection: 'desc',
+      sortButton: true,
+      spatialFilterButton: false,
+      pieChartButton: false,
+      isFetching: false,
+      searchField: true,
+      containerClass: 'ten',
+      filterType: 'uriFilter',
+      uriFilter: null,
+      priority: 4
+    },
     mentionedPerson: {
       id: 'mentionedPerson',
+      // predicate: defined in backend
+      distinctValueCount: 0,
+      values: [],
+      flatValues: [],
+      sortBy: 'instanceCount',
+      sortDirection: 'desc',
+      sortButton: true,
+      spatialFilterButton: false,
+      pieChartButton: false,
+      isFetching: false,
+      searchField: true,
+      containerClass: 'ten',
+      filterType: 'uriFilter',
+      uriFilter: null,
+      priority: 4
+    },
+    mentionedWarsaPerson: {
+      id: 'mentionedWarsaPerson',
       // predicate: defined in backend
       distinctValueCount: 0,
       values: [],
@@ -150,60 +204,6 @@ export const INITIAL_STATE = {
     },
     mentionedProduct: {
       id: 'mentionedProduct',
-      // predicate: defined in backend
-      distinctValueCount: 0,
-      values: [],
-      flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
-      sortButton: true,
-      spatialFilterButton: false,
-      pieChartButton: false,
-      isFetching: false,
-      searchField: true,
-      containerClass: 'ten',
-      filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
-    },
-    mentionedWarsaPerson: {
-      id: 'mentionedWarsaPerson',
-      // predicate: defined in backend
-      distinctValueCount: 0,
-      values: [],
-      flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
-      sortButton: true,
-      spatialFilterButton: false,
-      pieChartButton: false,
-      isFetching: false,
-      searchField: true,
-      containerClass: 'ten',
-      filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
-    },
-    mentionedWarsaUnit: {
-      id: 'mentionedWarsaUnit',
-      // predicate: defined in backend
-      distinctValueCount: 0,
-      values: [],
-      flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
-      sortButton: true,
-      spatialFilterButton: false,
-      pieChartButton: false,
-      isFetching: false,
-      searchField: true,
-      containerClass: 'ten',
-      filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
-    },
-    mentionedWarsaPlace: {
-      id: 'mentionedWarsaPlace',
       // predicate: defined in backend
       distinctValueCount: 0,
       values: [],
