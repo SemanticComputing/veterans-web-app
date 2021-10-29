@@ -1,5 +1,6 @@
 import { has, cloneDeep } from 'lodash'
 import { getTreeFromFlatData } from '@nosferatu500/react-sortable-tree'
+import { ckmeans } from 'simple-statistics'
 
 export const mapPlaces = sparqlBindings => {
   const results = sparqlBindings.map(b => {
@@ -171,15 +172,17 @@ export const mapPieChart = sparqlBindings => {
 export const linearScale = ({ data, config }) => {
   const { variable, minAllowed, maxAllowed } = config
   const length = data.length
-  const min = data[length - 1][variable]
-  const max = data[0][variable]
+  const min = Number(data[length - 1][variable])
+  const max = Number(data[0][variable])
   data.forEach(item => {
     if (item[variable]) {
-      const unscaledNum = item[variable]
+      const unscaledNum = Number(item[variable])
       // https://stackoverflow.com/a/31687097
-      item[`${variable}Scaled`] = (maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed
+      const scaled = (maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed
+      item[`${variable}Scaled`] = parseFloat(scaled.toFixed(2))
     }
   })
+  return data
 }
 
 /* Data processing as in:
@@ -266,11 +269,6 @@ export const toBarChartRaceFormat = ({ data, config }) => {
       resultObj[i] = null
     }
   }
-  // const initialItem = cloneDeep(resultObj[lastKey])
-  // for (const key in initialItem) {
-  //   initialItem[key].value = 0
-  // }
-  // resultObj[firstKey - step] = initialItem
   return resultObj
 }
 
@@ -307,4 +305,48 @@ const mergeDataItems = (itemA, itemB) => {
     }
   }
   return merged
+}
+
+export const toPolygonLayerFormat = ({ data, config }) => {
+  // const scaledData = linearScale({ data, config })
+  const valuesArray = []
+  data.forEach(item => {
+    valuesArray.push(item.instanceCount)
+    const pointArray = item.polygon.split(' ')
+    const deckGlArray = pointArray.map(point => {
+      const latLng = point.split(',')
+      return [
+        parseFloat(parseFloat(latLng[0]).toFixed(4)),
+        parseFloat(parseFloat(latLng[1]).toFixed(4))
+      ]
+    })
+    item.polygon = deckGlArray
+  })
+  // Ckmeans algorithm: https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Wang+Song.pdf
+  const clusters = ckmeans(valuesArray, 8)
+  data.forEach(item => {
+    item.choroplethColor = getChoroplethMapColor({ value: Number(item.instanceCount), clusters })
+  })
+  return data
+}
+
+const getChoroplethMapColor = ({ value, clusters }) => {
+  // https://colorbrewer2.org/#type=sequential&scheme=YlOrRd&n=8
+  const colors = [
+    [255, 255, 204],
+    [255, 237, 160],
+    [254, 217, 118],
+    [254, 178, 76],
+    [253, 141, 60],
+    [252, 78, 42],
+    [227, 26, 28],
+    [177, 0, 38]
+  ]
+  let heatmapColor
+  colors.forEach((color, index) => {
+    if (value >= Number(clusters[index][0]) && value <= Number(clusters[index][clusters[index].length - 1])) {
+      heatmapColor = color
+    }
+  })
+  return heatmapColor
 }
