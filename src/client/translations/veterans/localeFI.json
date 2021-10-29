@@ -165,7 +165,8 @@
       "properties": {
         "freeText": {
           "label": "Tekstihaku",
-          "description": "Vapaa tekstihaku"
+          "description": "Vapaa tekstihaku",
+          "textFacetInputPlaceholder": "Etsi..."
         },
         "name": {
           "label": "Muistelijan nimi",
@@ -250,17 +251,18 @@
       "properties": {
         "freeText": {
           "label": "Tekstihaku",
-          "description": "Vapaa tekstihaku"
+          "description": "Vapaa tekstihaku",
+          "textFacetInputPlaceholder": "Etsi..."
         },
         "name": {
-          "label": "Henkilön nimi",
+          "label": "Muistelijan nimi",
           "description": ""
         },
         "length": {
           "label": "Haastattelun kesto",
           "description": "Haastattelun kesto"
         },
-        "textSlice": {
+        "content": {
           "label": "Sisältö",
           "description": ""
         },
@@ -277,13 +279,48 @@
           "description": "Koneluettava tunniste"
         },
         "namedEntity": {
-          "label": "Nimetty entiteetti",
+          "label": "Mainittu asia (kaikki tyypit)",
+          "description": ""
+        },
+        "mentionedPerson": {
+          "label": "Mainittu henkilö",
+          "description": ""
+        },
+        "mentionedWarsaPerson": {
+          "label": "Mahdollisesti mainittu Sotasammon henkilö",
+          "description": ""
+        },
+        "mentionedPlace": {
+          "label": "Mainittu paikka",
+          "description": ""
+        },
+        "mentionedEvent": {
+          "label": "Mainittu tapahtuma",
+          "description": ""
+        },
+        "mentionedProduct": {
+          "label": "Mainittu tuote",
+          "description": ""
+        },
+        "mentionedLaw": {
+          "label": "Mainittu laki",
+          "description": ""
+        },
+        "mentionedOrganization": {
+          "label": "Mainittu organisaatio",
           "description": ""
         },
         "prefLabel": {
-          "label": "Nimi",
-          "description": "Nimi",
-          "textFacetInputPlaceholder": "Etsi..."
+          "label": "Haastateltavan nimi",
+          "description": "Haastateltavan nimi"
+        },
+        "intrerviewee": {
+          "label": "Henkilön nimi",
+          "description": "Haastatellun henkilön nimi ja syntymävuosi"
+        },
+        "dateOfInterview": {
+          "label": "Haastattelun ajankohta",
+          "description": "Haastatellun ajankohta"
         }
       }
     },

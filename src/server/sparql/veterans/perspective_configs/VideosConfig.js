@@ -79,6 +79,14 @@ export const videosConfig = {
       facetValueFilter: '',
       labelPath: ':structured_content/:warsa_person',
       predicate: ':structured_content/:warsa_person',
+      labelPattern: `
+        OPTIONAL {
+          SERVICE <https://ldf.fi/warsa/sparql> { 
+            ?id skos:prefLabel ?prefLabel_ . 
+          } 
+        }
+        BIND(COALESCE(STR(?prefLabel_), STR(?id)) AS ?prefLabel)
+      `,
       type: 'list'
     },
     mentionedProduct: {

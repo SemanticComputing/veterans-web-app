@@ -1,18 +1,18 @@
 import { videosConfig } from './perspective_configs/VideosConfig'
 import { clipsConfig } from './perspective_configs/ClipsConfig'
 import { entitiesConfig } from './perspective_configs/EntitiesConfig'
-import {
-  videoPropertiesInstancePage,
-} from './sparql_queries/SparqlQueriesVideos'
+// import {
+//   videoPropertiesInstancePage
+// } from './sparql_queries/SparqlQueriesVideos'
 import { sitemapInstancePageQuery } from '../SparqlQueriesGeneral'
 import { fullTextSearchProperties } from './sparql_queries/SparqlQueriesFullText'
-import { makeObjectList } from '../SparqlObjectMapper'
-import {
-  mapPlaces,
-  mapLineChart,
-  mapMultipleLineChart,
-  linearScale
-} from '../Mappers'
+// import { makeObjectList } from '../SparqlObjectMapper'
+// import {
+//   mapPlaces,
+//   mapLineChart,
+//   mapMultipleLineChart,
+//   linearScale
+// } from '../Mappers'
 
 export const backendSearchConfig = {
   videos: videosConfig,

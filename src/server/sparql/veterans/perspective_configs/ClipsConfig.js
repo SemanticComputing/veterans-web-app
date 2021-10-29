@@ -25,24 +25,9 @@ export const clipsConfig = {
     defaultTab: 'table'
   },
   facets: {
-    prefLabel: {
-      id: 'prefLabel',
-      labelPath: 'skos:prefLabel',
-      textQueryPredicate: '', // empty for querying the facetClass
-      textQueryProperty: 'skos:prefLabel', // limit only to prefLabels
-      type: 'text'
-    },
-    freeText: {
-      id: 'freeText',
-      labelPath: 'skos:prefLabel',
-      textQueryPredicate: '', // empty for querying the facetClass
-      textQueryProperty: 'skos:prefLabel', // limit only to prefLabels
-      type: 'text'
-    },
     keyword: {
       id: 'keyword',
       facetValueFilter: '',
-      label: 'keyword',
       labelPath: ':keyword/skos:prefLabel',
       predicate: ':keyword',
       type: 'list'
@@ -50,7 +35,63 @@ export const clipsConfig = {
     namedEntity: {
       id: 'namedEntity',
       facetValueFilter: '',
-      label: 'named entity',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedPlace: {
+      id: 'mentionedPlace',
+      facetValueFilter: '?id :type "Location"',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedOrganization: {
+      id: 'mentionedOrganization',
+      facetValueFilter: '?id :type "Organization"',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedPerson: {
+      id: 'mentionedPerson',
+      facetValueFilter: '?id :type "Person"',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedWarsaPerson: {
+      id: 'mentionedWarsaPerson',
+      facetValueFilter: '',
+      labelPath: ':warsa_person',
+      predicate: ':warsa_person',
+      labelPattern: `
+        OPTIONAL {
+          SERVICE <https://ldf.fi/warsa/sparql> { 
+            ?id skos:prefLabel ?prefLabel_ . 
+          } 
+        }
+        BIND(COALESCE(STR(?prefLabel_), STR(?id)) AS ?prefLabel)
+      `,
+      type: 'list'
+    },
+    mentionedProduct: {
+      id: 'mentionedProduct',
+      facetValueFilter: '?id :type "Product"',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedEvent: {
+      id: 'mentionedEvent',
+      facetValueFilter: '?id :type "Event"',
+      labelPath: ':named_entity/skos:prefLabel',
+      predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedLaw: {
+      id: 'mentionedLaw',
+      facetValueFilter: '?id :type "Law"',
       labelPath: ':named_entity/skos:prefLabel',
       predicate: ':named_entity',
       type: 'list'
@@ -61,11 +102,14 @@ export const clipsConfig = {
     placeOfInterview: {
       labelPath: ':place_of_interview'
     },
+    dateOfInterview: {
+      labelPath: ':date_of_interview'
+    },
     name: {
       id: 'name',
       facetValueFilter: '',
-      labelPath: '^:structured_content/:interviewed_person/skos:prefLabel',
-      predicate: '^:structured_content/:interviewed_person/skos:prefLabel',
+      labelPath: ':interviewed_person/skos:prefLabel',
+      predicate: ':interviewed_person/skos:prefLabel',
       type: 'list',
       literal: true
     }
