@@ -42,7 +42,6 @@ export const videosConfig = {
     keyword: {
       id: 'keyword',
       facetValueFilter: '',
-      label: 'keyword',
       labelPath: ':keyword/skos:prefLabel',
       predicate: ':keyword',
       type: 'list'
@@ -50,7 +49,6 @@ export const videosConfig = {
     namedEntity: {
       id: 'namedEntity',
       facetValueFilter: '',
-      label: 'named entity',
       labelPath: ':named_entity/skos:prefLabel',
       predicate: ':named_entity',
       type: 'list'
@@ -58,7 +56,6 @@ export const videosConfig = {
     mentionedPlace: {
       id: 'mentionedPlace',
       facetValueFilter: '?id :type "Location"',
-      label: 'mentioned place',
       labelPath: ':named_entity/skos:prefLabel',
       predicate: ':named_entity',
       type: 'list'
@@ -66,7 +63,6 @@ export const videosConfig = {
     mentionedOrganization: {
       id: 'mentionedOrganization',
       facetValueFilter: '?id :type "Organization"',
-      label: 'mentioned organization',
       labelPath: ':named_entity/skos:prefLabel',
       predicate: ':named_entity',
       type: 'list'
@@ -74,15 +70,20 @@ export const videosConfig = {
     mentionedPerson: {
       id: 'mentionedPerson',
       facetValueFilter: '?id :type "Person"',
-      label: 'mentioned organization',
       labelPath: ':named_entity/skos:prefLabel',
       predicate: ':named_entity',
+      type: 'list'
+    },
+    mentionedWarsaPerson: {
+      id: 'mentionedWarsaPerson',
+      facetValueFilter: '',
+      labelPath: ':structured_content/:warsa_person',
+      predicate: ':structured_content/:warsa_person',
       type: 'list'
     },
     mentionedProduct: {
       id: 'mentionedProduct',
       facetValueFilter: '?id :type "Product"',
-      label: 'mentioned organization',
       labelPath: ':named_entity/skos:prefLabel',
       predicate: ':named_entity',
       type: 'list'
@@ -90,7 +91,6 @@ export const videosConfig = {
     mentionedEvent: {
       id: 'mentionedEvent',
       facetValueFilter: '?id :type "Event"',
-      label: 'mentioned organization',
       labelPath: ':named_entity/skos:prefLabel',
       predicate: ':named_entity',
       type: 'list'
@@ -98,7 +98,6 @@ export const videosConfig = {
     mentionedLaw: {
       id: 'mentionedLaw',
       facetValueFilter: '?id :type "Law"',
-      label: 'mentioned organization',
       labelPath: ':named_entity/skos:prefLabel',
       predicate: ':named_entity',
       type: 'list'

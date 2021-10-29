@@ -199,6 +199,10 @@
           "label": "Mainittu henkilö",
           "description": ""
         },
+        "mentionedWarsaPerson": {
+          "label": "Mahdollisesti mainittu Sotasammon henkilö",
+          "description": ""
+        },
         "mentionedPlace": {
           "label": "Mainittu paikka",
           "description": ""
