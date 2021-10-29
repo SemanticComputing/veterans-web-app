@@ -77,7 +77,7 @@
     "table": "taulukko",
     "map": "kartta",
     "video": "video",
-    "word_cloud": "avainsanapilvi"
+    "word_cloud": "asiasanapilvi"
   },
   "table": {
     "rowsPerPage": "Riviä sivulla",
@@ -180,7 +180,7 @@
           "description": ""
         },
         "keyword": {
-          "label": "Avainsana",
+          "label": "Asiasana",
           "description": ""
         },
         "placeOfInterview": {
@@ -261,7 +261,7 @@
           "description": ""
         },
         "keyword": {
-          "label": "Avainsana",
+          "label": "Asiasana",
           "description": ""
         },
         "placeOfInterview": {
