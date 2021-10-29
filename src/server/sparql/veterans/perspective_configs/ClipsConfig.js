@@ -60,21 +60,6 @@ export const clipsConfig = {
       predicate: ':named_entity',
       type: 'list'
     },
-    mentionedWarsaPerson: {
-      id: 'mentionedWarsaPerson',
-      facetValueFilter: '',
-      labelPath: ':warsa_person',
-      predicate: ':warsa_person',
-      labelPattern: `
-        OPTIONAL {
-          SERVICE <https://ldf.fi/warsa/sparql> { 
-            ?id skos:prefLabel ?prefLabel_ . 
-          } 
-        }
-        BIND(COALESCE(STR(?prefLabel_), STR(?id)) AS ?prefLabel)
-      `,
-      type: 'list'
-    },
     mentionedProduct: {
       id: 'mentionedProduct',
       facetValueFilter: '?id :type "Product"',
@@ -112,6 +97,56 @@ export const clipsConfig = {
       predicate: ':interviewed_person/skos:prefLabel',
       type: 'list',
       literal: true
+    },
+    mentionedWarsaPerson: {
+      id: 'mentionedWarsaPerson',
+      facetValueFilter: '',
+      labelPath: ':warsa_person',
+      predicate: ':warsa_person',
+      labelPattern: `
+        OPTIONAL {
+          SERVICE <https://ldf.fi/warsa/sparql> { 
+            ?id skos:prefLabel ?prefLabel_ . 
+          } 
+        }
+        BIND(COALESCE(STR(?prefLabel_), STR(?id)) AS ?prefLabel)
+      `,
+      type: 'list'
+    },
+    mentionedWarsaUnit: {
+      id: 'mentionedWarsaUnit',
+      facetValueFilter: '',
+      labelPath: ':warsa_unit',
+      predicate: ':warsa_unit',
+      labelPattern: `
+        OPTIONAL {
+          SERVICE <https://ldf.fi/warsa/sparql> { 
+            ?id skos:prefLabel ?prefLabel_ . 
+          } 
+        }
+        BIND(COALESCE(STR(?prefLabel_), STR(?id)) AS ?prefLabel)
+      `,
+      type: 'list'
+    },
+    mentionedWarsaPlace: {
+      id: 'mentionedWarsaPlace',
+      facetValueFilter: '',
+      labelPath: ':warsa_place',
+      predicate: ':warsa_place',
+      labelPattern: `
+        OPTIONAL {
+          SERVICE <https://ldf.fi/warsa/sparql> { 
+            ?id skos:prefLabel ?prefLabel_ . 
+          } 
+        }
+        OPTIONAL {
+          SERVICE <https://ldf.fi/pnr/sparql> { 
+            ?id skos:prefLabel ?prefLabel_ . 
+          } 
+        }
+        BIND(COALESCE(STR(?prefLabel_), STR(?id)) AS ?prefLabel)
+      `,
+      type: 'list'
     }
   }
 }

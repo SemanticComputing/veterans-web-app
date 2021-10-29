@@ -200,10 +200,6 @@
           "label": "Mainittu henkilö",
           "description": ""
         },
-        "mentionedWarsaPerson": {
-          "label": "Mahdollisesti mainittu Sotasammon henkilö",
-          "description": ""
-        },
         "mentionedPlace": {
           "label": "Mainittu paikka",
           "description": ""
@@ -236,6 +232,18 @@
         "dateOfInterview": {
           "label": "Haastattelun ajankohta",
           "description": "Haastatellun ajankohta"
+        },
+        "mentionedWarsaPerson": {
+          "label": "Mahdollisesti mainittu Sotasammon henkilö",
+          "description": ""
+        },
+        "mentionedWarsaUnit": {
+          "label": "Mahdollisesti mainittu Sotasammon joukko-osasto",
+          "description": ""
+        },
+        "mentionedWarsaPlace": {
+          "label": "Mahdollisesti mainittu Sotasammon paikka",
+          "description": ""
         }
       }
     },
@@ -286,10 +294,6 @@
           "label": "Mainittu henkilö",
           "description": ""
         },
-        "mentionedWarsaPerson": {
-          "label": "Mahdollisesti mainittu Sotasammon henkilö",
-          "description": ""
-        },
         "mentionedPlace": {
           "label": "Mainittu paikka",
           "description": ""
@@ -321,6 +325,18 @@
         "dateOfInterview": {
           "label": "Haastattelun ajankohta",
           "description": "Haastatellun ajankohta"
+        },
+        "mentionedWarsaPerson": {
+          "label": "Mahdollisesti mainittu Sotasammon henkilö",
+          "description": ""
+        },
+        "mentionedWarsaUnit": {
+          "label": "Mahdollisesti mainittu Sotasammon joukko-osasto",
+          "description": ""
+        },
+        "mentionedWarsaPlace": {
+          "label": "Mahdollisesti mainittu Sotasammon paikka",
+          "description": ""
         }
       }
     },
