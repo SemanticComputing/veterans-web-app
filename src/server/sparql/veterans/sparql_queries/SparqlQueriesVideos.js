@@ -28,35 +28,18 @@ export const videoPropertiesInstancePage =
         ) AS ?length
       )
   }
-  UNION
-  {
-    ?id :keyword ?keyword__id .
-    ?keyword__id skos:prefLabel ?keyword__prefLabel .
-    ?keyword__id :uri ?keyword__dataProviderUrl .
-  }
-  UNION
-  {
-    ?id :keyword ?keyword__id .
-    ?keyword__id skos:prefLabel ?keyword__prefLabel .
-    ?keyword__id :uri ?keyword__dataProviderUrl .
-  }
   UNION 
   {
     ?id :weighted_keyword ?wkw .
-    ?wkw :keyword ?weightedKeyword__id ;
-          :keyword/skos:prefLabel ?weightedKeyword__prefLabel ;
-          :weight ?weightedKeyword__weight .
+    ?wkw :keyword ?keyword__id ;
+          :keyword/skos:prefLabel ?keyword__prefLabel ;
+          :weight ?keyword__weight .
+    BIND(?keyword__id as ?keyword__dataProviderUrl)      
   }
   UNION
   {
     ?id :video_link ?videoLink .
   }
-  # UNION
-  # {
-  #   ?id :named_entity ?namedEntity__id .
-  #   ?namedEntity__id skos:prefLabel ?namedEntity__prefLabel .
-  #   BIND(CONCAT("/entities/page/", REPLACE(STR(?namedEntity__id ), "^.*\\\\/(.+)", "$1")) AS ?namedEntity__dataProviderUrl)
-  # }
   UNION 
   {
     ?id :named_entity ?mentionedPlace__id .
@@ -70,16 +53,16 @@ export const videoPropertiesInstancePage =
     BIND(CONCAT("https://www.sotasampo.fi/fi/places/page?uri=", STR(?mentionedWarsaPlace__id)) AS  ?mentionedWarsaPlace__dataProviderUrl)
     OPTIONAL {
       SERVICE <https://ldf.fi/warsa/sparql> { 
-          ?mentionedWarsaPlace__id skos:prefLabel ?mentionedWarsaPlaceLabel_ . 
+          ?mentionedWarsaPlace__id skos:prefLabel ?mentionedWarsaPlaceLabelFromWarsa_ . 
       }
     }
     OPTIONAL {
       SERVICE <https://ldf.fi/pnr/sparql> { 
-          ?mentionedWarsaPlace__id skos:prefLabel ?mentionedWarsaPlaceLabel_ . 
+          ?mentionedWarsaPlace__id skos:prefLabel ?mentionedWarsaPlaceLabelFromPNR_ . 
           FILTER(LANG(?mentionedWarsaPlaceLabel_) = 'fi')
       }
     }
-    BIND(COALESCE(?mentionedWarsaPlaceLabel_, STR(?mentionedWarsaPlace__id)) as ?mentionedWarsaPlace__prefLabel)   
+    BIND(COALESCE(?mentionedWarsaPlaceLabelFromWarsa_, ?mentionedWarsaPlaceLabelFromPNR_, STR(?mentionedWarsaPlace__id)) as ?mentionedWarsaPlace__prefLabel)   
   }
   UNION
   {
@@ -200,17 +183,17 @@ export const videoPropertiesInstancePage =
     BIND(CONCAT("https://www.sotasampo.fi/fi/places/page?uri=", STR(?timeSlice__warsaPlace__id)) AS  ?timeSlice__warsaPlace__dataProviderUrl)
     OPTIONAL {
       SERVICE <https://ldf.fi/warsa/sparql> { 
-        ?timeSlice__warsaPlace__id skos:prefLabel ?warsaPlaceLabel . 
+        ?timeSlice__warsaPlace__id skos:prefLabel ?warsaPlaceLabelFromWarsa_ . 
       }
     }
      OPTIONAL {
       SERVICE <https://ldf.fi/pnr/sparql> { 
-        ?timeSlice__warsaPlace__id skos:prefLabel ?warsaPlaceLabel . 
+        ?timeSlice__warsaPlace__id skos:prefLabel ?warsaPlaceLabelFromPNR_ . 
         FILTER(LANG(?warsaPlaceLabel) = 'fi')
       }
     }
     BIND(REPLACE(STR(?timeSlice__warsaPlace__id), "^.*\\\\/(.+)", "$1") as ?warsaPlaceLabelFromURI)
-    BIND(COALESCE(?warsaPlaceLabel, ?warsaPlaceLabelFromURI) as ?timeSlice__warsaPlace__prefLabel)   
+    BIND(COALESCE(?warsaPlaceLabelFromWarsa_, ?warsaPlaceLabelFromPNR_, STR(?warsaPlaceLabelFromURI)) as ?timeSlice__warsaPlace__prefLabel)   
   }
 `
 
