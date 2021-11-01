@@ -36,7 +36,7 @@ export const videosConfig = {
       id: 'freeText',
       labelPath: 'skos:prefLabel',
       textQueryPredicate: '', // empty for querying the facetClass
-      textQueryProperty: 'skos:prefLabel', // limit only to prefLabels
+      textQueryProperty: 'vetluc:label :full_text :full_text_lemmatized',
       type: 'text'
     },
     keyword: {

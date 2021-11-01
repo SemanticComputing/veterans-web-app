@@ -36,7 +36,7 @@ export const clipsConfig = {
       id: 'freeText',
       labelPath: 'skos:prefLabel',
       textQueryPredicate: '', // empty for querying the facetClass
-      textQueryProperty: 'skos:prefLabel', // limit only to prefLabels
+      textQueryProperty: 'vetluc:label :text_content :text_content_lemmatized',
       type: 'text'
     },
     keyword: {
