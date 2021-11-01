@@ -58,33 +58,36 @@ export const INITIAL_STATE = {
       numberedList: false,
       minWidth: 200
     },
-    // {
-    //   id: 'length',
-    //   valueType: 'string',
-    //   makeLink: false,
-    //   externalLink: false,
-    //   sortValues: true,
-    //   numberedList: false,
-    //   minWidth: 180
-    // },
-    // {
-    //   id: 'placeOfInterview',
-    //   valueType: 'object',
-    //   makeLink: false,
-    //   externalLink: false,
-    //   sortValues: true,
-    //   numberedList: false,
-    //   minWidth: 180
-    // },
-    // {
-    //   id: 'dateOfInterview',
-    //   valueType: 'object',
-    //   makeLink: false,
-    //   externalLink: false,
-    //   sortValues: true,
-    //   numberedList: false,
-    //   minWidth: 180
-    // },
+    {
+      id: 'length',
+      valueType: 'string',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 180,
+      onlyOnInstancePage: true
+    },
+    {
+      id: 'placeOfInterview',
+      valueType: 'object',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 180,
+      onlyOnInstancePage: true
+    },
+    {
+      id: 'dateOfInterview',
+      valueType: 'object',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 180,
+      onlyOnInstancePage: true
+    },
     {
       id: 'keyword',
       valueType: 'object',
