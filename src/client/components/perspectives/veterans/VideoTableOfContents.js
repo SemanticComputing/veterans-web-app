@@ -169,7 +169,7 @@ class VideoTableOfContents extends React.Component {
                 {hasWarsaLinks &&
                   <>
                     <Divider />
-                    <Typography className={classes.tocSubHeading}>Kohtaan liittyvät Sotasammon</Typography>
+                    <Typography className={classes.tocSubHeading}>Kohtaan mahdollisesti liittyvät Sotasammon</Typography>
                     <ul>
                       {hasWarsaPersonLinks &&
                         <li>henkilöt
