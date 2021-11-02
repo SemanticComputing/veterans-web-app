@@ -22,4 +22,5 @@ export const prefixes = `
   PREFIX gn: <http://www.geonames.org/ontology#>
   PREFIX : <http://ldf.fi/schema/veterans/>
   PREFIX vetluc: <http://ldf.fi/veterans/lucene/> 
+  PREFIX ldff: <http://ldf.fi/functions#>
 `

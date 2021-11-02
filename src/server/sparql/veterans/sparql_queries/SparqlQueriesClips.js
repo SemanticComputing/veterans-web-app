@@ -52,8 +52,7 @@ export const clipPropertiesFacetResults = `
     }
     OPTIONAL {
       SERVICE <https://ldf.fi/pnr/sparql> { 
-          ?mentionedWarsaPlace__id skos:prefLabel ?mentionedWarsaPlaceLabelFromPNR_ .
-          FILTER(LANG(?mentionedWarsaPlaceLabelFromPNR_) = 'fi') 
+          ?mentionedWarsaPlace__id ldff:preferredLanguageLiteral (skos:prefLabel 'fi' 'sv' '' ?mentionedWarsaPlaceLabelFromPNR_)
       }
     }
     BIND(COALESCE(?mentionedWarsaPlaceLabelFromWarsa_, ?mentionedWarsaPlaceLabelFromPNR_, STR(?mentionedWarsaPlace__id)) as ?mentionedWarsaPlace__prefLabel)   

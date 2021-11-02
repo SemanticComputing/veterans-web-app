@@ -58,8 +58,7 @@ export const videoPropertiesInstancePage =
     }
     OPTIONAL {
       SERVICE <https://ldf.fi/pnr/sparql> { 
-          ?mentionedWarsaPlace__id skos:prefLabel ?mentionedWarsaPlaceLabelFromPNR_ . 
-          FILTER(LANG(?mentionedWarsaPlaceLabel_) = 'fi')
+          ?mentionedWarsaPlace__id ldff:preferredLanguageLiteral (skos:prefLabel 'fi' 'sv' '' ?mentionedWarsaPlaceLabelFromPNR_) .
       }
     }
     BIND(COALESCE(?mentionedWarsaPlaceLabelFromWarsa_, ?mentionedWarsaPlaceLabelFromPNR_, STR(?mentionedWarsaPlace__id)) as ?mentionedWarsaPlace__prefLabel)   
@@ -188,8 +187,7 @@ export const videoPropertiesInstancePage =
     }
      OPTIONAL {
       SERVICE <https://ldf.fi/pnr/sparql> { 
-        ?timeSlice__warsaPlace__id skos:prefLabel ?warsaPlaceLabelFromPNR_ . 
-        FILTER(LANG(?warsaPlaceLabel) = 'fi')
+        ?timeSlice__warsaPlace__id ldff:preferredLanguageLiteral (skos:prefLabel 'fi' 'sv' '' ?warsaPlaceLabelFromPNR_) .
       }
     }
     BIND(REPLACE(STR(?timeSlice__warsaPlace__id), "^.*\\\\/(.+)", "$1") as ?warsaPlaceLabelFromURI)
@@ -255,8 +253,7 @@ export const videoPropertiesFacetResults = `
     }
     OPTIONAL {
       SERVICE <https://ldf.fi/pnr/sparql> { 
-          ?mentionedWarsaPlace__id skos:prefLabel ?mentionedWarsaPlaceLabelFromPNR_ .
-          FILTER(LANG(?mentionedWarsaPlaceLabelFromPNR_) = 'fi') 
+          ?mentionedWarsaPlace__id ldff:preferredLanguageLiteral (skos:prefLabel 'fi' 'sv' '' ?mentionedWarsaPlaceLabelFromPNR_) .
       }
     }
     BIND(COALESCE(?mentionedWarsaPlaceLabelFromWarsa_, ?mentionedWarsaPlaceLabelFromPNR_, STR(?mentionedWarsaPlace__id)) as ?mentionedWarsaPlace__prefLabel)   

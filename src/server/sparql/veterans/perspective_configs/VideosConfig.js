@@ -150,15 +150,15 @@ export const videosConfig = {
       labelPattern: `
         OPTIONAL {
           SERVICE <https://ldf.fi/warsa/sparql> { 
-            ?id skos:prefLabel ?prefLabel_ . 
+            ?id skos:prefLabel ?prefLabelFromWarsa . 
           } 
         }
         OPTIONAL {
           SERVICE <https://ldf.fi/pnr/sparql> { 
-            ?id skos:prefLabel ?prefLabel_ . 
+            ?id ldff:preferredLanguageLiteral (skos:prefLabel 'fi' 'sv' '' ?prefLabelFromPNR) 
           } 
-        }
-        BIND(COALESCE(STR(?prefLabel_), STR(?id)) AS ?prefLabel)
+         }
+        BIND(COALESCE(?prefLabelFromWarsa, ?prefLabelFromPNR, STR(?id)) AS ?prefLabel)
       `,
       type: 'list'
     }
