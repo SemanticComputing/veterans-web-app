@@ -214,7 +214,7 @@ class InstanceHomePage extends React.Component {
                 render={() =>
                   <div className={classes.wordCloudOuterContainer}>
                     <Paper className={classes.wordCloudInnerContainer}>
-                      <WordCloud maxWords={30} data={instanceTableData.weightedKeyword} />
+                      <WordCloud maxWords={30} data={instanceTableData.keyword} />
                     </Paper>
                   </div>}
               />
