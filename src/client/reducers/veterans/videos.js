@@ -97,15 +97,6 @@ export const INITIAL_STATE = {
       numberedList: false,
       minWidth: 200
     },
-    // {
-    //   id: 'namedEntity',
-    //   valueType: 'object',
-    //   makeLink: true,
-    //   externalLink: false,
-    //   sortValues: true,
-    //   numberedList: false,
-    //   minWidth: 200
-    // },
     {
       id: 'mentionedPlace',
       valueType: 'object',

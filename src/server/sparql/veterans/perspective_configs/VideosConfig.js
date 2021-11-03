@@ -46,53 +46,39 @@ export const videosConfig = {
       predicate: ':keyword',
       type: 'list'
     },
-    namedEntity: {
-      id: 'namedEntity',
-      facetValueFilter: '',
-      labelPath: ':named_entity/skos:prefLabel',
-      predicate: ':named_entity',
-      type: 'list'
-    },
     mentionedPlace: {
       id: 'mentionedPlace',
-      facetValueFilter: '?id :type "Location"',
-      labelPath: ':named_entity/skos:prefLabel',
-      predicate: ':named_entity',
+      facetValueFilter: '',
+      labelPath: ':named_entity_location/skos:prefLabel',
+      predicate: ':named_entity_location',
       type: 'list'
     },
     mentionedOrganization: {
       id: 'mentionedOrganization',
-      facetValueFilter: '?id :type "Organization"',
-      labelPath: ':named_entity/skos:prefLabel',
-      predicate: ':named_entity',
+      facetValueFilter: '',
+      labelPath: ':named_entity_organization/skos:prefLabel',
+      predicate: ':named_entity_organization',
       type: 'list'
     },
     mentionedPerson: {
       id: 'mentionedPerson',
-      facetValueFilter: '?id :type "Person"',
-      labelPath: ':named_entity/skos:prefLabel',
-      predicate: ':named_entity',
+      facetValueFilter: '',
+      labelPath: ':named_entity_person/skos:prefLabel',
+      predicate: ':named_entity_person',
       type: 'list'
     },
     mentionedProduct: {
       id: 'mentionedProduct',
-      facetValueFilter: '?id :type "Product"',
-      labelPath: ':named_entity/skos:prefLabel',
-      predicate: ':named_entity',
+      facetValueFilter: '',
+      labelPath: ':named_entity_product/skos:prefLabel',
+      predicate: ':named_entity_product',
       type: 'list'
     },
     mentionedEvent: {
       id: 'mentionedEvent',
-      facetValueFilter: '?id :type "Event"',
-      labelPath: ':named_entity/skos:prefLabel',
-      predicate: ':named_entity',
-      type: 'list'
-    },
-    mentionedLaw: {
-      id: 'mentionedLaw',
-      facetValueFilter: '?id :type "Law"',
-      labelPath: ':named_entity/skos:prefLabel',
-      predicate: ':named_entity',
+      facetValueFilter: '',
+      labelPath: ':named_entity_event/skos:prefLabel',
+      predicate: ':named_entity_event',
       type: 'list'
     },
     length: {
