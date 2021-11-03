@@ -94,9 +94,8 @@ export const videosConfig = {
       id: 'name',
       facetValueFilter: '',
       labelPath: ':interviewed_person/skos:prefLabel',
-      predicate: ':interviewed_person/skos:prefLabel',
-      type: 'list',
-      literal: true
+      predicate: ':interviewed_person',
+      type: 'list'
     },
     mentionedWarsaPerson: {
       id: 'mentionedWarsaPerson',
