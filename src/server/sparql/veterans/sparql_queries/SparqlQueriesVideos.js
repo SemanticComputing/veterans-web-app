@@ -38,7 +38,8 @@ export const videoPropertiesInstancePage =
   }
   UNION
   {
-    ?id :video_link ?videoLink .
+    ?id :video_link ?youTubeLink .
+    BIND(REPLACE(STR(?youTubeLink), "https://youtu.be/", "") as ?youTubeID)
   }
   UNION 
   {

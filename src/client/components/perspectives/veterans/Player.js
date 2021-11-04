@@ -56,10 +56,10 @@ class Player extends React.Component {
   }
 
   loadVideo = () => {
-    const videoId = this.props.data.videoLink.replace('https://www.youtube.com/watch?v=', '')
+    const { youTubeID } = this.props.data
     // the Player object is created uniquely based on the id in props
-    this.player = new window.YT.Player(`youtube-player-${this.props.data.videoLink}`, {
-      videoId,
+    this.player = new window.YT.Player(`youtube-player-${youTubeID}`, {
+      videoId: youTubeID,
       playerVars: { // https://developers.google.com/youtube/player_parameters#Parameters
         start: 1 // the parameter value is a positive integer
       },
@@ -91,7 +91,7 @@ class Player extends React.Component {
     const { classes } = this.props
     return (
       <div className={classes.container}>
-        <div id={`youtube-player-${this.props.data.videoLink}`} className={classes.responsiveIframe} />
+        <div id={`youtube-player-${this.props.data.youTubeID}`} className={classes.responsiveIframe} />
       </div>
     )
   }

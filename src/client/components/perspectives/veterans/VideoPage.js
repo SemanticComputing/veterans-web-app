@@ -103,7 +103,7 @@ const ContextualContent = props => {
 
   const readyToRenderVideoPlayer = () => {
     return `http://ldf.fi/veterans/${localID}` === instanceTableData.id &&
-        has(instanceTableData, 'videoLink')
+        has(instanceTableData, 'youTubeID')
   }
 
   return (
