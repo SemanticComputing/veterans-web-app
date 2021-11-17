@@ -7,7 +7,7 @@ import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
 export const clipsConfig = {
   endpoint: {
     // url: 'http://localhost:3047/ds/sparql',
-    url: 'https://ldf.fi/veterans/sparql',
+    url: 'https://ldf.fi/warmemoirsampo/sparql',
     prefixes,
     useAuth: true
   },
