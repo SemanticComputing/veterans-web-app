@@ -63,7 +63,11 @@ class VideoTableOfContents extends React.Component {
   getCurrentPart = () => {
     const { videoPlayerTime } = this.props.videoPlayerState
     let currentPart = null
-    for (const part of this.props.toc) {
+    let toc_ = this.props.toc
+    if (!Array.isArray(toc_)) {
+      toc_ = [this.props.toc]
+    }
+    for (const part of toc_) {
       if (part.beginTimeInSeconds <= videoPlayerTime && part.endTimeInSeconds > videoPlayerTime) {
         currentPart = part
         break // there are errors in timecodes, choose only the first part that fits the condition
@@ -83,11 +87,15 @@ class VideoTableOfContents extends React.Component {
   }
 
   render () {
-    const { classes } = this.props
+    const { classes, toc } = this.props
     const { expandedSet } = this.state
+    let toc_ = toc
+    if (!Array.isArray(toc)) {
+      toc_ = [toc]
+    }
     return (
       <div className={classes.root}>
-        {this.props.toc.map(row => {
+        {toc_.map(row => {
           const rowID = row.order
           let isCurrent = false
           if (this.state.currentPart && rowID === this.state.currentPart.order) {
