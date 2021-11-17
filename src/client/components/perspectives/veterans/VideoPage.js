@@ -102,7 +102,7 @@ const ContextualContent = props => {
   //   const sectionRefs = useRef({})
 
   const readyToRenderVideoPlayer = () => {
-    return `http://ldf.fi/veterans/${localID}` === instanceTableData.id &&
+    return `http://ldf.fi/warmemoirsampo/${localID}` === instanceTableData.id &&
         has(instanceTableData, 'youTubeID')
   }
 

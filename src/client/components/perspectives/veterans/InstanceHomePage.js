@@ -99,7 +99,7 @@ class InstanceHomePage extends React.Component {
     const localID = this.getLocalIDFromURL()
     this.setState({ localID })
     let uri = ''
-    const base = 'http://ldf.fi/veterans'
+    const base = 'http://ldf.fi/warmemoirsampo'
     const resultClass = perspectiveConfig.id
     switch (resultClass) {
       case 'videos':
