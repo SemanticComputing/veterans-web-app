@@ -1,19 +1,24 @@
 export const clipPropertiesFacetResults = `
-  ?id ^:structured_content/:interviewed_person/foaf:name ?name ;
+  BIND(?id as ?uri__id)
+  BIND(?id as ?uri__dataProviderUrl)
+  BIND(?id as ?uri__prefLabel)
+  {
+    ?id ^:structured_content/:interviewed_person/skos:prefLabel ?name ;
       :begin_timestamp ?beginTimestamp .
-  ?fullVideo :structured_content ?id .
-  BIND(HOURS(?beginTimestamp) as ?hours)
-  BIND(MINUTES(?beginTimestamp) as ?minutes)
-  BIND(SECONDS(?beginTimestamp) as ?seconds)
-  BIND(CONCAT(STR(?hours), ':', STR(?minutes), ':', STR(xsd:integer(?seconds))) as ?beginTimeLabel)
-  BIND(?hours * 60 * 60 + ?minutes * 60 + ?seconds as ?beginTimeInSeconds_)
-  BIND(xsd:integer(?beginTimeInSeconds_) as ?beginTimeInSeconds)
-  BIND(CONCAT("/videos/page/", REPLACE(STR(?fullVideo), "^.*\\\\/(.+)", "$1")) AS ?fullVideo__dataProviderUrl)
-  BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?clipHash)
-  BIND(CONCAT(?fullVideo__dataProviderUrl, ?clipHash) AS ?prefLabel__dataProviderUrl)
-
-  BIND (CONCAT(?name, ' / ', STR(?beginTimeLabel)) AS ?prefLabel__id)
-  BIND (?prefLabel__id AS ?prefLabel__prefLabel)
+    ?fullVideo :structured_content ?id .
+    BIND(HOURS(?beginTimestamp) as ?hours)
+    BIND(MINUTES(?beginTimestamp) as ?minutes)
+    BIND(SECONDS(?beginTimestamp) as ?seconds)
+    BIND(CONCAT(STR(?hours), ':', STR(?minutes), ':', STR(xsd:integer(?seconds))) as ?beginTimeLabel)
+    BIND(?hours * 60 * 60 + ?minutes * 60 + ?seconds as ?beginTimeInSeconds_)
+    BIND(xsd:integer(?beginTimeInSeconds_) as ?beginTimeInSeconds)
+    BIND(CONCAT("/videos/page/", REPLACE(STR(?fullVideo), "^.*\\\\/(.+)", "$1")) AS ?fullVideo__dataProviderUrl)
+    BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?clipHash)
+    BIND(CONCAT(?fullVideo__dataProviderUrl, ?clipHash) AS ?prefLabel__dataProviderUrl)
+    BIND (CONCAT(?name, ' / ', STR(?beginTimeLabel)) AS ?prefLabel__id)
+    BIND (?prefLabel__id AS ?prefLabel__prefLabel)
+  }
+  UNION
   {
     ?id :length ?length .
   }
