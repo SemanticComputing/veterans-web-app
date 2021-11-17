@@ -36,7 +36,7 @@ export const layoutConfig = {
   tableFontSize: '0.8rem',
   topBar: {
     showLanguageButton: false,
-    feedbackLink: 'https://link.webropolsurveys.com/',
+    feedbackLink: 'https://link.webropolsurveys.com/S/AF1CD899338FE8DB',
     // 48 px is minimun for tab targets: https://web.dev/tap-targets/?utm_source=lighthouse&utm_medium=devtools#how-to-fix-your-tap-targets
     reducedHeight: 48,
     defaultHeight: 64,
