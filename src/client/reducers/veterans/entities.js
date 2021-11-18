@@ -21,25 +21,31 @@ export const INITIAL_STATE = {
   instanceAnalysisData: null,
   instanceAnalysisDataUpdateID: 0,
   instanceSparqlQuery: null,
-  maps: {
-    placesMsProduced: {
-      center: [22.43, 10.37],
-      zoom: 2
-    },
-    placesMsProducedHeatmap: {
-      center: [22.43, 10.37],
-      zoom: 2
-    },
-    lastKnownLocations: {
-      center: [22.43, 10.37],
-      zoom: 2
-    },
-    placesMsMigrations: {
-      center: [22.43, 10.37],
-      zoom: 2
-    }
-  },
   properties: [
+    {
+      id: 'prefLabel',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false
+    },
+    {
+      id: 'entityType',
+      valueType: 'object',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false
+    },
+    {
+      id: 'timeSlice',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false
+    },
     {
       id: 'uri',
       valueType: 'object',
@@ -48,33 +54,6 @@ export const INITIAL_STATE = {
       sortValues: true,
       numberedList: false,
       onlyOnInstancePage: true
-    },
-    {
-      id: 'prefLabel',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'entityType',
-      valueType: 'object',
-      makeLink: false,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'timeSlice',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
     }
   ]
 }
