@@ -135,6 +135,7 @@ class VideoTableOfContents extends React.Component {
                 <Link
                   className={classes.timeLink}
                   to={{ hash: row.beginTimeInSeconds }}
+                  replace
                   onClick={event => {
                     if (expanded) {
                       event.stopPropagation()
