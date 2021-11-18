@@ -137,3 +137,14 @@ a, a:visited, a:hover, a:active {
     height: 18px !important;
     padding-top: 0px !important;
 }
+
+.carousel__dot {
+    height: 12px;
+    margin-left: 3px;
+    margin-right: 3px;
+    opacity: 0.3
+}   
+
+.carousel__dot--selected {
+    opacity: 1.0
+} 

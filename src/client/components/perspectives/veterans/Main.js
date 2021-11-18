@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import MainCard from './MainCard'
+import MainCarousel from './MainCarousel'
 
 const useStyles = makeStyles(theme => ({
   root: props => ({
@@ -44,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   linkHeading: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(3)
   },
   bannerSubheading: {
     marginTop: theme.spacing(1.5)
@@ -76,6 +77,9 @@ const useStyles = makeStyles(theme => ({
   lowerRow: {
     marginTop: theme.spacing(1)
   },
+  carouselContainer: {
+    height: 350
+  },
   licenceTextContainer: {
     marginTop: theme.spacing(1),
     display: 'flex',
@@ -92,6 +96,7 @@ const Main = props => {
   let headingVariant = 'h5'
   let subheadingVariant = 'body1'
   let descriptionVariant = 'body1'
+  let visibleSlides = 1
   switch (screenSize) {
     case 'xs':
       headingVariant = 'h5'
@@ -107,16 +112,19 @@ const Main = props => {
       headingVariant = 'h3'
       subheadingVariant = 'h6'
       descriptionVariant = 'h6'
+      visibleSlides = 2
       break
     case 'lg':
       headingVariant = 'h2'
       subheadingVariant = 'h5'
       descriptionVariant = 'h6'
+      visibleSlides = 3
       break
     case 'xl':
       headingVariant = 'h1'
       subheadingVariant = 'h4'
       descriptionVariant = 'h6'
+      visibleSlides = 3
       break
   }
 
@@ -162,15 +170,24 @@ const Main = props => {
                 />
               )
             }
+            return null
           })}
         </Grid>
-        <Typography className={classes.linkHeading} variant={descriptionVariant} align='center' color='textPrimary' paragraph>
-          Linkkejä esimerkkisivuille
-        </Typography>
         <div className={classes.licenceTextContainer}>
           <Typography className={classes.licenceText}>{intl.getHTML('mainPageImageLicence')}</Typography>
         </div>
+        <Typography className={classes.linkHeading} variant={descriptionVariant} align='center' color='textPrimary' paragraph>
+          Linkkejä esimerkkisivuille:
+        </Typography>
       </div>
+      <MainCarousel
+        maxWidth={visibleSlides * 364}
+        screenSize={screenSize}
+        slideWidth={364}
+        slideHeight={248}
+        totalSlides={4}
+        visibleSlides={visibleSlides}
+      />
     </div>
   )
 }

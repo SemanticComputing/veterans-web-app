@@ -5,7 +5,7 @@ import { has } from 'lodash'
 import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { withRouter, Route, Redirect, Switch } from 'react-router-dom'
-import classNames from 'classnames'
+// import classNames from 'classnames'
 import { compose } from '@shakacode/recompose'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
@@ -58,7 +58,7 @@ import { rootUrl, layoutConfig } from '../configs/veterans/GeneralConfig'
 // import Message from '../components/main_layout/Message'
 // import FacetBar from '../components/facet_bar/FacetBar'
 const InfoHeader = lazy(() => import('../components/main_layout/InfoHeader'))
-const TextPage = lazy(() => import('../components/main_layout/TextPage'))
+// const TextPage = lazy(() => import('../components/main_layout/TextPage'))
 const Message = lazy(() => import('../components/main_layout/Message'))
 const FacetBar = lazy(() => import('../components/facet_bar/FacetBar'))
 // ** General components end **
@@ -471,6 +471,7 @@ const SemanticPortal = props => {
                 </React.Fragment>
               )
             }
+            return null
           })}
           {/* create routes for classes that have only info pages and no faceted search perspective */}
           {perspectiveConfigOnlyInfoPages.map(perspective =>
