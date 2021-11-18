@@ -21,6 +21,6 @@ export const prefixes = `
   PREFIX h-schema: <http://ldf.fi/schema/hellerau/>
   PREFIX gn: <http://www.geonames.org/ontology#>
   PREFIX : <http://ldf.fi/schema/warmemoirsampo/>
-  PREFIX vetluc: <http://ldf.fi/veterans/lucene/> 
+  PREFIX wmsl: <http://ldf.fi/warmemoirsampo/lucene/> 
   PREFIX ldff: <http://ldf.fi/functions#>
 `

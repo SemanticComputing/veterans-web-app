@@ -13,9 +13,6 @@ export const entitiesConfig = {
   },
   facetClass: ':NamedEntity',
   includeInSitemap: true,
-  // defaultConstraint: `
-  //   <SUBJECT> dct:source mmm-schema:Bibale .
-  // `,
   paginatedResults: {
     properties: entityPropertiesFacetResults
   },

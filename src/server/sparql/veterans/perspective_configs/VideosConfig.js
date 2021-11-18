@@ -6,16 +6,13 @@ import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
 
 export const videosConfig = {
   endpoint: {
-    // url: 'http://localhost:3047/ds/sparql',
+    // url: 'http://localhost:3030/ds/sparql',
     url: 'https://ldf.fi/warmemoirsampo/sparql',
     prefixes,
     useAuth: true
   },
   facetClass: ':Interview',
   includeInSitemap: true,
-  // defaultConstraint: `
-  //   <SUBJECT> dct:source mmm-schema:Bibale .
-  // `,
   paginatedResults: {
     properties: videoPropertiesFacetResults
   },
@@ -26,17 +23,13 @@ export const videosConfig = {
   },
   facets: {
     prefLabel: {
-      id: 'prefLabel',
-      labelPath: 'skos:prefLabel',
-      textQueryPredicate: '', // empty for querying the facetClass
-      textQueryProperty: 'skos:prefLabel', // limit only to prefLabels
-      type: 'text'
+      labelPath: 'skos:prefLabel'
     },
     freeText: {
       id: 'freeText',
       labelPath: 'skos:prefLabel',
       textQueryPredicate: '', // empty for querying the facetClass
-      textQueryProperty: 'vetluc:label :full_text :full_text_lemmatized',
+      textQueryProperty: 'wmsl:label :full_text :full_text_lemmatized',
       type: 'text'
     },
     keyword: {
