@@ -184,7 +184,7 @@ class InstanceHomePage extends React.Component {
               <Route
                 path={[`${rootUrl}/${resultClass}/page/${this.state.localID}/table`, '/iframe.html']} // support also rendering in Storybook
                 render={() =>
-                  <Paper>
+                  <Paper style={{ height: 'calc(100% - 8px)' }}>
                     <InstanceHomePageTable
                       resultClass={resultClass}
                       data={instanceTableData}
