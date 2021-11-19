@@ -14,7 +14,11 @@ const useStyles = makeStyles(theme => ({
   carouselContainer: props => ({
     maxWidth: props.maxWidth,
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: theme.spacing(5)
+    }
   }),
   dotGroupContainer: {
     display: 'flex',
