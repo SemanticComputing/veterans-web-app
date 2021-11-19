@@ -196,40 +196,21 @@ export const videoPropertiesFacetResults = `
   BIND (?prefLabel__id as ?prefLabel__prefLabel)
   BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   {
-    ?id :length ?raw_length .
-    BIND(HOURS(?raw_length) AS ?hours)
-    BIND(MINUTES(?raw_length) AS ?minutes)
-    BIND(SECONDS(?raw_length) AS ?seconds)
-    BIND(
-      CONCAT(
-        CONCAT(STR(?hours), 'h '), CONCAT(STR(?minutes), 'm')
-      ) AS ?length
-    )
-  }
-  UNION
-  {
-    {
-    ?id :place_of_interview ?placeOfInterview__id .
-    BIND (?placeOfInterview__id AS ?placeOfInterview__prefLabel)
-  }
-  }
-  UNION
-  {
-    ?id :date_of_interview ?dateOfInterview__id .
-    BIND (?dateOfInterview__id AS ?dateOfInterview__prefLabel)
-  }
- 
-  UNION
-  {
     ?id :keyword ?keyword__id .
     ?keyword__id skos:prefLabel ?keyword__prefLabel .
     ?keyword__id :uri ?keyword__dataProviderUrl .
   }
-  # UNION
+  # UNION 
   # {
-  #   ?id :named_entity ?namedEntity__id .
-  #   ?namedEntity__id skos:prefLabel ?namedEntity__prefLabel .
-  #   BIND(CONCAT("/entities/page/", REPLACE(STR(?namedEntity__id ), "^.*\\\\/(.+)", "$1")) AS ?namedEntity__dataProviderUrl)
+  #   ?id :length ?raw_length .
+  #   BIND(HOURS(?raw_length) AS ?hours)
+  #   BIND(MINUTES(?raw_length) AS ?minutes)
+  #   BIND(SECONDS(?raw_length) AS ?seconds)
+  #   BIND(
+  #     CONCAT(
+  #       CONCAT(STR(?hours), 'h '), CONCAT(STR(?minutes), 'm')
+  #     ) AS ?length
+  #   )
   # }
   UNION 
   {
