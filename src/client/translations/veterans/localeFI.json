@@ -157,7 +157,7 @@
       "label": "Koko videot",
       "facetResultsType": "Haastattelua",
       "shortDescription": "Hae kokonaisia haastatteluvideoita",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat videot näkyvät oikealla sivuttain ryhmiteltynä. Videota klikkaamalla pääset katsomaan sitä ja sisällysluetteloa.</p>",
       "instancePage": {
         "label": "Haastattelu",
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>"
@@ -251,7 +251,7 @@
       "label": "Videon kohdat",
       "facetResultsType": "videon kohtaa",
       "shortDescription": "Hae tarkemmin yksittäisiä kohtia haastatteluvideoista",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat videoiden kohdat näkyvät oikealla sivuttain ryhmiteltynä. Tulosta klikkaamalla pääset katsomaan videota vastaavasta kohdasta ja koko videon sisällysluetteloa. </p>",
       "instancePage": {
         "label": "",
         "description": ""

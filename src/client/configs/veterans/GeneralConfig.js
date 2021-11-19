@@ -47,7 +47,7 @@ export const layoutConfig = {
     bannerBackround: `linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ), url(${bannerImage})`,
     bannerMobileHeight: 150,
     bannerReducedHeight: 270,
-    bannerDefaultHeight: 300
+    bannerDefaultHeight: 350
   },
   infoHeader: {
     default: {
