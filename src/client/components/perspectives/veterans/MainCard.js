@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       justifyContent: 'center'
     },
-    height: 228,
+    height: 180,
+    width: 220,
     [theme.breakpoints.down('sm')]: {
       height: 170,
       maxWidth: 300

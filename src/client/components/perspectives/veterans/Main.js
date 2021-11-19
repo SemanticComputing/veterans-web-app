@@ -37,6 +37,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   }),
   bannerContent: {
+    // paddingTop: '2%',
     display: 'inline-block',
     color: '#fff'
   },
@@ -45,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   linkHeading: {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(1.5)
   },
   bannerSubheading: {
     marginTop: theme.spacing(1.5)
@@ -60,8 +61,8 @@ const useStyles = makeStyles(theme => ({
   layout: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    [theme.breakpoints.up(800 + theme.spacing(6))]: {
-      width: 800,
+    [theme.breakpoints.up(650 + theme.spacing(6))]: {
+      width: 650,
       marginLeft: 'auto',
       marginRight: 'auto'
     }
@@ -81,7 +82,7 @@ const useStyles = makeStyles(theme => ({
     height: 350
   },
   licenceTextContainer: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(0.25),
     display: 'flex',
     justifyContent: 'center'
   }
@@ -121,7 +122,7 @@ const Main = props => {
       visibleSlides = 3
       break
     case 'xl':
-      headingVariant = 'h1'
+      headingVariant = 'h2'
       subheadingVariant = 'h4'
       descriptionVariant = 'h6'
       visibleSlides = 3
@@ -148,10 +149,10 @@ const Main = props => {
       </div>
       <div className={classes.layout}>
         <div className={classes.heroContent}>
-          <Typography variant={descriptionVariant} color='textPrimary' paragraph>
+          {/* <Typography variant={descriptionVariant} color='textPrimary' paragraph>
             {intl.getHTML('appDescription')}
-          </Typography>
-          <Typography variant={descriptionVariant} align='center' color='textPrimary' paragraph>
+          </Typography> */}
+          <Typography variant={descriptionVariant} align='center' color='textPrimary'>
             {intl.get('selectPerspective')}
           </Typography>
         </div>
@@ -177,14 +178,14 @@ const Main = props => {
           <Typography className={classes.licenceText}>{intl.getHTML('mainPageImageLicence')}</Typography>
         </div>
         <Typography className={classes.linkHeading} variant={descriptionVariant} align='center' color='textPrimary' paragraph>
-          Linkkejä esimerkkisivuille:
+          Valitse esimerkki videoiden kohdista:
         </Typography>
       </div>
       <MainCarousel
-        maxWidth={visibleSlides * 364}
+        maxWidth={visibleSlides * 300}
         screenSize={screenSize}
-        slideWidth={364}
-        slideHeight={248}
+        slideWidth={300}
+        slideHeight={165 + (24 * 2) + 5}
         totalSlides={4}
         visibleSlides={visibleSlides}
       />

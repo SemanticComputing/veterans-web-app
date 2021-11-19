@@ -7,7 +7,7 @@ import aaltoLogo from '../../../img/logos/Aalto_SCI_EN_13_BLACK_2_cropped.png'
 import hyLogo from '../../../img/logos/university-of-helsinki-logo-transparent-black.png'
 import heldigLogo from '../../../img/logos/heldig-logo-transparent-black.png'
 import kaLogo from '../../../img/logos/ka-tunnus-fi.png'
-import tammenlehvaLogo from '../../../img/logos/tammenlehva.jpg'
+import tammenlehvaLogo from '../../../img/logos/tammenlehva-compressed.jpg'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -88,11 +88,9 @@ const useStyles = makeStyles(theme => ({
     }
   }),
   tammenlehvaLogo: props => ({
-    width: 70,
-    height: 100,
+    height: 78,
     [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
-      width: 100,
-      height: 100
+      height: 91
     }
   })
 }))

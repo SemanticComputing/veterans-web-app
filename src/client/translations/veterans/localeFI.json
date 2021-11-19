@@ -25,7 +25,7 @@
     "searchBarPlaceHolder": "Search all content",
     "searchBarPlaceHolderShort": "Search",
     "instructions": "ohjeet",
-    "instructionsUrl": "https://seco.cs.aalto.fi/projects/war-memoirs/"
+    "instructionsUrl": "https://seco.cs.aalto.fi/projects/war-memoirs/kaytto-ohje.php"
   },
   "facetBar": {
     "defaultMissingValueLabel": "Ei merkintöjä",

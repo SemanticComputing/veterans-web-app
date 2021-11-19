@@ -1,4 +1,5 @@
-import bannerImage from '../../img/main_page/veterans/compressed/veterans-banner-2385x500-px.jpg'
+// import bannerImage from '../../img/main_page/veterans/compressed/veterans-banner-2385x500-px.jpg'
+import bannerImage from '../../img/main_page/veterans/compressed/sa-kuva-165772.jpg'
 
 export const rootUrl = ''
 
@@ -30,7 +31,7 @@ export const SLIDER_DURATION = {
 
 export const layoutConfig = {
   hundredPercentHeightBreakPoint: 'md',
-  reducedHeightBreakpoint: 'xl',
+  reducedHeightBreakpoint: 1921,
   tabHeight: 58,
   paginationToolbarHeight: 37,
   tableFontSize: '0.8rem',
@@ -40,12 +41,12 @@ export const layoutConfig = {
     // 48 px is minimun for tab targets: https://web.dev/tap-targets/?utm_source=lighthouse&utm_medium=devtools#how-to-fix-your-tap-targets
     reducedHeight: 48,
     defaultHeight: 64,
-    mobileMenuBreakpoint: 1360
+    mobileMenuBreakpoint: 850
   },
   mainPage: {
-    bannerBackround: `linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45) ), url(${bannerImage})`,
+    bannerBackround: `linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ), url(${bannerImage})`,
     bannerMobileHeight: 150,
-    bannerReducedHeight: 220,
+    bannerReducedHeight: 270,
     bannerDefaultHeight: 300
   },
   infoHeader: {
@@ -63,7 +64,7 @@ export const layoutConfig = {
     }
   },
   footer: {
-    reducedHeight: 100,
-    defaultHeight: 200
+    reducedHeight: 80,
+    defaultHeight: 100
   }
 }
