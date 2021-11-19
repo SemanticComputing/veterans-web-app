@@ -3,7 +3,7 @@ import {
   clipPropertiesFacetResults
 } from '../sparql_queries/SparqlQueriesClips'
 import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
-import { createPaddedTimeCodesForPrefLabels } from '../../Mappers'
+import { createPaddedTimeCodes } from '../../Mappers'
 
 export const clipsConfig = {
   endpoint: {
@@ -17,7 +17,13 @@ export const clipsConfig = {
   paginatedResults: {
     properties: clipPropertiesFacetResults,
     postprocess: {
-      func: createPaddedTimeCodesForPrefLabels
+      func: createPaddedTimeCodes,
+      config: {
+        getTarget: item => item.prefLabel,
+        addTimeCode: (item, paddedTimeCode) => {
+          item.prefLabel = `${item.prefLabel} / ${paddedTimeCode}`
+        }
+      }
     }
   },
   // instance: {

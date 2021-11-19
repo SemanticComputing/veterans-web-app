@@ -3,6 +3,7 @@ import {
   videoPropertiesInstancePage
 } from '../sparql_queries/SparqlQueriesVideos'
 import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
+import { createPaddedTimeCodes } from '../../Mappers'
 
 export const videosConfig = {
   endpoint: {
@@ -19,7 +20,16 @@ export const videosConfig = {
   instance: {
     properties: videoPropertiesInstancePage,
     relatedInstances: '',
-    defaultTab: 'table'
+    defaultTab: 'table',
+    postprocess: {
+      func: createPaddedTimeCodes,
+      config: {
+        getTarget: item => item.timeSlice,
+        addTimeCode: (item, paddedTimeCode) => {
+          item.beginTimeLabel = paddedTimeCode
+        }
+      }
+    }
   },
   facets: {
     prefLabel: {

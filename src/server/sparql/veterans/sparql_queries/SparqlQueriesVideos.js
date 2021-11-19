@@ -124,19 +124,15 @@ export const videoPropertiesInstancePage =
 
     BIND(CONCAT(SUBSTR(?timeSlice__textContent, 1, 50), '...') as ?timeSlice__prefLabel)                
     
-    BIND(HOURS(?beginTimestamp) as ?beginHours)
-    BIND(MINUTES(?beginTimestamp) as ?beginMinutes)
-    BIND(SECONDS(?beginTimestamp) as ?beginSeconds)
-    BIND(CONCAT(STR(?beginHours), ':', STR(?beginMinutes), ':', STR(xsd:integer(?beginSeconds))) as ?timeSlice__beginTimeLabel)
-    BIND(?beginHours * 60 * 60 + ?beginMinutes * 60 + ?beginSeconds as ?beginTimeInSeconds_)
-    BIND(xsd:integer(?beginTimeInSeconds_) as ?timeSlice__beginTimeInSeconds) 
+    BIND(HOURS(?beginTimestamp) as ?timeSlice__hours)
+    BIND(MINUTES(?beginTimestamp) as ?timeSlice__minutes)
+    BIND(xsd:integer(SECONDS(?beginTimestamp)) as ?timeSlice__seconds)
+    BIND(?timeSlice__hours * 60 * 60 + ?timeSlice__minutes * 60 + ?timeSlice__seconds as ?timeSlice__beginTimeInSeconds)
     
-    BIND(HOURS(?endTimestamp) as ?endHours)
-    BIND(MINUTES(?endTimestamp) as ?endMinutes)
-    BIND(SECONDS(?endTimestamp) as ?endSeconds)
-    BIND(CONCAT(STR(?endHours), ':', STR(?endMinutes), ':', STR(xsd:integer(?endSeconds) - 1)) as ?timeSlice__endTimeLabel)
-    BIND(?endHours * 60 * 60 + ?endMinutes * 60 + ?endSeconds as ?endTimeInSeconds_)
-    BIND(xsd:integer(?endTimeInSeconds_) - 1 as ?timeSlice__endTimeInSeconds) 
+    BIND(HOURS(?endTimestamp) as ?timeSlice__endHours)
+    BIND(MINUTES(?endTimestamp) as ?timeSlice__endMinutes)
+    BIND(xsd:integer(SECONDS(?endTimestamp)) as ?timeSlice__endSeconds)
+    BIND(?timeSlice__endHours * 60 * 60 + ?timeSlice__endMinutes * 60 + ?timeSlice__endSeconds as ?timeSlice__endTimeInSeconds)
   }
   UNION 
   {
