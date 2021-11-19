@@ -3,20 +3,20 @@ export const clipPropertiesFacetResults = `
   BIND(?id as ?uri__dataProviderUrl)
   BIND(?id as ?uri__prefLabel)
   {
-    ?id ^:structured_content/:interviewed_person/skos:prefLabel ?name ;
+    ?id ^:structured_content/:interviewed_person/skos:prefLabel ?prefLabel__id ;
       :begin_timestamp ?beginTimestamp .
-    ?fullVideo :structured_content ?id .
-    BIND(HOURS(?beginTimestamp) as ?hours)
-    BIND(MINUTES(?beginTimestamp) as ?minutes)
-    BIND(SECONDS(?beginTimestamp) as ?seconds)
-    BIND(CONCAT(STR(?hours), ':', STR(?minutes), ':', STR(xsd:integer(?seconds))) as ?beginTimeLabel)
-    BIND(?hours * 60 * 60 + ?minutes * 60 + ?seconds as ?beginTimeInSeconds_)
-    BIND(xsd:integer(?beginTimeInSeconds_) as ?beginTimeInSeconds)
-    BIND(CONCAT("/videos/page/", REPLACE(STR(?fullVideo), "^.*\\\\/(.+)", "$1")) AS ?fullVideo__dataProviderUrl)
-    BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?clipHash)
-    BIND(CONCAT(?fullVideo__dataProviderUrl, ?clipHash) AS ?prefLabel__dataProviderUrl)
-    BIND (CONCAT(?name, ' / ', STR(?beginTimeLabel)) AS ?prefLabel__id)
     BIND (?prefLabel__id AS ?prefLabel__prefLabel)
+    BIND(HOURS(?beginTimestamp) as ?prefLabel__hours)
+    BIND(MINUTES(?beginTimestamp) as ?prefLabel__minutes)
+    BIND(xsd:integer(SECONDS(?beginTimestamp)) as ?prefLabel__seconds)
+    
+    # create link to video instance page with a hash
+    ?video :structured_content ?id .
+    BIND(CONCAT("/videos/page/", REPLACE(STR(?video), "^.*\\\\/(.+)", "$1")) AS ?videoPageLink)
+    BIND(?prefLabel__hours * 60 * 60 + ?prefLabel__minutes * 60 + ?prefLabel__seconds as ?beginTimeInSeconds_)
+    BIND(xsd:integer(?beginTimeInSeconds_) as ?beginTimeInSeconds)
+    BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?videoPageLinkHash)
+    BIND(CONCAT(?videoPageLink, ?videoPageLinkHash) AS ?prefLabel__dataProviderUrl)
   }
   UNION
   {

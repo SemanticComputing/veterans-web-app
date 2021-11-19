@@ -350,3 +350,25 @@ const getChoroplethMapColor = ({ value, clusters }) => {
   })
   return heatmapColor
 }
+
+export const createPaddedTimeCodesForTimeSlices = ({ data, config }) => {
+  data.forEach(item => {
+    const { hours, minutes, seconds } = item.prefLabel
+    const paddedTimecode = createPaddedTimeCode({ hours, minutes, seconds })
+    item.prefLabel.prefLabel = `${item.prefLabel.prefLabel} / ${paddedTimecode}`
+  })
+  return data
+}
+
+export const createPaddedTimeCodesForPrefLabels = ({ data, config }) => {
+  data.forEach(item => {
+    const { hours, minutes, seconds } = item.prefLabel
+    const paddedTimecode = createPaddedTimeCode({ hours, minutes, seconds })
+    item.prefLabel.prefLabel = `${item.prefLabel.prefLabel} / ${paddedTimecode}`
+  })
+  return data
+}
+
+const createPaddedTimeCode = ({ hours, minutes, seconds }) => {
+  return `${hours}:${minutes.padStart(2, '0')}:${seconds.padStart(2, '0')}`
+}

@@ -3,6 +3,7 @@ import {
   clipPropertiesFacetResults
 } from '../sparql_queries/SparqlQueriesClips'
 import { prefixes } from '../sparql_queries/SparqlQueriesPrefixes'
+import { createPaddedTimeCodesForPrefLabels } from '../../Mappers'
 
 export const clipsConfig = {
   endpoint: {
@@ -14,7 +15,10 @@ export const clipsConfig = {
   facetClass: ':TimeSlice',
   includeInSitemap: true,
   paginatedResults: {
-    properties: clipPropertiesFacetResults
+    properties: clipPropertiesFacetResults,
+    postprocess: {
+      func: createPaddedTimeCodesForPrefLabels
+    }
   },
   // instance: {
   //   properties: clipPropertiesInstancePage,
