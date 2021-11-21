@@ -135,6 +135,7 @@ const ContextualContent = props => {
             <Typography variant='h6' component='h2'>Sisällysluettelo</Typography>
             {has(instanceTableData, 'timeSlice') &&
               <VideoTableOfContents
+                namedEntities={instanceTableData.namedEntityWikidata}
                 toc={instanceTableData.timeSlice}
                 videoPlayerState={props.videoPlayerState}
               />}

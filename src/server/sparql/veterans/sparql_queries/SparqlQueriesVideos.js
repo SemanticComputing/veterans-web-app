@@ -114,14 +114,16 @@ export const videoPropertiesInstancePage =
     ?id :structured_content ?timeSlice__id .
     ?timeSlice__id  :begin_timestamp ?beginTimestamp ;
                     :end_timestamp ?endTimestamp ;
-                    :order ?timeSlice__order ;
-                    :text_content ?timeSlice__textContent .
+                    :text_content ?timeSlice__textContent ;
+                    :order ?timeSlice__order .
                     
 
     ?timeSlice__id :text_slice ?timeSlice__textSlice__id .
     ?timeSlice__textSlice__id :order ?timeSlice__textSlice__order ;
-                              :text_content ?timeSlice__textSlice__textContent . 
-
+                              :text_content ?timeSlice__textSlice__textContent ;
+                              :annotated_text_content ?timeSlice__textSlice__annotatedTextContent .
+    
+    # BIND(CONCAT("<p>", ?timeSlice__textSlice__annotatedtextContent_, "</p>") as ?timeSlice__textSlice__annotatedtextContent)
     BIND(CONCAT(SUBSTR(?timeSlice__textContent, 1, 50), '...') as ?timeSlice__prefLabel)                
     
     BIND(HOURS(?beginTimestamp) as ?timeSlice__hours)
@@ -136,10 +138,32 @@ export const videoPropertiesInstancePage =
   }
   UNION 
   {
+    ?id :structured_content/:text_slice/:ne_reference ?neReferenceInterview .
+    ?neReferenceInterview skos:relatedMatch ?namedEntityWikidata__id ;
+                          :category ?namedEntityWikidata__category .
+    OPTIONAL { ?neReferenceInterview :wikipedia ?namedEntityWikidata__wikipediaLink }             
+    ?namedEntityWikidata__id skos:prefLabel ?namedEntityWikidata__prefLabel .                               
+    OPTIONAL { ?namedEntityWikidata__id dct:description ?namedEntityWikidata__description }
+    OPTIONAL { ?namedEntityWikidata__id :ne_image ?namedEntityWikidata__imageLink }
+    OPTIONAL {
+      ?namedEntityWikidata__id wgs84:lat ?namedEntityWikidata__lat ;
+                                          wgs84:long ?namedEntityWikidata__long .
+    }
+  }
+  UNION 
+  {
     ?id :structured_content ?timeSlice__id .
-    ?timeSlice__id :named_entity ?timeSlice__namedEntity__id .
-    ?timeSlice__namedEntity__id skos:prefLabel ?timeSlice__namedEntity__prefLabel .
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?timeSlice__namedEntity__id ), "^.*\\\\/(.+)", "$1")) AS ?timeSlice__namedEntity__dataProviderUrl)  
+    ?timeSlice__id :text_slice/:ne_reference ?neReference .
+    ?neReference skos:relatedMatch ?timeSlice__namedEntityWikidata__id ;
+                 :category ?timeSlice__namedEntityWikidata__category .
+    OPTIONAL { ?neReference :wikipedia ?timeSlice__namedEntityWikidata__wikipediaLink }             
+    ?timeSlice__namedEntityWikidata__id skos:prefLabel ?timeSlice__namedEntityWikidata__prefLabel .                               
+    OPTIONAL { ?timeSlice__namedEntityWikidata__id dct:description ?timeSlice__namedEntityWikidata__description }
+    OPTIONAL { ?timeSlice__namedEntityWikidata__id :ne_image ?timeSlice__namedEntityWikidata__imageLink }
+    OPTIONAL {
+      ?timeSlice__namedEntityWikidata__id wgs84:lat ?timeSlice__namedEntityWikidata__lat ;
+                                          wgs84:long ?timeSlice__namedEntityWikidata__long .
+    }
   }
   UNION 
   {
