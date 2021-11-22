@@ -18,9 +18,11 @@ export const clipPropertiesFacetResults = `
     BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?videoPageLinkHash)
     BIND(CONCAT(?videoPageLink, ?videoPageLinkHash) AS ?prefLabel__dataProviderUrl)
   }
-  UNION
+  UNION 
   {
-    ?id :length ?length .
+    ?id :text_slice ?textSlice__id .
+    ?textSlice__id :order ?textSlice__order ;
+                    :text_content ?textSlice__prefLabel .
   }
   UNION
   {
@@ -28,17 +30,7 @@ export const clipPropertiesFacetResults = `
     ?keyword__id skos:prefLabel ?keyword__prefLabel .
     ?keyword__id :uri ?keyword__dataProviderUrl .
   }
-  # UNION
-  # {
-  #   ?id :named_entity ?namedEntity__id .
-  #   ?namedEntity__id skos:prefLabel ?namedEntity__prefLabel .
-  # }
-  UNION 
-  {
-    ?id :text_slice ?textSlice__id .
-    ?textSlice__id :order ?textSlice__order ;
-                    :text_content ?textSlice__prefLabel .
-  }
+
   UNION 
   {
     ?id :named_entity_location ?mentionedPlace__id .
@@ -47,65 +39,32 @@ export const clipPropertiesFacetResults = `
   }
   UNION 
   {
-    ?id :warsa_place ?mentionedWarsaPlace__id .
-    BIND(CONCAT("https://www.sotasampo.fi/fi/places/page?uri=", STR(?mentionedWarsaPlace__id)) AS  ?mentionedWarsaPlace__dataProviderUrl)
-    OPTIONAL {
-      SERVICE <https://ldf.fi/warsa/sparql> { 
-          ?mentionedWarsaPlace__id skos:prefLabel ?mentionedWarsaPlaceLabelFromWarsa_ . 
-      }
-    }
-    OPTIONAL {
-      SERVICE <https://ldf.fi/pnr/sparql> { 
-          ?mentionedWarsaPlace__id ldff:preferredLanguageLiteral (skos:prefLabel 'fi' 'sv' '' ?mentionedWarsaPlaceLabelFromPNR_)
-      }
-    }
-    BIND(COALESCE(?mentionedWarsaPlaceLabelFromWarsa_, ?mentionedWarsaPlaceLabelFromPNR_, STR(?mentionedWarsaPlace__id)) as ?mentionedWarsaPlace__prefLabel)   
-  }
-  UNION
-  {
-    ?id :named_entity_organization ?mentionedOrganization__id .
-    ?mentionedOrganization__id skos:prefLabel ?mentionedOrganization__prefLabel .   
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedOrganization__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedOrganization__dataProviderUrl)
-  }
-  UNION 
-  {
-    ?id :warsa_unit ?mentionedWarsaUnit__id .
-    BIND(CONCAT("https://www.sotasampo.fi/fi/page?uri=", STR(?mentionedWarsaUnit__id)) AS  ?mentionedWarsaUnit__dataProviderUrl)
-    OPTIONAL {
-      SERVICE <https://ldf.fi/warsa/sparql> { 
-          ?mentionedWarsaUnit__id skos:prefLabel ?mentionedWarsaUnitLabel_ . 
-      }
-    }
-    BIND(COALESCE(?mentionedWarsaUnitLabel_, STR(?mentionedWarsaUnit__id)) as ?mentionedWarsaUnit__prefLabel)   
-  }
-  UNION 
-  {
     ?id :named_entity_person ?mentionedPerson__id .
     ?mentionedPerson__id skos:prefLabel ?mentionedPerson__prefLabel .  
     BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedPerson__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedPerson__dataProviderUrl)
   }
-  UNION 
+  UNION
   {
-    ?id :warsa_person ?mentionedWarsaPerson__id .
-    OPTIONAL {
-      SERVICE <https://ldf.fi/warsa/sparql> { 
-          ?mentionedWarsaPerson__id skos:prefLabel ?mentionedWarsaPersonLabel_ . 
-      }
-    }
-    BIND(REPLACE(STR(?mentionedWarsaPerson__id), "^.*\\\\/(.+)", "$1") as ?warsaPersonLocalID)
-    BIND(CONCAT("https://www.sotasampo.fi/fi/persons/", STR(?warsaPersonLocalID)) AS  ?mentionedWarsaPerson__dataProviderUrl)  
-    BIND(COALESCE(?mentionedWarsaPersonLabel_, STR(?mentionedWarsaPerson__id)) as ?mentionedWarsaPerson__prefLabel)   
+    ?id :named_entity_unit ?mentionedUnit__id .
+    ?mentionedUnit__id skos:prefLabel ?mentionedUnit__prefLabel .  
+    BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedUnit__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedUnit__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id :named_entity_organization ?mentionedOrganization__id .
+    ?mentionedOrganization__id skos:prefLabel ?mentionedOrganization__prefLabel .  
+    BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedOrganization__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedOrganization__dataProviderUrl)
   }
   UNION 
   {
     ?id :named_entity_event ?mentionedEvent__id .
-    ?mentionedEvent__id skos:prefLabel ?mentionedEvent__prefLabel .
+    ?mentionedEvent__id skos:prefLabel ?mentionedEvent__prefLabel .   
     BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedEvent__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedEvent__dataProviderUrl)
   }
   UNION 
   {
     ?id :named_entity_product ?mentionedProduct__id .
-    ?mentionedProduct__id skos:prefLabel ?mentionedProduct__prefLabel .   
+    ?mentionedProduct__id skos:prefLabel ?mentionedProduct__prefLabel .    
     BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedProduct__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedProduct__dataProviderUrl)
   }
 `

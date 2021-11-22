@@ -21,8 +21,6 @@ export const INITIAL_STATE = {
   instanceAnalysisData: null,
   instanceAnalysisDataUpdateID: 0,
   instanceSparqlQuery: null,
-  // maps: {
-  // },
   properties: [
     {
       id: 'prefLabel',
@@ -61,7 +59,16 @@ export const INITIAL_STATE = {
       minWidth: 200
     },
     {
-      id: 'mentionedWarsaPlace',
+      id: 'mentionedPerson',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'mentionedUnit',
       valueType: 'object',
       makeLink: true,
       externalLink: true,
@@ -74,33 +81,6 @@ export const INITIAL_STATE = {
       valueType: 'object',
       makeLink: true,
       externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'mentionedWarsaUnit',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: true,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'mentionedPerson',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'mentionedWarsaPerson',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: true,
       sortValues: true,
       numberedList: false,
       minWidth: 200

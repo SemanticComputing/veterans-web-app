@@ -236,18 +236,6 @@
         "dateOfInterview": {
           "label": "Haastattelun ajankohta",
           "description": "Haastatellun ajankohta"
-        },
-        "mentionedWarsaPerson": {
-          "label": "Sotasammon henkilö",
-          "description": ""
-        },
-        "mentionedWarsaUnit": {
-          "label": "Sotasammon joukko-osasto",
-          "description": ""
-        },
-        "mentionedWarsaPlace": {
-          "label": "Sotasammon paikka",
-          "description": ""
         }
       }
     },
@@ -318,6 +306,10 @@
           "label": "Mainittu organisaatio",
           "description": ""
         },
+        "mentionedUnit": {
+          "label": "Mainittu joukko-osasto",
+          "description": ""
+        },
         "prefLabel": {
           "label": "Haastateltavan nimi",
           "description": "Haastateltavan nimi",
@@ -330,18 +322,6 @@
         "dateOfInterview": {
           "label": "Haastattelun ajankohta",
           "description": "Haastatellun ajankohta"
-        },
-        "mentionedWarsaPerson": {
-          "label": "Sotasammon henkilö",
-          "description": ""
-        },
-        "mentionedWarsaUnit": {
-          "label": "Sotasammon joukko-osasto",
-          "description": ""
-        },
-        "mentionedWarsaPlace": {
-          "label": "Sotasammon paikka",
-          "description": ""
         },
         "textSlice": {
           "label": "Sisältö",

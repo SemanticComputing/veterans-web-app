@@ -214,7 +214,7 @@ export const videoPropertiesFacetResults = `
     ?mentionedPlace__id skos:prefLabel ?mentionedPlace__prefLabel . 
     BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedPlace__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedPlace__dataProviderUrl)
   }
-   UNION 
+  UNION 
   {
     ?id :named_entity_person ?mentionedPerson__id .
     ?mentionedPerson__id skos:prefLabel ?mentionedPerson__prefLabel .  
