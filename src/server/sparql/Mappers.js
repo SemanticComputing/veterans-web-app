@@ -359,8 +359,12 @@ export const createPaddedTimeCodes = ({ data, config }) => {
     }
     target.forEach(targetItem => {
       const { hours, minutes, seconds } = targetItem
-      const paddedTimecode = createPaddedTimeCode({ hours, minutes, seconds })
-      config.addTimeCode(targetItem, paddedTimecode)
+      if (hours == null || minutes == null || seconds == null) {
+        // console.log(targetItem)
+      } else {
+        const paddedTimecode = createPaddedTimeCode({ hours, minutes, seconds })
+        config.addTimeCode(targetItem, paddedTimecode)
+      }
     })
   })
   return data
