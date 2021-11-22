@@ -53,13 +53,16 @@ const styles = theme => ({
 class VideoTableOfContents extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      expandedSet: new Set([]),
-      currentPart: null,
-      namedEntities: arrayToObject({
+    const namedEntities = props.namedEntities == null
+      ? null
+      : arrayToObject({
         array: props.namedEntities,
         keyField: 'id'
       })
+    this.state = {
+      expandedSet: new Set([]),
+      currentPart: null,
+      namedEntities
     }
   }
 
@@ -88,24 +91,27 @@ class VideoTableOfContents extends React.Component {
 
   renderTooltip = domNode => {
     const namedEntityID = domNode.attribs['data-link']
-    const entity = this.state.namedEntities[namedEntityID]
-    const tooltipHeading = has(entity, 'wikipediaLink')
-      ? (
-        <p>
-          <a href={entity.wikipediaLink} target='_blank' rel='noopener noreferrer'>
-            {entity.prefLabel} (Wikipedia)
-          </a>
-        </p>
-        )
-      : (<p>{entity.prefLabel} (Wikipedia)</p>)
-    const tooltipContent = (
-      <div className={this.props.classes.tooltipContent}>
-        {tooltipHeading}
-        <p>
-          {entity.description}
-        </p>
-      </div>
-    )
+    let tooltipContent = namedEntityID
+    if (has(this.state.namedEntities, namedEntityID)) {
+      const entity = this.state.namedEntities[namedEntityID]
+      const tooltipHeading = has(entity, 'wikipediaLink')
+        ? (
+          <p>
+            <a href={entity.wikipediaLink} target='_blank' rel='noopener noreferrer'>
+              {entity.prefLabel} (Wikipedia)
+            </a>
+          </p>
+          )
+        : (<p>{entity.prefLabel} (Wikipedia)</p>)
+      tooltipContent = (
+        <div className={this.props.classes.tooltipContent}>
+          {tooltipHeading}
+          <p>
+            {entity.description}
+          </p>
+        </div>
+      )
+    }
     return (
       <Tooltip
         title={tooltipContent}
@@ -128,7 +134,7 @@ class VideoTableOfContents extends React.Component {
     )
   }
 
-  parseTextSlice = slice => {
+  parseHTMLTextSlice = slice => {
     const html = parse(slice.annotatedTextContent, {
       replace: domNode => {
         if (domNode.type === 'tag' && domNode.name === 'span' &&
@@ -157,7 +163,7 @@ class VideoTableOfContents extends React.Component {
   // }
 
   render () {
-    const { classes, toc } = this.props
+    const { classes, toc, textFormat } = this.props
     const { expandedSet } = this.state
     let toc_ = toc
     if (!Array.isArray(toc)) {
@@ -246,11 +252,17 @@ class VideoTableOfContents extends React.Component {
                 }}
               >
                 <Typography>Haastattelijan muistiinpanot</Typography>
-                {hasTextSlices &&
+                {hasTextSlices && textFormat === 'plain-text' &&
                   <ul>
                     {Array.isArray(row.textSlice)
-                      ? row.textSlice.map(slice => this.parseTextSlice(slice))
-                      : this.parseTextSlice(row.textSlice)}
+                      ? row.textSlice.map(slice => <li key={slice.order}>{slice.textContent}</li>)
+                      : <li key={row.textSlice.order}>{row.textSlice.textContent}</li>}
+                  </ul>}
+                {hasTextSlices && textFormat === 'annotated-html' &&
+                  <ul>
+                    {Array.isArray(row.textSlice)
+                      ? row.textSlice.map(slice => this.parseHTMLTextSlice(slice))
+                      : this.parseHTMLTextSlice(row.textSlice)}
                   </ul>}
                 {hasNamedEntityLinks &&
                   <>

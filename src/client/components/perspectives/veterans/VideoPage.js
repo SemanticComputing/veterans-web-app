@@ -137,15 +137,11 @@ const ContextualContent = props => {
               <VideoTableOfContents
                 namedEntities={instanceTableData.namedEntityWikidata}
                 toc={instanceTableData.timeSlice}
+                textFormat='plain-text'
+                // textFormat='annotated-html'
                 videoPlayerState={props.videoPlayerState}
               />}
           </Paper>
-          {/* <Paper className={classes.wordCloud}>
-            <Typography variant='h6' component='h2'>Käsitepilvi</Typography>
-            <div className={classes.wordCloudContainer}>
-              <Wordcloud data={wordcloudData} maxWords={wordcloudMaxWords} />
-            </div>
-          </Paper> */}
         </Grid>
       </Grid>
     </div>
