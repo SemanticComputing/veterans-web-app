@@ -86,6 +86,10 @@ class VideoTableOfContents extends React.Component {
     this.setState({ expandedSet })
   }
 
+  // createNamedEntityLink = entity => {
+
+  // }
+
   render () {
     const { classes, toc } = this.props
     const { expandedSet } = this.state
@@ -102,15 +106,27 @@ class VideoTableOfContents extends React.Component {
             isCurrent = true
           }
           const expanded = expandedSet.has(rowID) || isCurrent
-          const hasWarsaPersonLinks = has(row, 'warsaPerson')
-          const hasWarsaPlaceLinks = has(row, 'warsaPlace')
-          const hasWarsaUnitLinks = has(row, 'warsaUnit')
-          const hasWarsaLinks = hasWarsaPersonLinks || hasWarsaPlaceLinks || hasWarsaUnitLinks
-          const hasNamedEntities = has(row, 'namedEntity')
+          const hasPlaceLinks = has(row, 'mentionedPlace')
+          const hasPersonLinks = has(row, 'mentionedPerson')
+          const hasUnitLinks = has(row, 'mentionedUnit')
+          const hasOrganizationLinks = has(row, 'mentionedOrganization')
+          const hasEventLinks = has(row, 'mentionedEvent')
+          const hasProductLinks = has(row, 'mentionedProduc')
+          const hasNamedEntityLinks = hasPlaceLinks ||
+            hasPersonLinks ||
+            hasUnitLinks ||
+            hasOrganizationLinks ||
+            hasEventLinks ||
+            hasProductLinks
           const hasTextSlices = has(row, 'textSlice')
-          if (hasWarsaPlaceLinks) {
-            if (Array.isArray(row.warsaPlace)) {
-              row.warsaPlace.sort((a, b) => a.prefLabel.localeCompare(b.prefLabel))
+          if (hasPlaceLinks) {
+            if (Array.isArray(row.mentionedPlace)) {
+              row.mentionedPlace.forEach(place => {
+                if (Array.isArray(place.prefLabel)) {
+                  place.prefLabel = place.prefLabel[0]
+                }
+              })
+              row.mentionedPlace.sort((a, b) => a.prefLabel.localeCompare(b.prefLabel))
             }
           }
           return (
@@ -165,46 +181,54 @@ class VideoTableOfContents extends React.Component {
                       ? row.textSlice.map(slice => <li key={slice.order}>{slice.textContent}</li>)
                       : <li key={row.textSlice.order}>{row.textSlice.textContent}</li>}
                   </ul>}
-                {hasNamedEntities &&
+                {hasNamedEntityLinks &&
                   <>
                     <Divider />
-                    <Typography className={classes.tocSubHeading}>Kohdassa mainitut asiat</Typography>
+                    <Typography className={classes.tocSubHeading}>Kohtaan mahdollisesti liittyvät</Typography>
                     <ul>
-                      {Array.isArray(row.namedEntity)
-                        ? row.namedEntity.map(entity => <li key={entity.id}><Link to={entity.dataProviderUrl}>{entity.prefLabel}</Link></li>)
-                        : <li key={row.namedEntity.id}><Link to={row.namedEntity.dataProviderUrl}>{row.namedEntity.prefLabel}</Link></li>}
-                    </ul>
-                  </>}
-                {hasWarsaLinks &&
-                  <>
-                    <Divider />
-                    <Typography className={classes.tocSubHeading}>Kohtaan mahdollisesti liittyvät Sotasammon</Typography>
-                    <ul>
-                      {hasWarsaPersonLinks &&
-                        <li>henkilöt
-                          <ul>
-                            {Array.isArray(row.warsaPerson)
-                              ? row.warsaPerson.map(person =>
-                                <li key={person.id}><a target='_blank' rel='noopener noreferrer' href={person.dataProviderUrl}>{person.prefLabel}</a></li>)
-                              : <li key={row.warsaPerson.id}><a target='_blank' rel='noopener noreferrer' href={row.warsaPerson.dataProviderUrl}>{row.warsaPerson.prefLabel}</a></li>}
-                          </ul>
-                        </li>}
-                      {hasWarsaUnitLinks &&
-                        <li>joukko-osastot
-                          <ul>
-                            {Array.isArray(row.warsaUnit)
-                              ? row.warsaUnit.map(unit =>
-                                <li key={unit.id}><a target='_blank' rel='noopener noreferrer' href={unit.dataProviderUrl}>{unit.prefLabel}</a></li>)
-                              : <li key={row.warsaUnit.id}><a target='_blank' rel='noopener noreferrer' href={row.warsaUnit.dataProviderUrl}>{row.warsaUnit.prefLabel}</a></li>}
-                          </ul>
-                        </li>}
-                      {hasWarsaPlaceLinks &&
+                      {hasPlaceLinks &&
                         <li>paikat
                           <ul>
-                            {Array.isArray(row.warsaPlace)
-                              ? row.warsaPlace.map(place =>
+                            {Array.isArray(row.mentionedPlace)
+                              ? row.mentionedPlace.map(place =>
                                 <li key={place.id}><a target='_blank' rel='noopener noreferrer' href={place.dataProviderUrl}>{place.prefLabel}</a></li>)
-                              : <li key={row.warsaPlace.id}><a target='_blank' rel='noopener noreferrer' href={row.warsaPlace.dataProviderUrl}>{row.warsaPlace.prefLabel}</a></li>}
+                              : <li key={row.mentionedPlace.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedPlace.dataProviderUrl}>{row.mentionedPlace.prefLabel}</a></li>}
+                          </ul>
+                        </li>}
+                      {hasPersonLinks &&
+                        <li>henkilöt
+                          <ul>
+                            {Array.isArray(row.mentionedPerson)
+                              ? row.mentionedPerson.map(person =>
+                                <li key={person.id}><a target='_blank' rel='noopener noreferrer' href={person.dataProviderUrl}>{person.prefLabel}</a></li>)
+                              : <li key={row.mentionedPerson.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedPerson.dataProviderUrl}>{row.mentionedPerson.prefLabel}</a></li>}
+                          </ul>
+                        </li>}
+                      {hasUnitLinks &&
+                        <li>joukko-osastot
+                          <ul>
+                            {Array.isArray(row.mentionedUnit)
+                              ? row.mentionedUnit.map(unit =>
+                                <li key={unit.id}><a target='_blank' rel='noopener noreferrer' href={unit.dataProviderUrl}>{unit.prefLabel}</a></li>)
+                              : <li key={row.mentionedUnit.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedUnit.dataProviderUrl}>{row.mentionedUnit.prefLabel}</a></li>}
+                          </ul>
+                        </li>}
+                      {hasOrganizationLinks &&
+                        <li>organisaatiot
+                          <ul>
+                            {Array.isArray(row.mentionedOrganization)
+                              ? row.mentionedOrganization.map(organization =>
+                                <li key={organization.id}><a target='_blank' rel='noopener noreferrer' href={organization.dataProviderUrl}>{organization.prefLabel}</a></li>)
+                              : <li key={row.mentionedOrganization.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedOrganization.dataProviderUrl}>{row.mentionedOrganization.prefLabel}</a></li>}
+                          </ul>
+                        </li>}
+                      {hasEventLinks &&
+                        <li>tapahtumat
+                          <ul>
+                            {Array.isArray(row.mentionedEvent)
+                              ? row.mentionedEvent.map(event =>
+                                <li key={event.id}><a target='_blank' rel='noopener noreferrer' href={event.dataProviderUrl}>{event.prefLabel}</a></li>)
+                              : <li key={row.mentionedEvent.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedEvent.dataProviderUrl}>{row.mentionedEvent.prefLabel}</a></li>}
                           </ul>
                         </li>}
                     </ul>
