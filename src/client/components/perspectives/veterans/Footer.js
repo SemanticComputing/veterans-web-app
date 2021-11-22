@@ -115,12 +115,12 @@ const Footer = props => {
             </a>
           </Grid>
           <Grid item xs className={classes.gridItem}>
-            <a className={classes.link} href='https://www.aalto.fi/en/school-of-science' target='_blank' rel='noopener noreferrer'>
+            <a className={classes.link} href='https://www.aalto.fi/fi/tietotekniikan-laitos' target='_blank' rel='noopener noreferrer'>
               <img className={classes.aaltoLogo} src={aaltoLogo} alt='Aalto University logo' />
             </a>
           </Grid>
           <Grid item xs className={classes.gridItem}>
-            <a className={classes.link} href='https://www.helsinki.fi/en' target='_blank' rel='noopener noreferrer'>
+            <a className={classes.link} href='https://www.helsinki.fi/fi/humanistinen-tiedekunta' target='_blank' rel='noopener noreferrer'>
               <img className={classes.hyLogo} src={hyLogo} alt='University of Helsinki logo' />
             </a>
           </Grid>
