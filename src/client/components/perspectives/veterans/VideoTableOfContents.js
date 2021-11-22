@@ -6,8 +6,11 @@ import AccordionSummary from '@material-ui/core/AccordionSummary'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Divider from '@material-ui/core/Divider'
+import Tooltip from '@material-ui/core/Tooltip'
 import { Link } from 'react-router-dom'
 import { has } from 'lodash'
+import parse from 'html-react-parser'
+import { arrayToObject } from '../../../helpers/helpers'
 
 const styles = theme => ({
   root: {
@@ -38,6 +41,12 @@ const styles = theme => ({
   },
   tocSubHeading: {
     marginTop: theme.spacing(1)
+  },
+  tooltip: {
+    maxWidth: 500
+  },
+  tooltipContent: {
+    padding: theme.spacing(1)
   }
 })
 
@@ -46,12 +55,13 @@ class VideoTableOfContents extends React.Component {
     super(props)
     this.state = {
       expandedSet: new Set([]),
-      currentPart: null
+      currentPart: null,
+      namedEntities: arrayToObject({
+        array: props.namedEntities,
+        keyField: 'id'
+      })
     }
   }
-
-  // componentDidMount = () => {
-  // }
 
   componentDidUpdate = (prevProps, prevState) => {
     const currentPart = this.getCurrentPart()
@@ -74,6 +84,62 @@ class VideoTableOfContents extends React.Component {
       }
     }
     return currentPart
+  }
+
+  renderTooltip = domNode => {
+    const namedEntityID = domNode.attribs['data-link']
+    const entity = this.state.namedEntities[namedEntityID]
+    const tooltipHeading = has(entity, 'wikipediaLink')
+      ? (
+        <p>
+          <a href={entity.wikipediaLink} target='_blank' rel='noopener noreferrer'>
+            {entity.prefLabel} (Wikipedia)
+          </a>
+        </p>
+        )
+      : (<p>{entity.prefLabel} (Wikipedia)</p>)
+    const tooltipContent = (
+      <div className={this.props.classes.tooltipContent}>
+        {tooltipHeading}
+        <p>
+          {entity.description}
+        </p>
+      </div>
+    )
+    return (
+      <Tooltip
+        title={tooltipContent}
+        interactive
+        placement='top'
+        arrow
+        classes={{
+          tooltip: this.props.classes.tooltip
+        }}
+      >
+        <span
+          style={{
+            textDecoration: 'underline',
+            cursor: 'pointer'
+          }}
+        >
+          {domNode.children[0].data}
+        </span>
+      </Tooltip>
+    )
+  }
+
+  parseTextSlice = slice => {
+    const html = parse(slice.annotatedTextContent, {
+      replace: domNode => {
+        if (domNode.type === 'tag' && domNode.name === 'span' &&
+        has(domNode.attribs, 'data-link')) {
+          return this.renderTooltip(domNode)
+        }
+      }
+    })
+    return (
+      <li key={slice.order}>{html}</li>
+    )
   }
 
   handleAccordionOnChange = rowID => () => {
@@ -130,7 +196,12 @@ class VideoTableOfContents extends React.Component {
             }
           }
           return (
-            <Accordion className={isCurrent ? classes.activeAccordion : null} key={rowID} expanded={expanded} onChange={this.handleAccordionOnChange(rowID)}>
+            <Accordion
+              className={isCurrent ? classes.activeAccordion : null}
+              key={rowID}
+              expanded={expanded}
+              onChange={this.handleAccordionOnChange(rowID)}
+            >
               <AccordionSummary
                 style={{
                   root: {
@@ -178,8 +249,8 @@ class VideoTableOfContents extends React.Component {
                 {hasTextSlices &&
                   <ul>
                     {Array.isArray(row.textSlice)
-                      ? row.textSlice.map(slice => <li key={slice.order}>{slice.textContent}</li>)
-                      : <li key={row.textSlice.order}>{row.textSlice.textContent}</li>}
+                      ? row.textSlice.map(slice => this.parseTextSlice(slice))
+                      : this.parseTextSlice(row.textSlice)}
                   </ul>}
                 {hasNamedEntityLinks &&
                   <>

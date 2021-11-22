@@ -42,6 +42,7 @@
     "express-openapi-validator": "^4.13.2",
     "express-static-gzip": "^2.1.1",
     "flat": "^5.0.2",
+    "html-react-parser": "^1.4.0",
     "immutable": "^4.0.0-rc.12",
     "js-yaml": "^3.13.1",
     "leaflet": "^1.7.1",

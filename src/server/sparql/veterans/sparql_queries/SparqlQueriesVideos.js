@@ -96,14 +96,16 @@ export const videoPropertiesInstancePage =
     ?id :structured_content ?timeSlice__id .
     ?timeSlice__id  :begin_timestamp ?beginTimestamp ;
                     :end_timestamp ?endTimestamp ;
-                    :order ?timeSlice__order ;
-                    :text_content ?timeSlice__textContent .
+                    :text_content ?timeSlice__textContent ;
+                    :order ?timeSlice__order .
                     
 
     ?timeSlice__id :text_slice ?timeSlice__textSlice__id .
     ?timeSlice__textSlice__id :order ?timeSlice__textSlice__order ;
-                              :text_content ?timeSlice__textSlice__textContent . 
-
+                              :text_content ?timeSlice__textSlice__textContent ;
+                              :annotated_text_content ?timeSlice__textSlice__annotatedTextContent .
+    
+    # BIND(CONCAT("<p>", ?timeSlice__textSlice__annotatedtextContent_, "</p>") as ?timeSlice__textSlice__annotatedtextContent)
     BIND(CONCAT(SUBSTR(?timeSlice__textContent, 1, 50), '...') as ?timeSlice__prefLabel)                
     
     BIND(HOURS(?beginTimestamp) as ?timeSlice__hours)
