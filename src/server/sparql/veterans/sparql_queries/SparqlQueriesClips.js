@@ -1,3 +1,5 @@
+import { createNamedEntitiesBlock } from './SparqlQueriesVideos'
+
 export const clipPropertiesFacetResults = `
   BIND(?id as ?uri__id)
   BIND(?id as ?uri__dataProviderUrl)
@@ -30,41 +32,10 @@ export const clipPropertiesFacetResults = `
     ?keyword__id skos:prefLabel ?keyword__prefLabel .
     ?keyword__id :uri ?keyword__dataProviderUrl .
   }
-
   UNION 
-  {
-    ?id :named_entity_location ?mentionedPlace__id .
-    ?mentionedPlace__id skos:prefLabel ?mentionedPlace__prefLabel .  
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedPlace__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedPlace__dataProviderUrl)
-  }
-  UNION 
-  {
-    ?id :named_entity_person ?mentionedPerson__id .
-    ?mentionedPerson__id skos:prefLabel ?mentionedPerson__prefLabel .  
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedPerson__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedPerson__dataProviderUrl)
-  }
-  UNION
-  {
-    ?id :named_entity_unit ?mentionedUnit__id .
-    ?mentionedUnit__id skos:prefLabel ?mentionedUnit__prefLabel .  
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedUnit__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedUnit__dataProviderUrl)
-  }
-  UNION
-  {
-    ?id :named_entity_organization ?mentionedOrganization__id .
-    ?mentionedOrganization__id skos:prefLabel ?mentionedOrganization__prefLabel .  
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedOrganization__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedOrganization__dataProviderUrl)
-  }
-  UNION 
-  {
-    ?id :named_entity_event ?mentionedEvent__id .
-    ?mentionedEvent__id skos:prefLabel ?mentionedEvent__prefLabel .   
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedEvent__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedEvent__dataProviderUrl)
-  }
-  UNION 
-  {
-    ?id :named_entity_product ?mentionedProduct__id .
-    ?mentionedProduct__id skos:prefLabel ?mentionedProduct__prefLabel .    
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?mentionedProduct__id ), "^.*\\\\/(.+)", "$1")) AS ?mentionedProduct__dataProviderUrl)
-  }
+  ${createNamedEntitiesBlock({
+    idPattern: '',
+    id: 'id',
+    idObject: ''
+  })}
 `
