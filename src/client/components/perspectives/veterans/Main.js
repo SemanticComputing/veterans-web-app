@@ -185,8 +185,8 @@ const Main = props => {
         maxWidth={visibleSlides * 300}
         screenSize={screenSize}
         slideWidth={300}
-        slideHeight={165 + (24 * 2) + 5}
-        totalSlides={4}
+        slideHeight={165 + (24 * 4) + 5}
+        totalSlides={10}
         visibleSlides={visibleSlides}
       />
     </div>

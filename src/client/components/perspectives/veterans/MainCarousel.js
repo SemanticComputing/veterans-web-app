@@ -7,6 +7,12 @@ import aittoOja from '../../../img/main_page/veterans/compressed/carousel/01-ait
 import eskola from '../../../img/main_page/veterans/compressed/carousel/02-eskola.jpg'
 import sainio from '../../../img/main_page/veterans/compressed/carousel/03-sainio.jpg'
 import paarma from '../../../img/main_page/veterans/compressed/carousel/04-paarma.jpg'
+import kokkila from '../../../img/main_page/veterans/compressed/carousel/05-kokkila.jpg'
+import kotiranta from '../../../img/main_page/veterans/compressed/carousel/06-kotiranta.jpg'
+import luntamo from '../../../img/main_page/veterans/compressed/carousel/07-luntamo.jpg'
+import pasanen from '../../../img/main_page/veterans/compressed/carousel/08-pasanen.jpg'
+import kuukkanen from '../../../img/main_page/veterans/compressed/carousel/09-kuukkanen.jpg'
+import rantala from '../../../img/main_page/veterans/compressed/carousel/10-rantala.jpg'
 import { Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
@@ -47,18 +53,9 @@ const MainCarousel = props => {
       seconds: 52
     },
     {
-      src: eskola,
-      alt: 'alt',
-      caption: '"Vaakapommittamisen tarkkuus"',
-      localID: 'iVT0198',
-      hours: 0,
-      minutes: 57,
-      seconds: 20
-    },
-    {
       src: sainio,
       alt: 'alt',
-      caption: '"Olin jo 15-vuotiaana vartiotehtävissä kivääri selässä"',
+      caption: '"Olin jo 15-vuotiaana vartiotehtävissä kivääri selässä."',
       localID: 'iVT0150',
       hours: 0,
       minutes: 3,
@@ -67,12 +64,81 @@ const MainCarousel = props => {
     {
       src: paarma,
       alt: 'alt',
-      caption: '"Yhtäkkiä sanottiin, että juna Äänislinnasta Joensuuhun lähtee nyt"',
+      caption: '"Yhtäkkiä sanottiin, että juna Äänislinnasta Joensuuhun lähtee nyt."',
       localID: 'iVT0129',
       hours: 0,
       minutes: 34,
       seconds: 15
 
+    },
+    {
+      src: kokkila,
+      alt: 'alt',
+      caption: '"Ensimmäiset kosketukset viholliseen tuli vasta siellä Ukrainan aroilla."',
+      localID: 'iVT0070',
+      hours: 0,
+      minutes: 19,
+      seconds: 16
+
+    },
+    {
+      src: kotiranta,
+      alt: 'alt',
+      caption: '"Olimme Nuijamaalla kun Talvisodan loppui."',
+      localID: 'iVT0077',
+      hours: 0,
+      minutes: 32,
+      seconds: 31
+
+    },
+    {
+      src: luntamo,
+      alt: 'alt',
+      caption: '"Ihmepelastus."',
+      localID: 'iVT0098',
+      hours: 1,
+      minutes: 18,
+      seconds: 39
+
+    },
+    {
+      src: pasanen,
+      alt: 'alt',
+      caption: '"Jouduin semmoseksi lähettimieheksi, viemään kutsuja, yöllä pitkin järven selkiä kun oli kova pakkanen. Taloihin mistä piti ottaa hevonen tai mies."',
+      localID: 'iVT0131',
+      hours: 0,
+      minutes: 5,
+      seconds: 22
+
+    },
+    {
+      src: kuukkanen,
+      alt: 'alt',
+      caption: '"Jäämiinojen tekeminen Vihtavuoressa sodan aikana."',
+      localID: 'iVT0081',
+      hours: 0,
+      minutes: 11,
+      seconds: 19
+
+    },
+    {
+      src: rantala,
+      alt: 'alt',
+      caption: '"Rauhan tulo seitsemän aikaan aamulla. Naapuri ampui pitkin päivää ja naapurin tulitus loppui vasta seuraavana aamuna."',
+      localID: 'iVT0140',
+      hours: 1,
+      minutes: 26,
+      seconds: 21
+
+    },
+    {
+      src: eskola,
+      alt: 'alt',
+      caption: '"Vaakapommittamisen tarkkuus."',
+      localID: 'iVT0198',
+      hours: 0,
+      minutes: 57,
+      seconds: 20
     }
   ]
 
