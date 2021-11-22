@@ -77,7 +77,7 @@
     "table": "taulukko",
     "map": "kartta",
     "video": "video",
-    "word_cloud": "asiasanapilvi"
+    "word_cloud": "aihepilvi"
   },
   "table": {
     "rowsPerPage": "Riviä sivulla",
@@ -181,7 +181,7 @@
           "description": ""
         },
         "keyword": {
-          "label": "Asiasana",
+          "label": "Aihe",
           "description": ""
         },
         "placeOfInterview": {
@@ -192,36 +192,28 @@
           "label": "URI",
           "description": "Koneluettava tunniste"
         },
-        "namedEntity": {
-          "label": "Mainittu asia (kaikki tyypit)",
-          "description": ""
-        },
         "mentionedPerson": {
-          "label": "Mainittu henkilö",
+          "label": "Henkilö (mainittu)",
           "description": ""
         },
         "mentionedPlace": {
-          "label": "Mainittu paikka",
+          "label": "Paikka (mainittu)",
           "description": ""
         },
         "mentionedEvent": {
-          "label": "Mainittu tapahtuma",
+          "label": "Tapahtuma (mainittu)",
           "description": ""
         },
         "mentionedProduct": {
-          "label": "Mainittu tuote",
-          "description": ""
-        },
-        "mentionedLaw": {
-          "label": "Mainittu laki",
+          "label": "Tuote (mainittu)",
           "description": ""
         },
         "mentionedOrganization": {
-          "label": "Mainittu organisaatio",
+          "label": "Organisaatio (mainittu)",
           "description": ""
         },
         "mentionedUnit": {
-          "label": "Mainittu joukko-osasto",
+          "label": "Joukko-osasto (mainittu)",
           "description": ""
         },
         "prefLabel": {
@@ -267,7 +259,7 @@
           "description": ""
         },
         "keyword": {
-          "label": "Asiasana",
+          "label": "Aihe",
           "description": ""
         },
         "placeOfInterview": {
