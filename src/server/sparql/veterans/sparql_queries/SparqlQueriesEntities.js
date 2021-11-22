@@ -7,12 +7,13 @@ export const entityPropertiesInstancePage = `
   {
     ?id :type ?entityType__id .
     BIND (?entityType__id AS ?entityType__prefLabel )
-    #?entityType__id skos:prefLabel ?entityType__prefLabel .
+    # ?entityType__id skos:prefLabel ?entityType__prefLabel .
   }
   UNION
   {
     ?timeSlice__id :named_entity_location|
                    :named_entity_person|
+                   :named_entity_unit|
                    :named_entity_organization|
                    :named_entity_product|
                    :named_entity_event ?id ;
@@ -26,5 +27,11 @@ export const entityPropertiesInstancePage = `
     BIND(?beginHours * 60 * 60 + ?beginMinutes * 60 + ?beginSeconds as ?beginTimeInSeconds_)
     BIND(xsd:integer(?beginTimeInSeconds_) as ?timeSlice__beginTimeInSeconds)
     BIND(CONCAT(CONCAT("/videos/page/", REPLACE(STR(?interview), "^.*\\\\/(.+)", "$1")), CONCAT('#', STR(?timeSlice__beginTimeInSeconds))) AS ?timeSlice__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id owl:sameAs ?sameAs__id .
+    BIND(?sameAs__id as ?sameAs__dataProviderUrl)
+    BIND(?sameAs__id as ?sameAs__prefLabel)
   }
 `

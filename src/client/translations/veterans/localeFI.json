@@ -352,6 +352,10 @@
           "label": "Asian tyyppi",
           "description": ""
         },
+        "sameAs": {
+          "label": "Ulkoinen linkki",
+          "description": ""
+        },
         "prefLabel": {
           "label": "Nimi",
           "description": "Nimi",
