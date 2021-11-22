@@ -220,6 +220,10 @@
           "label": "Mainittu organisaatio",
           "description": ""
         },
+        "mentionedUnit": {
+          "label": "Mainittu joukko-osasto",
+          "description": ""
+        },
         "prefLabel": {
           "label": "Haastateltavan nimi",
           "description": "Haastateltavan nimi",

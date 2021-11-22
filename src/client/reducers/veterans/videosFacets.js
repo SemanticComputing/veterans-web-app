@@ -19,8 +19,7 @@ export const INITIAL_STATE = {
       searchField: false,
       containerClass: 'one',
       filterType: 'textFilter',
-      textFilter: null,
-      priority: 1
+      textFilter: null
     },
     name: {
       id: 'name',
@@ -37,8 +36,7 @@ export const INITIAL_STATE = {
       searchField: true,
       containerClass: 'ten',
       filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
+      uriFilter: null
     },
     keyword: {
       id: 'keyword',
@@ -64,8 +62,8 @@ export const INITIAL_STATE = {
       distinctValueCount: 0,
       values: [],
       flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
+      sortBy: 'prefLabel',
+      sortDirection: 'asc',
       sortButton: true,
       spatialFilterButton: false,
       pieChartButton: false,
@@ -73,62 +71,7 @@ export const INITIAL_STATE = {
       searchField: true,
       containerClass: 'ten',
       filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
-    },
-    mentionedWarsaPlace: {
-      id: 'mentionedWarsaPlace',
-      // predicate: defined in backend
-      distinctValueCount: 0,
-      values: [],
-      flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
-      sortButton: true,
-      spatialFilterButton: false,
-      pieChartButton: false,
-      isFetching: false,
-      searchField: true,
-      containerClass: 'ten',
-      filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
-    },
-    mentionedOrganization: {
-      id: 'mentionedOrganization',
-      // predicate: defined in backend
-      distinctValueCount: 0,
-      values: [],
-      flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
-      sortButton: true,
-      spatialFilterButton: false,
-      pieChartButton: false,
-      isFetching: false,
-      searchField: true,
-      containerClass: 'ten',
-      filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
-    },
-    mentionedWarsaUnit: {
-      id: 'mentionedWarsaUnit',
-      // predicate: defined in backend
-      distinctValueCount: 0,
-      values: [],
-      flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
-      sortButton: true,
-      spatialFilterButton: false,
-      pieChartButton: false,
-      isFetching: false,
-      searchField: true,
-      containerClass: 'ten',
-      filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
+      uriFilter: null
     },
     mentionedPerson: {
       id: 'mentionedPerson',
@@ -136,8 +79,8 @@ export const INITIAL_STATE = {
       distinctValueCount: 0,
       values: [],
       flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
+      sortBy: 'prefLabel',
+      sortDirection: 'asc',
       sortButton: true,
       spatialFilterButton: false,
       pieChartButton: false,
@@ -145,17 +88,16 @@ export const INITIAL_STATE = {
       searchField: true,
       containerClass: 'ten',
       filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
+      uriFilter: null
     },
-    mentionedWarsaPerson: {
-      id: 'mentionedWarsaPerson',
+    mentionedUnit: {
+      id: 'mentionedUnit',
       // predicate: defined in backend
       distinctValueCount: 0,
       values: [],
       flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
+      sortBy: 'prefLabel',
+      sortDirection: 'asc',
       sortButton: true,
       spatialFilterButton: false,
       pieChartButton: false,
@@ -163,8 +105,24 @@ export const INITIAL_STATE = {
       searchField: true,
       containerClass: 'ten',
       filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
+      uriFilter: null
+    },
+    mentionedOrganization: {
+      id: 'mentionedOrganization',
+      // predicate: defined in backend
+      distinctValueCount: 0,
+      values: [],
+      flatValues: [],
+      sortBy: 'prefLabel',
+      sortDirection: 'asc',
+      sortButton: true,
+      spatialFilterButton: false,
+      pieChartButton: false,
+      isFetching: false,
+      searchField: true,
+      containerClass: 'ten',
+      filterType: 'uriFilter',
+      uriFilter: null
     },
     mentionedEvent: {
       id: 'mentionedEvent',
@@ -172,8 +130,8 @@ export const INITIAL_STATE = {
       distinctValueCount: 0,
       values: [],
       flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
+      sortBy: 'prefLabel',
+      sortDirection: 'asc',
       sortButton: true,
       spatialFilterButton: false,
       pieChartButton: false,
@@ -181,8 +139,7 @@ export const INITIAL_STATE = {
       searchField: true,
       containerClass: 'ten',
       filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
+      uriFilter: null
     },
     mentionedProduct: {
       id: 'mentionedProduct',
@@ -190,8 +147,8 @@ export const INITIAL_STATE = {
       distinctValueCount: 0,
       values: [],
       flatValues: [],
-      sortBy: 'instanceCount',
-      sortDirection: 'desc',
+      sortBy: 'prefLabel',
+      sortDirection: 'asc',
       sortButton: true,
       spatialFilterButton: false,
       pieChartButton: false,
@@ -199,8 +156,7 @@ export const INITIAL_STATE = {
       searchField: true,
       containerClass: 'ten',
       filterType: 'uriFilter',
-      uriFilter: null,
-      priority: 4
+      uriFilter: null
     }
   }
 }
