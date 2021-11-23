@@ -631,6 +631,7 @@ const mapStateToProps = state => {
   return {
     entities: state.entities,
     entitiesFacets: state.entitiesFacets,
+    keywords: state.keywords,
     videos: state.videos,
     videosFacets: state.videosFacets,
     videosFacetsConstrainSelf: state.videosFacetsConstrainSelf,

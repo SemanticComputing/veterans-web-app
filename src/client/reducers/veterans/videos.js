@@ -65,7 +65,7 @@ export const INITIAL_STATE = {
       id: 'keyword',
       valueType: 'object',
       makeLink: true,
-      externalLink: true,
+      externalLink: false,
       sortValues: true,
       numberedList: false,
       minWidth: 200

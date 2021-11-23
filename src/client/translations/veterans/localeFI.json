@@ -310,8 +310,8 @@
       }
     },
     "entities": {
-      "label": "Haastatteluissa mainitut asiat",
-      "facetResultsType": "asiaa",
+      "label": "",
+      "facetResultsType": "",
       "shortDescription": "",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
       "instancePage": {
@@ -347,6 +347,34 @@
           "label": "Nimi",
           "description": "Nimi",
           "textFacetInputPlaceholder": "Etsi..."
+        }
+      }
+    },
+    "keywords": {
+      "label": "",
+      "facetResultsType": "",
+      "shortDescription": "",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
+      "instancePage": {
+        "label": "Aihe",
+        "description": ""
+      },
+      "properties": {
+        "prefLabel": {
+          "label": "Nimi",
+          "description": "Nimi"
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Koneluettava tunniste"
+        },
+        "timeSlice": {
+          "label": "Videon kohta jossa mainittu",
+          "description": ""
+        },
+        "yso": {
+          "label": "Yleinen suomalainen ontologia",
+          "description": ""
         }
       }
     }

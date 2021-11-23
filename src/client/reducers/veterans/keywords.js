@@ -28,80 +28,25 @@ export const INITIAL_STATE = {
       makeLink: true,
       externalLink: false,
       sortValues: true,
-      numberedList: false,
-      minWidth: 200
+      numberedList: false
     },
     {
-      id: 'textSlice',
+      id: 'timeSlice',
       valueType: 'object',
-      makeLink: false,
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      expandedOnInstancePage: true
+    },
+    {
+      id: 'yso',
+      valueType: 'object',
+      makeLink: true,
       externalLink: true,
-      sortValues: false,
-      numberedList: false,
-      minWidth: 300
-    },
-    {
-      id: 'keyword',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'mentionedPlace',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'mentionedPerson',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'mentionedUnit',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'mentionedOrganization',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'mentionedEvent',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
-      id: 'mentionedProduct',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
+      expandedOnInstancePage: true
     },
     {
       id: 'uri',
@@ -116,13 +61,13 @@ export const INITIAL_STATE = {
 }
 
 const resultClasses = new Set([
-  'clips'
+  'keywords'
 ])
 
-const clips = (state = INITIAL_STATE, action) => {
+const keywords = (state = INITIAL_STATE, action) => {
   if (resultClasses.has(action.resultClass)) {
     return handleDataFetchingAction(state, action, INITIAL_STATE)
   } else return state
 }
 
-export default clips
+export default keywords

@@ -30,7 +30,7 @@ export const clipPropertiesFacetResults = `
   {
     ?id :keyword ?keyword__id .
     ?keyword__id skos:prefLabel ?keyword__prefLabel .
-    ?keyword__id :uri ?keyword__dataProviderUrl .
+    BIND(CONCAT("/keywords/page/", REPLACE(STR(?keyword__id), "^.*\\\\/(.+)", "$1")) AS ?keyword__dataProviderUrl) 
   }
   UNION 
   ${createNamedEntitiesBlock({

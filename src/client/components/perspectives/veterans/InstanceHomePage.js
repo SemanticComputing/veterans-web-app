@@ -108,6 +108,9 @@ class InstanceHomePage extends React.Component {
       case 'entities':
         uri = `${base}/entities/${localID}`
         break
+      case 'keywords':
+        uri = `${base}/${localID}`
+        break
     }
     this.props.fetchByURI({
       resultClass,
