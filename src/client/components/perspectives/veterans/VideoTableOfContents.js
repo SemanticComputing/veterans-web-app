@@ -183,7 +183,7 @@ class VideoTableOfContents extends React.Component {
           const hasUnitLinks = has(row, 'mentionedUnit')
           const hasOrganizationLinks = has(row, 'mentionedOrganization')
           const hasEventLinks = has(row, 'mentionedEvent')
-          const hasProductLinks = has(row, 'mentionedProduc')
+          const hasProductLinks = has(row, 'mentionedProduct')
           const hasNamedEntityLinks = hasPlaceLinks ||
             hasPersonLinks ||
             hasUnitLinks ||
@@ -274,8 +274,8 @@ class VideoTableOfContents extends React.Component {
                           <ul>
                             {Array.isArray(row.mentionedPlace)
                               ? row.mentionedPlace.map(place =>
-                                <li key={place.id}><a target='_blank' rel='noopener noreferrer' href={place.dataProviderUrl}>{place.prefLabel}</a></li>)
-                              : <li key={row.mentionedPlace.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedPlace.dataProviderUrl}>{row.mentionedPlace.prefLabel}</a></li>}
+                                <li key={place.id}><Link to={place.dataProviderUrl}>{place.prefLabel}</Link></li>)
+                              : <li key={row.mentionedPlace.id}><Link to={row.mentionedPlace.dataProviderUrl}>{row.mentionedPlace.prefLabel}</Link></li>}
                           </ul>
                         </li>}
                       {hasPersonLinks &&
@@ -283,8 +283,8 @@ class VideoTableOfContents extends React.Component {
                           <ul>
                             {Array.isArray(row.mentionedPerson)
                               ? row.mentionedPerson.map(person =>
-                                <li key={person.id}><a target='_blank' rel='noopener noreferrer' href={person.dataProviderUrl}>{person.prefLabel}</a></li>)
-                              : <li key={row.mentionedPerson.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedPerson.dataProviderUrl}>{row.mentionedPerson.prefLabel}</a></li>}
+                                <li key={person.id}><Link to={person.dataProviderUrl}>{person.prefLabel}</Link></li>)
+                              : <li key={row.mentionedPerson.id}><Link to={row.mentionedPerson.dataProviderUrl}>{row.mentionedPerson.prefLabel}</Link></li>}
                           </ul>
                         </li>}
                       {hasUnitLinks &&
@@ -292,8 +292,8 @@ class VideoTableOfContents extends React.Component {
                           <ul>
                             {Array.isArray(row.mentionedUnit)
                               ? row.mentionedUnit.map(unit =>
-                                <li key={unit.id}><a target='_blank' rel='noopener noreferrer' href={unit.dataProviderUrl}>{unit.prefLabel}</a></li>)
-                              : <li key={row.mentionedUnit.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedUnit.dataProviderUrl}>{row.mentionedUnit.prefLabel}</a></li>}
+                                <li key={unit.id}><Link to={unit.dataProviderUrl}>{unit.prefLabel}</Link></li>)
+                              : <li key={row.mentionedUnit.id}><Link to={row.mentionedUnit.dataProviderUrl}>{row.mentionedUnit.prefLabel}</Link></li>}
                           </ul>
                         </li>}
                       {hasOrganizationLinks &&
@@ -301,8 +301,8 @@ class VideoTableOfContents extends React.Component {
                           <ul>
                             {Array.isArray(row.mentionedOrganization)
                               ? row.mentionedOrganization.map(organization =>
-                                <li key={organization.id}><a target='_blank' rel='noopener noreferrer' href={organization.dataProviderUrl}>{organization.prefLabel}</a></li>)
-                              : <li key={row.mentionedOrganization.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedOrganization.dataProviderUrl}>{row.mentionedOrganization.prefLabel}</a></li>}
+                                <li key={organization.id}><Link to={organization.dataProviderUrl}>{organization.prefLabel}</Link></li>)
+                              : <li key={row.mentionedOrganization.id}><Link to={row.mentionedOrganization.dataProviderUrl}>{row.mentionedOrganization.prefLabel}</Link></li>}
                           </ul>
                         </li>}
                       {hasEventLinks &&
@@ -310,8 +310,17 @@ class VideoTableOfContents extends React.Component {
                           <ul>
                             {Array.isArray(row.mentionedEvent)
                               ? row.mentionedEvent.map(event =>
-                                <li key={event.id}><a target='_blank' rel='noopener noreferrer' href={event.dataProviderUrl}>{event.prefLabel}</a></li>)
-                              : <li key={row.mentionedEvent.id}><a target='_blank' rel='noopener noreferrer' href={row.mentionedEvent.dataProviderUrl}>{row.mentionedEvent.prefLabel}</a></li>}
+                                <li key={event.id}><Link to={event.dataProviderUrl}>{event.prefLabel}</Link></li>)
+                              : <li key={row.mentionedEvent.id}><Link to={row.mentionedEvent.dataProviderUrl}>{row.mentionedEvent.prefLabel}</Link></li>}
+                          </ul>
+                        </li>}
+                      {hasProductLinks &&
+                        <li>nimikkeet
+                          <ul>
+                            {Array.isArray(row.mentionedProduct)
+                              ? row.mentionedProduct.map(product =>
+                                <li key={product.id}><Link to={product.dataProviderUrl}>{product.prefLabel}</Link></li>)
+                              : <li key={row.mentionedProduct.id}><Link to={row.mentionedProduct.dataProviderUrl}>{row.mentionedProduct.prefLabel}</Link></li>}
                           </ul>
                         </li>}
                     </ul>
