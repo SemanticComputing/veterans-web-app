@@ -44,7 +44,8 @@ export const INITIAL_STATE = {
       makeLink: true,
       externalLink: false,
       sortValues: true,
-      numberedList: false
+      numberedList: false,
+      expandedOnInstancePage: true
     },
     {
       id: 'sameAs',
