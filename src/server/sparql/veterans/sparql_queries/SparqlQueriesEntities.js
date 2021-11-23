@@ -34,4 +34,10 @@ export const entityPropertiesInstancePage = `
     BIND(?sameAs__id as ?sameAs__dataProviderUrl)
     BIND(?sameAs__id as ?sameAs__prefLabel)
   }
+  UNION
+  {
+    ?id foaf:page ?page__id .
+    BIND(?page__id as ?page__dataProviderUrl)
+    BIND(?page__id as ?page__prefLabel)
+  }
 `

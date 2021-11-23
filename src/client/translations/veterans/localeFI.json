@@ -332,7 +332,11 @@
           "description": ""
         },
         "sameAs": {
-          "label": "Ulkoinen linkki",
+          "label": "owl:sameAs",
+          "description": ""
+        },
+        "page": {
+          "label": "foaf:page",
           "description": ""
         },
         "prefLabel": {

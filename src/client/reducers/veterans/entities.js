@@ -56,6 +56,14 @@ export const INITIAL_STATE = {
       numberedList: false
     },
     {
+      id: 'page',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false
+    },
+    {
       id: 'uri',
       valueType: 'object',
       makeLink: true,
