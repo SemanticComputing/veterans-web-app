@@ -105,6 +105,8 @@ const InfoHeader = props => {
 
   const classes = useStyles(props)
 
+  console.log(props.instanceData)
+
   return (
     <div className={classes.root}>
       <Accordion
@@ -124,7 +126,8 @@ const InfoHeader = props => {
           <div className={classes.headingContainer}>
             <Typography component='h1' variant={getHeadingVariant()} className={classes.heading}>
               {props.pageType === 'facetResults' && intl.get(`perspectives.${props.resultClass}.label`)}
-              {props.pageType === 'instancePage' && intl.get(`perspectives.${props.resultClass}.instancePage.label`)}
+              {props.pageType === 'instancePage' && intl.get(`perspectives.${props.resultClass}.instancePage.label`,
+                { entityType: props.instanceData ? props.instanceData.entityType.prefLabel : '' })}
             </Typography>
             <IconButton aria-label='open instructions' className={classes.infoIconButton} onClick={handleExpandButtonOnClick}>
               <InfoIcon className={classes.infoIcon} />

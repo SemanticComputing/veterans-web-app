@@ -48,7 +48,7 @@ export const INITIAL_STATE = {
       expandedOnInstancePage: true
     },
     {
-      id: 'sameAs',
+      id: 'warsaPage',
       valueType: 'object',
       makeLink: true,
       externalLink: true,
@@ -56,13 +56,21 @@ export const INITIAL_STATE = {
       numberedList: false
     },
     {
-      id: 'page',
+      id: 'wikipedia',
       valueType: 'object',
       makeLink: true,
       externalLink: true,
       sortValues: true,
       numberedList: false
     },
+    // {
+    //   id: 'sameAs',
+    //   valueType: 'object',
+    //   makeLink: true,
+    //   externalLink: true,
+    //   sortValues: true,
+    //   numberedList: false
+    // },
     {
       id: 'uri',
       valueType: 'object',

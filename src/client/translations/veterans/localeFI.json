@@ -205,7 +205,7 @@
           "description": ""
         },
         "mentionedProduct": {
-          "label": "Tuote (mainittu)",
+          "label": "Nimike (mainittu)",
           "description": ""
         },
         "mentionedOrganization": {
@@ -315,7 +315,7 @@
       "shortDescription": "",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
       "instancePage": {
-        "label": "Haastattelussa mainittu asia",
+        "label": "{entityType}",
         "description": ""
       },
       "properties": {
@@ -324,19 +324,23 @@
           "description": "Koneluettava tunniste"
         },
         "timeSlice": {
-          "label": "Videon kohtia joissa mainittu",
+          "label": "Videon kohta jossa mainittu",
           "description": ""
         },
         "entityType": {
-          "label": "Asian tyyppi",
+          "label": "Tyyppi",
           "description": ""
         },
         "sameAs": {
           "label": "owl:sameAs",
           "description": ""
         },
-        "page": {
-          "label": "foaf:page",
+        "warsaPage": {
+          "label": "Sotasampo",
+          "description": ""
+        },
+        "wikipedia": {
+          "label": "Wikipedia",
           "description": ""
         },
         "prefLabel": {
