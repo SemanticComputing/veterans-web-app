@@ -267,7 +267,7 @@ class VideoTableOfContents extends React.Component {
                 {hasNamedEntityLinks &&
                   <>
                     <Divider />
-                    <Typography className={classes.tocSubHeading}>Kohtaan mahdollisesti liittyvät</Typography>
+                    <Typography className={classes.tocSubHeading}>Automaattisesti tunnistetut</Typography>
                     <ul>
                       {hasPlaceLinks &&
                         <li>paikat
