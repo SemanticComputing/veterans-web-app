@@ -15,7 +15,7 @@ import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
 
 import videosImage from '../../img/main_page/veterans/filming.jpg'
 import excerptsImage from '../../img/main_page/veterans/bofors.jpg'
-import entitiesImage from '../../img/main_page/veterans/sumu.jpg'
+import entitiesImage from '../../img/main_page/veterans/lotta.jpg'
 
 export const perspectiveConfig = [
   {
