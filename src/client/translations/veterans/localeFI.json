@@ -155,9 +155,9 @@
     },
     "videos": {
       "label": "Koko videot",
-      "facetResultsType": "Haastattelua",
+      "facetResultsType": "haastattelua",
       "shortDescription": "Hae kokonaisia haastatteluvideoita",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat videot näkyvät oikealla sivuttain ryhmiteltynä. Videota klikkaamalla pääset katsomaan sitä ja sisällysluetteloa.</p>",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat videot näkyvät oikealla sivutettuna taulukkona. Haastateltavan nimeä klikkaamalla pääset katsomaan haastattelua ja sen sisällysluetteloa.</p>",
       "instancePage": {
         "label": "Haastattelu",
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>"
@@ -165,77 +165,68 @@
       "properties": {
         "freeText": {
           "label": "Tekstihaku",
-          "description": "Vapaa tekstihaku",
+          "description": "Vapaa tekstihaku, joka kohdistuu samanaikaisesti sekä haastateltavan nimeen että haastattelijan muistiinpanoihin.",
           "textFacetInputPlaceholder": "Etsi..."
+        }, 
+        "prefLabel": {
+          "label": "Haastateltavan nimi",
+          "description": "Haastateltavan nimi"
         },
         "name": {
-          "label": "Muistelijan nimi",
-          "description": ""
+          "label": "Haastateltavan nimi",
+          "description": "Haastateltavan nimi"
         },
         "length": {
           "label": "Haastattelun kesto",
           "description": "Haastattelun kesto"
         },
-        "content": {
-          "label": "Sisältö",
-          "description": ""
-        },
         "keyword": {
           "label": "Aihe",
-          "description": ""
+          "description": "Automaattisesti tunnistettu käsite, joka kuvaa haastattelua. Kaikki käsitteet ovat peräisin Yleisestä suomalaisesta ontologiasta."
         },
         "placeOfInterview": {
           "label": "Haastattelun paikka",
-          "description": ""
-        },
-        "uri": {
-          "label": "URI",
-          "description": "Koneluettava tunniste"
-        },
-        "mentionedPerson": {
-          "label": "Henkilö (mainittu)",
-          "description": ""
-        },
-        "mentionedPlace": {
-          "label": "Paikka (mainittu)",
-          "description": ""
-        },
-        "mentionedEvent": {
-          "label": "Tapahtuma (mainittu)",
-          "description": ""
-        },
-        "mentionedProduct": {
-          "label": "Nimike (mainittu)",
-          "description": ""
-        },
-        "mentionedOrganization": {
-          "label": "Organisaatio (mainittu)",
-          "description": ""
-        },
-        "mentionedUnit": {
-          "label": "Joukko-osasto (mainittu)",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "Haastateltavan nimi",
-          "description": "Haastateltavan nimi",
-          "textFacetInputPlaceholder": "Etsi..."
-        },
-        "intrerviewee": {
-          "label": "Henkilön nimi",
-          "description": "Haastatellun henkilön nimi ja syntymävuosi"
+          "description": "Haastattelun paikka"
         },
         "dateOfInterview": {
           "label": "Haastattelun ajankohta",
           "description": "Haastatellun ajankohta"
+        },
+        "mentionedPerson": {
+          "label": "Henkilö (mainittu)",
+          "description": "Valitse haastattelun muistiinpanoissa mainittu tunnettu henkilö tai useampi."
+        },
+        "mentionedPlace": {
+          "label": "Paikka (mainittu)",
+          "description": "Valitse haastattelun muistiinpanoissa mainittu paikka tai useampi."
+        },
+        "mentionedEvent": {
+          "label": "Tapahtuma (mainittu)",
+          "description": "Valitse haastattelun muistiinpanoissa mainittu tapahtuma tai useampi."
+        },
+        "mentionedProduct": {
+          "label": "Nimike (mainittu)",
+          "description": "Valitse haastattelun muistiinpanoissa mainittu muu nimike, esimerkiksi tuotenimi."
+        },
+        "mentionedOrganization": {
+          "label": "Organisaatio (mainittu)",
+          "description": "Valitse haastattelun muistiinpanoissa mainittu organisaatio tai useampi."
+        },
+        "mentionedUnit": {
+          "label": "Joukko-osasto (mainittu)",
+          "description": "Valitse haastattelun muistiinpanoissa mainittu joukko-osasto tai useampi."
+        },
+        "uri": {
+          "label": "URI",
+          "description": "Koneluettava yksilöivä tunniste"
         }
       }
     },
     "clips": {
       "label": "Videon kohdat",
-      "facetResultsType": "videon kohtaa",
+      "facetResultsType": "haastattelun kohtaa",
       "shortDescription": "Hae tarkemmin yksittäisiä kohtia haastatteluvideoista",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat videoiden kohdat näkyvät oikealla sivuttain ryhmiteltynä. Tulosta klikkaamalla pääset katsomaan videota vastaavasta kohdasta ja koko videon sisällysluetteloa. </p>",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat videoiden kohdat näkyvät oikealla sivutettuna taulukkona. Haastateltavan nimeä klikkaamalla pääset katsomaan haastattelua ja sen sisällysluetteloa.</p>",
       "instancePage": {
         "label": "",
         "description": ""
@@ -243,70 +234,53 @@
       "properties": {
         "freeText": {
           "label": "Tekstihaku",
-          "description": "Vapaa tekstihaku",
+          "description": "Vapaa tekstihaku, joka kohdistuu samanaikaisesti sekä haastateltavan nimeen että haastattelijan muistiinpanoihin.",
           "textFacetInputPlaceholder": "Etsi..."
+        }, 
+        "prefLabel": {
+          "label": "Haastateltavan nimi",
+          "description": "Haastateltavan nimi"
         },
         "name": {
-          "label": "Muistelijan nimi",
-          "description": ""
+          "label": "Haastateltavan nimi",
+          "description": "Haastateltavan nimi"
         },
-        "length": {
-          "label": "Haastattelun kesto",
-          "description": "Haastattelun kesto"
-        },
-        "content": {
+        "textSlice": {
           "label": "Sisältö",
           "description": ""
         },
         "keyword": {
           "label": "Aihe",
-          "description": ""
-        },
-        "placeOfInterview": {
-          "label": "Haastattelun paikka",
-          "description": ""
-        },
-        "uri": {
-          "label": "URI",
-          "description": "Koneluettava tunniste"
+          "description": "Automaattisesti tunnistettu käsite, joka kuvaa haastattelun kohtaa. Kaikki käsitteet ovat peräisin Yleisestä suomalaisesta ontologiasta."
         },
         "mentionedPerson": {
           "label": "Henkilö (mainittu)",
-          "description": ""
+          "description": "Valitse haastattelun muistiinpanoissa mainittu tunnettu henkilö tai useampi."
         },
         "mentionedPlace": {
           "label": "Paikka (mainittu)",
-          "description": ""
+          "description": "Valitse haastattelun muistiinpanoissa mainittu paikka tai useampi."
         },
         "mentionedEvent": {
           "label": "Tapahtuma (mainittu)",
-          "description": ""
+          "description": "Valitse haastattelun muistiinpanoissa mainittu tapahtuma tai useampi."
         },
         "mentionedProduct": {
-          "label": "Tuote (mainittu)",
-          "description": ""
+          "label": "Nimike (mainittu)",
+          "description": "Valitse haastattelun muistiinpanoissa mainittu muu nimike, esimerkiksi tuotenimi."
         },
         "mentionedOrganization": {
           "label": "Organisaatio (mainittu)",
-          "description": ""
+          "description": "Valitse haastattelun muistiinpanoissa mainittu organisaatio tai useampi."
         },
         "mentionedUnit": {
           "label": "Joukko-osasto (mainittu)",
-          "description": ""
+          "description": "Valitse haastattelun muistiinpanoissa mainittu joukko-osasto tai useampi."
         },
-        "prefLabel": {
-          "label": "Haastateltavan nimi",
-          "description": "Haastateltavan nimi",
-          "textFacetInputPlaceholder": "Etsi..."
-        },
-        "intrerviewee": {
-          "label": "Henkilön nimi",
-          "description": "Haastatellun henkilön nimi ja syntymävuosi"
-        },
-        "dateOfInterview": {
-          "label": "Haastattelun ajankohta",
-          "description": "Haastatellun ajankohta"
-        }    
+        "uri": {
+          "label": "URI",
+          "description": "Koneluettava yksilöivä tunniste"
+        }
       }
     },
     "entities": {
