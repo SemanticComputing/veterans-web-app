@@ -2,6 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { SRLWrapper, useLightbox } from 'simple-react-lightbox'
 import Button from '@material-ui/core/Button'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
   previewImage: {
@@ -43,22 +44,41 @@ const ImageGallerySRL = props => {
     return {
       src: item.url,
       thumbnail: item.url,
-      caption: item.description
+      caption: item.description,
+      internalLink: item.dataProviderUrl
     }
   })
-  return (
-    <>
-      <Button aria-label='open larger image' onClick={() => openLightbox()}>
-        <img
-          className={classes.previewImage}
-          height={props.previewImageHeight}
-          src={images[0].src}
-          alt='preview image'
-        />
-      </Button>
-      <SRLWrapper options={srlOptions} elements={images} />
-    </>
-  )
+
+  if (images[0].internalLink) {
+    const image = images[0]
+    return (
+      <>
+        <Link to={image.internalLink}>
+          <img
+            className={classes.previewImage}
+            height={props.previewImageHeight}
+            src={image.src}
+            alt='preview image'
+          />
+        </Link>
+        <SRLWrapper options={srlOptions} elements={images} />
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Button aria-label='open larger image' onClick={() => openLightbox()}>
+          <img
+            className={classes.previewImage}
+            height={props.previewImageHeight}
+            src={images[0].src}
+            alt='preview image'
+          />
+        </Button>
+        <SRLWrapper options={srlOptions} elements={images} />
+      </>
+    )
+  }
 }
 
 export default ImageGallerySRL

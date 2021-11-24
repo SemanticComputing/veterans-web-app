@@ -174,7 +174,8 @@ export const videoPropertiesFacetResults = `
     ?id :video_link ?youTubeLink .
     BIND(REPLACE(STR(?youTubeLink), "https://youtu.be/", "") as ?youTubeID)
     BIND(CONCAT("https://img.youtube.com/vi/", ?youTubeID, "/0.jpg") as ?youTubeThumbnail__id)
-    BIND(?youTubeThumbnail__id as ?youTubeThumbnail__url) 
+    BIND(?youTubeThumbnail__id as ?youTubeThumbnail__url)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?youTubeThumbnail__dataProviderUrl) 
   }
   # UNION 
   # {
