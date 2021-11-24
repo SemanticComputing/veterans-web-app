@@ -284,9 +284,9 @@
       }
     },
     "entities": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
+      "label": "Hakemisto",
+      "facetResultsType": "tulosta",
+      "shortDescription": "Hae haastatteluissa mainittuja asioita",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
       "instancePage": {
         "label": "{entityType}",
@@ -297,6 +297,11 @@
           "label": "URI",
           "description": "Koneluettava tunniste"
         },
+        "freeText": {
+          "label": "Tekstihaku",
+          "description": "Vapaa tekstihaku, joka kohdistuu haastatteluissa esiintyviin asioihin.",
+          "textFacetInputPlaceholder": "Etsi..."
+        }, 
         "timeSlice": {
           "label": "Videon kohta jossa mainittu",
           "description": ""

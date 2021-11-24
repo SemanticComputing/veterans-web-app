@@ -29,6 +29,21 @@ export const entitiesConfig = {
       textQueryPredicate: '', // empty for querying the facetClass
       textQueryProperty: 'skos:prefLabel', // limit only to prefLabels
       type: 'text'
+    },
+    freeText: {
+      id: 'freeText',
+      labelPath: 'skos:prefLabel',
+      textQueryPredicate: '', // empty for querying the facetClass
+      textQueryProperty: 'wmsl:label :full_text :full_text_lemmatized',
+      type: 'text'
+    },
+    entityType: {
+      id: 'entityType',
+      facetValueFilter: '',
+      labelPath: ':entity_type/skos:prefLabel',
+      predicate: ':entity_type',
+      type: 'list',
+      facetLabelFilter: 'FILTER(LANG(?prefLabel_) = \'fi\')'
     }
   }
 }

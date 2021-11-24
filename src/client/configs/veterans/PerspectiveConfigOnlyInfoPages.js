@@ -4,17 +4,6 @@ import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay'
 
 export const perspectiveConfigOnlyInfoPages = [
   {
-    id: 'entities',
-    perspectiveDescHeight: 160,
-    instancePageTabs: [
-      {
-        id: 'table',
-        value: 0,
-        icon: <CalendarViewDayIcon />
-      }
-    ]
-  },
-  {
     id: 'keywords',
     perspectiveDescHeight: 160,
     instancePageTabs: [

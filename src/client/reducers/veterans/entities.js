@@ -9,8 +9,8 @@ export const INITIAL_STATE = {
   resultCount: 0,
   page: -1,
   pagesize: 25,
-  sortBy: null,
-  sortDirection: null,
+  sortBy: "prefLabel",
+  sortDirection: "ASC",
   fetching: false,
   fetchingResultCount: false,
   fetchingInstanceAnalysisData: false,
@@ -53,7 +53,8 @@ export const INITIAL_STATE = {
       makeLink: true,
       externalLink: true,
       sortValues: true,
-      numberedList: false
+      numberedList: false,
+      onlyOnInstancePage: true
     },
     {
       id: 'wikipedia',
@@ -61,7 +62,8 @@ export const INITIAL_STATE = {
       makeLink: true,
       externalLink: true,
       sortValues: true,
-      numberedList: false
+      numberedList: false,
+      onlyOnInstancePage: true
     }
     // {
     //   id: 'sameAs',

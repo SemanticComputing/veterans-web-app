@@ -13,8 +13,9 @@ import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
 // import videosImage from '../../img/main_page/veterans/compressed/tiedotus-400x265-px.jpg'
 // import excerptsImage from '../../img/main_page/veterans/compressed/spotter-400x269-px.jpg'
 
-import videosImage from '../../img/main_page/veterans/haastattelu_1.jpg'
-import excerptsImage from '../../img/main_page/veterans/haastattelu_2.jpg'
+import videosImage from '../../img/main_page/veterans/filming.jpg'
+import excerptsImage from '../../img/main_page/veterans/bofors.jpg'
+import entitiesImage from '../../img/main_page/veterans/sumu.jpg'
 
 export const perspectiveConfig = [
   {
@@ -46,6 +47,27 @@ export const perspectiveConfig = [
   {
     id: 'clips',
     frontPageImage: excerptsImage,
+    defaultActiveFacets: new Set(['freeText']),
+    defaultTab: 'table',
+    defaultInstancePageTab: 'table',
+    tabs: [
+      {
+        id: 'table',
+        value: 0,
+        icon: <CalendarViewDayIcon />
+      }
+    ],
+    instancePageTabs: [
+      {
+        id: 'table',
+        value: 0,
+        icon: <CalendarViewDayIcon />
+      }
+    ]
+  },
+  {
+    id: 'entities',
+    frontPageImage: entitiesImage,
     defaultActiveFacets: new Set(['freeText']),
     defaultTab: 'table',
     defaultInstancePageTab: 'table',

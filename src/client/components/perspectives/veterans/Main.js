@@ -61,8 +61,8 @@ const useStyles = makeStyles(theme => ({
   layout: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    [theme.breakpoints.up(650 + theme.spacing(6))]: {
-      width: 650,
+    [theme.breakpoints.up(900 + theme.spacing(6))]: {
+      width: 900,
       marginLeft: 'auto',
       marginRight: 'auto'
     }
