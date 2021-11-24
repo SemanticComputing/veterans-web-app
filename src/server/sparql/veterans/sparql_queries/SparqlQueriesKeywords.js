@@ -1,9 +1,12 @@
 export const keywordPropertiesInstancePage = `
-  ?id skos:prefLabel ?prefLabel__id .
-  BIND (?prefLabel__id as ?prefLabel__prefLabel)
-  BIND(?id as ?uri__id)
-  BIND(?id as ?uri__dataProviderUrl)
-  BIND(?id as ?uri__prefLabel)
+  {
+    ?id skos:prefLabel ?prefLabel__id .
+    BIND (?prefLabel__id as ?prefLabel__prefLabel)
+    BIND(?id as ?uri__id)
+    BIND(?id as ?uri__dataProviderUrl)
+    BIND(?id as ?uri__prefLabel)
+  }
+  UNION
   {
     ?interview :keyword ?id ;
     :structured_content ?timeSlice__id .

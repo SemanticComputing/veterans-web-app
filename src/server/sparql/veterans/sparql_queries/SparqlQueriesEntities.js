@@ -1,9 +1,12 @@
 export const entityPropertiesInstancePage = `
-  ?id skos:prefLabel ?prefLabel__id .
-  BIND (?prefLabel__id as ?prefLabel__prefLabel)
-  BIND(?id as ?uri__id)
-  BIND(?id as ?uri__dataProviderUrl)
-  BIND(?id as ?uri__prefLabel)
+  {
+    ?id skos:prefLabel ?prefLabel__id .
+    BIND (?prefLabel__id as ?prefLabel__prefLabel)
+    BIND(?id as ?uri__id)
+    BIND(?id as ?uri__dataProviderUrl)
+    BIND(?id as ?uri__prefLabel)
+  }
+  UNION
   {
     ?id :entity_type ?entityType__id .
     ?entityType__id skos:prefLabel ?entityType__prefLabel .
@@ -49,12 +52,15 @@ export const entityPropertiesInstancePage = `
 `
 
 export const entityPropertiesFacetResults = `
-  ?id skos:prefLabel ?prefLabel__id .
-  BIND (?prefLabel__id as ?prefLabel__prefLabel)
-  BIND(?id as ?uri__id)
-  BIND(?id as ?uri__dataProviderUrl)
-  BIND(?id as ?uri__prefLabel)
-  BIND(CONCAT("/entities/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+  { 
+    ?id skos:prefLabel ?prefLabel__id .
+    BIND (?prefLabel__id as ?prefLabel__prefLabel)
+    BIND(?id as ?uri__id)
+    BIND(?id as ?uri__dataProviderUrl)
+    BIND(?id as ?uri__prefLabel)
+    BIND(CONCAT("/entities/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+  }
+  UNION
   {
     ?id :entity_type ?entityType__id .
     ?entityType__id skos:prefLabel ?entityType__prefLabel .
