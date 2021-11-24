@@ -23,6 +23,16 @@ export const INITIAL_STATE = {
   instanceSparqlQuery: null,
   properties: [
     {
+      id: 'youTubeThumbnail',
+      valueType: 'image',
+      previewImageHeight: 150,
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      hideHeader: true
+    },
+    {
       id: 'prefLabel',
       valueType: 'object',
       makeLink: true,

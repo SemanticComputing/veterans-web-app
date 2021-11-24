@@ -169,6 +169,14 @@ export const videoPropertiesFacetResults = `
     ?keyword__id skos:prefLabel ?keyword__prefLabel .
     BIND(CONCAT("/keywords/page/", REPLACE(STR(?keyword__id), "^.*\\\\/(.+)", "$1")) AS ?keyword__dataProviderUrl) 
   }
+  UNION
+  {
+    ?id :video_link ?youTubeLink .
+    BIND(REPLACE(STR(?youTubeLink), "https://youtu.be/", "") as ?youTubeID)
+    BIND(CONCAT("https://img.youtube.com/vi/", ?youTubeID, "/0.jpg") as ?youTubeThumbnail__id)
+    BIND(?youTubeThumbnail__id as ?youTubeThumbnail__url)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?youTubeThumbnail__dataProviderUrl) 
+  }
   # UNION 
   # {
   #   ?id :length ?raw_length .
