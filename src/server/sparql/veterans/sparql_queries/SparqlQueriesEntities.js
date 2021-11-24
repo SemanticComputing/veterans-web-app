@@ -5,9 +5,9 @@ export const entityPropertiesInstancePage = `
   BIND(?id as ?uri__dataProviderUrl)
   BIND(?id as ?uri__prefLabel)
   {
-    ?id :type ?entityType__id .
-    BIND (?entityType__id AS ?entityType__prefLabel )
-    # ?entityType__id skos:prefLabel ?entityType__prefLabel .
+    ?id :entity_type ?entityType__id .
+    ?entityType__id skos:prefLabel ?entityType__prefLabel .
+    FILTER(LANG(?entityType__prefLabel) = '<LANG>')
   }
   UNION
   {

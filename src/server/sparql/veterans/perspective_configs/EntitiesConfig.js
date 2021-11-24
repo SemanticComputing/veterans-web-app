@@ -12,6 +12,7 @@ export const entitiesConfig = {
     useAuth: true
   },
   facetClass: ':NamedEntity',
+  langTag: 'fi',
   includeInSitemap: true,
   paginatedResults: {
     properties: entityPropertiesFacetResults
