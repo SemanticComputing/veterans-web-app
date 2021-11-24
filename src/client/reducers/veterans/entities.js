@@ -8,9 +8,9 @@ export const INITIAL_STATE = {
   paginatedResultsSparqlQuery: null,
   resultCount: 0,
   page: -1,
-  pagesize: 25,
-  sortBy: "prefLabel",
-  sortDirection: "ASC",
+  pagesize: 100,
+  sortBy: 'prefLabel',
+  sortDirection: 'asc',
   fetching: false,
   fetchingResultCount: false,
   fetchingInstanceAnalysisData: false,
@@ -48,6 +48,15 @@ export const INITIAL_STATE = {
       expandedOnInstancePage: true
     },
     {
+      id: 'source',
+      valueType: 'string',
+      makeLink: false,
+      externalLink: false,
+      sortValues: false,
+      numberedList: false,
+      expandedOnInstancePage: true
+    },
+    {
       id: 'warsaPage',
       valueType: 'object',
       makeLink: true,
@@ -65,23 +74,6 @@ export const INITIAL_STATE = {
       numberedList: false,
       onlyOnInstancePage: true
     }
-    // {
-    //   id: 'sameAs',
-    //   valueType: 'object',
-    //   makeLink: true,
-    //   externalLink: true,
-    //   sortValues: true,
-    //   numberedList: false
-    // },
-    // {
-    //   id: 'uri',
-    //   valueType: 'object',
-    //   makeLink: true,
-    //   externalLink: true,
-    //   sortValues: true,
-    //   numberedList: false,
-    //   onlyOnInstancePage: true
-    // }
   ]
 }
 

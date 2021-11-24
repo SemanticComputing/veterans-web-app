@@ -326,6 +326,10 @@
           "label": "Nimi",
           "description": "Nimi",
           "textFacetInputPlaceholder": "Etsi..."
+        },
+        "source": {
+          "label": "Lähde (testausta varten)",
+          "description": ""
         }
       }
     },

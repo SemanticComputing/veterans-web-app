@@ -44,6 +44,14 @@ export const entitiesConfig = {
       predicate: ':entity_type',
       type: 'list',
       facetLabelFilter: 'FILTER(LANG(?prefLabel_) = \'fi\')'
+    },
+    source: {
+      id: 'source',
+      facetValueFilter: '',
+      labelPath: 'dct:source',
+      predicate: 'dct:source',
+      type: 'list',
+      facetLabelFilter: ''
     }
   }
 }

@@ -49,6 +49,11 @@ export const entityPropertiesInstancePage = `
     BIND(?warsaPage__id as ?warsaPage__dataProviderUrl)
     BIND("Sotasampo" as ?warsaPage__prefLabel)
   }
+  UNION
+  {
+    ?id dct:source ?source_ .
+    BIND(STR(?source_) as ?source)
+  }
 `
 
 export const entityPropertiesFacetResults = `
@@ -102,5 +107,11 @@ export const entityPropertiesFacetResults = `
     ?id :warsa_page ?warsaPage__id .
     BIND(?warsaPage__id as ?warsaPage__dataProviderUrl)
     BIND(?warsaPage__id as ?warsaPage__prefLabel)
+  }
+  UNION
+  {
+    ?id dct:source ?source_ .
+    OPTIONAL { ?source_ skos:prefLabel ?sourceLabel }
+    BIND(COALESCE(?sourceLabel, ?source_) as ?source)
   }
 `
