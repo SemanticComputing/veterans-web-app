@@ -51,12 +51,14 @@ export const createNamedEntitiesBlock = ({ idPattern, id, idObject }) => {
 }
 
 export const videoPropertiesInstancePage =
-`
-  ?id :interviewed_person/skos:prefLabel ?prefLabel__id .
-  BIND (?prefLabel__id as ?prefLabel__prefLabel)
-  BIND(?id as ?uri__id)
-  BIND(?id as ?uri__dataProviderUrl)
-  BIND(?id as ?uri__prefLabel)
+` {  
+    ?id :interviewed_person/skos:prefLabel ?prefLabel__id .
+    BIND (?prefLabel__id as ?prefLabel__prefLabel)
+    BIND(?id as ?uri__id)
+    BIND(?id as ?uri__dataProviderUrl)
+    BIND(?id as ?uri__prefLabel)
+  }
+  UNION
   {
     ?id :place_of_interview ?placeOfInterview__id .
     BIND (?placeOfInterview__id AS ?placeOfInterview__prefLabel)

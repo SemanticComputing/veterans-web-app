@@ -1,9 +1,6 @@
 import { createNamedEntitiesBlock } from './SparqlQueriesVideos'
 
 export const clipPropertiesFacetResults = `
-  BIND(?id as ?uri__id)
-  BIND(?id as ?uri__dataProviderUrl)
-  BIND(?id as ?uri__prefLabel)
   {
     ?id ^:structured_content/:interviewed_person/skos:prefLabel ?prefLabel__id ;
       :begin_timestamp ?beginTimestamp .
@@ -19,6 +16,10 @@ export const clipPropertiesFacetResults = `
     BIND(xsd:integer(?beginTimeInSeconds_) as ?beginTimeInSeconds)
     BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?videoPageLinkHash)
     BIND(CONCAT(?videoPageLink, ?videoPageLinkHash) AS ?prefLabel__dataProviderUrl)
+
+    BIND(?id as ?uri__id)
+    BIND(?id as ?uri__dataProviderUrl)
+    BIND(?id as ?uri__prefLabel)
   }
   UNION 
   {
