@@ -43,7 +43,7 @@ export const INITIAL_STATE = {
       valueType: 'object',
       makeLink: true,
       externalLink: false,
-      sortValues: true,
+      sortValues: false,
       numberedList: false,
       expandedOnInstancePage: true
     },
@@ -62,7 +62,7 @@ export const INITIAL_STATE = {
       externalLink: true,
       sortValues: true,
       numberedList: false
-    },
+    }
     // {
     //   id: 'sameAs',
     //   valueType: 'object',
@@ -71,15 +71,15 @@ export const INITIAL_STATE = {
     //   sortValues: true,
     //   numberedList: false
     // },
-    {
-      id: 'uri',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: true,
-      sortValues: true,
-      numberedList: false,
-      onlyOnInstancePage: true
-    }
+    // {
+    //   id: 'uri',
+    //   valueType: 'object',
+    //   makeLink: true,
+    //   externalLink: true,
+    //   sortValues: true,
+    //   numberedList: false,
+    //   onlyOnInstancePage: true
+    // }
   ]
 }
 

@@ -31,15 +31,6 @@ export const INITIAL_STATE = {
       numberedList: false
     },
     {
-      id: 'timeSlice',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      expandedOnInstancePage: true
-    },
-    {
       id: 'yso',
       valueType: 'object',
       makeLink: true,
@@ -49,14 +40,23 @@ export const INITIAL_STATE = {
       expandedOnInstancePage: true
     },
     {
-      id: 'uri',
+      id: 'timeSlice',
       valueType: 'object',
       makeLink: true,
-      externalLink: true,
-      sortValues: true,
+      externalLink: false,
+      sortValues: false,
       numberedList: false,
-      onlyOnInstancePage: true
+      expandedOnInstancePage: true
     }
+    // {
+    //   id: 'uri',
+    //   valueType: 'object',
+    //   makeLink: true,
+    //   externalLink: true,
+    //   sortValues: true,
+    //   numberedList: false,
+    //   onlyOnInstancePage: true
+    // }
   ]
 }
 
