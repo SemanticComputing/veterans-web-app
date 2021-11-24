@@ -5,7 +5,7 @@ import SemanticPortal from '../containers/SemanticPortal'
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#212121'
+      main: '#4a535c'
     },
     secondary: {
       main: '#EB1806'
