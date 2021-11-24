@@ -39,7 +39,7 @@ export const INITIAL_STATE = {
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 180
     },
     {
       id: 'length',
@@ -72,22 +72,13 @@ export const INITIAL_STATE = {
       onlyOnInstancePage: true
     },
     {
-      id: 'keyword',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
-    },
-    {
       id: 'mentionedPlace',
       valueType: 'object',
       makeLink: true,
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 180
     },
     {
       id: 'mentionedPerson',
@@ -127,6 +118,15 @@ export const INITIAL_STATE = {
     },
     {
       id: 'mentionedProduct',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'keyword',
       valueType: 'object',
       makeLink: true,
       externalLink: false,
