@@ -123,16 +123,16 @@ export const INITIAL_STATE = {
       sortValues: true,
       numberedList: false,
       minWidth: 200
-    },
-    {
-      id: 'uri',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: true,
-      sortValues: true,
-      numberedList: false,
-      onlyOnInstancePage: true
     }
+    // {
+    //   id: 'uri',
+    //   valueType: 'object',
+    //   makeLink: true,
+    //   externalLink: true,
+    //   sortValues: true,
+    //   numberedList: false,
+    //   onlyOnInstancePage: true
+    // }
   ]
 }
 
