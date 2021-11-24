@@ -169,11 +169,11 @@
           "textFacetInputPlaceholder": "Etsi..."
         }, 
         "prefLabel": {
-          "label": "Haastateltavan nimi",
+          "label": "Haastateltava",
           "description": "Haastateltavan nimi"
         },
         "name": {
-          "label": "Haastateltavan nimi",
+          "label": "Haastateltava",
           "description": "Haastateltavan nimi"
         },
         "length": {
@@ -315,11 +315,11 @@
           "description": ""
         },
         "warsaPage": {
-          "label": "Sotasampo",
+          "label": "Lisätietoa Sotasampo-palvelussa",
           "description": ""
         },
         "wikipedia": {
-          "label": "Wikipedia",
+          "label": "Lisätietoa Wikipediassa",
           "description": ""
         },
         "prefLabel": {
