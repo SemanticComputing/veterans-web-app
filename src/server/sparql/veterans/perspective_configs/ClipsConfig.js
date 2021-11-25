@@ -35,6 +35,9 @@ export const clipsConfig = {
     prefLabel: {
       labelPath: 'skos:prefLabel'
     },
+    textSlice: {
+      labelPath: ':text_slice/:text_content'
+    },
     freeText: {
       id: 'freeText',
       labelPath: 'skos:prefLabel',

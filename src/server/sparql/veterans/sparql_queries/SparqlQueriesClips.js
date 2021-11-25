@@ -17,9 +17,19 @@ export const clipPropertiesFacetResults = `
     BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?videoPageLinkHash)
     BIND(CONCAT(?videoPageLink, ?videoPageLinkHash) AS ?prefLabel__dataProviderUrl)
 
+    ?video :video_link ?youTubeLink .
+    BIND(REPLACE(STR(?youTubeLink), "https://youtu.be/", "") as ?youTubeID)
+    BIND(CONCAT("https://i.ytimg.com/vi/", ?youTubeID, "/mqdefault.jpg") as ?youTubeThumbnail__id)
+    BIND(?youTubeThumbnail__id as ?youTubeThumbnail__url)
+    BIND(?prefLabel__dataProviderUrl AS ?youTubeThumbnail__dataProviderUrl)
+
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
+  }
+  UNION
+  {
+     
   }
   UNION 
   {

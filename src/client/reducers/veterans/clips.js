@@ -6,11 +6,13 @@ export const INITIAL_STATE = {
   resultsSparqlQuery: null,
   paginatedResults: [],
   paginatedResultsSparqlQuery: null,
+  paginatedResultsAlwaysExpandRows: true,
+  paginatedResultsRowContentMaxHeight: 130,
   resultCount: 0,
   page: -1,
   pagesize: 25,
-  sortBy: null,
-  sortDirection: null,
+  sortBy: 'textSlice',
+  sortDirection: 'asc',
   fetching: false,
   fetchingResultCount: false,
   fetchingInstanceAnalysisData: false,
@@ -23,13 +25,23 @@ export const INITIAL_STATE = {
   instanceSparqlQuery: null,
   properties: [
     {
+      id: 'youTubeThumbnail',
+      valueType: 'image',
+      previewImageHeight: 125,
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      hideHeader: true
+    },
+    {
       id: 'prefLabel',
       valueType: 'object',
       makeLink: true,
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 180
     },
     {
       id: 'textSlice',
@@ -39,15 +51,6 @@ export const INITIAL_STATE = {
       sortValues: false,
       numberedList: false,
       minWidth: 300
-    },
-    {
-      id: 'keyword',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: false,
-      sortValues: true,
-      numberedList: false,
-      minWidth: 200
     },
     {
       id: 'mentionedPlace',
@@ -96,6 +99,15 @@ export const INITIAL_STATE = {
     },
     {
       id: 'mentionedProduct',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 200
+    },
+    {
+      id: 'keyword',
       valueType: 'object',
       makeLink: true,
       externalLink: false,
