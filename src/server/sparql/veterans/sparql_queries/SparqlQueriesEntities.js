@@ -13,7 +13,7 @@ export const entityPropertiesInstancePage = `
       ?type__id skos:prefLabel ?type__prefLabel_ .
       FILTER(LANG(?type__prefLabel_) = '<LANG>')
     }
-    BIND(COALESCE(?type_prefLabel_, STR(?type__id)) as ?type__prefLabel)
+    BIND(COALESCE(?type__prefLabel_, STR(?type__id)) as ?type__prefLabel)
   }
   UNION
   {
@@ -75,7 +75,7 @@ export const entityPropertiesFacetResults = `
       ?type__id skos:prefLabel ?type__prefLabel_ .
       FILTER(LANG(?type__prefLabel_) = '<LANG>')
     }
-    BIND(COALESCE(?type_prefLabel_, STR(?type__id)) as ?type__prefLabel)
+    BIND(COALESCE(?type__prefLabel_, STR(?type__id)) as ?type__prefLabel)
   }
   UNION
   {
