@@ -27,7 +27,7 @@ export const INITIAL_STATE = {
     {
       id: 'youTubeThumbnail',
       valueType: 'image',
-      previewImageHeight: 150,
+      previewImageHeight: 125,
       makeLink: true,
       externalLink: true,
       sortValues: true,
