@@ -6,6 +6,8 @@ export const INITIAL_STATE = {
   resultsSparqlQuery: null,
   paginatedResults: [],
   paginatedResultsSparqlQuery: null,
+  paginatedResultsAlwaysExpandRows: true,
+  paginatedResultsRowContentMaxHeight: 130,
   resultCount: 0,
   page: -1,
   pagesize: 25,
