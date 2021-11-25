@@ -47,11 +47,13 @@ export const entitiesConfig = {
     },
     source: {
       id: 'source',
-      facetValueFilter: '',
       labelPath: 'dct:source',
       predicate: 'dct:source',
       type: 'list',
-      facetLabelFilter: ''
+      facetLabelFilter: '',
+      facetValueFilter: `
+        FILTER(STRSTARTS(STR(?id), "http://ldf.fi/"))
+      `
     }
   }
 }
