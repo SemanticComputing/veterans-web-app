@@ -27,6 +27,7 @@ export const INITIAL_STATE = {
     {
       id: 'youTubeThumbnail',
       valueType: 'image',
+      onlyForClass: 'x', // for hiding this row on instance page
       previewImageHeight: 125,
       makeLink: true,
       externalLink: true,
@@ -65,7 +66,7 @@ export const INITIAL_STATE = {
     },
     {
       id: 'dateOfInterview',
-      valueType: 'object',
+      valueType: 'string',
       makeLink: false,
       externalLink: false,
       sortValues: true,

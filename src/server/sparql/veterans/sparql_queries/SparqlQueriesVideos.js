@@ -65,8 +65,12 @@ export const videoPropertiesInstancePage =
   }
   UNION
   {
-    ?id :date_of_interview ?dateOfInterview__id .
-    BIND (?dateOfInterview__id AS ?dateOfInterview__prefLabel)
+    ?id :date_of_interview ?dateOfInterview_ .
+    BIND(CONCAT(STR(DAY(?dateOfInterview_)), 
+                     ".", 
+                     STR(MONTH(?dateOfInterview_)), 
+                     ".", 
+                    STR(YEAR(?dateOfInterview_))) as ?dateOfInterview)
   }
   UNION 
   {
