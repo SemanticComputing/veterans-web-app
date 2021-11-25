@@ -11,7 +11,7 @@ export const INITIAL_STATE = {
   resultCount: 0,
   page: -1,
   pagesize: 25,
-  sortBy: 'textSlice',
+  sortBy: 'mentionedUnit',
   sortDirection: 'asc',
   fetching: false,
   fetchingResultCount: false,
@@ -41,7 +41,7 @@ export const INITIAL_STATE = {
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 180
+      minWidth: 140
     },
     {
       id: 'textSlice',
@@ -59,7 +59,7 @@ export const INITIAL_STATE = {
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 140
     },
     {
       id: 'mentionedPerson',
@@ -68,7 +68,7 @@ export const INITIAL_STATE = {
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 140
     },
     {
       id: 'mentionedUnit',
@@ -77,7 +77,7 @@ export const INITIAL_STATE = {
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 210
     },
     {
       id: 'mentionedOrganization',
@@ -86,7 +86,7 @@ export const INITIAL_STATE = {
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 170
     },
     {
       id: 'mentionedEvent',
@@ -95,7 +95,7 @@ export const INITIAL_STATE = {
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 160
     },
     {
       id: 'mentionedProduct',
@@ -104,7 +104,7 @@ export const INITIAL_STATE = {
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 140
     },
     {
       id: 'keyword',
@@ -113,7 +113,7 @@ export const INITIAL_STATE = {
       externalLink: false,
       sortValues: true,
       numberedList: false,
-      minWidth: 200
+      minWidth: 140
     }
   ]
 }
