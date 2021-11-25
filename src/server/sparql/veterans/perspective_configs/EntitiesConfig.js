@@ -11,7 +11,7 @@ export const entitiesConfig = {
     prefixes,
     useAuth: true
   },
-  facetClass: ':NamedEntity',
+  facetClass: ':NamedEntity :PersonRecord',
   langTag: 'fi',
   includeInSitemap: true,
   paginatedResults: {
@@ -37,13 +37,13 @@ export const entitiesConfig = {
       textQueryProperty: 'wmsl:label :full_text :full_text_lemmatized',
       type: 'text'
     },
-    entityType: {
-      id: 'entityType',
+    type: {
+      id: 'type',
       facetValueFilter: '',
-      labelPath: ':entity_type/skos:prefLabel',
-      predicate: ':entity_type',
+      labelPath: 'a/skos:prefLabel',
+      predicate: 'a',
       type: 'list',
-      facetLabelFilter: 'FILTER(LANG(?prefLabel_) = \'fi\')'
+      facetLabelFilter: 'FILTER(LANG(?prefLabel_) = "<LANG>")'
     },
     source: {
       id: 'source',

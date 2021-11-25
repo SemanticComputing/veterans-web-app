@@ -31,7 +31,7 @@ export const INITIAL_STATE = {
       numberedList: false
     },
     {
-      id: 'entityType',
+      id: 'type',
       valueType: 'object',
       makeLink: false,
       externalLink: false,
@@ -67,6 +67,15 @@ export const INITIAL_STATE = {
     },
     {
       id: 'wikipedia',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      onlyOnInstancePage: true
+    },
+    {
+      id: 'uri',
       valueType: 'object',
       makeLink: true,
       externalLink: true,

@@ -8,9 +8,12 @@ export const entityPropertiesInstancePage = `
   }
   UNION
   {
-    ?id :entity_type ?entityType__id .
-    ?entityType__id skos:prefLabel ?entityType__prefLabel .
-    FILTER(LANG(?entityType__prefLabel) = '<LANG>')
+    ?id a ?type__id .
+    OPTIONAL {
+      ?type__id skos:prefLabel ?type__prefLabel_ .
+      FILTER(LANG(?type__prefLabel_) = '<LANG>')
+    }
+    BIND(COALESCE(?type_prefLabel_, STR(?type__id)) as ?type__prefLabel)
   }
   UNION
   {
@@ -67,9 +70,12 @@ export const entityPropertiesFacetResults = `
   }
   UNION
   {
-    ?id :entity_type ?entityType__id .
-    ?entityType__id skos:prefLabel ?entityType__prefLabel .
-    FILTER(LANG(?entityType__prefLabel) = '<LANG>')
+    ?id a ?type__id .
+    OPTIONAL {
+      ?type__id skos:prefLabel ?type__prefLabel_ .
+      FILTER(LANG(?type__prefLabel_) = '<LANG>')
+    }
+    BIND(COALESCE(?type_prefLabel_, STR(?type__id)) as ?type__prefLabel)
   }
   UNION
   {

@@ -22,8 +22,8 @@ export const INITIAL_STATE = {
       textFilter: null,
       priority: 1
     },
-    entityType: {
-      id: 'entityType',
+    type: {
+      id: 'type',
       // predicate: defined in backend
       distinctValueCount: 0,
       values: [],
@@ -41,7 +41,7 @@ export const INITIAL_STATE = {
       priority: 4
     },
     source: {
-      id: 'entityType',
+      id: 'source',
       // predicate: defined in backend
       distinctValueCount: 0,
       values: [],

@@ -105,9 +105,9 @@ const InfoHeader = props => {
 
   const classes = useStyles(props)
 
-  let entityType = ''
-  if (props.instanceData && props.instanceData.entityType) {
-    entityType = props.instanceData.entityType.prefLabel
+  let type = ''
+  if (props.instanceData && props.instanceData.type) {
+    type = props.instanceData.type.prefLabel
   }
 
   return (
@@ -130,7 +130,7 @@ const InfoHeader = props => {
             <Typography component='h1' variant={getHeadingVariant()} className={classes.heading}>
               {props.pageType === 'facetResults' && intl.get(`perspectives.${props.resultClass}.label`)}
               {props.pageType === 'instancePage' && intl.get(`perspectives.${props.resultClass}.instancePage.label`,
-                { entityType })}
+                { type })}
             </Typography>
             <IconButton aria-label='open instructions' className={classes.infoIconButton} onClick={handleExpandButtonOnClick}>
               <InfoIcon className={classes.infoIcon} />

@@ -289,7 +289,7 @@
       "shortDescription": "Hae haastatteluissa mainittuja asioita",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
       "instancePage": {
-        "label": "{entityType}",
+        "label": "{type}",
         "description": ""
       },
       "properties": {
@@ -306,7 +306,7 @@
           "label": "Videon kohta jossa mainittu",
           "description": ""
         },
-        "entityType": {
+        "type": {
           "label": "Tyyppi",
           "description": ""
         },
