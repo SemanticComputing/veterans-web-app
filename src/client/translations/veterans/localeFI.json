@@ -13,6 +13,7 @@
   "appDescription1": "",
   "appDescription2": "",
   "selectPerspective": "Valitse hakukohde:",
+  "selectExample": "Valitse esimerkki haastattelujen kohdista:",
   "mainPageImageLicence": "Kuvien lähde: SA-kuva",
   "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
   "topBar": {
@@ -154,10 +155,10 @@
       }
     },
     "videos": {
-      "label": "Koko videot",
+      "label": "Haastattelut",
       "facetResultsType": "haastattelua",
-      "shortDescription": "Hae kokonaisia haastatteluvideoita",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat videot näkyvät oikealla sivutettuna taulukkona. Haastateltavan nimeä klikkaamalla pääset katsomaan haastattelua ja sen sisällysluetteloa.</p>",
+      "shortDescription": "Hae kokonaisia haastatteluja",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat haastattelut näkyvät oikealla sivutettuna taulukkona. Kuvaa klikkaamalla pääset katsomaan haastattelua ja sen sisällysluetteloa.</p>",
       "instancePage": {
         "label": "Haastattelu",
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>"
@@ -223,10 +224,10 @@
       }
     },
     "clips": {
-      "label": "Videon kohdat",
+      "label": "Haastattelujen kohdat",
       "facetResultsType": "haastattelun kohtaa",
-      "shortDescription": "Hae tarkemmin yksittäisiä kohtia haastatteluvideoista",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat videoiden kohdat näkyvät oikealla sivutettuna taulukkona. Haastateltavan nimeä klikkaamalla pääset katsomaan haastattelua ja sen sisällysluetteloa.</p>",
+      "shortDescription": "Hae tarkemmin yksittäisiä kohtia haastatteluista",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat haastattelujen kohdat näkyvät oikealla sivutettuna taulukkona. Kuvaa klikkaamalla pääset katsomaan haastattelua ja sen sisällysluetteloa.</p>",
       "instancePage": {
         "label": "",
         "description": ""

@@ -178,7 +178,7 @@ const Main = props => {
           <Typography className={classes.licenceText}>{intl.getHTML('mainPageImageLicence')}</Typography>
         </div>
         <Typography className={classes.linkHeading} variant={descriptionVariant} align='center' color='textPrimary' paragraph>
-          Valitse esimerkki videoiden kohdista:
+          {intl.get('selectExample')}
         </Typography>
       </div>
       <MainCarousel
