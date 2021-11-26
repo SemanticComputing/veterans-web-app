@@ -28,7 +28,8 @@ export const INITIAL_STATE = {
       makeLink: true,
       externalLink: false,
       sortValues: true,
-      numberedList: false
+      numberedList: false,
+      height: 33 // make all result table rows equal height
     },
     {
       id: 'type',
