@@ -11,7 +11,7 @@ export const entitiesConfig = {
     prefixes,
     useAuth: true
   },
-  facetClass: ':NamedEntity :PersonRecord',
+  facetClass: ':NamedEvent :NamedLocation :NamedOrganization :NamedPerson :NamedProduct :NamedUnit :PersonRecord',
   langTag: 'fi',
   includeInSitemap: true,
   paginatedResults: {
