@@ -22,7 +22,7 @@ export const keywordPropertiesInstancePage = `
   }
   UNION
   {
-    ?id :uri ?yso__id .
+    ?id owl:sameAs ?yso__id .
     BIND(?yso__id as ?yso__prefLabel)
     BIND(?yso__id as ?yso__dataProviderUrl)
   }
