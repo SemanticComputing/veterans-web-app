@@ -67,7 +67,14 @@ export const entityPropertiesFacetResults = `
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+    OPTIONAL {
+      ?id a :PersonRecord .
+      BIND("videos" as ?instancePageType_)
+      BIND("i" as ?localNameprefix_)
+    }
+    BIND(COALESCE(?localNameprefix_, "") as ?localNameprefix)
+    BIND(COALESCE(?instancePageType_, "entities") as ?instancePageType)
+    BIND(CONCAT("/", ?instancePageType ,"/page/", ?localNameprefix, REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   }
   UNION
   {
