@@ -27,10 +27,6 @@ export const clipPropertiesFacetResults = `
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
   }
-  UNION
-  {
-     
-  }
   UNION 
   {
     ?id :text_slice ?textSlice__id .
