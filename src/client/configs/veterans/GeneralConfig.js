@@ -41,7 +41,7 @@ export const layoutConfig = {
     // 48 px is minimun for tab targets: https://web.dev/tap-targets/?utm_source=lighthouse&utm_medium=devtools#how-to-fix-your-tap-targets
     reducedHeight: 48,
     defaultHeight: 64,
-    mobileMenuBreakpoint: 850
+    mobileMenuBreakpoint: 990
   },
   mainPage: {
     bannerBackround: `linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ), url(${bannerImage})`,
