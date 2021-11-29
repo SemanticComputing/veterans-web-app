@@ -45,6 +45,35 @@ export const INITIAL_STATE = {
       minWidth: 140
     },
     {
+      id: 'yearOfBirth',
+      valueType: 'string',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 140,
+      onlyOnInstancePage: true
+    },
+    {
+      id: 'placeOfBirth',
+      valueType: 'string',
+      makeLink: false,
+      externalLink: false,
+      sortValues: true,
+      numberedList: false,
+      minWidth: 140,
+      onlyOnInstancePage: true
+    },
+    {
+      id: 'warsaPage',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
+      numberedList: false,
+      onlyOnInstancePage: true
+    },
+    {
       id: 'length',
       valueType: 'string',
       makeLink: false,
@@ -56,7 +85,7 @@ export const INITIAL_STATE = {
     },
     {
       id: 'placeOfInterview',
-      valueType: 'object',
+      valueType: 'string',
       makeLink: false,
       externalLink: false,
       sortValues: true,

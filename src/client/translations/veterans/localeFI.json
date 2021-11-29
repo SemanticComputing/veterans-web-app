@@ -173,6 +173,18 @@
           "label": "Haastateltava",
           "description": "Haastateltavan nimi"
         },
+        "yearOfBirth": {
+          "label": "Syntymävuosi",
+          "description": "Haastateltavan syntymävuosi"
+        },
+        "placeOfBirth": {
+          "label": "Syntymäpaikka",
+          "description": "Haastateltavan syntymäpaikka"
+        },
+        "warsaPage": {
+          "label": "Lisätietoa Sotasampo-palvelussa",
+          "description": ""
+        },
         "name": {
           "label": "Haastateltava",
           "description": "Haastateltavan nimi"

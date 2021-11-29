@@ -60,8 +60,21 @@ export const videoPropertiesInstancePage =
   }
   UNION
   {
-    ?id :place_of_interview ?placeOfInterview__id .
-    BIND (?placeOfInterview__id AS ?placeOfInterview__prefLabel)
+    ?id :interviewed_person/:year_of_birth ?yearOfBirth .
+  }
+  UNION
+  {
+    ?id :interviewed_person/:place_of_birth_literal ?placeOfBirth .
+  }
+  UNION
+  {
+    ?id :interviewed_person/:warsa_page ?warsaPage__id .
+    BIND(?warsaPage__id as ?warsaPage__dataProviderUrl)
+    BIND("Sotasampo" as ?warsaPage__prefLabel)
+  }
+  UNION
+  {
+    ?id :place_of_interview ?placeOfInterview .
   }
   UNION
   {
