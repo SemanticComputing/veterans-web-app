@@ -1,14 +1,8 @@
-import React /*, { useRef, useEffect } */ from 'react'
-// import PropTypes from 'prop-types'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-// import SectionOfALawListCollapsible from '../facet_results/SectionOfALawListCollapsible'
-// import HTMLParser from '../../helpers/HTMLParser'
-// import Wordcloud from '../facet_results/WordCloud'
 import { Typography } from '@material-ui/core'
-// import { useLocation } from 'react-router-dom'
-// import { has } from 'lodash'
 import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
 import Player from './Player'
 import VideoTableOfContents from './VideoTableOfContents'
@@ -96,14 +90,16 @@ const useStyles = makeStyles(theme => ({
 const ContextualContent = props => {
   const classes = useStyles(props)
   const { instanceTableData } = props.perspectiveState
-  const { localID, resultClass, screenSize, layoutConfig, properties } = props
-  // console.log(props.perspectiveState)
-  //   const location = useLocation()
-  //   const sectionRefs = useRef({})
+  const { localID, resultClass, screenSize, layoutConfig } = props
+  let { properties } = props
 
   const readyToRenderVideoPlayer = () => {
     return `http://ldf.fi/warmemoirsampo/${localID}` === instanceTableData.id &&
         has(instanceTableData, 'youTubeID')
+  }
+
+  if (!has(instanceTableData, 'warsaPage')) {
+    properties = properties.filter(prop => prop.id !== 'warsaPage')
   }
 
   return (
