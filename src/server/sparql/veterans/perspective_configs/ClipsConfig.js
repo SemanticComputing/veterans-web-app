@@ -62,6 +62,7 @@ export const clipsConfig = {
     mentionedPlace: {
       id: 'mentionedPlace',
       facetValueFilter: '',
+      hideUnknownValue: true,
       labelPath: ':named_entity_location/skos:prefLabel',
       predicate: ':named_entity_location',
       type: 'list'
@@ -69,6 +70,7 @@ export const clipsConfig = {
     mentionedPerson: {
       id: 'mentionedPerson',
       facetValueFilter: '',
+      hideUnknownValue: true,
       labelPath: ':named_entity_person/skos:prefLabel',
       predicate: ':named_entity_person',
       type: 'list'
@@ -76,6 +78,7 @@ export const clipsConfig = {
     mentionedUnit: {
       id: 'mentionedUnit',
       facetValueFilter: '',
+      hideUnknownValue: true,
       labelPath: ':named_entity_unit/skos:prefLabel',
       predicate: ':named_entity_unit',
       type: 'list'
@@ -83,6 +86,7 @@ export const clipsConfig = {
     mentionedOrganization: {
       id: 'mentionedOrganization',
       facetValueFilter: '',
+      hideUnknownValue: true,
       labelPath: ':named_entity_organization/skos:prefLabel',
       predicate: ':named_entity_organization',
       type: 'list'
@@ -90,6 +94,7 @@ export const clipsConfig = {
     mentionedEvent: {
       id: 'mentionedEvent',
       facetValueFilter: '',
+      hideUnknownValue: true,
       labelPath: ':named_entity_event/skos:prefLabel',
       predicate: ':named_entity_event',
       type: 'list'
@@ -97,6 +102,7 @@ export const clipsConfig = {
     mentionedProduct: {
       id: 'mentionedProduct',
       facetValueFilter: '',
+      hideUnknownValue: true,
       labelPath: ':named_entity_product/skos:prefLabel',
       predicate: ':named_entity_product',
       type: 'list'
