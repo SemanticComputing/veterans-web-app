@@ -117,12 +117,17 @@ export const videoPropertiesInstancePage =
                     :end_timestamp ?endTimestamp ;
                     :text_content ?timeSlice__textContent ;
                     :order ?timeSlice__order .
+    
+    # Rafaelin tuottama annotoitu teksti
+    OPTIONAL { ?timeSlice__id :text_content_annotated ?timeSlice__annotatedTextContent }
                     
 
     ?timeSlice__id :text_slice ?timeSlice__textSlice__id .
     ?timeSlice__textSlice__id :order ?timeSlice__textSlice__order ;
                               :text_content ?timeSlice__textSlice__textContent .
-    OPTIONAL { ?timeSlice__textSlice__id :annotated_text_content ?timeSlice__textSlice__annotatedTextContent }
+    
+    # Clairen tuottama annotoitu teksti
+    # OPTIONAL { ?timeSlice__textSlice__id :annotated_text_content ?timeSlice__textSlice__annotatedTextContent }
                             
     BIND(CONCAT(SUBSTR(?timeSlice__textContent, 1, 50), '...') as ?timeSlice__prefLabel)                
     
