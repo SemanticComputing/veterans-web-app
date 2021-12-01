@@ -31,20 +31,20 @@ export const INITIAL_STATE = {
       numberedList: false
     },
     {
-      id: 'yso',
-      valueType: 'object',
-      makeLink: true,
-      externalLink: true,
-      sortValues: true,
-      numberedList: false,
-      expandedOnInstancePage: true
-    },
-    {
       id: 'timeSlice',
       valueType: 'object',
       makeLink: true,
       externalLink: false,
       sortValues: false,
+      numberedList: false,
+      expandedOnInstancePage: true
+    },
+    {
+      id: 'yso',
+      valueType: 'object',
+      makeLink: true,
+      externalLink: true,
+      sortValues: true,
       numberedList: false,
       expandedOnInstancePage: true
     }
