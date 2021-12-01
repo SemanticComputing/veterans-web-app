@@ -229,6 +229,10 @@
           "label": "Joukko-osasto (mainittu)",
           "description": "Valitse haastattelun muistiinpanoissa mainittu joukko-osasto tai useampi."
         },
+        "gender": {
+          "label": "Haastateltavan sukupuoli",
+          "description": "Haastateltavan henkilön oletettu sukupuoli."
+        },
         "uri": {
           "label": "URI",
           "description": "Koneluettava yksilöivä tunniste"
@@ -289,6 +293,10 @@
         "mentionedUnit": {
           "label": "Joukko-osasto (mainittu)",
           "description": "Valitse haastattelun muistiinpanoissa mainittu joukko-osasto tai useampi."
+        },
+        "gender": {
+          "label": "Haastateltavan sukupuoli",
+          "description": "Haastateltavan henkilön oletettu sukupuoli."
         },
         "uri": {
           "label": "URI",

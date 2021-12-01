@@ -112,6 +112,14 @@ export const videosConfig = {
     },
     dateOfInterview: {
       labelPath: ':date_of_interview'
+    },
+    gender: {
+      id: 'gender',
+      facetValueFilter: '',
+      labelPath: ':interviewed_person/:gender/skos:prefLabel',
+      predicate: ':interviewed_person/:gender',
+      type: 'list',
+      facetLabelFilter: 'FILTER(LANG(?prefLabel_) = "fi")'
     }
   }
 }

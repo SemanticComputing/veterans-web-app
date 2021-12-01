@@ -106,6 +106,14 @@ export const clipsConfig = {
       labelPath: ':named_entity_product/skos:prefLabel',
       predicate: ':named_entity_product',
       type: 'list'
+    },
+    gender: {
+      id: 'gender',
+      facetValueFilter: '',
+      labelPath: '^:structured_content/:interviewed_person/:gender/skos:prefLabel',
+      predicate: '^:structured_content/:interviewed_person/:gender',
+      type: 'list',
+      facetLabelFilter: 'FILTER(LANG(?prefLabel_) = "fi")'
     }
   }
 }

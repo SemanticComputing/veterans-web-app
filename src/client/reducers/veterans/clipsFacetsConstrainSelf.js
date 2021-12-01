@@ -23,6 +23,23 @@ export const INITIAL_STATE = {
       uriFilter: null,
       priority: 4
     },
+    gender: {
+      id: 'gender',
+      // predicate: defined in backend
+      distinctValueCount: 0,
+      values: [],
+      flatValues: [],
+      sortBy: 'instanceCount',
+      sortDirection: 'desc',
+      sortButton: true,
+      spatialFilterButton: false,
+      pieChartButton: false,
+      isFetching: false,
+      searchField: true,
+      containerClass: 'four',
+      filterType: 'uriFilter',
+      uriFilter: null
+    },
     keyword: {
       id: 'keyword',
       // predicate: defined in backend

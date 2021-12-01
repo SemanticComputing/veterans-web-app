@@ -38,6 +38,23 @@ export const INITIAL_STATE = {
       filterType: 'uriFilter',
       uriFilter: null
     },
+    gender: {
+      id: 'gender',
+      // predicate: defined in backend
+      distinctValueCount: 0,
+      values: [],
+      flatValues: [],
+      sortBy: 'instanceCount',
+      sortDirection: 'desc',
+      sortButton: true,
+      spatialFilterButton: false,
+      pieChartButton: false,
+      isFetching: false,
+      searchField: true,
+      containerClass: 'four',
+      filterType: 'uriFilter',
+      uriFilter: null
+    },
     mentionedPlace: {
       id: 'mentionedPlace',
       // predicate: defined in backend
