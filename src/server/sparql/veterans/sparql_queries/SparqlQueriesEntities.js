@@ -42,7 +42,7 @@ export const entityPropertiesInstancePage = `
   }
   UNION
   {
-    ?id foaf:page ?wikipedia__id .
+    ?id :wikipedia ?wikipedia__id .
     BIND(?wikipedia__id as ?wikipedia__dataProviderUrl)
     BIND("Wikipedia" as ?wikipedia__prefLabel)
   }
@@ -51,6 +51,12 @@ export const entityPropertiesInstancePage = `
     ?id :warsa_page ?warsaPage__id .
     BIND(?warsaPage__id as ?warsaPage__dataProviderUrl)
     BIND("Sotasampo" as ?warsaPage__prefLabel)
+  }
+  UNION
+  {
+    ?id foaf:page ?otherPage__id .
+    BIND(?otherPage__id as ?otherPage__dataProviderUrl)
+    BIND(?othePage__id as ?otherPage__prefLabel)
   }
   UNION
   {
