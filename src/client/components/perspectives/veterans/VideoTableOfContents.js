@@ -53,12 +53,40 @@ const styles = theme => ({
 class VideoTableOfContents extends React.Component {
   constructor (props) {
     super(props)
-    const namedEntities = props.namedEntities == null
-      ? null
-      : arrayToObject({
-        array: props.namedEntities,
+    const {
+      mentionedPlace,
+      mentionedPerson,
+      mentionedOrganization,
+      mentionedUnit,
+      mentionedEvent,
+      mentionedProduct
+    } = props.instanceTableData
+    let namedEntities = [
+      ...(Array.isArray(mentionedPlace)
+        ? mentionedPlace
+        : [mentionedPlace]),
+      ...(Array.isArray(mentionedPerson)
+        ? mentionedPerson
+        : [mentionedPerson]),
+      ...(Array.isArray(mentionedOrganization)
+        ? mentionedOrganization
+        : [mentionedOrganization]),
+      ...(Array.isArray(mentionedUnit)
+        ? mentionedUnit
+        : [mentionedUnit]),
+      ...(Array.isArray(mentionedEvent)
+        ? mentionedEvent
+        : [mentionedEvent]),
+      ...(Array.isArray(mentionedProduct)
+        ? mentionedProduct
+        : [mentionedProduct])
+    ]
+    if (namedEntities !== null) {
+      namedEntities = arrayToObject({
+        array: namedEntities,
         keyField: 'id'
       })
+    }
     this.state = {
       expandedSet: new Set([]),
       currentPart: null,
@@ -89,8 +117,7 @@ class VideoTableOfContents extends React.Component {
     return currentPart
   }
 
-  renderTooltip = domNode => {
-    const namedEntityID = domNode.attribs['data-link']
+  renderTooltip = (domNode, namedEntityID) => {
     let tooltipContent = namedEntityID
     if (has(this.state.namedEntities, namedEntityID)) {
       const entity = this.state.namedEntities[namedEntityID]
@@ -134,17 +161,52 @@ class VideoTableOfContents extends React.Component {
     )
   }
 
+  renderLink = (domNode, namedEntityID) => {
+    if (has(this.state.namedEntities, namedEntityID)) {
+      const entity = this.state.namedEntities[namedEntityID]
+      return (
+        <Link to={entity.dataProviderUrl}>
+          {domNode.children[0].data}
+        </Link>
+      )
+    } else {
+      return (
+        <>
+          {domNode.children[0].data}
+        </>
+      )
+    }
+  }
+
   parseHTMLTextSlice = slice => {
     const html = parse(slice.annotatedTextContent, {
       replace: domNode => {
         if (domNode.type === 'tag' && domNode.name === 'span' &&
         has(domNode.attribs, 'data-link')) {
-          return this.renderTooltip(domNode)
+          const namedEntityID = domNode.attribs['data-link']
+          return this.renderTooltip(domNode, namedEntityID)
         }
       }
     })
     return (
       <li key={slice.order}>{html}</li>
+    )
+  }
+
+  parseHTMLTimeSlice = annotatedTextContent => {
+    const html = parse(annotatedTextContent, {
+      replace: domNode => {
+        if (domNode.type === 'tag' && domNode.name === 'span' &&
+        has(domNode.attribs, 'data-uri')) {
+          const namedEntityID = domNode.attribs['data-uri']
+          return this.renderLink(domNode, namedEntityID)
+        }
+      }
+    })
+    return (
+      <p>
+        {html}
+      </p>
     )
   }
 
@@ -157,10 +219,6 @@ class VideoTableOfContents extends React.Component {
     }
     this.setState({ expandedSet })
   }
-
-  // createNamedEntityLink = entity => {
-
-  // }
 
   render () {
     const { classes, toc, textFormat } = this.props
@@ -184,7 +242,8 @@ class VideoTableOfContents extends React.Component {
           const hasOrganizationLinks = has(row, 'mentionedOrganization')
           const hasEventLinks = has(row, 'mentionedEvent')
           const hasProductLinks = has(row, 'mentionedProduct')
-          const hasNamedEntityLinks = hasPlaceLinks ||
+          const hasNamedEntityLinks =
+            hasPlaceLinks ||
             hasPersonLinks ||
             hasUnitLinks ||
             hasOrganizationLinks ||
@@ -201,6 +260,7 @@ class VideoTableOfContents extends React.Component {
               row.mentionedPlace.sort((a, b) => a.prefLabel.localeCompare(b.prefLabel))
             }
           }
+          const timeSliceHasAnnotatedTextContent = has(row, 'annotatedTextContent')
           return (
             <Accordion
               className={isCurrent ? classes.activeAccordion : null}
@@ -252,18 +312,20 @@ class VideoTableOfContents extends React.Component {
                 }}
               >
                 <Typography>Haastattelijan muistiinpanot</Typography>
-                {hasTextSlices && textFormat === 'plain-text' &&
+                {textFormat === 'plain-text-from-text-slice' && hasTextSlices &&
                   <ul>
                     {Array.isArray(row.textSlice)
                       ? row.textSlice.map(slice => <li key={slice.order}>{slice.textContent}</li>)
                       : <li key={row.textSlice.order}>{row.textSlice.textContent}</li>}
                   </ul>}
-                {hasTextSlices && textFormat === 'annotated-html' &&
+                {textFormat === 'annotated-html-from-text-slice' && hasTextSlices &&
                   <ul>
                     {Array.isArray(row.textSlice)
                       ? row.textSlice.map(slice => this.parseHTMLTextSlice(slice))
                       : this.parseHTMLTextSlice(row.textSlice)}
                   </ul>}
+                {textFormat === 'annotated-html-from-time-slice' && timeSliceHasAnnotatedTextContent &&
+                  this.parseHTMLTimeSlice(row.annotatedTextContent)}
                 {hasNamedEntityLinks &&
                   <>
                     <Divider />

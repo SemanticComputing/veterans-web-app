@@ -131,10 +131,11 @@ const ContextualContent = props => {
             <Typography variant='h6' component='h2'>Sisällysluettelo</Typography>
             {has(instanceTableData, 'timeSlice') &&
               <VideoTableOfContents
-                namedEntities={instanceTableData.namedEntityWikidata}
+                instanceTableData={instanceTableData}
                 toc={instanceTableData.timeSlice}
-                textFormat='plain-text'
-                // textFormat='annotated-html'
+                textFormat='plain-text-from-text-slice'
+                // textFormat='annotated-html-from-text-slice'
+                // textFormat='annotated-html-from-time-slice'
                 videoPlayerState={props.videoPlayerState}
               />}
           </Paper>
