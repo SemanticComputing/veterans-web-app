@@ -2,12 +2,12 @@ import { videosConfig } from './perspective_configs/VideosConfig'
 import { clipsConfig } from './perspective_configs/ClipsConfig'
 import { entitiesConfig } from './perspective_configs/EntitiesConfig'
 import { keywordsConfig } from './perspective_configs/KeywordsConfig'
-// import {
-//   videoPropertiesInstancePage
-// } from './sparql_queries/SparqlQueriesVideos'
+import {
+  videoInstancePageMapQuery
+} from './sparql_queries/SparqlQueriesVideos'
 import { sitemapInstancePageQuery } from '../SparqlQueriesGeneral'
 import { fullTextSearchProperties } from './sparql_queries/SparqlQueriesFullText'
-// import { makeObjectList } from '../SparqlObjectMapper'
+import { makeObjectList } from '../SparqlObjectMapper'
 // import {
 //   mapPlaces,
 //   mapLineChart,
@@ -31,5 +31,10 @@ export const backendSearchConfig = {
     outputDir: './src/server/sitemap_generator',
     sitemapUrl: 'https://sampo-ui.demo.seco.cs.aalto.fi/sitemap',
     sitemapInstancePageQuery
+  },
+  videoInstancePageMap: {
+    perspectiveID: 'videos',
+    q: videoInstancePageMapQuery,
+    resultMapper: makeObjectList
   }
 }

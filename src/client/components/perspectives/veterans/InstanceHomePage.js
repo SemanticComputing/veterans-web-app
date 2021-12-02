@@ -8,14 +8,20 @@ import purple from '@material-ui/core/colors/purple'
 import PerspectiveTabs from '../../main_layout/PerspectiveTabs'
 import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
 // import Network from '../../facet_results/Network'
+import LeafletMap from '../../facet_results/LeafletMap'
 // import ApexChart from '../../facet_results/ApexChart'
 // import Export from '../../facet_results/Export'
 // import Recommendations from './Recommendations'
+import {
+  MAPBOX_ACCESS_TOKEN,
+  MAPBOX_STYLE
+} from '../../../configs/veterans/GeneralConfig'
 // import { coseLayout, cytoscapeStyle, preprocess } from '../../../configs/sampo/Cytoscape.js/NetworkConfig'
 // import { createMultipleLineChartData } from '../../../configs/sampo/ApexCharts/LineChartConfig'
 import { Route, Redirect } from 'react-router-dom'
 import { has } from 'lodash'
 import VideoPage from './VideoPage'
+import { createPopUpContentVeterans } from '../../../configs/veterans/Leaflet/LeafletConfig'
 // const InstanceHomePageTable = lazy(() => import('../../main_layout/InstanceHomePageTable'))
 // const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
 // const Network = lazy(() => import('../../facet_results/Network'))
@@ -146,7 +152,7 @@ class InstanceHomePage extends React.Component {
 
   render = () => {
     const { classes, perspectiveState, perspectiveConfig, rootUrl, screenSize, layoutConfig } = this.props
-    const { instanceTableData, fetching } = perspectiveState
+    const { instanceTableData, results, fetching } = perspectiveState
     const resultClass = perspectiveConfig.id
     const defaultInstancePageTab = perspectiveConfig.defaultInstancePageTab
       ? perspectiveConfig.defaultInstancePageTab
@@ -210,6 +216,31 @@ class InstanceHomePage extends React.Component {
                     routeProps={this.props.routeProps}
                     videoPlayerState={this.props.videoPlayerState}
                     updateVideoPlayerTime={this.props.updateVideoPlayerTime}
+                  />}
+              />
+              <Route
+                path={`${rootUrl}/${resultClass}/page/${this.state.localID}/map`}
+                render={() =>
+                  <LeafletMap
+                    mapBoxAccessToken={MAPBOX_ACCESS_TOKEN}
+                    mapBoxStyle={MAPBOX_STYLE}
+                    center={perspectiveState.maps.videoInstancePageMap.center}
+                    zoom={perspectiveState.maps.videoInstancePageMap.zoom}
+                    results={results}
+                    leafletMapState={this.props.leafletMapState}
+                    pageType='instancePage'
+                    resultClass='videoInstancePageMap'
+                    facetClass='videos'
+                    mapMode='cluster'
+                    uri={instanceTableData.id}
+                    createPopUpContent={createPopUpContentVeterans}
+                    fetchResults={this.props.fetchResults}
+                    fetching={fetching}
+                    fetchData={this.props.fetchResults}
+                    showInstanceCountInClusters={false}
+                    showExternalLayers={false}
+                    updateMapBounds={this.props.updateMapBounds}
+                    layoutConfig={layoutConfig}
                   />}
               />
               <Route

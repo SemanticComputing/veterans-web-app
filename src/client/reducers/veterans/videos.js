@@ -23,6 +23,12 @@ export const INITIAL_STATE = {
   instanceAnalysisData: null,
   instanceAnalysisDataUpdateID: 0,
   instanceSparqlQuery: null,
+  maps: {
+    videoInstancePageMap: {
+      center: [65.184809, 27.314050],
+      zoom: 5
+    }
+  },
   properties: [
     {
       id: 'youTubeThumbnail',
@@ -179,7 +185,8 @@ export const INITIAL_STATE = {
 }
 
 const resultClasses = new Set([
-  'videos'
+  'videos',
+  'videoInstancePageMap'
 ])
 
 const videos = (state = INITIAL_STATE, action) => {

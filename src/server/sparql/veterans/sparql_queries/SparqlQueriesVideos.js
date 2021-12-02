@@ -220,3 +220,32 @@ export const videoPropertiesFacetResults = `
     idObject: ''
   })}
 `
+
+export const videoInstancePageMapQuery = `
+  SELECT *
+  WHERE {
+    VALUES ?video { <ID> }
+    ?video :named_entity_location ?id .
+    ?id skos:prefLabel ?prefLabel__id ;
+           wgs84:lat ?lat ;
+           wgs84:long ?long .
+    BIND(?prefLabel__id as ?prefLabel__prefLabel)      
+    BIND(CONCAT("/entities/page/", REPLACE(STR(?id ), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
+    BIND("red" AS ?markerColor)
+
+    # create time slice objects
+    ?video :structured_content ?timeSlice__id .
+    ?timeSlice__id :named_entity_location ?id ;
+                    skos:prefLabel ?timeSlice__prefLabel ;
+                  :begin_timestamp ?beginTimestamp .
+    BIND(HOURS(?beginTimestamp) as ?hours)
+    BIND(MINUTES(?beginTimestamp) as ?minutes)
+    BIND(xsd:integer(SECONDS(?beginTimestamp)) as ?seconds)              
+    BIND(CONCAT("/videos/page/", REPLACE(STR(?video), "^.*\\\\/(.+)", "$1")) AS ?videoPageLink)
+    BIND(?hours * 60 * 60 + ?minutes * 60 + ?seconds as ?beginTimeInSeconds_)
+    BIND(xsd:integer(?beginTimeInSeconds_) as ?beginTimeInSeconds)
+    BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?videoPageLinkHash)
+    BIND(CONCAT(?videoPageLink, ?videoPageLinkHash) AS ?timeSlice__dataProviderUrl)
+
+  }
+`

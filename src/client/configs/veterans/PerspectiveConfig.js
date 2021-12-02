@@ -1,7 +1,8 @@
 import React from 'react'
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay'
 // import TripOriginIcon from '@material-ui/icons/TripOrigin'
-// import LocationOnIcon from '@material-ui/icons/LocationOn'
+import LocationOnIcon from '@material-ui/icons/LocationOn'
+import OndemandVideoIcon from '@material-ui//icons/OndemandVideo'
 // import AddLocationIcon from '@material-ui/icons/AddLocation'
 // import SettingsBrightnessIcon from '@material-ui/icons/SettingsBrightness'
 // import StarIcon from '@material-ui/icons/Star'
@@ -35,11 +36,16 @@ export const perspectiveConfig = [
       {
         id: 'video',
         value: 0,
-        icon: <CalendarViewDayIcon />
+        icon: <OndemandVideoIcon />
+      },
+      {
+        id: 'map',
+        value: 1,
+        icon: <LocationOnIcon />
       },
       {
         id: 'word_cloud',
-        value: 1,
+        value: 2,
         icon: <CloudDownloadIcon />
       }
     ]
