@@ -46,7 +46,7 @@ const MainCarousel = props => {
     {
       src: aittoOja,
       alt: 'alt',
-      caption: '"1.7. ylitettiin valtakunnan raja"',
+      caption: '"1.7. ylitettiin valtakunnan raja."',
       localID: 'iVT0004',
       hours: 0,
       minutes: 32,
@@ -84,7 +84,7 @@ const MainCarousel = props => {
     {
       src: kotiranta,
       alt: 'alt',
-      caption: '"Olimme Nuijamaalla kun Talvisodan loppui."',
+      caption: '"Olimme Nuijamaalla kun Talvisota loppui."',
       localID: 'iVT0077',
       hours: 0,
       minutes: 32,

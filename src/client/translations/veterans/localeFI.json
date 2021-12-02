@@ -161,7 +161,7 @@
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Rajaa hakua tekemällä valintoja vasemmalla olevista faseteista. Haun tuloksena olevat haastattelut näkyvät oikealla sivutettuna taulukkona. Kuvaa klikkaamalla pääset katsomaan haastattelua ja sen sisällysluetteloa.</p>",
       "instancePage": {
         "label": "Haastattelu",
-        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>"
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Tällä sivulla voit katsoa haastatteluvideota ja tutkia siihen liittyviä tietoja. Sisällysluettelon aikaleimoja klikkaamalla voit siirtyä suoraan kyseiseen haastattelun kohtaan. Kun haastattelu etenee tiettyyn kohtaan, avautuu se sisällysluettelossa punaisella merkityssä kehyksessä, jossa on kohdan kuvailu tekstinä ja lisätietolinkkejä kohdassa mainittuihin kohteisiin ja aiheisiin. Uusi sisällysluettelon kohta avautuu automaattisesti videon edetessä. Aihepilvi-välilehdellä on visualisointi haastattelun sisällöstä.</p>"
       },
       "properties": {
         "freeText": {
@@ -308,10 +308,10 @@
       "label": "Hakemisto",
       "facetResultsType": "tulosta",
       "shortDescription": "Hae haastatteluissa mainittuja asioita",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
+      "longDescription": "",
       "instancePage": {
         "label": "{type}",
-        "description": ""
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Tämä sivu on nimetyn kohteen kotisivu, josta selviää sen nimi, tyyppi, sekä linkkeinä ne haastattelujen kohdat, joissa kohde on mainittu. Tietoja on rikastettu linkeillä kohteen lisätietoihin Sotasammossa sekä Wikipediassa. URI-tunniste kertoo kohteen teknisen identiteetin semanttisessa webissä.</p>"
       },
       "properties": {
         "uri": {
@@ -324,8 +324,8 @@
           "textFacetInputPlaceholder": "Etsi..."
         }, 
         "timeSlice": {
-          "label": "Videon kohta jossa mainittu",
-          "description": ""
+          "label": "Haastattelun kohta, jossa mainittu",
+          "description": "Linkki yhteen tai useampaan haastattelun kohtaan, jossa kohde mainitaan."
         },
         "type": {
           "label": "Tyyppi",
@@ -337,15 +337,15 @@
         },
         "warsaPage": {
           "label": "Lisätietoa Sotasampo-palvelussa",
-          "description": ""
+          "description": "Linkki kohteen kotisivulle Sotasammossa, jossa lisätietoa."
         },
         "wikipedia": {
           "label": "Lisätietoa Wikipediassa",
-          "description": ""
+          "description": "Lisätietoa Wikipediassa"
         },
         "prefLabel": {
           "label": "Nimi",
-          "description": "Nimi",
+          "description": "Kohteen nimi",
           "textFacetInputPlaceholder": "Etsi..."
         },
         "source": {
@@ -358,10 +358,10 @@
       "label": "",
       "facetResultsType": "",
       "shortDescription": "",
-      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">[ Ohjeet ]</p>",
+      "longDescription": "",
       "instancePage": {
         "label": "Aihe",
-        "description": ""
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Aihesivuille on koottu tietoa haastatteluissa esiintyvistä aiheista. Aiheet on tunnistettu käyttämällä Kansalliskirjaston tarjoamaa automaattisen sisällönkuvailun palvelua <a href='https://annif.org' target='_blank' rel='noopener noreferrer'>Annif</a>.</p>"
       },
       "properties": {
         "prefLabel": {
@@ -373,8 +373,8 @@
           "description": "Koneluettava tunniste"
         },
         "timeSlice": {
-          "label": "Videon kohta jossa mainittu",
-          "description": ""
+          "label": "Haastattelun kohta, jota automaattisesti tunnistettu aihe kuvaa.",
+          "description": "Aiheet on tunnistettu käyttämällä Kansalliskirjaston tarjoamaa automaattisen sisällönkuvailun palvelua Annif."
         },
         "yso": {
           "label": "Yleinen suomalainen ontologia",
