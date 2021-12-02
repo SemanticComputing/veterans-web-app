@@ -61,6 +61,11 @@ export const perspectiveConfig = [
         id: 'table',
         value: 0,
         icon: <CalendarViewDayIcon />
+      },
+      {
+        id: 'map',
+        value: 1,
+        icon: <LocationOnIcon />
       }
     ],
     instancePageTabs: [

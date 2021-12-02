@@ -23,6 +23,12 @@ export const INITIAL_STATE = {
   instanceAnalysisData: null,
   instanceAnalysisDataUpdateID: 0,
   instanceSparqlQuery: null,
+  maps: {
+    clipsPlaces: {
+      center: [22.43, 10.37],
+      zoom: 2
+    }
+  },
   properties: [
     {
       id: 'youTubeThumbnail',
@@ -119,7 +125,8 @@ export const INITIAL_STATE = {
 }
 
 const resultClasses = new Set([
-  'clips'
+  'clips',
+  'clipsPlaces'
 ])
 
 const clips = (state = INITIAL_STATE, action) => {

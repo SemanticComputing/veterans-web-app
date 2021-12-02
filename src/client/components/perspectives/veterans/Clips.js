@@ -1,6 +1,6 @@
 import React, { lazy } from 'react'
 import PropTypes from 'prop-types'
-import intl from 'react-intl-universal'
+// import intl from 'react-intl-universal'
 import { Route, Redirect } from 'react-router-dom'
 import PerspectiveTabs from '../../main_layout/PerspectiveTabs'
 // import ResultTable from '../../facet_results/ResultTable'
@@ -12,19 +12,19 @@ import PerspectiveTabs from '../../main_layout/PerspectiveTabs'
 import {
   MAPBOX_ACCESS_TOKEN,
   MAPBOX_STYLE
-} from '../../../configs/sampo/GeneralConfig'
-import {
-  createSingleLineChartData,
-  createMultipleLineChartData
-} from '../../../configs/sampo/ApexCharts/LineChartConfig'
-import { coseLayout, cytoscapeStyle, preprocess } from '../../../configs/sampo/Cytoscape.js/NetworkConfig'
-import { layerConfigs, createPopUpContentMMM } from '../../../configs/sampo/Leaflet/LeafletConfig'
+} from '../../../configs/veterans/GeneralConfig'
+// import {
+//   createSingleLineChartData,
+//   createMultipleLineChartData
+// } from '../../../configs/sampo/ApexCharts/LineChartConfig'
+// import { coseLayout, cytoscapeStyle, preprocess } from '../../../configs/sampo/Cytoscape.js/NetworkConfig'
+import { createPopUpContentVeterans } from '../../../configs/veterans/Leaflet/LeafletConfig'
 const ResultTable = lazy(() => import('../../facet_results/ResultTable'))
 const LeafletMap = lazy(() => import('../../facet_results/LeafletMap'))
-const Deck = lazy(() => import('../../facet_results/Deck'))
-const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
-const Network = lazy(() => import('../../facet_results/Network'))
-const Export = lazy(() => import('../../facet_results/Export'))
+// const Deck = lazy(() => import('../../facet_results/Deck'))
+// const ApexChart = lazy(() => import('../../facet_results/ApexChart'))
+// const Network = lazy(() => import('../../facet_results/Network'))
+// const Export = lazy(() => import('../../facet_results/Export'))
 
 const Clips = props => {
   const { rootUrl, perspective, screenSize } = props
@@ -32,11 +32,11 @@ const Clips = props => {
     screenSize === 'lg' ||
     screenSize === 'xl'
   let popupMaxHeight = 320
-  let popupMinWidth = 280
+  // let popupMinWidth = 280
   let popupMaxWidth = 280
   if (screenSize === 'xs' || screenSize === 'sm') {
     popupMaxHeight = 200
-    popupMinWidth = 150
+    // popupMinWidth = 150
     popupMaxWidth = 150
   }
   return (
@@ -65,6 +65,43 @@ const Clips = props => {
             sortResults={props.sortResults}
             routeProps={routeProps}
             rootUrl={rootUrl}
+            layoutConfig={props.layoutConfig}
+          />}
+      />
+      <Route
+        path={`${rootUrl}/${perspective.id}/faceted-search/map`}
+        render={() =>
+          <LeafletMap
+            mapBoxAccessToken={MAPBOX_ACCESS_TOKEN}
+            mapBoxStyle={MAPBOX_STYLE}
+            center={props.perspectiveState.maps.clipsPlaces.center}
+            zoom={props.perspectiveState.maps.clipsPlaces.zoom}
+            results={props.perspectiveState.results}
+            leafletMapState={props.leafletMapState}
+            pageType='facetResults'
+            facetUpdateID={props.facetState.facetUpdateID}
+            resultClass='clipsPlaces'
+            facetClass='clips'
+            mapMode='cluster'
+            showMapModeControl={false}
+            instance={props.perspectiveState.instanceTableData}
+            createPopUpContent={createPopUpContentVeterans}
+            popupMaxWidth={popupMaxWidth}
+            popupMaxHeight={popupMaxHeight}
+            fetchResults={props.fetchResults}
+            fetchGeoJSONLayers={props.fetchGeoJSONLayers}
+            clearGeoJSONLayers={props.clearGeoJSONLayers}
+            fetchByURI={props.fetchByURI}
+            fetching={props.perspectiveState.fetching}
+            showInstanceCountInClusters={false}
+            updateFacetOption={props.updateFacetOption}
+            updateMapBounds={props.updateMapBounds}
+            showError={props.showError}
+            showExternalLayers={false}
+            // customMapControl
+            layerControlExpanded={layerControlExpanded}
+            // layerConfigs={layerConfigs}
+            infoHeaderExpanded={props.perspectiveState.facetedSearchHeaderExpanded}
             layoutConfig={props.layoutConfig}
           />}
       />
