@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography'
 // import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton'
 import InfoIcon from '@material-ui/icons/InfoOutlined'
+import Tooltip from '@material-ui/core/Tooltip'
 import intl from 'react-intl-universal'
 
 const useStyles = makeStyles(theme => ({
@@ -137,9 +138,11 @@ const InfoHeader = props => {
               {props.pageType === 'instancePage' && intl.get(`perspectives.${props.resultClass}.instancePage.label`,
                 { type })}
             </Typography>
-            <IconButton aria-label='open instructions' className={classes.infoIconButton} onClick={handleExpandButtonOnClick}>
-              <InfoIcon className={classes.infoIcon} />
-            </IconButton>
+            <Tooltip title={intl.get('infoHeader.toggleInstructions')}>
+              <IconButton aria-label='toggle instructions' className={classes.infoIconButton} onClick={handleExpandButtonOnClick}>
+                <InfoIcon className={classes.infoIcon} />
+              </IconButton>
+            </Tooltip>
           </div>
           {props.pageType === 'instancePage' &&
             <Typography className={classes.label} component='h1' variant='h6'>{generateLabel()}</Typography>}
