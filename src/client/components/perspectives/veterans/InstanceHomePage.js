@@ -231,7 +231,7 @@ class InstanceHomePage extends React.Component {
                     pageType='instancePage'
                     resultClass='videoInstancePageMap'
                     facetClass='videos'
-                    mapMode='cluster'
+                    mapMode='marker'
                     uri={instanceTableData.id}
                     createPopUpContent={createPopUpContentVeterans}
                     fetchResults={this.props.fetchResults}
