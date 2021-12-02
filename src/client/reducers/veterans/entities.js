@@ -48,15 +48,15 @@ export const INITIAL_STATE = {
       numberedList: false,
       expandedOnInstancePage: true
     },
-    // {
-    //   id: 'source',
-    //   valueType: 'string',
-    //   makeLink: false,
-    //   externalLink: false,
-    //   sortValues: false,
-    //   numberedList: false,
-    //   expandedOnInstancePage: true
-    // },
+    {
+      id: 'source',
+      valueType: 'string',
+      makeLink: false,
+      externalLink: false,
+      sortValues: false,
+      numberedList: false,
+      expandedOnInstancePage: true
+    },
     {
       id: 'warsaPage',
       valueType: 'object',
