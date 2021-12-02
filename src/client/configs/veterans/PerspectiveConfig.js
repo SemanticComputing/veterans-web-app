@@ -68,7 +68,7 @@ export const perspectiveConfig = [
   {
     id: 'entities',
     frontPageImage: entitiesImage,
-    defaultActiveFacets: new Set(['freeText']),
+    defaultActiveFacets: new Set(['freeText', 'type']),
     defaultTab: 'table',
     defaultInstancePageTab: 'table',
     tabs: [

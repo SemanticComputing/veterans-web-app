@@ -329,7 +329,7 @@
         },
         "type": {
           "label": "Tyyppi",
-          "description": ""
+          "description": "Haettavan asian tyyppi."
         },
         "sameAs": {
           "label": "owl:sameAs",
