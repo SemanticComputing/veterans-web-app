@@ -222,13 +222,17 @@ export const videoPropertiesFacetResults = `
 `
 
 export const videoInstancePageMapQuery = `
-  SELECT *
+  SELECT 
+  ?id ?video ?prefLabel__id ?prefLabel__prefLabel ?dataProviderUrl ?markerColor
+  ?timeSlice__id ?timeSlice__prefLabel ?timeSlice__dataProviderUrl
+  (SAMPLE(?lat_) as ?lat)
+  (SAMPLE(?long_) as ?long)
   WHERE {
     VALUES ?video { <ID> }
     ?video :named_entity_location ?id .
     ?id skos:prefLabel ?prefLabel__id ;
-           wgs84:lat ?lat ;
-           wgs84:long ?long .
+           wgs84:lat ?lat_ ;
+           wgs84:long ?long_ .
     BIND(?prefLabel__id as ?prefLabel__prefLabel)      
     BIND(CONCAT("/entities/page/", REPLACE(STR(?id ), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
     BIND("red" AS ?markerColor)
@@ -246,6 +250,7 @@ export const videoInstancePageMapQuery = `
     BIND(xsd:integer(?beginTimeInSeconds_) as ?beginTimeInSeconds)
     BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?videoPageLinkHash)
     BIND(CONCAT(?videoPageLink, ?videoPageLinkHash) AS ?timeSlice__dataProviderUrl)
-
   }
+  GROUP BY ?id ?video ?prefLabel__id ?prefLabel__prefLabel ?dataProviderUrl ?markerColor
+  ?timeSlice__id ?timeSlice__prefLabel ?timeSlice__dataProviderUrl
 `

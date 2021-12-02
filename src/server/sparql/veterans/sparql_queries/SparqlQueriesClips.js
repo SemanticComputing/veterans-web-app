@@ -48,14 +48,18 @@ export const clipPropertiesFacetResults = `
 `
 
 export const clipsPlacesQuery = `
-  SELECT DISTINCT ?id ?lat ?long
+  SELECT DISTINCT ?id 
+  (SAMPLE(?lat_) as ?lat)
+  (SAMPLE(?long_) as ?long)
+  (COUNT(DISTINCT ?timeSlice__id) as ?instanceCount)
   WHERE {
     <FILTER>
-    ?timeSlice__id :named_entity_location ?id .
-    ?id wgs84:lat ?lat ;
-        wgs84:long ?long .
-          
+    ?timeSlice__id :named_entity_location ?id ;
+                    a :TimeSlice .
+    ?id wgs84:lat ?lat_ ;
+        wgs84:long ?long_ .
   }
+  GROUP BY ?id ?lat ?long
 `
 
 export const mentionedPlaces = `

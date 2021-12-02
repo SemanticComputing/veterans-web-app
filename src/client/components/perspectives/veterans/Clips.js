@@ -93,7 +93,7 @@ const Clips = props => {
             clearGeoJSONLayers={props.clearGeoJSONLayers}
             fetchByURI={props.fetchByURI}
             fetching={props.perspectiveState.fetching}
-            showInstanceCountInClusters={false}
+            showInstanceCountInClusters
             updateFacetOption={props.updateFacetOption}
             updateMapBounds={props.updateMapBounds}
             showError={props.showError}
