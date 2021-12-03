@@ -70,7 +70,7 @@ const getURLs = async resultClasses => {
 
   // Add portal's main level URLs to sitemap
   sitemapStream.write(createSitemapEntry({ path: null }))
-  sitemapStream.write(createSitemapEntry({ path: '/clips/faceted-search/table' })) // no instance pages for clips
+  sitemapStream.write(createSitemapEntry({ path: 'clips/faceted-search/table' })) // no instance pages for clips
   // sitemapStream.write(createSitemapEntry({ path: 'instructions' }))
   // sitemapStream.write(createSitemapEntry({ path: 'feedback' }))
 
