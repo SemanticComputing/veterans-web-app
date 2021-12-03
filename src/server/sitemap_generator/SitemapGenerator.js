@@ -3,6 +3,7 @@ import { createWriteStream } from 'fs'
 import { resolve } from 'path'
 import { createGzip } from 'zlib'
 import { has } from 'lodash'
+import 'dotenv/config'
 import {
   SitemapAndIndexStream,
   SitemapStream
@@ -14,29 +15,27 @@ const { sitemapConfig } = backendSearchConfig
 const resultClasses = [] // gather portal specific configs for sitemap here
 
 for (let [resultClass, config] of Object.entries(backendSearchConfig)) {
-  // console.log(resultClass)
-  // console.log(config.endpoint)
   if (config.includeInSitemap) {
     let rdfType
     let hasSearchPerspective
     const instancePageDefaultTab = config.instance.defaultTab || 'table'
-    if (!has(config, 'facetClass')) {
-      rdfType = config.rdfType
+    if (!has(config, 'endpoint')) {
       config = backendSearchConfig[config.perspectiveID]
-      hasSearchPerspective = false
-    } else {
-      rdfType = config.facetClass
+    }
+    if (has(config, 'facetClass')) {
       hasSearchPerspective = true
+      rdfType = config.facetClass
+    } else {
+      hasSearchPerspective = false
+      rdfType = config.rdfType
     }
-    if (config !== undefined) {
-      resultClasses.push({
-        endpoint: config.endpoint,
-        perspectiveID: resultClass,
-        hasSearchPerspective,
-        rdfType,
-        instancePageDefaultTab
-      })
-    }
+    resultClasses.push({
+      endpoint: config.endpoint,
+      perspectiveID: resultClass,
+      hasSearchPerspective,
+      rdfType,
+      instancePageDefaultTab
+    })
   }
 }
 
@@ -55,7 +54,7 @@ const getURLs = async resultClasses => {
     // for it to write the sitemap urls to and the expected url where that sitemap will be hosted
     getSitemapStream: index => {
       const sitemapStream = new SitemapStream({ hostname: sitemapConfig.baseUrl })
-      const fileName = `sitemap-${index}.xml`
+      const fileName = `sitemap-${index}.xml.gz`
 
       sitemapStream
         .pipe(createGzip()) // compress the output
@@ -71,9 +70,9 @@ const getURLs = async resultClasses => {
 
   // Add portal's main level URLs to sitemap
   sitemapStream.write(createSitemapEntry({ path: null }))
-  sitemapStream.write(createSitemapEntry({ path: 'about' }))
-  sitemapStream.write(createSitemapEntry({ path: 'instructions' }))
-  sitemapStream.write(createSitemapEntry({ path: 'feedback' }))
+  sitemapStream.write(createSitemapEntry({ path: '/clips/faceted-search/table' })) // no instance pages for clips
+  // sitemapStream.write(createSitemapEntry({ path: 'instructions' }))
+  // sitemapStream.write(createSitemapEntry({ path: 'feedback' }))
 
   // Then process each resultClass
   for (const resultClass of resultClasses) {
@@ -95,7 +94,6 @@ const queryInstancePageURLs = config => {
   let q = sitemapConfig.sitemapInstancePageQuery.replace('<RESULT_CLASS>', config.rdfType)
   q = q.replace('<PERSPECTIVE>', config.perspectiveID)
   q = q.replace('<DEFAULT_TAB>', config.instancePageDefaultTab)
-  console.log(endpoint.useAuth)
   return runSelectQuery({
     query: endpoint.prefixes + q,
     endpoint: endpoint.url,
@@ -108,11 +106,11 @@ const queryInstancePageURLs = config => {
 const createSitemapEntry = ({ path }) => {
   path = path ? `/${path}` : '' // do not add trailing slash
   const entry = {
-    url: `${sitemapConfig.baseUrl}/${sitemapConfig.langPrimary}${path}`,
-    links: [
-      { lang: sitemapConfig.langPrimary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langPrimary}${path}` }
-      // { lang: sitemapConfig.langSecondary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langSecondary}${path}` }
-    ]
+    url: `${sitemapConfig.baseUrl}/${sitemapConfig.langPrimary}${path}`
+    // links: [
+    //   { lang: sitemapConfig.langPrimary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langPrimary}${path}` }
+    //   { lang: sitemapConfig.langSecondary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langSecondary}${path}` }
+    // ]
   }
   return entry
 }

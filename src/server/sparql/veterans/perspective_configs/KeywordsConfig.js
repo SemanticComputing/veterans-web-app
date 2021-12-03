@@ -10,6 +10,7 @@ export const keywordsConfig = {
     prefixes,
     useAuth: true
   },
+  rdfType: 'skos:Concept', // rdfType used only in SitemapGenerator.js
   includeInSitemap: true,
   instance: {
     properties: keywordPropertiesInstancePage,

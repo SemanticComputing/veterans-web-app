@@ -118,5 +118,4 @@ export const sitemapInstancePageQuery = `
     ?uri a ?resultClass .
     BIND(CONCAT("<PERSPECTIVE>/page/", REPLACE(STR(?uri), "^.*\\\\/(.+)", "$1"), "/<DEFAULT_TAB>") AS ?path)
   }
-  LIMIT 5
 `

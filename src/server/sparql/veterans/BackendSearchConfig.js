@@ -28,9 +28,9 @@ export const backendSearchConfig = {
   sitemapConfig: {
     baseUrl: 'https://sotamuistot.arkisto.fi',
     langPrimary: 'fi',
-    // langSecondary: 'fi',
-    outputDir: './src/server/sitemap_generator/output',
-    sitemapUrl: 'https://sotamuistot.arkisto.fi',
+    // langSecondary: 'en',
+    outputDir: './src/server/sitemap_generator/sitemap_output',
+    sitemapUrl: 'https://sotamuistot.arkisto.fi/sitemap',
     sitemapInstancePageQuery
   },
   videoInstancePageMap: {
