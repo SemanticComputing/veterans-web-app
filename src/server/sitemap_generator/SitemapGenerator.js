@@ -1,4 +1,4 @@
-import { backendSearchConfig } from '../sparql/sampo/BackendSearchConfig'
+import { backendSearchConfig } from '../sparql/veterans/BackendSearchConfig'
 import { createWriteStream } from 'fs'
 import { resolve } from 'path'
 import { createGzip } from 'zlib'
@@ -14,6 +14,8 @@ const { sitemapConfig } = backendSearchConfig
 const resultClasses = [] // gather portal specific configs for sitemap here
 
 for (let [resultClass, config] of Object.entries(backendSearchConfig)) {
+  // console.log(resultClass)
+  // console.log(config.endpoint)
   if (config.includeInSitemap) {
     let rdfType
     let hasSearchPerspective
@@ -26,13 +28,15 @@ for (let [resultClass, config] of Object.entries(backendSearchConfig)) {
       rdfType = config.facetClass
       hasSearchPerspective = true
     }
-    resultClasses.push({
-      endpoint: config.endpoint,
-      perspectiveID: resultClass,
-      hasSearchPerspective,
-      rdfType,
-      instancePageDefaultTab
-    })
+    if (config !== undefined) {
+      resultClasses.push({
+        endpoint: config.endpoint,
+        perspectiveID: resultClass,
+        hasSearchPerspective,
+        rdfType,
+        instancePageDefaultTab
+      })
+    }
   }
 }
 
@@ -51,7 +55,7 @@ const getURLs = async resultClasses => {
     // for it to write the sitemap urls to and the expected url where that sitemap will be hosted
     getSitemapStream: index => {
       const sitemapStream = new SitemapStream({ hostname: sitemapConfig.baseUrl })
-      const fileName = `sitemap-${index}.xml.gz`
+      const fileName = `sitemap-${index}.xml`
 
       sitemapStream
         .pipe(createGzip()) // compress the output
@@ -91,6 +95,7 @@ const queryInstancePageURLs = config => {
   let q = sitemapConfig.sitemapInstancePageQuery.replace('<RESULT_CLASS>', config.rdfType)
   q = q.replace('<PERSPECTIVE>', config.perspectiveID)
   q = q.replace('<DEFAULT_TAB>', config.instancePageDefaultTab)
+  console.log(endpoint.useAuth)
   return runSelectQuery({
     query: endpoint.prefixes + q,
     endpoint: endpoint.url,
@@ -105,8 +110,8 @@ const createSitemapEntry = ({ path }) => {
   const entry = {
     url: `${sitemapConfig.baseUrl}/${sitemapConfig.langPrimary}${path}`,
     links: [
-      { lang: sitemapConfig.langPrimary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langPrimary}${path}` },
-      { lang: sitemapConfig.langSecondary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langSecondary}${path}` }
+      { lang: sitemapConfig.langPrimary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langPrimary}${path}` }
+      // { lang: sitemapConfig.langSecondary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langSecondary}${path}` }
     ]
   }
   return entry

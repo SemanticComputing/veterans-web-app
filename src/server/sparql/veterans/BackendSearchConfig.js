@@ -11,7 +11,7 @@ import {
   mentionedPlaces
 } from './sparql_queries/SparqlQueriesClips'
 import { sitemapInstancePageQuery } from '../SparqlQueriesGeneral'
-import { fullTextSearchProperties } from './sparql_queries/SparqlQueriesFullText'
+// import { fullTextSearchProperties } from './sparql_queries/SparqlQueriesFullText'
 import { makeObjectList } from '../SparqlObjectMapper'
 import {
   mapPlaces
@@ -25,16 +25,12 @@ export const backendSearchConfig = {
   clips: clipsConfig,
   entities: entitiesConfig,
   keywords: keywordsConfig,
-  jenaText: {
-    perspectiveID: 'perspective1',
-    properties: fullTextSearchProperties
-  },
   sitemapConfig: {
-    baseUrl: 'https://sampo-ui.demo.seco.cs.aalto.fi',
-    langPrimary: 'en',
-    langSecondary: 'fi',
-    outputDir: './src/server/sitemap_generator',
-    sitemapUrl: 'https://sampo-ui.demo.seco.cs.aalto.fi/sitemap',
+    baseUrl: 'https://sotamuistot.arkisto.fi',
+    langPrimary: 'fi',
+    // langSecondary: 'fi',
+    outputDir: './src/server/sitemap_generator/output',
+    sitemapUrl: 'https://sotamuistot.arkisto.fi',
     sitemapInstancePageQuery
   },
   videoInstancePageMap: {

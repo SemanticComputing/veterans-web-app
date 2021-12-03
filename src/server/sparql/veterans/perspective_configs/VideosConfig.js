@@ -20,7 +20,7 @@ export const videosConfig = {
   instance: {
     properties: videoPropertiesInstancePage,
     relatedInstances: '',
-    defaultTab: 'table',
+    defaultTab: 'video',
     postprocess: {
       func: createPaddedTimeCodes,
       config: {

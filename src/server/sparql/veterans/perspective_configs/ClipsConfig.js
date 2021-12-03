@@ -13,7 +13,7 @@ export const clipsConfig = {
     useAuth: true
   },
   facetClass: ':TimeSlice',
-  includeInSitemap: true,
+  includeInSitemap: false,
   paginatedResults: {
     properties: clipPropertiesFacetResults,
     postprocess: {
