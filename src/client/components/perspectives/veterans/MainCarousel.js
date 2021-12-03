@@ -7,7 +7,7 @@ import aittoOja from '../../../img/main_page/veterans/compressed/carousel/01-ait
 import eskola from '../../../img/main_page/veterans/compressed/carousel/02-eskola.jpg'
 import sainio from '../../../img/main_page/veterans/compressed/carousel/03-sainio.jpg'
 import paarma from '../../../img/main_page/veterans/compressed/carousel/04-paarma.jpg'
-import kokkila from '../../../img/main_page/veterans/compressed/carousel/05-kokkila.jpg'
+// import kokkila from '../../../img/main_page/veterans/compressed/carousel/05-kokkila.jpg'
 import kotiranta from '../../../img/main_page/veterans/compressed/carousel/06-kotiranta.jpg'
 import luntamo from '../../../img/main_page/veterans/compressed/carousel/07-luntamo.jpg'
 import pasanen from '../../../img/main_page/veterans/compressed/carousel/08-pasanen.jpg'
@@ -71,16 +71,15 @@ const MainCarousel = props => {
       seconds: 15
 
     },
-    {
-      src: kokkila,
-      alt: 'alt',
-      caption: '"Ensimmäiset kosketukset viholliseen tuli vasta siellä Ukrainan aroilla."',
-      localID: 'iVT0070',
-      hours: 0,
-      minutes: 19,
-      seconds: 16
-
-    },
+    // {
+    //   src: kokkila,
+    //   alt: 'alt',
+    //   caption: '"Ensimmäiset kosketukset viholliseen tuli vasta siellä Ukrainan aroilla."',
+    //   localID: 'iVT0070',
+    //   hours: 0,
+    //   minutes: 19,
+    //   seconds: 16
+    // },
     {
       src: kotiranta,
       alt: 'alt',
