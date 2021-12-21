@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import { Typography } from '@material-ui/core'
-import InstanceHomePageTable from '../../main_layout/InstanceHomePageTable'
+import InstancePageTable from './InstancePageTable'
 import Player from './Player'
 import VideoTableOfContents from './VideoTableOfContents'
 import { has } from 'lodash'
@@ -87,10 +87,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const ContextualContent = props => {
+const VideoPage = props => {
   const classes = useStyles(props)
   const { instanceTableData } = props.perspectiveState
-  const { localID, resultClass, screenSize, layoutConfig } = props
+  const { portalConfig, perspectiveConfig, localID, resultClass, screenSize, layoutConfig } = props
   let { properties } = props
 
   const readyToRenderVideoPlayer = () => {
@@ -117,7 +117,9 @@ const ContextualContent = props => {
               />}
           </Paper>
           <Paper className={classes.tableContainer}>
-            <InstanceHomePageTable
+            <InstancePageTable
+              portalConfig={portalConfig}
+              perspectiveConfig={perspectiveConfig}
               resultClass={resultClass}
               data={instanceTableData}
               properties={properties}
@@ -145,4 +147,4 @@ const ContextualContent = props => {
   )
 }
 
-export default ContextualContent
+export default VideoPage

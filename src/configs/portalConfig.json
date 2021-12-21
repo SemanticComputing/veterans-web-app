@@ -1,33 +1,16 @@
 {
-    "portalID": "sampo",
+    "portalID": "veterans",
     "rootUrl": "",
     "perspectives": {
         "searchPerspectives": [
-            "perspective1",
-            "perspective2",
-            "perspective3",
-            "perspective4",
-            "fullTextSearch"
+            "videos"
         ],
-        "onlyInstancePages": [
-            "manuscripts",
-            "collections",
-            "works",
-            "expressions",
-            "events",
-            "actors",
-            "places"
-        ]
+        "onlyInstancePages": []
     },
     "localeConfig": {
-        "defaultLocale": "en",
+        "defaultLocale": "fi",
         "readTranslationsFromGoogleSheets": "false",
         "availableLocales": [
-            {
-                "id": "en",
-                "label": "English",
-                "filename": "localeEN.json"
-            },
             {
                 "id": "fi",
                 "label": "English",
@@ -36,53 +19,47 @@
         ]
     },
     "sitemapConfig": {
-        "baseUrl": "https://sampo-ui.demo.seco.cs.aalto.fi",
-        "langPrimary": "en",
-        "langSecondary": "fi",
-        "outputDir": "./src/server/sitemap_generator",
-        "sitemapUrl": "https://sampo-ui.demo.seco.cs.aalto.fi/sitemap",
+        "baseUrl": "https://sotamuistot.arkisto.fi",
+        "langPrimary": "fi",
+        "outputDir": "./src/server/sitemap_generator/sitemap_output",
+        "sitemapUrl": "https://sotamuistot.arkisto.fi/sitemap",
         "sitemapInstancePageQuery": "sitemapInstancePageQuery"
     },
     "layoutConfig": {
         "colorPalette": {
             "primary": {
-                "main": "#212121"
+                "main": "#4a535c"
             },
             "secondary": {
                 "main": "#EB1806"
             }
         },
         "hundredPercentHeightBreakPoint": "md",
-        "reducedHeightBreakpoint": "xl",
+        "reducedHeightBreakpoint": 1921,
         "tabHeight": 58,
         "paginationToolbarHeight": 37,
         "tableFontSize": "0.8rem",
         "topBar": {
-            "showLanguageButton": true,
-            "feedbackLink": "https://link.webropolsurveys.com/...",
+            "showLanguageButton": false,
+            "feedbackLink": "https://link.webropolsurveys.com/S/8A35A1E8FACF425D",
             "reducedHeight": 44,
             "defaultHeight": 64,
-            "mobileMenuBreakpoint": 1360,
+            "mobileMenuBreakpoint": 990,
             "infoDropdown": [
                 {
                     "id": "about",
-                    "translatedText": "aboutThePortal",
-                    "internalLink": "/about"
-                },
-                {
-                    "id": "blog",
                     "externalLink": true,
-                    "translatedUrl": "blogUrl",
-                    "translatedText": "blog"
+                    "translatedUrl": "aboutThePortalUrl",
+                    "translatedText": "aboutThePortal"
                 }
             ]
         },
         "mainPage": {
-            "bannerImage": "main_page/mmm-banner.jpg",
-            "bannerBackround": "linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45) ), url(<BANNER_IMAGE_URL)",
+            "bannerImage": "main_page/veterans/compressed/sa-kuva-165772.jpg",
+            "bannerBackround": "linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ), url(<BANNER_IMAGE_URL)",
             "bannerMobileHeight": 150,
-            "bannerReducedHeight": 220,
-            "bannerDefaultHeight": 300
+            "bannerReducedHeight": 270,
+            "bannerDefaultHeight": 350
         },
         "infoHeader": {
             "default": {
@@ -99,8 +76,8 @@
             }
         },
         "footer": {
-            "reducedHeight": 44,
-            "defaultHeight": 64
+            "reducedHeight": 80,
+            "defaultHeight": 100
         }
     },
     "mapboxConfig": {
@@ -111,7 +88,7 @@
         "yasguiParams": {
             "contentTypeConstruct": "text/turtle",
             "contentTypeSelect": "application/sparql-results+json",
-            "endpoint": "https://ldf.fi/mmm/sparql",
+            "endpoint": "https://ldf.fi/warmemoirsampo/sparql",
             "requestMethod": "POST",
             "tabTitle": "Exported query"
         }

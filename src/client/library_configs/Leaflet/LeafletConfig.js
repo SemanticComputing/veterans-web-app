@@ -27,6 +27,34 @@ export const createPopUpContentDefault = ({ data, resultClass }) => {
   return container
 }
 
+export const createPopUpContentVeterans = ({ data }) => {
+  const container = document.createElement('div')
+
+  if (has(data, 'image')) {
+    let { image } = data
+    if (Array.isArray(image)) {
+      image = image[0]
+    }
+    const imageElement = document.createElement('img')
+    imageElement.className = 'leaflet-popup-content-image'
+    imageElement.setAttribute('src', image.url)
+    container.appendChild(imageElement)
+  }
+  const heading = document.createElement('h3')
+  const headingLink = document.createElement('a')
+  headingLink.style.cssText = 'cursor: pointer; text-decoration: underline'
+  headingLink.textContent = data.prefLabel.prefLabel
+  headingLink.addEventListener('click', () => history.push(data.dataProviderUrl))
+  heading.appendChild(headingLink)
+  container.appendChild(heading)
+  const subheading = document.createElement('p')
+  subheading.textContent = 'Haastattelun kohta, jossa tämä paikka on mainittu:'
+  container.appendChild(subheading)
+  const instanceListing = createInstanceListing(data.timeSlice)
+  container.appendChild(instanceListing)
+  return container
+}
+
 export const createPopUpContentMMM = ({ data, resultClass }) => {
   if (Array.isArray(data.prefLabel)) {
     data.prefLabel = data.prefLabel[0]

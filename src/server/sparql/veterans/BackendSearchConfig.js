@@ -2,18 +2,9 @@ import { videosConfig } from './perspective_configs/VideosConfig'
 import { clipsConfig } from './perspective_configs/ClipsConfig'
 import { entitiesConfig } from './perspective_configs/EntitiesConfig'
 import { keywordsConfig } from './perspective_configs/KeywordsConfig'
-import {
-  videoInstancePageMapQuery
-} from './sparql_queries/SparqlQueriesVideos'
-import {
-  clipsPlacesQuery,
-  placeProperties,
-  mentionedPlaces
-} from './sparql_queries/SparqlQueriesClips'
-import { sitemapInstancePageQuery } from '../SparqlQueriesGeneral'
 // import { fullTextSearchProperties } from './sparql_queries/SparqlQueriesFullText'
-import { makeObjectList } from '../SparqlObjectMapper'
 import {
+  makeObjectList,
   mapPlaces
   // mapLineChart,
   // mapMultipleLineChart,
@@ -25,27 +16,19 @@ export const backendSearchConfig = {
   clips: clipsConfig,
   entities: entitiesConfig,
   keywords: keywordsConfig,
-  sitemapConfig: {
-    baseUrl: 'https://sotamuistot.arkisto.fi',
-    langPrimary: 'fi',
-    // langSecondary: 'en',
-    outputDir: './src/server/sitemap_generator/sitemap_output',
-    sitemapUrl: 'https://sotamuistot.arkisto.fi/sitemap',
-    sitemapInstancePageQuery
-  },
   videoInstancePageMap: {
     perspectiveID: 'videos',
-    q: videoInstancePageMapQuery,
+    q: 'videoInstancePageMapQuery',
     resultMapper: makeObjectList
   },
   clipsPlaces: {
-    perspectiveID: 'clips', // use endpoint config from finds
-    q: clipsPlacesQuery,
+    perspectiveID: 'clips',
+    q: 'clipsPlacesQuery',
     filterTarget: 'timeSlice__id',
     resultMapper: mapPlaces,
     instance: {
-      properties: placeProperties,
-      relatedInstances: mentionedPlaces
+      properties: 'placeProperties',
+      relatedInstances: 'mentionedPlaces'
     }
   }
 }
