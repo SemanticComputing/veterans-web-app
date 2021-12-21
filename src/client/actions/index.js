@@ -74,6 +74,7 @@ export const fetchPaginatedResultsFailed = (resultClass, error, message) => ({
   message
 })
 export const fetchResults = ({
+  perspectiveID,
   resultClass,
   facetClass,
   uri = null,
@@ -82,6 +83,7 @@ export const fetchResults = ({
   reason = null
 }) => ({
   type: FETCH_RESULTS,
+  perspectiveID,
   resultClass,
   facetClass,
   uri,
@@ -175,8 +177,9 @@ export const updateRowsPerPage = (resultClass, rowsPerPage) => ({
   resultClass,
   rowsPerPage
 })
-export const fetchByURI = ({ resultClass, facetClass, uri }) => ({
+export const fetchByURI = ({ perspectiveID, resultClass, facetClass, uri }) => ({
   type: FETCH_BY_URI,
+  perspectiveID,
   resultClass,
   facetClass,
   uri
@@ -361,8 +364,9 @@ export const clientFSToggleDataset = dataset => ({
   dataset
 })
 
-export const clientFSFetchResults = ({ jenaIndex, query }) => ({
+export const clientFSFetchResults = ({ perspectiveID, jenaIndex, query }) => ({
   type: CLIENT_FS_FETCH_RESULTS,
+  perspectiveID,
   jenaIndex,
   query
 })
@@ -388,8 +392,9 @@ export const clientFSSortResults = options => ({
   type: CLIENT_FS_SORT_RESULTS,
   options
 })
-export const fetchKnowledgeGraphMetadata = ({ resultClass }) => ({
+export const fetchKnowledgeGraphMetadata = ({ perspectiveID, resultClass }) => ({
   type: FETCH_KNOWLEDGE_GRAPH_METADATA,
+  perspectiveID,
   resultClass
 })
 export const fetchKnowledgeGraphMetadataFailded = (resultClass, error, message) => ({
