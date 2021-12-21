@@ -4,12 +4,13 @@ import { has } from 'lodash'
 // import { backendSearchConfig as oldBackendSearchConfig } from './veterans/BackendSearchConfig'
 
 // import { videosConfig } from './veterans/perspective_configs/VideosConfig'
-// import { typesPerspectiveConfig } from './perspective_configs/TypesPerspectiveConfig'
-// import { periodsPerspectiveConfig } from './perspective_configs/PeriodsPerspectiveConfig'
+// import { clipsConfig } from './veterans/perspective_configs/ClipsConfig'
+// import { entitiesConfig } from './veterans/perspective_configs/EntitiesConfig'
 // import { coinsPerspectiveConfig } from './perspective_configs/CoinsPerspectiveConfig'
 
 // import { INITIAL_STATE } from '../../client/reducers/veterans/videosFacets'
-// import { INITIAL_STATE } from '../../client/reducers/findsampo/finds'
+// import { INITIAL_STATE } from '../../client/reducers/veterans/clipsFacets'
+// import { INITIAL_STATE } from '../../client/reducers/veterans/entitiesFacets'
 
 export const createBackendSearchConfig = async () => {
   const portalConfigJSON = await readFile('src/configs/portalConfig.json')
@@ -33,20 +34,25 @@ export const createBackendSearchConfig = async () => {
       // handle default resultClass which is same as perspectiveID
       const { paginatedResultsConfig, instanceConfig } = perspectiveConfig.resultClasses[perspectiveID]
       const paginatedResultsPropertiesQueryBlockID = paginatedResultsConfig.propertiesQueryBlock
-      const instancePagePropertiesQueryBlockID = instanceConfig.propertiesQueryBlock
       const paginatedResultsPropertiesQueryBlock = sparqlQueries[paginatedResultsPropertiesQueryBlockID]
-      const instancePagePropertiesQueryBlock = sparqlQueries[instancePagePropertiesQueryBlockID]
       paginatedResultsConfig.propertiesQueryBlock = paginatedResultsPropertiesQueryBlock
-      instanceConfig.propertiesQueryBlock = instancePagePropertiesQueryBlock
-      if (instanceConfig.postprocess) {
-        instanceConfig.postprocess.func = resultMappers[instanceConfig.postprocess.func]
+      if (paginatedResultsConfig.postprocess) {
+        paginatedResultsConfig.postprocess.func = resultMappers[paginatedResultsConfig.postprocess.func]
       }
-      if (has(instanceConfig, 'instancePageResultClasses')) {
-        for (const instancePageResultClass in instanceConfig.instancePageResultClasses) {
-          const instancePageResultClassConfig = instanceConfig.instancePageResultClasses[instancePageResultClass]
-          processResultClassConfig(instancePageResultClassConfig, sparqlQueries, resultMappers)
+      if (instanceConfig) {
+        const instancePagePropertiesQueryBlockID = instanceConfig.propertiesQueryBlock
+        const instancePagePropertiesQueryBlock = sparqlQueries[instancePagePropertiesQueryBlockID]
+        instanceConfig.propertiesQueryBlock = instancePagePropertiesQueryBlock
+        if (instanceConfig.postprocess) {
+          instanceConfig.postprocess.func = resultMappers[instanceConfig.postprocess.func]
         }
-        hasInstancePageResultClasses = true
+        if (has(instanceConfig, 'instancePageResultClasses')) {
+          for (const instancePageResultClass in instanceConfig.instancePageResultClasses) {
+            const instancePageResultClassConfig = instanceConfig.instancePageResultClasses[instancePageResultClass]
+            processResultClassConfig(instancePageResultClassConfig, sparqlQueries, resultMappers)
+          }
+          hasInstancePageResultClasses = true
+        }
       }
       // handle other resultClasses
       for (const resultClass in perspectiveConfig.resultClasses) {
@@ -83,7 +89,6 @@ export const createBackendSearchConfig = async () => {
     const instancePagePropertiesQueryBlockID = instanceConfig.propertiesQueryBlock
     const instancePagePropertiesQueryBlock = sparqlQueries[instancePagePropertiesQueryBlockID]
     instanceConfig.propertiesQueryBlock = instancePagePropertiesQueryBlock
-    console.log(instanceConfig)
     if (instanceConfig.postprocess) {
       instanceConfig.postprocess.func = resultMappers[instanceConfig.postprocess.func]
     }
@@ -91,12 +96,7 @@ export const createBackendSearchConfig = async () => {
     if (has(instanceConfig, 'instancePageResultClasses')) {
       for (const instancePageResultClass in instanceConfig.instancePageResultClasses) {
         const instancePageResultClassConfig = instanceConfig.instancePageResultClasses[instancePageResultClass]
-        if (instancePageResultClassConfig.sparqlQuery) {
-          instancePageResultClassConfig.sparqlQuery = sparqlQueries[instancePageResultClassConfig.sparqlQuery]
-        }
-        if (instancePageResultClassConfig.sparqlQueryNodes) {
-          instancePageResultClassConfig.sparqlQueryNodes = sparqlQueries[instancePageResultClassConfig.sparqlQueryNodes]
-        }
+        processResultClassConfig(instancePageResultClassConfig, sparqlQueries, resultMappers)
       }
       hasInstancePageResultClasses = true
     }
@@ -328,7 +328,7 @@ export const createExtraResultClassesForJSONConfig = async oldBackendSearchConfi
 
 // createExtraResultClassesForJSONConfig(oldBackendSearchConfig)
 
-// mergeFacetConfigs(INITIAL_STATE.facets, videosConfig.facets)
+// mergeFacetConfigs(INITIAL_STATE.facets, entitiesConfig.facets)
 
 // console.log(JSON.stringify(INITIAL_STATE.properties))
 

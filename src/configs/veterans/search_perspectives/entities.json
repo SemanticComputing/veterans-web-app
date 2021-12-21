@@ -1,0 +1,133 @@
+{
+    "id": "entities",
+    "endpoint": {
+        "url": "https://ldf.fi/warmemoirsampo/sparql",
+        "useAuth": true,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesEntities.js",
+    "baseURI": "http://ldf.fi/warmemoirsampo",
+    "URITemplate": "<BASE_URI>/entities/<LOCAL_ID>",
+    "facetClass": ":NamedEvent :NamedLocation :NamedOrganization :NamedPerson :NamedProduct :NamedUnit",
+    "langTag": "fi",
+    "frontPageImage": "main_page/veterans/lotta.jpg",
+    "searchMode": "faceted-search",
+    "defaultActiveFacets": [
+        "freeText",
+        "type"
+    ],
+    "defaultTab": "table",
+    "defaultInstancePageTab": "table",
+    "resultClasses": {
+        "entities": {
+            "paginatedResultsConfig": {
+                "tabID": 0,
+                "component": "ResultTable",
+                "tabPath": "table",
+                "tabIcon": "CalendarViewDay",
+                "propertiesQueryBlock": "entityPropertiesFacetResults",
+                "pagesize": 100,
+                "sortBy": "prefLabel",
+                "sortDirection": "asc"
+            },
+            "instanceConfig": {
+                "propertiesQueryBlock": "entityPropertiesInstancePage",
+                "instancePageResultClasses": {
+                    "instancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    }
+                }
+            }
+        }
+    },
+    "maps": {
+        "videoInstancePageMap": {
+            "center": [
+                65.184809,
+                27.314050
+            ],
+            "zoom": 5
+        }
+    },
+    "properties": [
+        {
+            "id": "prefLabel",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "height": 33
+        },
+        {
+            "id": "type",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false
+        },
+        {
+            "id": "timeSlice",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "expandedOnInstancePage": true
+        },
+        {
+            "id": "warsaPage",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "wikipedia",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "uri",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        }
+    ],
+    "facets": {
+        "prefLabel": {
+            "sortByPredicate": "skos:prefLabel"
+        },
+        "freeText": {
+            "containerClass": "one",
+            "facetType": "text",
+            "filterType": "textFilter",
+            "sortByPredicate": "skos:prefLabel",
+            "textQueryProperty": "wmsl:label :full_text :full_text_lemmatized"
+        },
+        "type": {
+            "containerClass": "six",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = \"<LANG>\")",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "a",
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "a/skos:prefLabel",
+            "sortDirection": "desc"
+        }
+    }
+}

@@ -1,91 +1,64 @@
 {
-    "id": "videos",
+    "id": "clips",
     "endpoint": {
         "url": "https://ldf.fi/warmemoirsampo/sparql",
         "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
-    "sparqlQueriesFile": "SparqlQueriesVideos.js",
-    "baseURI": "http://ldf.fi/warmemoirsampo",
-    "URITemplate": "<BASE_URI>/<LOCAL_ID>",
-    "facetClass": ":Interview",
-    "langTag": "fi",
-    "frontPageImage": "main_page/veterans/filming.jpg",
+    "sparqlQueriesFile": "SparqlQueriesClips.js",
+    "facetClass": ":TimeSlice",
+    "frontPageImage": "main_page/veterans/bofors.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
-        "freeText"
+        "freeTex"
     ],
     "defaultTab": "table",
-    "defaultInstancePageTab": "video",
+    "defaultInstancePageTab": "table",
+    "includeInSitemap": true,
     "resultClasses": {
-        "videos": {
+        "clips": {
             "paginatedResultsConfig": {
                 "tabID": 0,
                 "component": "ResultTable",
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
-                "propertiesQueryBlock": "videoPropertiesFacetResults",
-                "pagesize": 25,
+                "propertiesQueryBlock": "clipPropertiesFacetResults",
                 "paginatedResultsAlwaysExpandRows": true,
                 "paginatedResultsRowContentMaxHeight": 130,
-                "sortBy": "prefLabel",
+                "pagesize": 25,
+                "sortBy": "mentionedUnit",
                 "sortDirection": "asc"
-            },
+            }
+        },
+        "clipsPlaces": {
+            "tabID": 1,
+            "component": "LeafletMap",
+            "tabPath": "map",
+            "tabIcon": "LocationOn",
+            "sparqlQuery": "clipsPlacesQuery",
+            "facetClass": "clips",
+            "filterTarget": "timeSlice__id",
+            "resultMapper": "mapPlaces",
             "instanceConfig": {
-                "propertiesQueryBlock": "videoPropertiesInstancePage",
-                "postprocess": {
-                    "func": "createPaddedTimeCodes",
-                    "config": {
-                        "target": "timeSlice",
-                        "timeCodeProperty": "beginTimeLabel"
-                    }
-                },
-                "instancePageResultClasses": {
-                    "videoInstancePageVideo": {
-                        "tabID": 0,
-                        "tabPath": "video",
-                        "tabIcon": "OndemandVideo",
-                        "component": "VideoPage"
-                    },
-                    "videoInstancePageMap": {
-                        "tabID": 1,
-                        "tabPath": "map",
-                        "tabIcon": "LocationOn",
-                        "component": "LeafletMap",
-                        "pageType": "instancePage",
-                        "mapMode": "marker",
-                        "showInstanceCountInClusters": false,
-                        "sparqlQuery": "videoInstancePageMapQuery",
-                        "resultMapper": "makeObjectList",
-                        "instanceConfig": {
-                            "createPopUpContent": "createPopUpContentVeterans"
-                        }
-                    },
-                    "videoInstancePageWordCloud": {
-                        "tabID": 2,
-                        "tabPath": "word_cloud",
-                        "tabIcon": "CloudDownload",
-                        "component": "WordCloud",
-                        "wordCloudProperty": "keyword"
-                    }
-                }
+                "propertiesQueryBlock": "placeProperties",
+                "createPopUpContent": "createPopUpContentVeterans",
+                "relatedInstances": "placeTimeSlices"
             }
         }
     },
     "maps": {
-        "videoInstancePageMap": {
+        "clipsPlaces": {
             "center": [
-                65.184809,
-                27.314050
+                22.43,
+                10.37
             ],
-            "zoom": 5
+            "zoom": 2
         }
     },
     "properties": [
         {
             "id": "youTubeThumbnail",
             "valueType": "image",
-            "onlyForClass": "x",
             "previewImageHeight": 125,
             "makeLink": true,
             "externalLink": true,
@@ -100,66 +73,16 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 140
+            "minWidth": 190
         },
         {
-            "id": "yearOfBirth",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 140,
-            "onlyOnInstancePage": true
-        },
-        {
-            "id": "placeOfBirth",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 140,
-            "onlyOnInstancePage": true
-        },
-        {
-            "id": "warsaPage",
+            "id": "textSlice",
             "valueType": "object",
-            "makeLink": true,
+            "makeLink": false,
             "externalLink": true,
-            "sortValues": true,
+            "sortValues": false,
             "numberedList": false,
-            "onlyOnInstancePage": true
-        },
-        {
-            "id": "length",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 140,
-            "onlyOnInstancePage": true
-        },
-        {
-            "id": "placeOfInterview",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 140,
-            "onlyOnInstancePage": true
-        },
-        {
-            "id": "dateOfInterview",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 140,
-            "onlyOnInstancePage": true
+            "minWidth": 300
         },
         {
             "id": "mentionedPlace",
@@ -234,17 +157,17 @@
             "facetType": "text",
             "filterType": "textFilter",
             "sortByPredicate": "skos:prefLabel",
-            "textQueryProperty": "wmsl:label :full_text :full_text_lemmatized"
+            "textQueryProperty": "wmsl:label :text_content :text_content_lemmatized"
         },
         "name": {
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": ":interviewed_person",
+            "predicate": "^:structured_content/:interviewed_person",
             "searchField": true,
             "sortButton": true,
             "sortBy": "prefLabel",
-            "sortByPredicate": ":interviewed_person/skos:prefLabel",
+            "sortByPredicate": "^:structured_content/:interviewed_person/skos:prefLabel",
             "sortDirection": "asc"
         },
         "gender": {
@@ -252,9 +175,9 @@
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": ":interviewed_person/:gender",
+            "predicate": "^:structured_content/:interviewed_person/:gender",
             "sortBy": "instanceCount",
-            "sortByPredicate": ":interviewed_person/:gender/skos:prefLabel",
+            "sortByPredicate": "^:structured_content/:interviewed_person/:gender/skos:prefLabel",
             "sortDirection": "desc"
         },
         "mentionedPlace": {

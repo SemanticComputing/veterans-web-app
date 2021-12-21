@@ -3,7 +3,9 @@
     "rootUrl": "",
     "perspectives": {
         "searchPerspectives": [
-            "videos"
+            "videos",
+            "clips",
+            "entities"
         ],
         "onlyInstancePages": []
     },
@@ -41,6 +43,7 @@
         "tableFontSize": "0.8rem",
         "topBar": {
             "showLanguageButton": false,
+            "showSearchField": false,
             "feedbackLink": "https://link.webropolsurveys.com/S/8A35A1E8FACF425D",
             "reducedHeight": 44,
             "defaultHeight": 64,

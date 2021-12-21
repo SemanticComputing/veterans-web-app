@@ -68,7 +68,10 @@ for (const perspective of perspectiveConfig) {
   } else if (perspective.searchMode && perspective.searchMode === 'faceted-search') {
     const { resultClasses, properties, facets, maps } = perspective
     const { paginatedResultsConfig, instanceConfig } = resultClasses[perspectiveID]
-    const { instancePageResultClasses } = instanceConfig
+    let instancePageResultClasses = {}
+    if (instanceConfig && instanceConfig.instancePageResultClasses) {
+      instancePageResultClasses = instanceConfig.instancePageResultClasses
+    }
     const resultsInitialStateFull = {
       ...resultsInitialState,
       ...paginatedResultsConfig,

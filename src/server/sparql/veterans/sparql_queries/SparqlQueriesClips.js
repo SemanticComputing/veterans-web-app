@@ -2,9 +2,9 @@ import { createNamedEntitiesBlock } from './SparqlQueriesVideos'
 
 export const clipPropertiesFacetResults = `
   {
-    ?id ^:structured_content/:interviewed_person/skos:prefLabel ?prefLabel__id ;
-      :begin_timestamp ?beginTimestamp .
-    BIND (?prefLabel__id AS ?prefLabel__prefLabel)
+    ?id skos:prefLabel ?prefLabel__id .
+    BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+    ?id :begin_timestamp ?beginTimestamp .
     BIND(HOURS(?beginTimestamp) as ?prefLabel__hours)
     BIND(MINUTES(?beginTimestamp) as ?prefLabel__minutes)
     BIND(xsd:integer(SECONDS(?beginTimestamp)) as ?prefLabel__seconds)
@@ -62,7 +62,7 @@ export const clipsPlacesQuery = `
   GROUP BY ?id ?lat ?long
 `
 
-export const mentionedPlaces = `
+export const placeTimeSlices = `
     OPTIONAL {
     <FILTER>
     ?video :structured_content ?timeSlice__id .

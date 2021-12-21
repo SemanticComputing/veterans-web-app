@@ -258,8 +258,8 @@
           "textFacetInputPlaceholder": "Etsi..."
         }, 
         "prefLabel": {
-          "label": "Haastateltava",
-          "description": "Haastateltavan nimi"
+          "label": "Haastattelun kohta",
+          "description": "Haastattelun kohta"
         },
         "name": {
           "label": "Haastateltava",

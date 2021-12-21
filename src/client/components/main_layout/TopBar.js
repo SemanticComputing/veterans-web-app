@@ -119,6 +119,10 @@ const TopBar = props => {
   const handleMobileMenuOpen = event => setMobileMoreAnchorEl(event.currentTarget)
   const handleMobileMenuClose = () => setMobileMoreAnchorEl(null)
   const clientFSMode = props.location.pathname.indexOf('clientFS') !== -1
+  let showSearchField = true
+  if (has(layoutConfig.topBar, 'showSearchField')) {
+    showSearchField = layoutConfig.topBar.showSearchField
+  }
 
   // https://material-ui.com/components/buttons/#third-party-routing-library
   const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />)
@@ -295,7 +299,7 @@ const TopBar = props => {
               {props.xsScreen ? intl.get('appTitle.mobile') : intl.get('appTitle.short')}
             </Typography>
           </Button>
-          {!clientFSMode &&
+          {showSearchField &&
             <TopBarSearchField
               fetchFullTextResults={props.fetchFullTextResults}
               clearResults={props.clearResults}
