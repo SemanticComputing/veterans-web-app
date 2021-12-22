@@ -44,9 +44,11 @@
         "paginationToolbarHeight": 37,
         "tableFontSize": "0.8rem",
         "topBar": {
+            "logoTextTransform": "none",
             "showLanguageButton": false,
             "showSearchField": false,
             "feedbackLink": "https://link.webropolsurveys.com/S/8A35A1E8FACF425D",
+            "externalInstructions": true,
             "reducedHeight": 44,
             "defaultHeight": 64,
             "mobileMenuBreakpoint": 990,
