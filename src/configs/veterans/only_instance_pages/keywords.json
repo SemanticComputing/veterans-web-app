@@ -1,30 +1,23 @@
 {
-  "id": "events",
+  "id": "keywords",
   "endpoint": {
-    "url": "http://ldf.fi/mmm/sparql",
-    "useAuth": false,
+    "url": "https://ldf.fi/warmemoirsampo/sparql",
+    "useAuth": true,
     "prefixesFile": "SparqlQueriesPrefixes.js"
   },
-  "sparqlQueriesFile": "SparqlQueriesPerspective3.js",
-  "baseURI": "http://ldf.fi/mmm",
-  "URITemplate": "<BASE_URI>/event/<LOCAL_ID>",
+  "sparqlQueriesFile": "SparqlQueriesKeywords.js",
+  "baseURI": "http://ldf.fi/warmemoirsampo",
+  "URITemplate": "<BASE_URI>/<LOCAL_ID>",
   "resultClasses": {
-    "events": {
+    "keywords": {
       "instanceConfig": {
-        "propertiesQueryBlock": "eventProperties",
+        "propertiesQueryBlock": "keywordPropertiesInstancePage",
         "instancePageResultClasses": {
           "instancePageTable": {
             "tabID": 0,
             "component": "InstancePageTable",
             "tabPath": "table",
             "tabIcon": "CalendarViewDay"
-          },
-          "instancePageExport": {
-            "tabID": 1,
-            "component": "Export",
-            "tabPath": "export",
-            "tabIcon": "CloudDownload",
-            "pageType": "instancePage"
           }
         }
       }
@@ -32,102 +25,30 @@
   },
   "properties": [
     {
-      "id": "uri",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": true,
-      "sortValues": true,
-      "numberedList": false,
-      "onlyOnInstancePage": true
-    },
-    {
-      "id": "type",
+      "id": "prefLabel",
       "valueType": "object",
       "makeLink": true,
       "externalLink": false,
-      "sortValues": false,
-      "numberedList": false,
-      "minWidth": 200
+      "sortValues": true,
+      "numberedList": false
     },
     {
-      "id": "manuscript",
+      "id": "timeSlice",
       "valueType": "object",
       "makeLink": true,
       "externalLink": false,
       "sortValues": false,
       "numberedList": false,
-      "minWidth": 200
+      "expandedOnInstancePage": true
     },
     {
-      "id": "eventTimespan",
-      "valueType": "object",
-      "makeLink": false,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 200
-    },
-    {
-      "id": "place",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 250
-    },
-    {
-      "id": "surrender",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 250,
-      "onlyOnInstancePage": true,
-      "onlyForClass": "http://erlangen-crm.org/current/E10_Transfer_of_Custody"
-    },
-    {
-      "id": "receiver",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 250,
-      "onlyOnInstancePage": true,
-      "onlyForClass": "http://erlangen-crm.org/current/E10_Transfer_of_Custody"
-    },
-    {
-      "id": "observedOwner",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 250,
-      "onlyOnInstancePage": true,
-      "onlyForClass": "http://erlangen-crm.org/current/E7_Activity"
-    },
-    {
-      "id": "note",
-      "valueType": "string",
-      "makeLink": false,
-      "externalLink": false,
-      "sortValues": true,
-      "numberedList": false,
-      "minWidth": 250,
-      "collapsedMaxWords": 12,
-      "onlyOnInstancePage": true
-    },
-    {
-      "id": "source",
+      "id": "yso",
       "valueType": "object",
       "makeLink": true,
       "externalLink": true,
       "sortValues": true,
       "numberedList": false,
-      "minWidth": 200
+      "expandedOnInstancePage": true
     }
   ]
 }
