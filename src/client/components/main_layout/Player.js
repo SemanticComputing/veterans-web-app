@@ -71,11 +71,7 @@ class Player extends React.Component {
   }
 
   onPlayerReady = event => {
-    // console.log('ready')
-    // console.log(this.props.routeProps.location)
     if (this.props.routeProps.location.hash === '') {
-      // console.log(parseInt(this.player.getCurrentTime()))
-      console.log(this.props.updateVideoPlayerTime)
       this.props.updateVideoPlayerTime(parseInt(this.player.getCurrentTime()))
     } else {
       this.seekToBasedOnHash()

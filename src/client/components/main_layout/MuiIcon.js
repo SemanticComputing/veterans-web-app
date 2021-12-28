@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   CalendarViewDay,
+  CalendarToday,
   TripOrigin,
   LocationOn,
   AddLocation,
@@ -12,13 +13,16 @@ import {
   ShowChart,
   FormatAlignJustify,
   ClearAll,
-  OndemandVideo
+  OndemandVideo,
+  KeyboardVoice,
+  Autorenew
 } from '@material-ui/icons'
 import has from 'lodash'
 
 const MuiIcon = props => {
   const MuiIcons = {
     CalendarViewDay: CalendarViewDay,
+    CalendarToday: CalendarToday,
     TripOrigin: TripOrigin,
     LocationOn: LocationOn,
     AddLocation: AddLocation,
@@ -30,7 +34,9 @@ const MuiIcon = props => {
     ShowChart: ShowChart,
     FormatAlignJustify: FormatAlignJustify,
     ClearAll: ClearAll,
-    OndemandVideo: OndemandVideo
+    OndemandVideo: OndemandVideo,
+    KeyboardVoice: KeyboardVoice,
+    Autorenew: Autorenew
   }
   if (has(MuiIcons, props.iconName)) {
     const MuiIconComponent = MuiIcons[props.iconName]

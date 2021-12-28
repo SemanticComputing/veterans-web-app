@@ -29,6 +29,10 @@
         "sitemapUrl": "https://sotamuistot.arkisto.fi/sitemap",
         "sitemapInstancePageQuery": "sitemapInstancePageQuery"
     },
+    "knowledgeGraphMetadataConfig": {
+        "showTable": false,
+        "perspective": "perspective1" 
+    },
     "layoutConfig": {
         "colorPalette": {
             "primary": {
@@ -49,6 +53,7 @@
             "showSearchField": false,
             "feedbackLink": "https://link.webropolsurveys.com/S/8A35A1E8FACF425D",
             "externalInstructions": true,
+            "externalAboutPage": false,
             "reducedHeight": 44,
             "defaultHeight": 64,
             "mobileMenuBreakpoint": 990,
