@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@mui/styles'
 import classNames from 'classnames'
 import { CarouselProvider, Slider, Slide, DotGroup, Dot } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
@@ -13,7 +13,7 @@ import luntamo from '../../../img/main_page/veterans/compressed/carousel/07-lunt
 import pasanen from '../../../img/main_page/veterans/compressed/carousel/08-pasanen.jpg'
 import kuukkanen from '../../../img/main_page/veterans/compressed/carousel/09-kuukkanen.jpg'
 import rantala from '../../../img/main_page/veterans/compressed/carousel/10-rantala.jpg'
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({

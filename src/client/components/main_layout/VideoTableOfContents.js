@@ -1,5 +1,5 @@
 import React from 'react'
-import withStyles from '@mui/styles/withStyles';
+import withStyles from '@mui/styles/withStyles'
 import Accordion from '@mui/material/Accordion'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import AccordionSummary from '@mui/material/AccordionSummary'
@@ -278,9 +278,7 @@ class VideoTableOfContents extends React.Component {
                   }
                 }}
                 expandIcon={<ExpandMoreIcon />}
-                IconButtonProps={{
-                  disabled: isCurrent
-                }}
+                disabled={isCurrent}
                 aria-label='Expand'
                 aria-controls={`${rowID}-content`}
                 id={`${rowID}-header`}

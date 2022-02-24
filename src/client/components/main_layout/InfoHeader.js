@@ -119,8 +119,8 @@ const InfoHeader = props => {
             >
               {props.pageType === 'facetResults' &&
                 intl.get(`perspectives.${props.resultClass}.label`)}
-              {props.pageType === 'instancePage' &&
-                intl.get(`perspectives.${props.resultClass}.instancePage.label`)}
+              {props.pageType === 'instancePage' && intl.get(`perspectives.${props.resultClass}.instancePage.label`,
+                { type })}
             </Typography>
             <Tooltip title={intl.get('infoHeader.toggleInstructions')}>
               <IconButton
@@ -191,7 +191,6 @@ const InfoHeader = props => {
               {intl.getHTML('instancePageGeneral.introduction',
                 { entity: intl.get(`perspectives.${props.resultClass}.instancePage.label`) })}
               {intl.getHTML(`perspectives.${props.resultClass}.instancePage.description`)}
-              {intl.getHTML('instancePageGeneral.repetition')}
             </>}
         </AccordionDetails>
       </Accordion>
