@@ -1,6 +1,7 @@
 import { has, orderBy } from 'lodash'
 import history from '../../History'
 import intl from 'react-intl-universal'
+import moment from 'moment'
 
 export const createPopUpContentDefault = ({ data, resultClass }) => {
   if (Array.isArray(data.prefLabel)) {
@@ -27,31 +28,100 @@ export const createPopUpContentDefault = ({ data, resultClass }) => {
   return container
 }
 
-export const createPopUpContentVeterans = ({ data }) => {
-  const container = document.createElement('div')
-
-  if (has(data, 'image')) {
-    let { image } = data
-    if (Array.isArray(image)) {
-      image = image[0]
-    }
-    const imageElement = document.createElement('img')
-    imageElement.className = 'leaflet-popup-content-image'
-    imageElement.setAttribute('src', image.url)
-    container.appendChild(imageElement)
+export const createPopUpContentAs = ({ data, resultClass }) => {
+  if (Array.isArray(data.prefLabel)) {
+    data.prefLabel = data.prefLabel[0]
   }
-  const heading = document.createElement('h3')
-  const headingLink = document.createElement('a')
-  headingLink.style.cssText = 'cursor: pointer; text-decoration: underline'
-  headingLink.textContent = data.prefLabel.prefLabel
-  headingLink.addEventListener('click', () => history.push(data.dataProviderUrl))
-  heading.appendChild(headingLink)
-  container.appendChild(heading)
-  const subheading = document.createElement('p')
-  subheading.textContent = 'Haastattelun kohta, jossa tämä paikka on mainittu:'
-  container.appendChild(subheading)
-  const instanceListing = createInstanceListing(data.timeSlice)
-  container.appendChild(instanceListing)
+  const container = document.createElement('div')
+  const h3 = document.createElement('h3')
+  if (has(data.prefLabel, 'dataProviderUrl')) {
+    const link = document.createElement('a')
+    link.addEventListener('click', () => history.push(data.prefLabel.dataProviderUrl))
+    link.textContent = data.prefLabel.prefLabel
+    link.style.cssText = 'cursor: pointer; text-decoration: underline'
+    h3.appendChild(link)
+  } else {
+    h3.textContent = data.prefLabel.prefLabel
+  }
+  container.appendChild(h3)
+  if (resultClass === 'peoplePlaces' || resultClass === 'placesPeople') {
+    const p = document.createElement('p')
+    p.textContent = 'People:'
+    container.appendChild(p)
+    container.appendChild(createInstanceListing(data.related))
+  }
+  return container
+}
+
+export const createPopUpContentLetterSampo = ({ data, resultClass }) => {
+  if (Array.isArray(data.prefLabel)) {
+    data.prefLabel = data.prefLabel[0]
+  }
+  const container = document.createElement('div')
+  const h3 = document.createElement('h3')
+  if (has(data.prefLabel, 'dataProviderUrl')) {
+    const link = document.createElement('a')
+    link.addEventListener('click', () => history.push(data.prefLabel.dataProviderUrl))
+    link.textContent = data.prefLabel.prefLabel
+    link.style.cssText = 'cursor: pointer; text-decoration: underline'
+    h3.appendChild(link)
+  } else {
+    h3.textContent = data.prefLabel.prefLabel
+  }
+  container.appendChild(h3)
+  if (resultClass === 'placesActors') {
+    const p = document.createElement('p')
+    p.textContent = 'Actors:'
+    container.appendChild(p)
+    container.appendChild(createInstanceListing(data.related))
+  }
+  return container
+}
+
+export const createPopUpContentSotasurmat = ({ data, resultClass }) => {
+  if (Array.isArray(data.prefLabel)) {
+    data.prefLabel = data.prefLabel[0]
+  }
+  const container = document.createElement('div')
+  const h3 = document.createElement('h3')
+  if (has(data.prefLabel, 'dataProviderUrl')) {
+    const link = document.createElement('a')
+    link.addEventListener('click', () => history.push(data.prefLabel.dataProviderUrl))
+    link.textContent = data.prefLabel.prefLabel
+    link.style.cssText = 'cursor: pointer; text-decoration: underline'
+    h3.appendChild(link)
+  } else {
+    h3.textContent = data.prefLabel.prefLabel
+  }
+  container.appendChild(h3)
+
+  if (resultClass === 'deathPlaces') {
+    const deathsAtElement = document.createElement('p')
+    deathsAtElement.textContent = intl.get('perspectives.victims.map.deathsAt')
+    container.appendChild(deathsAtElement)
+    container.appendChild(createInstanceListing(data.related))
+  }
+
+  if (resultClass === 'battlePlaces') {
+    const startDateElement = document.createElement('p')
+    const startDate = moment(data.startDate)
+    startDateElement.textContent = `${intl.get('perspectives.battles.map.startDate')}: ${startDate.format('DD.MM.YYYY')}`
+    container.appendChild(startDateElement)
+    const endDateElement = document.createElement('p')
+    const endDate = moment(data.endDate)
+    endDateElement.textContent = `${intl.get('perspectives.battles.map.endDate')}: ${endDate.format('DD.MM.YYYY')}`
+    container.appendChild(endDateElement)
+    if (has(data, 'greaterPlace.prefLabel')) {
+      const municipalityElement = document.createElement('p')
+      municipalityElement.textContent = `${intl.get('perspectives.battles.map.municipality')}: ${data.greaterPlace.prefLabel}`
+      container.appendChild(municipalityElement)
+    }
+    if (has(data, 'units')) {
+      const unitsElement = document.createElement('p')
+      unitsElement.textContent = `${intl.get('perspectives.battles.map.units')}: ${data.units}`
+      container.appendChild(unitsElement)
+    }
+  }
   return container
 }
 
@@ -127,6 +197,33 @@ export const createPopUpContentNameSampo = ({ data }) => {
     }
   }
   return popUpTemplate
+}
+
+export const createPopUpContentVeterans = ({ data }) => {
+  const container = document.createElement('div')
+  if (has(data, 'image')) {
+    let { image } = data
+    if (Array.isArray(image)) {
+      image = image[0]
+    }
+    const imageElement = document.createElement('img')
+    imageElement.className = 'leaflet-popup-content-image'
+    imageElement.setAttribute('src', image.url)
+    container.appendChild(imageElement)
+  }
+  const heading = document.createElement('h3')
+  const headingLink = document.createElement('a')
+  headingLink.style.cssText = 'cursor: pointer; text-decoration: underline'
+  headingLink.textContent = data.prefLabel.prefLabel
+  headingLink.addEventListener('click', () => history.push(data.dataProviderUrl))
+  heading.appendChild(headingLink)
+  container.appendChild(heading)
+  const subheading = document.createElement('p')
+  subheading.textContent = 'Haastattelun kohta, jossa tämä paikka on mainittu:'
+  container.appendChild(subheading)
+  const instanceListing = createInstanceListing(data.timeSlice)
+  container.appendChild(instanceListing)
+  return container
 }
 
 export const createPopUpContentFindSampo = ({ data }) => {

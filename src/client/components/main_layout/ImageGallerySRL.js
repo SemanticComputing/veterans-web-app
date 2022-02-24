@@ -1,8 +1,7 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import makeStyles from '@mui/styles/makeStyles'
 import { SRLWrapper, useLightbox } from 'simple-react-lightbox'
-import Button from '@material-ui/core/Button'
-import { Link } from 'react-router-dom'
+import Button from '@mui/material/Button'
 
 const useStyles = makeStyles({
   previewImage: {
