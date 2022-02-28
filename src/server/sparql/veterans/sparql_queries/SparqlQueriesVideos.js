@@ -201,18 +201,6 @@ export const videoPropertiesFacetResults = `
     BIND(?youTubeThumbnail__id as ?youTubeThumbnail__url)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?youTubeThumbnail__dataProviderUrl) 
   }
-  # UNION 
-  # {
-  #   ?id :length ?raw_length .
-  #   BIND(HOURS(?raw_length) AS ?hours)
-  #   BIND(MINUTES(?raw_length) AS ?minutes)
-  #   BIND(SECONDS(?raw_length) AS ?seconds)
-  #   BIND(
-  #     CONCAT(
-  #       CONCAT(STR(?hours), 'h '), CONCAT(STR(?minutes), 'm')
-  #     ) AS ?length
-  #   )
-  # }
   UNION 
   ${createNamedEntitiesBlock({
     idPattern: '',

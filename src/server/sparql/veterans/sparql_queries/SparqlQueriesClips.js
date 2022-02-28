@@ -63,7 +63,7 @@ export const clipsPlacesQuery = `
 `
 
 export const placeTimeSlices = `
-    OPTIONAL {
+  OPTIONAL {
     <FILTER>
     ?video :structured_content ?timeSlice__id .
     ?timeSlice__id :named_entity_location ?id ;
@@ -77,15 +77,14 @@ export const placeTimeSlices = `
     BIND(xsd:integer(?beginTimeInSeconds_) as ?beginTimeInSeconds)
     BIND(CONCAT('/video#', STR(?beginTimeInSeconds)) AS ?videoPageLinkHash)
     BIND(CONCAT(?videoPageLink, ?videoPageLinkHash) AS ?timeSlice__dataProviderUrl)
-
-    }
+  }
 `
 
 export const placeProperties = `
-    ?id skos:prefLabel ?prefLabel__id .
-    BIND(?prefLabel__id AS ?prefLabel__prefLabel)
-    BIND(CONCAT("/entities/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
-    BIND(?id as ?uri__id)
-    BIND(?id as ?uri__dataProviderUrl)
-    BIND(?id as ?uri__prefLabel)
+  ?id skos:prefLabel ?prefLabel__id .
+  BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+  BIND(CONCAT("/entities/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
+  BIND(?id as ?uri__id)
+  BIND(?id as ?uri__dataProviderUrl)
+  BIND(?id as ?uri__prefLabel)
 `
