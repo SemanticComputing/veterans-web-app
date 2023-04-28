@@ -8,14 +8,14 @@
     "short": "Sotamuistosampo",
     "mobile": "Sotamuistosampo",
     "long": "Sotamuistosampo",
-    "subheading": "Veteraanien kertomuksia"
+    "subheading": "Veteraanien kertomuksia - HUOM! Sähkökatkon vuoksi tietokannan palvelimet eivät toimi oikein. Katkoksen odotetaan kestävän ainakin 2.5. asti."
   },
   "appDescription1": "",
   "appDescription2": "",
   "selectPerspective": "Valitse hakukohde:",
   "selectExample": "Valitse esimerkki haastattelujen kohdista:",
   "mainPageImageLicence": "Kuvien lähde: SA-kuva",
-  "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
+  "backendErrorText": "HUOM! Sähkökatkon vuoksi tietokannan palvelimet eivät toimi oikein. Katkoksen odotetaan kestävän ainakin 2.5. asti. One of the backend services is not available at the moment. Please try again later.",
   "infoHeader": {
     "toggleInstructions": "Näytä tai piilota ohje"
   },
